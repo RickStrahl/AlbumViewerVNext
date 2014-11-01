@@ -1,0 +1,201 @@
+.page-header-text{
+    font-size: 1.8em;
+    font-weight: bold;
+    color: steelblue;
+}
+h2,h3 {
+    font-weight: bold;
+}
+h3 {
+    color: steelblue;
+}
+.album {
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding: 10px;
+    border: 1px solid silver;
+    border-radius: 6px;
+    height: 185px;
+    float: left;
+    max-width: 300px;
+    
+    overflow: hidden;
+    transition: background linear 275ms;
+    position: relative;
+}
+    .album:hover {
+        background: steelblue;
+        color: white !important;
+        cursor: pointer;
+    }
+    .album:hover .album-overlay {
+        display: block;
+    }
+    .album-overlay {
+        position: relative;
+        float: right;
+        background: #034e8d;
+        color: #whitesmoke;        
+        padding: 5px;        
+        min-width: 40px;
+        display: none;
+        margin-top: -10px;
+        margin-right: -10px;
+        border-radius: 3px;
+        opacity: 0.85;
+        z-index: 1000;
+        box-shadow: 2px 2px 4px #535353;
+
+    }.album-overlay:hover {
+         opacity: 1;
+     }
+    .album-overlay a, .album-overlay a:hover {
+        color: beige;
+        text-decoration: none;
+    }
+    .album-overlay a:hover {        
+        color: white;
+    }
+
+.album-title {
+    font-weight: bold;
+}
+
+.album-title-big {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.album-descript {
+    font-size: 0.85em;        
+    overflow: hidden;
+}
+
+.album-artist {
+    font-size: 0.85em;
+    font-style: italic;
+    color: #2a5fb4;
+}
+
+.album-year {
+    font-size: 0.85em;
+    color: steelblue;
+}
+
+
+.album-image,.album-image-big {
+    width: 72px;
+    float: left;
+    border-radius: 35px;
+}
+.album-image-big {
+    width: auto;
+    float: none;
+    max-width: 95%;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px #535353;
+}
+@media(max-width: 768px){
+    .album-image-big {
+        margin-bottom: 10px;
+    }
+}
+
+.song { 
+    font-size: .85em;
+    padding: 5px;
+    border-bottom: 1px dashed silver;
+}
+
+.separator {
+    border-bottom: 1px solid lightgrey;
+    margin: 5px auto 15px;
+    height: 1px;
+}
+
+input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
+    background: pink;
+}
+
+
+@media (max-width: 690px) {
+    .album {
+        max-width: 100% !important;
+        min-height: 100px;
+    }
+
+}
+
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+   border-bottom: solid 2px transparent;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a:hover {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+    color: white;
+    background: #535353 !important;
+    border-bottom: solid 2px darkorange;
+    border-radius: 2px;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a.selected {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+    color: white;
+    background: #535353 !important;
+        border-bottom: solid 2px orange;
+    border-radius: 2px;
+}
+.modal-header {
+    padding: 15px 15px 5px;
+}
+.modal-body {
+    padding: 10px 20px 5px 20px;
+}
+
+
+@-webkit-keyframes slideOutLeft {    
+    to {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }	
+}
+@keyframes slideOutLeft {
+
+    to {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+/* slide in from the bottom */
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    to {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0);
+    }
+}
+@keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    to {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0);
+    }
+}
+
+.slide-animation.ng-enter {
+    -webkit-animation: slideInRight 0.70s both ease-in;
+    animation: slideInRight 0.70s both ease-in;
+    z-index: 9999;    
+}
+
+.slide-animation.ng-leave {
+   -webkit-animation: slideOutLeft 0.35s both ease-in;
+    animation: slideOutLeft 0.35s both ease-in;
+    z-index: 8888;
+}

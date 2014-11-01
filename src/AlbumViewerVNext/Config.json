@@ -1,0 +1,8 @@
+﻿{
+    "Data": {
+        "MusicStoreConnection": {
+            //"ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=musicstore.mdf;Trusted_Connection=True;"
+            "ConnectionString":  "Data Source=rasxps;database=musicstore;uid=MusicStoreUser;pwd=Thrasher13;Connect Timeout=30"
+        }
+    }
+}

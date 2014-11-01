@@ -1,0 +1,17 @@
+﻿{
+  "webroot": "wwwroot",
+  "exclude": "wwwroot/**/*.*",
+  "dependencies": {
+    "Microsoft.AspNet.Server.IIS": "1.0.0-alpha4",
+    "EntityFramework": "7.0.0-alpha4",
+    "EntityFramework.SqlServer": "7.0.0-alpha4",
+    "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-alpha4",
+    "Microsoft.AspNet.Mvc": "6.0.0-alpha4",
+    "Microsoft.AspNet.Server.WebListener": "1.0.0-alpha4",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-alpha4"    
+  },
+  "frameworks": {
+    "aspnet50": {},
+    "aspnetcore50": {}
+  }
+}
