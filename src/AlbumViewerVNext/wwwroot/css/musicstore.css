@@ -16,17 +16,17 @@ h3 {
     border: 1px solid silver;
     border-radius: 6px;
     height: 185px;
+    overflow-y:hidden;
     float: left;
     max-width: 300px;
-    
-    overflow: hidden;
+        
     transition: background linear 275ms;
     position: relative;
 }
     .album:hover {
         background: steelblue;
         color: white !important;
-        cursor: pointer;
+        cursor: pointer;        
     }
     .album:hover .album-overlay {
         display: block;
@@ -67,7 +67,7 @@ h3 {
 }
 
 .album-descript {
-    font-size: 0.85em;        
+    font-size: 0.85em;          
     overflow: hidden;
 }
 

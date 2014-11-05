@@ -84,6 +84,7 @@
         };
 
         function removeSong(album, song) {
+            debugger;
             var i = findAlbumIndex(album);
             if (i == -1)
                 return;
@@ -91,7 +92,7 @@
             var alb = service.albums[i];
             
             alb.tracks = _.remove(alb.Tracks, function (t) {
-                return t.Id != song.Id;
+                return t.Id == song.Id;
             });            
             service.album = alb;            
         };

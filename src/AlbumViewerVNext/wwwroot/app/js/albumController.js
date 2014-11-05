@@ -54,7 +54,8 @@
         vm.cancelSong = function() {
             vm.isSongVisible = false;
         };
-        vm.removeSong = function (song) {            
+        vm.removeSong = function (song) {
+            console.log(song);
             albumService.removeSong(vm.album, song);            
             vm.album = albumService.album;            
         };

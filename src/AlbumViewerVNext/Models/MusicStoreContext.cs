@@ -26,7 +26,15 @@ namespace MusicStoreBusiness
             // pluralizer isn't working yet
             modelBuilder.Entity<Album>().ToTable("Albums");
             modelBuilder.Entity<Artist>().ToTable("Artists");
-            modelBuilder.Entity<Track>().ToTable("Tracks");            
+            modelBuilder.Entity<Track>().ToTable("Tracks");
+
+            // Manually hook up relationships
+            //modelBuilder.Entity<Album>().ForeignKey<Artist>(alb=> alb.ArtistId);
+            modelBuilder.Entity<Album>(alb =>
+           {
+               alb.OneToMany(a => a.Tracks);
+           });
+           modelBuilder.Entity<Album>().OneToOne(alb => alb.Artist).ForeignKey<Album>(alb => alb.ArtistId);
         }
 
     }

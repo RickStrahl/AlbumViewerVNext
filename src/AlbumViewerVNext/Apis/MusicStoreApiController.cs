@@ -27,11 +27,11 @@ namespace MusicStoreVNext
             IEnumerable<Album> result = null;
             result = context.Albums.OrderBy(alb=> alb.Title).ToList();
 
-            // EF7 Bug - not loading relationships - do it manually for now.
-            foreach (var album in result)
-            {
-                album.LoadChildren(context);
-            }
+            //// EF7 Bug - not loading relationships - do it manually for now.
+            //foreach (var album in result)
+            //{
+            //    album.LoadChildren(context);
+            //}
 
             return result;
         }
