@@ -1,4 +1,4 @@
-﻿{
+{
   "webroot": "wwwroot",
   "exclude": "wwwroot/**/*.*",
   "dependencies": {
@@ -8,7 +8,7 @@
     "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-alpha4",
     "Microsoft.AspNet.Mvc": "6.0.0-alpha4",
     "Microsoft.AspNet.Server.WebListener": "1.0.0-alpha4",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-alpha4"    
+    "Microsoft.AspNet.StaticFiles": "1.0.0-alpha4"
   },
   "frameworks": {
     "aspnet50": {},

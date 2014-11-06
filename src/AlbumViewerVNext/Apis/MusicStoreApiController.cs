@@ -33,8 +33,9 @@ namespace MusicStoreVNext
                 .OrderBy(alb=> alb.Title)
                 .ToList();
 
-            //context.Artists.Load();
+            //var x = context.Artists.ToList();
             //context.Tracks.Load();
+            //context.Artists.Load();
 
 
             // EF7 Bug - not loading relationships - do it manually for now.

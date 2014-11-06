@@ -27,9 +27,9 @@ namespace MusicStoreBusiness
             {
                 e.Key(a => a.Id);
                 e.ForRelational().Table("Albums");
-                e.OneToMany<Track>(a => a.Tracks);
-                e.OneToOne<Artist>(alb => alb.Artist);
-                e.ForeignKey<Artist>(alb => alb.ArtistId);
+                e.OneToMany<Track>(a => a.Tracks).ForeignKey(t => t.AlbumId);
+                //e.OneToOne<Artist>(a => a.Artist);
+                //e.ManyToOne<Artist>(alb => alb.Artist, a => a.Albums).ForeignKey(a => a.ArtistId);
             });
             modelBuilder.Entity<Artist>(e =>
             {

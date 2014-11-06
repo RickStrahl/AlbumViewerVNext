@@ -10,6 +10,9 @@
     <OutputType>Web</OutputType>
     <RootNamespace>MusicStoreVNext</RootNamespace>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AssemblyName>AlbumViewerVNext</AssemblyName>
+  </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
     <DevelopmentServerPort>51670</DevelopmentServerPort>
