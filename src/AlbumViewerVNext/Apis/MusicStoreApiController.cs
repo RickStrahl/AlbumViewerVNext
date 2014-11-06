@@ -19,19 +19,29 @@ namespace MusicStoreVNext
 
         public string HelloWorld(string name)
         {                        
-            return "Hello World, " + name  + ". Time is: "  + DateTime.Now.ToString();
+            return "Hello World, " + name  + "!!! Time is: "  + DateTime.Now.ToString();
         }
+
+
+
 
         public IEnumerable<Album> Albums()
         {
-            IEnumerable<Album> result = null;
-            result = context.Albums.OrderBy(alb=> alb.Title).ToList();
+            var  result = context.Albums
+                //.Include(ctx=> ctx.Artist)
+                //.Include(ctx=> ctx.Tracks)
+                .OrderBy(alb=> alb.Title)
+                .ToList();
 
-            //// EF7 Bug - not loading relationships - do it manually for now.
-            //foreach (var album in result)
-            //{
-            //    album.LoadChildren(context);
-            //}
+            //context.Artists.Load();
+            //context.Tracks.Load();
+
+
+            // EF7 Bug - not loading relationships - do it manually for now.
+            foreach (var album in result)
+            {
+                album.LoadChildren(context);
+            }
 
             return result;
         }
@@ -50,7 +60,7 @@ namespace MusicStoreVNext
             return result;
         }
 
-        public class ApiError()
+        public class ApiError
         {
             public bool isError { get; set; }
             public string message { get; set; }

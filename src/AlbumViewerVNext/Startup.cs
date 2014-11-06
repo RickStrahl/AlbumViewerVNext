@@ -24,7 +24,12 @@ namespace MusicStoreVNext
             {
                 // Add EF services to the services container
                 services.AddEntityFramework()
-                    .AddSqlServer();
+                    .AddSqlServer()
+                    .AddDbContext<MusicStoreContext>(options =>
+                    {
+                        var val = configuration.Get("Data:MusicStoreConnection:ConnectionString");
+                        options.UseSqlServer(val);
+                    });
 
                 // Configure DbContext
                 //services.SetupOptions<DbContextOptions>(options =>
@@ -33,11 +38,7 @@ namespace MusicStoreVNext
                 //});
 
                 services.AddScoped<MusicStoreContext>();
-                services.SetupOptions<MusicStoreContextOptions>(options =>
-                {
-                    var val = configuration.Get("Data:MusicStoreConnection:ConnectionString");
-                    options.UseSqlServer(val);                                        
-                });
+            
 
                 // Add MVC services to the services container
                 services.AddMvc();

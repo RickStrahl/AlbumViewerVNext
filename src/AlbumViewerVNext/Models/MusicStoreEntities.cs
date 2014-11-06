@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MusicStoreBusiness
 {
+    [Table("Albums")]
     public class Album
     {
         [Key]
@@ -22,7 +23,7 @@ namespace MusicStoreBusiness
 
         
         public virtual Artist Artist {get; set; }
-        public virtual ICollection<Track> Tracks { get; set; }
+        public virtual IList<Track> Tracks { get; set; }
 
         public Album()
         {
@@ -37,6 +38,7 @@ namespace MusicStoreBusiness
         }
     }
 
+    [Table("Artists")]
     public class Artist
     {
         [Key]

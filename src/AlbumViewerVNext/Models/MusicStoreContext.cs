@@ -10,8 +10,8 @@ namespace MusicStoreBusiness
         public MusicStoreContext() : base(new MusicStoreContextOptions())
         { }
 
-        public MusicStoreContext(IServiceProvider serviceProvider, IOptionsAccessor<MusicStoreContextOptions> optionsAccessor)
-            : base(serviceProvider, optionsAccessor.Options)
+        public MusicStoreContext(IServiceProvider serviceProvider)
+            : base(serviceProvider)
         {
 
         }
@@ -23,18 +23,22 @@ namespace MusicStoreBusiness
         {
             base.OnModelCreating(modelBuilder);
 
-            // pluralizer isn't working yet
-            modelBuilder.Entity<Album>().ToTable("Albums");
-            modelBuilder.Entity<Artist>().ToTable("Artists");
-            modelBuilder.Entity<Track>().ToTable("Tracks");
-
-            // Manually hook up relationships
-            //modelBuilder.Entity<Album>().ForeignKey<Artist>(alb=> alb.ArtistId);
-            modelBuilder.Entity<Album>(alb =>
-           {
-               alb.OneToMany(a => a.Tracks);
-           });
-           modelBuilder.Entity<Album>().OneToOne(alb => alb.Artist).ForeignKey<Album>(alb => alb.ArtistId);
+            modelBuilder.Entity<Album>(e =>
+            {
+                e.Key(a => a.Id);
+                e.ForRelational().Table("Albums");
+                e.OneToMany<Track>(a => a.Tracks);
+                e.OneToOne<Artist>(alb => alb.Artist);
+                e.ForeignKey<Artist>(alb => alb.ArtistId);
+            });
+            modelBuilder.Entity<Artist>(e =>
+            {
+                e.ForRelational().Table("Artists");
+            });
+            modelBuilder.Entity<Track>(e =>
+            {
+                e.ForRelational().Table("Tracks");
+            });
         }
 
     }
