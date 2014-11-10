@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace MusicStoreBusiness
 {
-    [Table("Albums")]
     public class Album
     {
-        [Key]
+       
         public int Id { get; set; }
 
-        [ForeignKey("Artists")]
         public int ArtistId { get; set; }
 
         public string Title { get; set; }
@@ -38,10 +35,9 @@ namespace MusicStoreBusiness
         }
     }
 
-    [Table("Artists")]
+
     public class Artist
     {
-        [Key]
         public int Id { get; set; }
 
         public string ArtistName { get; set; }
@@ -54,10 +50,8 @@ namespace MusicStoreBusiness
 
     public class Track
     {
-        [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Albums")]
         public int AlbumId { get; set; }
         
         public int ArtistId { get; set; }

@@ -54,6 +54,15 @@ namespace MusicStoreVNext
             return album;
         }
 
+        [HttpPost]
+        public string Album(Album album)
+        {
+            
+
+
+            return album.Title;
+        }
+
         public IEnumerable<Artist> Artists()
         {
             IEnumerable<Artist> result = null;

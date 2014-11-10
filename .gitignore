@@ -37,3 +37,4 @@ node_modules
 */*.Spa/wwwroot/*
 *.ng.ts
 *.sln.ide
+src/AlbumViewerVNext/wwwroot/web.config__X

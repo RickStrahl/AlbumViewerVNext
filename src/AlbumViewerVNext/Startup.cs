@@ -45,7 +45,8 @@ namespace MusicStoreVNext
             });
 
             app.UseStaticFiles();
-       
+
+            app.UseErrorPage();
 
             // Add MVC to the request pipeline
             app.UseMvc(routes =>
