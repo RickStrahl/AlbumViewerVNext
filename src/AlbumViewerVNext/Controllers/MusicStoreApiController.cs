@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNet.Mvc;
+using Microsoft.Framework.Runtime;
 using MusicStoreBusiness;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
+using System.Reflection;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,18 +14,24 @@ namespace MusicStoreVNext
     public class ApiController : Controller
     {
         MusicStoreContext context;
+        IApplicationEnvironment environment;
 
-        public ApiController(MusicStoreContext ctx)
+        public ApiController(MusicStoreContext ctx, IApplicationEnvironment environment)
         {
             context = ctx;
+            this.environment = environment;      
         }   
 
         public string HelloWorld(string name)
-        {                        
-            return "Hello World, " + name  + "!!! Time is: "  + DateTime.Now.ToString();
+        {
+            return "Hello  World!!!!" + name + "!!! Time is: " + DateTime.Now.ToString();
         }
 
-
+        //private static string GetVersion()
+        //{
+        //    var assembly = typeof(Startup).GetTypeInfo().Assembly;
+        //    return assembly.CodeBase;                
+        //}
 
 
         public IEnumerable<Album> Albums()

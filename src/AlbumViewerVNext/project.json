@@ -1,19 +1,23 @@
 {
-  "webroot": "wwwroot",
-  "exclude": "wwwroot/**/*.*",
-  "dependencies": {
-    "Microsoft.AspNet.Server.IIS": "1.0.0-*",
-    "EntityFramework":   "7.0.0-*",
-    "EntityFramework.SqlServer": "7.0.0-*",
-    "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-*",
-    "Microsoft.AspNet.Mvc": "6.0.0-*",
-    "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-*",
-    "AlbumViewerBusiness": "",
-    "Microsoft.AspNet.Diagnostics": "1.0.0-*"
-  }, 
-  "frameworks": {
-    "aspnet50": {},
-    "aspnetcore50": {}
-  }
+    "webroot": "wwwroot",
+    "exclude": "wwwroot/**/*.*",
+    "dependencies": {
+        "Microsoft.AspNet.Server.IIS": "1.0.0-*",
+        "EntityFramework": "7.0.0-*",
+        "EntityFramework.SqlServer": "7.0.0-*",
+        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-*",
+        "Microsoft.AspNet.Mvc": "6.0.0-*",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
+        "Microsoft.AspNet.StaticFiles": "1.0.0-*",
+        "AlbumViewerBusiness": "",
+        "Microsoft.AspNet.Diagnostics": "1.0.0-*"
+    },
+    "commands": {
+        /* Change the port number when you are self hosting this application */
+        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:51670"
+    },
+    "frameworks": {
+        "aspnet50": { },
+        "aspnetcore50": { }
+    }
 }

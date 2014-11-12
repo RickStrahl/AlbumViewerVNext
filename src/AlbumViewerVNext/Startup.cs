@@ -17,9 +17,9 @@ namespace MusicStoreVNext
             // Setup configuration sources
             var configuration = new Configuration();
             configuration.AddJsonFile("config.json");
-            configuration.AddEnvironmentVariables();            
+            configuration.AddEnvironmentVariables();
 
-            // Set up application services
+            // Set up application services and DI
             app.UseServices(services =>
             {
                 // Add EF services to the services container
@@ -31,18 +31,13 @@ namespace MusicStoreVNext
                         options.UseSqlServer(val);
                     });
 
-                // Configure DbContext
-                //services.SetupOptions<DbContextOptions>(options =>
-                //{
-                //    options.UseSqlServer(configuration.Get("Data:MusicStoreConnection:ConnectionString"));
-                //});
-
                 services.AddScoped<MusicStoreContext>();
-            
 
                 // Add MVC services to the services container
                 services.AddMvc();
             });
+
+   
 
             app.UseStaticFiles();
 

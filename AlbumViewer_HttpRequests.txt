@@ -1,18 +1,5 @@
-GET http://localhost:51670/api/HelloWorld?name=Bill HTTP/1.1
+GET http://localhost:1325/persons/helloworldApi?name=Rick HTTP/1.1
 Accept-Encoding: gzip,deflate
-Accept: application/json
-
-------------------------------------------------------------------
-
-GET http://localhost:51670/api/albums HTTP/1.1
-Accept-Encoding: gzip,deflate
-Accept: application/json
-
-------------------------------------------------------------------
-
-GET http://localhost:51670/api/artists HTTP/1.1
-Accept-Encoding: gzip,deflate
-Accept: application/json
 
 ------------------------------------------------------------------
 
