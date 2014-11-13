@@ -50,14 +50,18 @@ namespace MusicStoreVNext
             // Add MVC to the request pipeline
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" });
 
                 routes.MapRoute(
                     name: "api",
-                    template: "api/{controller}/{action}/{id?}");
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" });
+
+                //routes.MapRoute(
+                //    name: "default",
+                //    template: "{controller}/{action}/{id?}",
+                //    defaults: new { controller = "Home", action = "Index" });
+
+                
             });
 
         }

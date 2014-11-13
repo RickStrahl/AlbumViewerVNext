@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 
 namespace MusicStoreBusiness
 {
@@ -28,10 +28,12 @@ namespace MusicStoreBusiness
             Tracks = new List<Track>();
         }
 
-        public void LoadChildren(MusicStoreContext ctx)
+        public async Task<bool> LoadChildrenAsync(MusicStoreContext ctx)
         {
-            Artist = ctx.Artists.FirstOrDefault(art => art.Id == ArtistId);
-            Tracks = ctx.Tracks.Where(tk => tk.AlbumId == Id).ToList();
+            Artist = await ctx.Artists.FirstOrDefaultAsync(art => art.Id == ArtistId);
+            Tracks = await ctx.Tracks.Where(tk => tk.AlbumId == Id).ToListAsync();
+
+            return true;
         }
     }
 

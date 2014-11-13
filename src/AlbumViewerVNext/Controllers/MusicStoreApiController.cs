@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using System.Reflection;
+using System.Threading.Tasks;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,48 +21,51 @@ namespace MusicStoreVNext
         public ApiController(MusicStoreContext ctx, IApplicationEnvironment environment)
         {
             context = ctx;
-            this.environment = environment;      
-        }       
+            this.environment = environment;                
+        }
 
+     
 
-        public IEnumerable<Album> Albums()
+        [HttpGet]
+        public async Task<IEnumerable<Album>> Albums()
         {
-            var  result = context.Albums
-                .Include(ctx=> ctx.Artist)
-                .Include(ctx=> ctx.Tracks)
+            var  result = await context.Albums
+                //.Include(ctx=> ctx.Artist)
+                //.Include(ctx=> ctx.Tracks)
                 .OrderBy(alb=> alb.Title)
-                .ToList();
+                .Take(10)
+                .ToListAsync();
 
-            //var x = context.Artists.ToList();
-            //context.Tracks.Load();
-            //context.Artists.Load();
+            // HACK: Load relationships explicitly
+            //       since .Include() nor lazy loading works
+            await context.Tracks.LoadAsync();
+            await context.Artists.LoadAsync();
 
 
-            //// EF7 Bug - not loading relationships - do it manually for now.
+            //// EF7 Bug - manually lazy load children
             //foreach (var album in result)
             //{
-            //    album.LoadChildren(context);
+            //    await album.LoadChildrenAsync(context);
             //}
 
             return result;
         }
 
-        public Album Album(int id)
+        [HttpGet]
+        public async Task<Album> Album(int id)
         {
-            var album = context.Albums.FirstOrDefault(alb => alb.Id == id);
-            album.LoadChildren(context);
+            var album = await context.Albums.FirstOrDefaultAsync(alb => alb.Id == id);
+            await album.LoadChildrenAsync(context);
             return album;
         }
 
         [HttpPost]
         public string Album(Album album)
         {
-            
-
-
             return album.Title;
         }
 
+        [HttpGet]
         public IEnumerable<Artist> Artists()
         {
             IEnumerable<Artist> result = null;
