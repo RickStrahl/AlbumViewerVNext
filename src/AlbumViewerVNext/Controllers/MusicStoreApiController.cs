@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Mvc;
 using Microsoft.Framework.Runtime;
 using MusicStoreBusiness;
 using System;
@@ -20,25 +21,14 @@ namespace MusicStoreVNext
         {
             context = ctx;
             this.environment = environment;      
-        }   
-
-        public string HelloWorld(string name)
-        {
-            return "Hello  World!!!!" + name + "!!! Time is: " + DateTime.Now.ToString();
-        }
-
-        //private static string GetVersion()
-        //{
-        //    var assembly = typeof(Startup).GetTypeInfo().Assembly;
-        //    return assembly.CodeBase;                
-        //}
+        }       
 
 
         public IEnumerable<Album> Albums()
         {
             var  result = context.Albums
-                //.Include(ctx=> ctx.Artist)
-                //.Include(ctx=> ctx.Tracks)
+                .Include(ctx=> ctx.Artist)
+                .Include(ctx=> ctx.Tracks)
                 .OrderBy(alb=> alb.Title)
                 .ToList();
 
@@ -47,11 +37,11 @@ namespace MusicStoreVNext
             //context.Artists.Load();
 
 
-            // EF7 Bug - not loading relationships - do it manually for now.
-            foreach (var album in result)
-            {
-                album.LoadChildren(context);
-            }
+            //// EF7 Bug - not loading relationships - do it manually for now.
+            //foreach (var album in result)
+            //{
+            //    album.LoadChildren(context);
+            //}
 
             return result;
         }

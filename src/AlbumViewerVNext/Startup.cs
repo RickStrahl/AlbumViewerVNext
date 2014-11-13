@@ -7,18 +7,25 @@ using Microsoft.Data.Entity;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using MusicStoreBusiness;
+using Microsoft.AspNet.Hosting;
+using Microsoft.Framework.Logging;
+using Microsoft.Framework.Logging.Console;
 
 namespace MusicStoreVNext
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app,
+            ILoggerFactory logFactory,
+            IHostingEnvironment env)
         {
             // Setup configuration sources
             var configuration = new Configuration();
             configuration.AddJsonFile("config.json");
             configuration.AddEnvironmentVariables();
 
+            logFactory.AddConsole();
+            
             // Set up application services and DI
             app.UseServices(services =>
             {
@@ -37,10 +44,7 @@ namespace MusicStoreVNext
                 services.AddMvc();
             });
 
-   
-
             app.UseStaticFiles();
-
             app.UseErrorPage();
 
             // Add MVC to the request pipeline
