@@ -10,9 +10,75 @@ Accept: application/json
 
 ------------------------------------------------------------------
 
-GET http://localhost:51670/api/albums/1 HTTP/1.1
+GET http://localhost:51670/api/album/3 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
+
+------------------------------------------------------------------
+
+POST http://localhost:51670/api/album HTTP/1.1
+Accept-Encoding: gzip,deflate
+Accept: application/json
+Content-Type: application/json
+
+{
+  "Id": 3,
+  "ArtistId": 2,
+  "Title": "xxxx Restless and Wild",
+  "Description": "xxxx An all time classic. At the time Fast as a Shark was THE heaviest thing made to that date and while the rest of this album can't really live up to that song, it's still an excellent specimen of 80's metal. Clean, fast heavy.",
+  "Year": 1982,
+  "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51aInWlHfgL._SL250_.jpg",
+  "AmazonUrl": "http://www.amazon.com/gp/product/B00138KM1U/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00138KM1U&linkCode=as2&tag=westwindtechn-20&linkId=AQAYEWNVF5Z36AZB",
+  "Artist": {
+    "Id": 2,
+    "ArtistName": "Accept XXX",
+    "Description": "With their brutal, simple riffs and aggressive, fast tempos, Accept were one of the top metal bands of the early '80s, and a major influence on the development of thrash. Led by the unique vocal stylings of screeching banshee Udo Dirkschneider, the band forged an instantly recognizable sound and was notorious as one of the decade's fiercest live acts. Despite recording two of the best heavy metal albums of the decade in Restless & Wild and Balls to the Wall, Accept remained too heavy and extreme for American audiences to embrace -- even when they tried to tone down their act with more melodic songs. Ultimately having conquered the rest of the world, but with their career stalled in the U.S., Accept fell apart, but reunited years later to confront a radically changed music marketplace.",
+    "ImageUrl": "http://cps-static.rovicorp.com/3/JPG_400/MI0001/389/MI0001389322.jpg?partner=allrovi.com",
+    "AmazonUrl": "http://www.amazon.com/Accept/e/B000APZ8S4/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&qid=1412245037&sr=8-3&tag=westwindtechn-20&linkId=KM4RZR3ECUXWBJ6E"
+  },
+  "Tracks": [
+    {
+      "Id": 3,
+      "AlbumId": 3,
+      "ArtistId": 0,
+      "SongName": "Fast As a Shark",
+      "Length": "3:10",
+      "Bytes": 3990994,
+      "UnitPrice": 0.99
+    },
+    {
+      "Id": 4,
+      "AlbumId": 3,
+      "ArtistId": 0,
+      "SongName": "Restless and Wild",
+      "Length": "4:12",
+      "Bytes": 4331779,
+      "UnitPrice": 0.99
+    },
+    {
+      "Id": 5,
+      "AlbumId": 3,
+      "ArtistId": 0,
+      "SongName": "Princess of the Dawn",
+      "Length": "6:15",
+      "Bytes": 6290521,
+      "UnitPrice": 0.99
+    }
+  ]
+}
+
+------------------------------------------------------------------
+
+POST http://localhost:51670/api/posttrack HTTP/1.1
+Accept-Encoding: gzip,deflate
+Accept: application/json
+Content-Type: application/json
+
+{
+  "Id": 1,
+  "SongName": "End of the Silence",
+  "ArtistId":  10
+}
 
 ------------------------------------------------------------------
 

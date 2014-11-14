@@ -47,10 +47,10 @@ if (env.EnvironmentName == "Development")
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" });
+                //routes.MapRoute(
+                //    name: "default",
+                //    template: "{controller}/{action}/{id?}",
+                //    defaults: new { controller = "Home", action = "Index" });
 
                 routes.MapRoute(
                     name: "api",

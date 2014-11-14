@@ -35,6 +35,13 @@ namespace MusicStoreBusiness
 
             return true;
         }
+
+        public async Task<bool> LoadArtistAsync(MusicStoreContext ctx)
+        {
+            Artist = await ctx.Artists.FirstOrDefaultAsync(art => art.Id == ArtistId);
+            return true;
+        }
+
     }
 
 
@@ -47,7 +54,7 @@ namespace MusicStoreBusiness
         public string ImageUrl { get; set; }
         public string AmazonUrl { get; set; }
 
-        public List<Album> Albums { get; set; }
+        //public List<Album> Albums { get; set; }
     }
 
     public class Track

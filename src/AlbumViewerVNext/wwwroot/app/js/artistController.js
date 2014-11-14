@@ -23,7 +23,7 @@
         };
 
         vm.getArtist = function(pk) {
-            $http.get("artist.ms?id=" + pk)
+            $http.get("artist?id=" + pk)
                 .success(function(artist) {
                     vm.artist = artist;
                 })
