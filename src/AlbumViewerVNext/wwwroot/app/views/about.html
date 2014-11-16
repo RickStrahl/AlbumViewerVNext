@@ -4,7 +4,13 @@
         <i class="fa fa-info"></i>  About the Music Store Sample
     </h3>
 
-    <hr />
+    <div class="btn-group" style="margin-bottom: 10px;">
+        <a href="#/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i>Angular API Sample</a>
+        <a href="mvc/albums" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> MVC Sample</a>
+    </div>
+
+    <div class="separator"></div>
+
     <p>
         This sample application demonstrates using a client centric JavaScript
         framework to communicate with a Web Connection backend via JSON. This is
@@ -18,10 +24,10 @@
 
 
     <div class="well well-sm">
-        <img width="90" height="90" 
+        <<!--img width="90" height="90" 
              style="margin-left: 10px;"
              class="pull-right" alt="QR Tag for current URL open in your web browser"
-             src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fwest-wind.com%2Fwconnect%2Fmusicstore&chs=120x120" />
+             src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fwest-wind.com%2Fwconnect%2Fmusicstore&chs=120x120" />-->
 
         <h4>Mobile</h4>
 
@@ -35,15 +41,12 @@
         </p>
     </div>
     <div class="well well-sm">
-        <h4>wwRestProcess Web Connection JSON Service</h4>
+        <h4>Two Versions: Service and MVC</h4>
         <p>
-            This sample application demonstrates using the wwRestProcess class on the
-            Web Connection back end, which provides the 'data service' to provide the
-            data for this sample. The backend simply returns JSON data in request to
-            XHR HTTP requests from the client JavaScript application. Each data
-            request is simply a method in the wwRESTProcess subclass that receives
-            a single input parameter for JSON post data (or any form or querystring values)
-            and returns a simple value, object, collection/array or cursor as a result.
+            There are two versions of this sample: An Angular application that uses
+            an API back-end and a second incomplete version that uses MVC. Both 
+            controllers look very similar with the difference of returing either raw
+            data results or API results.
         </p>
     </div>
     <div class="well well-sm">

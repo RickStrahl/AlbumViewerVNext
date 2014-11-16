@@ -21,63 +21,35 @@ namespace MusicStoreVNext
         public MusicStoreMvcController(MusicStoreContext ctx, IApplicationEnvironment environment)
         {
             context = ctx;
-            this.environment = environment;                
+            this.environment = environment;
         }
 
-     
-
-        [HttpGet]
-        public async Task<IEnumerable<Album>> Albums()
+        public async Task<ActionResult> Index()
         {
-            var  result = await context.Albums
-                //.Include(ctx=> ctx.Artist)
-                //.Include(ctx=> ctx.Tracks)
-                .OrderBy(alb=> alb.Title)
-                .Take(10)
+            return await Albums();
+        }
+
+        public async Task<ActionResult> Albums()
+        {
+            var result = await context.Albums
+                .Include(ctx => ctx.Tracks)
+                .Include(ctx => ctx.Artist)
+                .OrderBy(alb => alb.Title)
                 .ToListAsync();
 
-            // HACK: Load relationships explicitly
-            //       since .Include() nor lazy loading works
-            await context.Tracks.LoadAsync();
-            await context.Artists.LoadAsync();
-
-
-            //// EF7 Bug - manually lazy load children
-            //foreach (var album in result)
-            //{
-            //    await album.LoadChildrenAsync(context);
-            //}
-
-            return result;
+            return View("Albums", result);
         }
 
         [HttpGet]
-        public async Task<Album> Album(int id)
+        public async Task<ActionResult> Album(int id)
         {
-            var album = await context.Albums.FirstOrDefaultAsync(alb => alb.Id == id);
-            await album.LoadChildrenAsync(context);
-            return album;
+            var album = await context.Albums
+                .Include(a => a.Tracks)
+                .Include(a => a.Artist)
+                .FirstOrDefaultAsync(alb => alb.Id == id);
+
+            return View(album);
         }
 
-        [HttpPost]
-        public string Album(Album album)
-        {
-            return album.Title;
-        }
-
-        [HttpGet]
-        public IEnumerable<Artist> Artists()
-        {
-            IEnumerable<Artist> result = null;
-            result = context.Artists.OrderBy(art => art.ArtistName).ToList();
-            return result;
-        }
-
-        public class ApiError
-        {
-            public bool isError { get; set; }
-            public string message { get; set; }
-            public string detail { get; set; }
-        }
     }
 }

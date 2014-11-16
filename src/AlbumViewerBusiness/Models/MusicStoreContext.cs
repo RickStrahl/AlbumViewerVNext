@@ -2,10 +2,11 @@
 using Microsoft.Data.Entity.Metadata;
 using Microsoft.Framework.OptionsModel;
 using System;
+using System.Linq;
 
 namespace MusicStoreBusiness
 {
-public class MusicStoreContext :  DbContext
+public class MusicStoreContext : DbContext
 {
     //public MusicStoreContext() : base(new MusicStoreContextOptions())
     //{ }
@@ -16,7 +17,7 @@ public class MusicStoreContext :  DbContext
 
     }
     public DbSet<Album> Albums { get; set; }
-    public DbSet<Artist> Artists { get; set;  }
+    public DbSet<Artist> Artists { get; set; }
     public DbSet<Track> Tracks { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,20 +28,27 @@ public class MusicStoreContext :  DbContext
         {
             e.Key(a => a.Id);
             e.ForRelational().Table("Albums");
-            e.OneToMany<Track>(a => a.Tracks).ForeignKey(t => t.AlbumId);
-
-            // TODO: Can't figure out how to make this relationship work
-            //       This does not work nor does OneToOne()
-            e.ManyToOne(alb => alb.Artist).ForeignKey(art => art.ArtistId);
+            e.ForeignKey<Artist>(a => a.ArtistId);
+            //e.OneToMany<Track>(a => a.Tracks).ForeignKey(t => t.AlbumId);
         });
         modelBuilder.Entity<Artist>(e =>
         {
+            e.Key(a => a.Id);
             e.ForRelational().Table("Artists");
         });
         modelBuilder.Entity<Track>(e =>
         {
+            e.Key(t => t.Id);
             e.ForRelational().Table("Tracks");
+            e.ForeignKey<Album>(a => a.AlbumId);
         });
+
+        var album = modelBuilder.Model.GetEntityType(typeof(Album));
+        var artist = modelBuilder.Model.GetEntityType(typeof(Artist));
+        var track = modelBuilder.Model.GetEntityType(typeof(Track));
+
+        album.AddNavigation("Artist", album.ForeignKeys.Single(k => k.ReferencedEntityType == artist), pointsToPrincipal: true);
+        album.AddNavigation("Tracks", track.ForeignKeys.Single(k => k.ReferencedEntityType == album), pointsToPrincipal: false);
     }
 }
 

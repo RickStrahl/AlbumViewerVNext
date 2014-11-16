@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MusicStoreBusiness.Album>
+<div class="container container-fluid">
+    <button class="btn btn-sm btn-success pull-right" <i class="fa fa-plus"></i> Add Album</button>
+    <div class="page-header-text"><i class="fa fa-list"></i> Albums <span class="badge">@Model.Count()</span></div>
+
+    <hr style="margin-top: 6px;" />
+@foreach (var album in Model.ToList())
+{
+    <div class="album">
+        <div class="album-overlay">
+            <a href="album/@album.Id/edit"><i class="fa fa-edit" title="Edit"></i></a> &nbsp;
+            <a ng-click="view.deleteAlbum(album)"><i class="fa fa-remove" title="Delete"></i></a>
+        </div>
+        <div ng-click="view.albumClick(album)">
+            <img src="@album.ImageUrl" class="album-image" />
+            <div style="padding-left: 80px;">
+                <div class="album-title">@album.Title</div>
+                <div class="album-artist">
+                @if (album.Artist != null)
+                { <text>by @album.Artist.ArtistName</text> } 
+                @if (album.Year > 0)
+                { <text>in @album.Year</text>}</div>
+                <div class="album-descript">@album.Description</div>
+            </div>            
+        </div>
+    </div>
+}
+</div>
+
+
+

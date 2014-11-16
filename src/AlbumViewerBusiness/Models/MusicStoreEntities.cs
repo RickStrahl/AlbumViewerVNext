@@ -18,8 +18,8 @@ namespace MusicStoreBusiness
         public string ImageUrl { get; set; }
         public string AmazonUrl { get; set; }
 
-        
-        public virtual Artist Artist {get; set; }
+
+        public virtual Artist Artist { get; set; }
         public virtual IList<Track> Tracks { get; set; }
 
         public Album()
@@ -39,6 +39,11 @@ namespace MusicStoreBusiness
         public async Task<bool> LoadArtistAsync(MusicStoreContext ctx)
         {
             Artist = await ctx.Artists.FirstOrDefaultAsync(art => art.Id == ArtistId);
+            return true;
+        }
+        public async Task<bool> LoadTracksAsync(MusicStoreContext ctx)
+        {
+            Tracks = await ctx.Tracks.Where(tk => tk.AlbumId == Id).ToListAsync();
             return true;
         }
 
