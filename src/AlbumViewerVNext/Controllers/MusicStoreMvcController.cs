@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Framework.Runtime;
-using MusicStoreBusiness;
+using AlbumViewerBusiness;
 using System;
 using System.Collections.Generic;
 using System.Linq;

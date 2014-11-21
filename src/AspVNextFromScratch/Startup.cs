@@ -15,17 +15,17 @@ namespace AspVNextFromScratch
     {
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-// Set up application services and DI
-app.UseServices(services =>
-{                
-    services.AddMvc();
-});
+            // Set up application services and DI
+            app.UseServices(services =>
+            {
+                services.AddMvc();
+            });
 
-app.UseStaticFiles();
-app.UseErrorPage(ErrorPageOptions.ShowAll);
+            app.UseStaticFiles();
+            app.UseErrorPage(ErrorPageOptions.ShowAll);
 
-if (env.EnvironmentName == "Development")
-    app.UseErrorPage(ErrorPageOptions.ShowAll);
+            if (env.EnvironmentName == "Development")
+                app.UseErrorPage(ErrorPageOptions.ShowAll);
 
 
 
@@ -47,10 +47,10 @@ if (env.EnvironmentName == "Development")
 
             app.UseMvc(routes =>
             {
-                //routes.MapRoute(
-                //    name: "default",
-                //    template: "{controller}/{action}/{id?}",
-                //    defaults: new { controller = "Home", action = "Index" });
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" });
 
                 routes.MapRoute(
                     name: "api",
@@ -61,13 +61,13 @@ if (env.EnvironmentName == "Development")
 
             });
 
-            //app.Run(async ctx =>
-            //{
-            //    ctx.Response.ContentType = "text/plain";
-            //    await ctx.Response.WriteAsync(
-            //                "Hello World from vNext!!! The KRE Version is: " +
-            //                GetKlrVersion());
-            //});
+            app.Run(async ctx =>
+            {
+                ctx.Response.ContentType = "text/plain";
+                await ctx.Response.WriteAsync(
+                            "Hello World from vNext!!! The KRE Version is: " +
+                            GetKlrVersion());
+            });
         }
 
         public static string GetKlrVersion()

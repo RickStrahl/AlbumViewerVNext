@@ -6,8 +6,7 @@ using System.Collections.Generic;
 namespace AspVNextFromScratch
 {
 public class PersonsController : Controller
-{
-    // GET: /<controller>/
+{    
     public IActionResult HelloWorldMvc(string name)
     {
         if (string.IsNullOrEmpty(name))

@@ -4,7 +4,7 @@ using Microsoft.Framework.OptionsModel;
 using System;
 using System.Linq;
 
-namespace MusicStoreBusiness
+namespace AlbumViewerBusiness
 {
 public class MusicStoreContext : DbContext
 {

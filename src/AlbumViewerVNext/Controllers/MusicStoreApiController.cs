@@ -2,14 +2,13 @@
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.Framework.Runtime;
-using MusicStoreBusiness;
+using AlbumViewerBusiness;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using System.Reflection;
 using System.Threading.Tasks;
-using Westwind.Utilities;
+//using Westwind.Utilities;
 
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -18,15 +17,12 @@ namespace MusicStoreVNext
 {
     public class MusicStoreApiController : Controller
     {
-        MusicStoreContext context;
-        IApplicationEnvironment environment;
+        MusicStoreContext context;        
 
-        public MusicStoreApiController(MusicStoreContext ctx, IApplicationEnvironment environment)
+        public MusicStoreApiController(MusicStoreContext ctx)
         {
-            context = ctx;
-            this.environment = environment;
+            context = ctx;            
         }
-
 
 
         [HttpGet]
@@ -55,6 +51,9 @@ namespace MusicStoreVNext
         [HttpPost]
         public async Task<Album> Album([FromBody] Album postedAlbum)
         {
+            if (!ModelState.IsValid)            
+                throw new ApiException("Model binding failed.",500);
+            
             int id = postedAlbum.Id;
 
             Album album = null;
@@ -68,16 +67,42 @@ namespace MusicStoreVNext
                     .FirstOrDefaultAsync(alb => alb.Id == id);
             }
 
-            DataUtils.CopyObjectData(postedAlbum, album, "Artist,Tracks");
-            DataUtils.CopyObjectData(postedAlbum.Artist, album.Artist);
-
 
             // ModelBinding doesn't work right at the moment
             //if (!await TryUpdateModelAsync(album,null))
             //   throw new ApiException("Model binding failed.",500);
 
-            int result = await context.SaveChangesAsync();
+            // SimpleMapper from ASP.NET MVC sample - doesn't support one to many
+            //SimpleMapper.Map(postedAlbum, album);
 
+            // 
+            //var album2 = AutoMapper.Mapper.Map<Album,Album>(postedAlbum, album) as Album;
+
+            Westwind.Utilities.DataUtils.CopyObjectData(postedAlbum, album, "Tracks,Artist");
+            Westwind.Utilities.DataUtils.CopyObjectData(postedAlbum.Artist, album.Artist);
+            foreach (var postedTrack in postedAlbum.Tracks)
+            {
+                var track = album.Tracks.FirstOrDefault(trk => trk.Id == postedTrack.Id);
+                if (track != null)
+                    Westwind.Utilities.DataUtils.CopyObjectData(postedTrack, track);
+                else
+                {
+                    track = new Track();
+                    Westwind.Utilities.DataUtils.CopyObjectData(postedTrack, track,"Id");
+                    context.Tracks.Add(track);                    
+                }
+            }
+            var ids = postedAlbum.Tracks.Where(t=> t.Id != 0).Select(t => t.Id).ToList();
+            var deletedTracks = album.Tracks.Where(t => t.Id > 0 && !ids.Any(id1 => id1 == t.Id )).ToList();
+
+            //if (deletedTracks.Count > 0)
+            //{
+            //    context.Tracks.RemoveRange(deletedTracks);
+            //    //foreach (var dtrack in deletedTracks)
+            //    //    album.Tracks.Remove(dtrack);
+            //}
+
+            int result = await context.SaveChangesAsync();   
             return album;
         }
 

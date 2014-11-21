@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MusicStoreBusiness
+namespace AlbumViewerBusiness
 {
     public class Album
     {
@@ -62,6 +62,7 @@ namespace MusicStoreBusiness
         //public List<Album> Albums { get; set; }
     }
 
+    
     public class Track
     {
         public int Id { get; set; }
@@ -73,5 +74,10 @@ namespace MusicStoreBusiness
         public string Length { get; set; }
         public int Bytes { get; set; }
         public decimal UnitPrice { get; set; }
+
+        public override string ToString()
+        {
+            return SongName;
+        }
     }
 }
