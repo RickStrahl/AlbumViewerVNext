@@ -63,6 +63,15 @@ Content-Type: application/json
       "Length": "6:15",
       "Bytes": 6290521,
       "UnitPrice": 0.99
+    },
+    {
+      "Id":0,
+      "AlbumId": 3,
+      "ArtistId": 0,
+      "SongName": "New One",
+      "Length": "6:15",
+      "Bytes": 6290521,
+      "UnitPrice": 0.99
     }
   ]
 }

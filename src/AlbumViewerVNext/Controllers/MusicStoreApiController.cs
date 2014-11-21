@@ -95,12 +95,12 @@ namespace MusicStoreVNext
             var ids = postedAlbum.Tracks.Where(t=> t.Id != 0).Select(t => t.Id).ToList();
             var deletedTracks = album.Tracks.Where(t => t.Id > 0 && !ids.Any(id1 => id1 == t.Id )).ToList();
 
-            //if (deletedTracks.Count > 0)
-            //{
-            //    context.Tracks.RemoveRange(deletedTracks);
-            //    //foreach (var dtrack in deletedTracks)
-            //    //    album.Tracks.Remove(dtrack);
-            //}
+            if (deletedTracks.Count > 0)
+            {
+                context.Tracks.RemoveRange(deletedTracks);
+                //foreach (var dtrack in deletedTracks)
+                //    album.Tracks.Remove(dtrack);
+            }
 
             int result = await context.SaveChangesAsync();   
             return album;

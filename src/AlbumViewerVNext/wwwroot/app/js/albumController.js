@@ -26,6 +26,8 @@
         };
  
         vm.saveAlbum = function (album) {
+            console.log(album);
+            debugger;
             albumService.saveAlbum(album)
                 .success(function(album) {
                     vm.error.message = "Album saved";

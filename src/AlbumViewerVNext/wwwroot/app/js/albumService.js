@@ -25,7 +25,8 @@
         };               
 
         return service;
-        
+                
+
         function newAlbum() {
             return {
                 Id: 0,
@@ -84,16 +85,16 @@
         };
 
         function removeSong(album, song) {
-            debugger;
             var i = findAlbumIndex(album);
             if (i == -1)
                 return;
 
             var alb = service.albums[i];
             
-            alb.tracks = _.remove(alb.Tracks, function (t) {
-                return t.Id == song.Id;
-            });            
+            alb.Tracks = _.remove(alb.Tracks, function (t) {
+                return t.Id != song.Id;
+            });
+            
             service.album = alb;            
         };
 
@@ -115,15 +116,15 @@
         }
 
         function saveAlbum(album) {            
-            return $http.post("../album",service.album)
-                .success(function(alb) {
+            return $http.post("../api/album",album)
+                .success(function (alb) {                    
                     service.updateAlbum(alb);
                     service.album = alb;                    
             });
         }
 
         function deleteAlbum(album){
-            return $http.delete("../album/" + album.Id)
+            return $http.delete("../api/album/" + album.Id)
                 .success(function() {
                     service.albums = _.remove(service.albums, function(alb){
                         return album.Id != alb.Id;
