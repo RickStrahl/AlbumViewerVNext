@@ -53,85 +53,10 @@ namespace MusicStoreVNext
         public async Task<Album> Album([FromBody] Album postedAlbum)
         {
             if (!ModelState.IsValid)            
-                throw new ApiException("Model binding failed.",500);
-            
-            int id = postedAlbum.Id;
+                throw new ApiException("Model binding failed.",500);            
 
-            Album album = null;
-            if (id < 1)
-                album = context.Albums.Add(new Album());
-            else
-            {
-                album = await context.Albums
-                    .Include(ctx => ctx.Tracks)
-                    .Include(ctx => ctx.Artist)
-                    .FirstOrDefaultAsync(alb => alb.Id == id);
-            }
-
-
-            // ModelBinding doesn't work right at the moment
-            //if (!await TryUpdateModelAsync(album,null))
-            //   throw new ApiException("Model binding failed.",500);
-
-            // SimpleMapper from ASP.NET MVC sample - doesn't support one to many
-            //SimpleMapper.Map(postedAlbum, album);
-
-            // 
-            //var album2 = AutoMapper.Mapper.Map<Album,Album>(postedAlbum, album) as Album;
-
-            Westwind.Utilities.DataUtils.CopyObjectData(postedAlbum, album, "Tracks,Artist");
-
-            Westwind.Utilities.DataUtils.CopyObjectData(postedAlbum.Artist, album.Artist);
-            if (album.Artist.Id < 1)
-                context.Artists.Add(album.Artist);
-
-            foreach (var postedTrack in postedAlbum.Tracks)
-            {
-                var track = album.Tracks.FirstOrDefault(trk => trk.Id == postedTrack.Id);
-                if  (postedTrack.Id > 0 && track != null)
-                    Westwind.Utilities.DataUtils.CopyObjectData(postedTrack, track);
-                else
-                {
-                    track = new Track();
-                    context.Tracks.Add(track);
-                    Westwind.Utilities.DataUtils.CopyObjectData(postedTrack, track,"Id,AlbumId,ArtistId");                    
-                    album.Tracks.Add(track);                                    
-                }
-            }
-
-            // find tracks to delete - first looks for those posted (except 0 ids)
-            var postedIds = postedAlbum.Tracks
-                .Where(t=> t.Id > 0)
-                .Select(t => t.Id)
-                .ToList();
-
-            // then delete all those that don't exist in the actual albums
-            var deletedTracks = album.Tracks                
-                .Where(trk=> trk.Id > 0 && !postedIds.Contains(trk.Id))
-                .ToList();
-
-
-            if (deletedTracks.Count > 0)
-            {
-                foreach (var dtrack in deletedTracks)
-                {                                        
-                    context.Tracks.Remove(dtrack);
-                    //album.Tracks.Remove(dtrack);
-                }
-            }
-
-            int result = await context.SaveChangesAsync();
-
-            
-            //// have to refresh the list from disk since we can't remove 
-            //// from context and remove from tracks collection
-            //return await context.Albums
-            //        .Include(a => a.Tracks)
-            //        .Include(a => a.Artist)
-            //        .Where(a => a.Id == album.Id)
-            //        .FirstOrDefaultAsync();
-
-            return album;
+            var albumRepo = new AlbumRepository(context);
+            return await albumRepo.SaveAlbum(postedAlbum);            
         }
 
 

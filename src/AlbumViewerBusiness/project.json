@@ -1,8 +1,9 @@
 ﻿{
     "version": "1.0.0-*",
     "dependencies": {
-         "EntityFramework": "7.0.0-*",
-        "EntityFramework.SqlServer": "7.0.0-*"
+        "EntityFramework": "7.0.0-*",
+        "EntityFramework.SqlServer": "7.0.0-*", 
+        "Westwind.Utilities":  "2.58.0"     
     },
 
     "frameworks" : {
@@ -10,10 +11,10 @@
             "dependencies": {
             }
         },
-        "aspnetcore50" : { 
-            "dependencies": {
-                //"System.Runtime": "4.0.20-beta-*"
-            }
-        }
+//        "aspnetcore50" : { 
+//            "dependencies": {
+//                //"System.Runtime": "4.0.20-beta-*"
+//            }
+//        }
     }
 }

@@ -34,7 +34,7 @@
         };
 
         vm.saveArtist = function(artist) {
-            $http.post("artist.ms?id=" + artist.pk, artist)
+            $http.post("../artist/", artist)
                 .success(function(artist) {
                     vm.artist = artist;
                     $("#EditModal").modal("hide");
