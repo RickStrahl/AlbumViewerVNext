@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Collections;
 //using Westwind.Utilities;
 
 
@@ -79,17 +80,22 @@ namespace MusicStoreVNext
             //var album2 = AutoMapper.Mapper.Map<Album,Album>(postedAlbum, album) as Album;
 
             Westwind.Utilities.DataUtils.CopyObjectData(postedAlbum, album, "Tracks,Artist");
+
             Westwind.Utilities.DataUtils.CopyObjectData(postedAlbum.Artist, album.Artist);
+            if (album.Artist.Id < 1)
+                context.Artists.Add(album.Artist);
+
             foreach (var postedTrack in postedAlbum.Tracks)
             {
                 var track = album.Tracks.FirstOrDefault(trk => trk.Id == postedTrack.Id);
-                if (track != null)
+                if  (postedTrack.Id > 0 && track != null)
                     Westwind.Utilities.DataUtils.CopyObjectData(postedTrack, track);
                 else
                 {
                     track = new Track();
                     Westwind.Utilities.DataUtils.CopyObjectData(postedTrack, track,"Id");
-                    context.Tracks.Add(track);                    
+                    context.Tracks.Add(track);
+                    album.Tracks.Add(track);                                    
                 }
             }
             var ids = postedAlbum.Tracks.Where(t=> t.Id != 0).Select(t => t.Id).ToList();
@@ -108,13 +114,45 @@ namespace MusicStoreVNext
 
 
         [HttpGet]
-        public IEnumerable<Artist> Artists()
-        {
-            IEnumerable<Artist> result = null;
-            result = context.Artists.OrderBy(art => art.ArtistName).ToList();
+        public async Task<IEnumerable> Artists()
+        {            
+            var result = await context.Artists                            
+                            .OrderBy(art => art.ArtistName)
+                            .Select(art=> new
+                            {
+                                ArtistName = art.ArtistName,
+                                Id = art.Id,
+                                AlbumCount = context.Albums.Count(alb=> alb.ArtistId == art.Id)
+                            })
+                            .ToListAsync();
             return result;
         }
 
+        [HttpGet]
+        public async Task<object> Artist(int id)
+        {
+            var artist = await context.Artists
+                .FirstOrDefaultAsync(art => art.Id == id);
+
+            if (artist == null)
+                throw new ApiException("Invalid artist id.", 404);
+
+            var albums = await context.Albums
+                            .Where(alb => alb.ArtistId == id)
+                            .ToListAsync();
+
+            return new ArtistResponse()
+            {
+                Artist = artist,
+                Albums = albums
+            };
+        }
+    }
+
+    public class ArtistResponse
+    {
+        public Artist Artist { get; set; }
+        public List<Album> Albums { get; set; }
     }
 
 

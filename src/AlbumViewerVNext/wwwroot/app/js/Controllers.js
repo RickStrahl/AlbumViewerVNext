@@ -56,7 +56,7 @@
         vm.searchText = "";
 
         vm.getArtists = function() {
-            return $http.get("artists.ms")
+            return $http.get("../api/artists")
                 .success(function(artists) {
                     vm.artists = artists;
                 });

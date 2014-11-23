@@ -23,9 +23,10 @@
         };
 
         vm.getArtist = function(pk) {
-            $http.get("artist?id=" + pk)
-                .success(function(artist) {
-                    vm.artist = artist;
+            $http.get("../api/artist?id=" + pk)
+                .success(function(response) {
+                    vm.artist = response.Artist;
+                    vm.albums = response.Albums;
                 })
                 .error(function() {
                     vm.error.show("Artist couldn't be loaded.", "warning");
@@ -41,7 +42,7 @@
         }
 
         vm.albumClick = function(album) {
-            $window.location.hash = "/album/" + album.pk;
+            $window.location.hash = "/album/" + album.Id;
         };
 
         vm.addAlbum = function () {            

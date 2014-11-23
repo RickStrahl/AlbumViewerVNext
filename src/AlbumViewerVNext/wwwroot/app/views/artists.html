@@ -3,14 +3,15 @@
 
     <div class="list-group">
         <a href="#" class="list-group-item active">
-            <i class="fa fa-list"></i> Artists
+            <i class="fa fa-list"></i> Artists 
+            <span class="badge">{{view.artists.length}}</span>
         </a>
 
         <a class="list-group-item"
            ng-repeat="artist in view.artists | filter: view.searchText "
-           href="#/artist/{{artist.pk}}" style="overflow:hidden;max-height: 50px;">
-            <span class="badge">{{artist.count}}</span>
-            {{artist.artistname}}
+           href="#/artist/{{artist.Id}}" >
+            <span class="badge">{{artist.AlbumCount}}</span>
+            {{artist.ArtistName}}
         </a>
     </div>
 

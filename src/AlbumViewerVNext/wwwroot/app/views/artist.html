@@ -6,35 +6,35 @@
         <button ng-click="view.deleteArtist(view.album)" class="btn btn-sm btn-default"><i class="fa fa-remove"></i> Delete</button>
     </div>
 
-    <h2>{{view.artist.artistname}}</h2>
+    <h2>{{view.artist.ArtistName}}</h2>
 
     <div class="separator"></div>
 
     <div class="row">
         <div class="col-sm-3">
-            <img ng-src="{{view.artist.imageurl}}"
+            <img ng-src="{{view.artist.ImageUrl}}"
                  style="width: 97%; margin-bottom: 8px;border-radius: 4px; box-shadow: 2px 2px 4px #535353" />
         </div>
-        <div class="col-sm-8" ng-bind-html="view.artist.descript | linebreakFilter"></div>
+        <div class="col-sm-8" ng-bind-html="view.artist.Description | linebreakFilter"></div>
     </div>
 
     <h3>Albums</h3>
     <div class="separator"></div>
 
-    <div class="album" ng-repeat="album in view.artist.albums | filter: view.searchText "
+    <div class="album" ng-repeat="album in view.albums | filter: view.searchText "
          ng-click="view.albumClick(album)">
         <div class="album-overlay">
-            <a href="#/album/edit/{{album.pk}}"><i class="fa fa-edit" title="Edit"></i></a> &nbsp;
+            <a href="#/album/edit/{{album.Id}}"><i class="fa fa-edit" title="Edit"></i></a> &nbsp;
             <a ng-click="view.deleteAlbum(album)"><i class="fa fa-remove" title="Delete"></i></a>
         </div>
         <div>
-            <img ng-src="{{album.imageurl}}" class="album-image" />
+            <img ng-src="{{album.ImageUrl}}" class="album-image" />
             <div style="padding-left: 80px;">
-                <div class="album-title">{{album.title}}</div>
+                <div class="album-title">{{album.Title}}</div>
                 <div class="album-artist">
-                    by {{album.artist.artistname}} {{(album.year ? 'in ' + album.year : '')}}
+                    by {{album.artist.ArtistName}} {{(album.Year ? 'in ' + album.Year : '')}}
                 </div>
-                <div class="album-descript">{{album.descript}}</div>
+                <div class="album-descript">{{album.Description}}</div>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
                             <input id="AlbumName" type="text"
                                    class="form-control input-sm"
                                    placeholder="Artist Name" required
-                                   ng-model="view.artist.artistname" />
+                                   ng-model="view.artist.ArtistName" />
                         </div>
 
                         <div class="form-group">
@@ -66,17 +66,17 @@
                             <textarea type="text" class="form-control input-sm" id="Descript"
                                       required
                                       style="height: 80px;"
-                                      placeholder="Band Bio" ng-model="view.artist.descript"></textarea>
+                                      placeholder="Band Bio" ng-model="view.artist.Description"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="ImageUrl">Image Url:</label>
                             <input type="text" class="form-control input-sm" id="ImageUrl"
-                                   placeholder="Image Url" ng-model="view.artist.imageurl" />
+                                   placeholder="Image Url" ng-model="view.artist.ImageUrl" />
                         </div>
                         <div class="form-group">
                             <label for="AmazonUrl">Amazon Url:</label>
                             <input type="text" class="form-control input-sm" id="AmazonUrl"
-                                   placeholder="Image Url" ng-model="view.artist.amazonurl" />
+                                   placeholder="Link to Artist Amazon Page" ng-model="view.artist.AmazonUrl" />
                         </div>
                     </form>
                 </div>
