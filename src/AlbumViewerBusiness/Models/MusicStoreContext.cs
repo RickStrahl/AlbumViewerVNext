@@ -29,7 +29,7 @@ public class MusicStoreContext : DbContext
             e.Key(a => a.Id);
             e.ForRelational().Table("Albums");
             e.ForeignKey<Artist>(a => a.ArtistId);
-            //e.OneToMany<Track>(a => a.Tracks).ForeignKey(t => t.AlbumId);
+            //e.OneToMany<Track>(a => a.Tracks);
         });
         modelBuilder.Entity<Artist>(e =>
         {
@@ -48,7 +48,7 @@ public class MusicStoreContext : DbContext
         var track = modelBuilder.Model.GetEntityType(typeof(Track));
 
         album.AddNavigation("Artist", album.ForeignKeys.Single(k => k.ReferencedEntityType == artist), pointsToPrincipal: true);
-        album.AddNavigation("Tracks", track.ForeignKeys.Single(k => k.ReferencedEntityType == album), pointsToPrincipal: false);
+        album.AddNavigation("Tracks", track.ForeignKeys.Single(k => k.ReferencedEntityType == album), pointsToPrincipal: false);            
     }
 }
 

@@ -52,7 +52,7 @@ namespace MusicStoreVNext
 
             app.UseStaticFiles();
 
-            AutoMapperMappings();
+            //AutoMapperMappings();
 
             // Add MVC to the request pipeline
             app.UseMvc(routes =>
@@ -72,10 +72,10 @@ namespace MusicStoreVNext
 
         }
 
-        void AutoMapperMappings()
-        {
-            AutoMapper.Mapper.CreateMap<Album, Album>();
-        }
+        //void AutoMapperMappings()
+        //{
+        //    AutoMapper.Mapper.CreateMap<Album, Album>();
+        //}
 
     }
 }

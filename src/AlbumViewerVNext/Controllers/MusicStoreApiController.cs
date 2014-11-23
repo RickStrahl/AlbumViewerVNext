@@ -93,22 +93,44 @@ namespace MusicStoreVNext
                 else
                 {
                     track = new Track();
-                    Westwind.Utilities.DataUtils.CopyObjectData(postedTrack, track,"Id");
                     context.Tracks.Add(track);
+                    Westwind.Utilities.DataUtils.CopyObjectData(postedTrack, track,"Id,AlbumId,ArtistId");                    
                     album.Tracks.Add(track);                                    
                 }
             }
-            var ids = postedAlbum.Tracks.Where(t=> t.Id != 0).Select(t => t.Id).ToList();
-            var deletedTracks = album.Tracks.Where(t => t.Id > 0 && !ids.Any(id1 => id1 == t.Id )).ToList();
+
+            // find tracks to delete - first looks for those posted (except 0 ids)
+            var postedIds = postedAlbum.Tracks
+                .Where(t=> t.Id > 0)
+                .Select(t => t.Id)
+                .ToList();
+
+            // then delete all those that don't exist in the actual albums
+            var deletedTracks = album.Tracks                
+                .Where(trk=> trk.Id > 0 && !postedIds.Contains(trk.Id))
+                .ToList();
+
 
             if (deletedTracks.Count > 0)
             {
-                context.Tracks.RemoveRange(deletedTracks);
-                //foreach (var dtrack in deletedTracks)
-                //    album.Tracks.Remove(dtrack);
+                foreach (var dtrack in deletedTracks)
+                {                                        
+                    context.Tracks.Remove(dtrack);
+                    //album.Tracks.Remove(dtrack);
+                }
             }
 
-            int result = await context.SaveChangesAsync();   
+            int result = await context.SaveChangesAsync();
+
+            
+            //// have to refresh the list from disk since we can't remove 
+            //// from context and remove from tracks collection
+            //return await context.Albums
+            //        .Include(a => a.Tracks)
+            //        .Include(a => a.Artist)
+            //        .Where(a => a.Id == album.Id)
+            //        .FirstOrDefaultAsync();
+
             return album;
         }
 

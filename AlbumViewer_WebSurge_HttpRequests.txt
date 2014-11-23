@@ -106,20 +106,20 @@ Content-Type: application/json
   "Id": 0,
   "ArtistId": 0,
   "Title": "Melissa",
-  "Description": "An all time classic. At the time Fast as a Shark was THE heaviest thing made to that date and while the rest of this album can't really live up to that song, it's still an excellent specimen of 80's metal. Clean, fast heavy.",
+  "Description": "Technically, Mercyful Fate's debut LP is slightly patchy and derivative, particularly of early Black Sabbath and Judas Priest, although in parts it is more ambitious than those bands' major works, in a `proggy' kind of way. It also sounds a bit dated in parts. In terms of originality, craftsmanship, instrumental prowess, and King Diamond's application of his unique and controversial voice and vocal range, it was comprehensively surpassed by Diamond's later solo classics (particularly Them, Conspiracy, and The Eye), and even by Mercyful Fate's 1993 reunion album, In The Shadows (although I prefer the more dynamic rhythm section on Melissa than those on The Eye or In The Shadows).\r\nWhat puts this album in a supreme league of its own is a wickedly powerful aura that builds up throughout the album, which is something that no amount of musica training can achieve, and no review can adequately reflect. Reviewer 'stevex3' gives us a taste when he says 'I'm sure that this CD gets played at every gathering of demons, but you really cannot have any idea what that means unless you experience this album for yourself (preferably played loud in the dark), as different people will experience it differently, and will undoubtedly have a hard time explaining their experience.",
   "Year": 1982,
-  "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51aInWlHfgL._SL250_.jpg",
-  "AmazonUrl": "http://www.amazon.com/gp/product/B00138KM1U/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00138KM1U&linkCode=as2&tag=westwindtechn-20&linkId=AQAYEWNVF5Z36AZB",
+  "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/415gmX9ujaL._SL250_.jpg",
+  "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=GHOXSGQGTIORXIBC",
   "Artist": {
     "Id": 0,
     "ArtistName": "Merciful Fate",
-    "Description": "Merciful Fate. With their brutal, simple riffs and aggressive, fast tempos, Accept were one of the top metal bands of the early '80s, and a major influence on the development of thrash. Led by the unique vocal stylings of screeching banshee Udo Dirkschneider, the band forged an instantly recognizable sound and was notorious as one of the decade's fiercest live acts. Despite recording two of the best heavy metal albums of the decade in Restless & Wild and Balls to the Wall, Accept remained too heavy and extreme for American audiences to embrace -- even when they tried to tone down their act with more melodic songs. Ultimately having conquered the rest of the world, but with their career stalled in the U.S., Accept fell apart, but reunited years later to confront a radically changed music marketplace.",
-    "ImageUrl": "http://cps-static.rovicorp.com/3/JPG_400/MI0001/389/MI0001389322.jpg?partner=allrovi.com",
-    "AmazonUrl": "http://www.amazon.com/Accept/e/B000APZ8S4/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&qid=1412245037&sr=8-3&tag=westwindtechn-20&linkId=KM4RZR3ECUXWBJ6E"
+    "Description": "Arguably the most original and critically acclaimed group to come from Denmark was Mercyful Fate. Mercyful Fate's nucleus comprised of the multi-octave vocals of King Diamond aka Kim Bendix Petersen, and the twin lead guitar attack of Hank Sherman aka Rene Krolmark and Michael Denner. 'Melissa' was the group's first formal recording and was a featured LP for Road Runner Records. Although "Melissa" was originally released in 1983, and re-released in 1997, Roadrunner Records has remastered the songs and released this classic for your listening enjoyment. It includes the highly sought after early 1980's BBC sessions, two extra demo tracks of 'Black Funeral', and 'Curse of the Pharaohs' and a three track DVD featuring live footage of the band during early 1983. A commentary by King Diamond himself narrates the performance and the story of the group during that time frame. Mercyful Fate pioneered a sub genre of ultra heavy and complex music renown for its macabre lyrics, and Satanic/occultism driven imagery and attitude called Black Metal.",
+    "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/415gmX9ujaL._SL250_.jpg",
+    "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=VAIRVQFRSELFJ7V2"
   },
   "Tracks": [
     {
-      "Id": 9998312,
+      "Id": 0,
       "AlbumId": 0,
       "ArtistId": 0,
       "SongName": "Curse of the Pharaohs",
