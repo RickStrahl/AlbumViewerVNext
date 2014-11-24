@@ -1,18 +1,18 @@
-﻿using System;
+﻿using Microsoft.Data.Entity;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Westwind.BusinessObjects;
+using Westwind.Utilities;
 
 namespace AlbumViewerBusiness
 {
-    public class AlbumRepository
-    {
-        public MusicStoreContext Context { get; set; }
-
+    public class AlbumRepository : EntityFrameworkRepository<MusicStoreContext,Album>
+    {    
         public AlbumRepository(MusicStoreContext context)
-        {
-            Context = context;
-        }
-
+            : base(context)
+        { }
+        
         public async Task<Album> SaveAlbum(Album postedAlbum)
         {
             int id = postedAlbum.Id;
@@ -91,10 +91,40 @@ namespace AlbumViewerBusiness
                 }
             }
 
-            result = await Context.SaveChangesAsync();
+            result = await Save();
 
             return album;
         }
 
+        /// <summary>
+        /// Pass in an external instance of an artist and either
+        /// update or create that artist as an instance
+        /// </summary>
+        /// <param name="postedArtist"></param>
+        /// <returns></returns>
+        public async Task<Artist> SaveArtist(Artist postedArtist)
+        {
+            int id = postedArtist.Id;
+
+            Artist artist;
+            if (id < 1)
+                artist = Create<Artist>();
+            else
+            {
+                artist = Context.Artists.FirstOrDefault(a => a.Id == id);
+                if (artist == null)
+                    artist = Create<Artist>();
+            }
+
+            DataUtils.CopyObjectData(postedArtist, artist, "Id");
+
+            int result = await Save();
+            if (result < 0)
+                return null;
+
+            return artist;
+        }
+
     }
+
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Collections;
+using Westwind.Utilities;
 //using Westwind.Utilities;
 
 
@@ -94,11 +95,28 @@ namespace MusicStoreVNext
                 Albums = albums
             };
         }
+
+        [HttpPost]
+        public async Task<ArtistResponse> Artist([FromBody] Artist postedArtist)
+        {
+            var db = new AlbumRepository(context);
+            var artist = await db.SaveArtist(postedArtist);
+
+            if (artist == null)
+                throw new ApiException("Unable to save artist.");
+
+            return new ArtistResponse()
+            {
+                Artist = artist,
+                Albums = await db.Context.Albums.Where(a => a.ArtistId == artist.Id).ToListAsync()
+            };
+        }
     }
 
     public class ArtistResponse
     {
         public Artist Artist { get; set; }
+
         public List<Album> Albums { get; set; }
     }
 

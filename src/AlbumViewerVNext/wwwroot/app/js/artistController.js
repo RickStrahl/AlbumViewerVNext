@@ -34,10 +34,14 @@
         };
 
         vm.saveArtist = function(artist) {
-            $http.post("../artist/", artist)
-                .success(function(artist) {
-                    vm.artist = artist;
+            $http.post("../api/artist/", artist)
+                .success(function (response) {
+                    vm.artist = response.Artist;
+                    vm.albums = response.Albums;
                     $("#EditModal").modal("hide");
+                })
+                .error(function (error) {
+                    vm.error.show("Artist couldn't be saved.", "warning");
                 });
         }
 
