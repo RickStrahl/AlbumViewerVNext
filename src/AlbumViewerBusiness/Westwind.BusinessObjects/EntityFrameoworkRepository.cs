@@ -72,26 +72,65 @@ namespace Westwind.BusinessObjects
         /// <summary>
         /// Saves changes to the repo
         /// </summary>
-        public async Task<int> Save()
+        public async Task<bool> SaveAsync()
         {
-            OnBeforeSave();
+            if (!OnBeforeSave())
+                return false;
 
             int result = await Context.SaveChangesAsync();
 
-            OnAfterSave();
+            if (result == -1)
+                return false;
 
-            return result;
+            if (!OnAfterSave())
+                return false;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Saves the underlying data with hooks
+        /// </summary>
+        /// <returns></returns>
+        public bool Save()
+        {
+            if (!OnBeforeSave())
+                return false;
+
+            int result = Context.SaveChanges();
+            if (result == -1)
+                return false;
+
+
+            if (!OnAfterSave())
+                return false;
+
+            return true;
         }
 
 
-        protected void OnBeforeSave()
+        /// <summary>
+        /// Overridable before save hook.
+        /// Return false to indicate that the 
+        /// Save() operation should not occur
+        /// </summary>
+        /// <returns></returns>
+        protected virtual bool OnBeforeSave()
         {
-
+            return true;
         }
 
-        protected void OnAfterSave()
+        /// <summary>
+        /// Overridable after save hook. Called
+        /// after SaveChanges() has completed.
+        /// Return false in order to indicate
+        /// to the caller that the save operation
+        /// did not complete successfull (but
+        /// data has been save
+        /// </summary>
+        protected virtual bool OnAfterSave()
         {
-
+            return true;
         }
 
         protected bool OnValidate<T>(T entity)

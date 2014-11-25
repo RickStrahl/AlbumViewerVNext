@@ -41,7 +41,6 @@ namespace AlbumViewerBusiness
             
             if (album.Artist.Id < 1)
                 Context.Artists.Add(album.Artist);
-          
             
 
             int result = Context.SaveChanges();
@@ -91,7 +90,8 @@ namespace AlbumViewerBusiness
                 }
             }
 
-            result = await Save();
+            if (!await SaveAsync())
+                return null;
 
             return album;
         }
@@ -118,8 +118,7 @@ namespace AlbumViewerBusiness
 
             DataUtils.CopyObjectData(postedArtist, artist, "Id");
 
-            int result = await Save();
-            if (result < 0)
+            if (!await SaveAsync())
                 return null;
 
             return artist;

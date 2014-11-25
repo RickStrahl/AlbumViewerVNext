@@ -108,7 +108,10 @@ namespace MusicStoreVNext
             return new ArtistResponse()
             {
                 Artist = artist,
-                Albums = await db.Context.Albums.Where(a => a.ArtistId == artist.Id).ToListAsync()
+                Albums = await db.Context.Albums
+                    .Include(a=> a.Tracks)
+                    .Include(a=> a.Artist)            
+                    .Where(a => a.ArtistId == artist.Id).ToListAsync()
             };
         }
     }
