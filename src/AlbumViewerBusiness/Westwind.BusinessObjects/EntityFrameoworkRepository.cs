@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Entity;
 using System;
 using System.Threading.Tasks;
+using Westwind.Utilities;
 
 namespace Westwind.BusinessObjects
 {
@@ -8,12 +9,59 @@ namespace Westwind.BusinessObjects
         where TContext : DbContext
         where TEntity : class, new()
     {
-        public TContext Context { get; set; }
 
         public EntityFrameworkRepository(TContext context)
         {
             Context = context;
         }
+
+
+        /// <summary>
+        /// Instance of the DbContext. Must be passed or 
+        /// injected.
+        /// </summary>
+        public TContext Context { get; set; }
+
+        /// <summary>
+        /// A collection that can be used to hold errors or
+        /// validation errors. This 
+        /// </summary>        
+        public ValidationErrorCollection ValidationErrors
+        {
+            get
+            {
+                if (_validationErrors == null)
+                    _validationErrors = new ValidationErrorCollection();
+                return _validationErrors;
+            }
+        }
+        ValidationErrorCollection _validationErrors;
+
+        /// <summary>
+        /// Error Message of the last exception
+        /// </summary>
+        public string ErrorMessage
+        {
+            get
+            {
+                if (ErrorException == null)
+                    return "";
+                return ErrorException.Message;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    ErrorException = null;
+                else
+                    // Assign a new exception
+                    ErrorException = new Exception(value);
+            }
+        }
+
+        /// <summary>
+        /// Instance of an exception object that caused the last error
+        /// </summary>
+        public Exception ErrorException { get; set; }
 
         /// <summary>
         /// Creates a new instance of the entity type 
@@ -136,6 +184,55 @@ namespace Westwind.BusinessObjects
         protected bool OnValidate<T>(T entity)
         {
             return true;
+        }
+
+
+        /// <summary>
+        /// Sets an internal error message.
+        /// </summary>
+        /// <param name="Message"></param>
+        public void SetError(string Message)
+        {
+            if (string.IsNullOrEmpty(Message))
+            {
+                ErrorException = null;
+                return;
+            }
+
+            ErrorException = new Exception(Message);
+
+            //if (Options.ThrowExceptions)
+            //    throw ErrorException;
+        }
+
+        /// <summary>
+        /// Sets an internal error exception
+        /// </summary>
+        /// <param name="ex"></param>
+        public void SetError(Exception ex, bool checkInnerException = false)
+        {
+            ErrorException = ex;
+
+            if (checkInnerException)
+            {
+                while (ErrorException.InnerException != null)
+                {
+                    ErrorException = ErrorException.InnerException;
+                }
+            }
+
+            ErrorMessage = ErrorException.Message;
+            //if (ex != null && Options.ThrowExceptions)
+            //    throw ex;
+        }
+
+        /// <summary>
+        /// Clear out errors
+        /// </summary>
+        public void SetError()
+        {
+            ErrorException = null;
+            ErrorMessage = null;
         }
 
     }
