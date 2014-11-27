@@ -3,6 +3,7 @@
     "dependencies": {
         "EntityFramework": "7.0.0-*",
         "EntityFramework.SqlServer": "7.0.0-*",        
+        "Westwind.Utilities": ""
     },
     "frameworks": {
         "aspnet50": { },

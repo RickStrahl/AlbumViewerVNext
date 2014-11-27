@@ -30,7 +30,7 @@ namespace MusicStoreVNext
         [HttpGet]
         public async Task<IEnumerable<Album>> Albums()
         {
-            var result = await context.Albums
+            var result = await context.Albums                                
                 .Include(ctx => ctx.Tracks)
                 .Include(ctx => ctx.Artist)
                 .OrderBy(alb => alb.Title)

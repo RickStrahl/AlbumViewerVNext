@@ -16,6 +16,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AlbumViewerBusiness", "src\
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspVNextFromScratch", "src\AspVNextFromScratch\AspVNextFromScratch.kproj", "{F6B832E6-C937-4591-9A9B-F6E32B004834}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Westwind.Utilities", "src\Westwind.Utilities\Westwind.Utilities.kproj", "{4E0DD815-EB3E-436A-BFD2-674F0DC5C6E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{F6B832E6-C937-4591-9A9B-F6E32B004834}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6B832E6-C937-4591-9A9B-F6E32B004834}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6B832E6-C937-4591-9A9B-F6E32B004834}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E0DD815-EB3E-436A-BFD2-674F0DC5C6E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E0DD815-EB3E-436A-BFD2-674F0DC5C6E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E0DD815-EB3E-436A-BFD2-674F0DC5C6E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E0DD815-EB3E-436A-BFD2-674F0DC5C6E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +48,6 @@ Global
 		{C7E8AFD6-C80E-4672-ACF4-F6C6DF57D318} = {2E81926A-9E70-4A2A-8798-D3B51EEDE72D}
 		{CBA4182A-A3EF-41A5-900B-97979A682528} = {2E81926A-9E70-4A2A-8798-D3B51EEDE72D}
 		{F6B832E6-C937-4591-9A9B-F6E32B004834} = {2E81926A-9E70-4A2A-8798-D3B51EEDE72D}
+		{4E0DD815-EB3E-436A-BFD2-674F0DC5C6E8} = {2E81926A-9E70-4A2A-8798-D3B51EEDE72D}
 	EndGlobalSection
 EndGlobal

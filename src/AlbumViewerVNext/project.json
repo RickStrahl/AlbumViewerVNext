@@ -1,23 +1,26 @@
 {
     "webroot": "wwwroot",
     "exclude": "wwwroot/**/*.*",
-    "dependencies": {        
+    "dependencies": {
         "Microsoft.AspNet.Hosting": "1.0.0-beta2-*",
         "Microsoft.AspNet.Server.WebListener": "1.0.0-beta2-*",
-        "Microsoft.AspNet.Server.IIS": "1.0.0-beta2-*",        
+        "Microsoft.AspNet.Server.IIS": "1.0.0-beta2-*",
         "EntityFramework": "7.0.0-beta2-*",
         "EntityFramework.SqlServer": "7.0.0-beta2-*",
         "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-beta2-*",
         "Microsoft.AspNet.Mvc": "6.0.0-beta2-*",
-        
+
         "Microsoft.AspNet.StaticFiles": "1.0.0-beta2-*",
         "Microsoft.AspNet.Diagnostics": "1.0.0-beta2-*",
         "Microsoft.Framework.Logging": "1.0.0-beta2-*",
-        "Microsoft.Framework.Logging.Console": "1.0.0-beta2-*",        
-        "AlbumViewerBusiness": "",        
-        
-        //"AutoMapper": "3.2.1", 
-        "Kestrel": "1.0.0-beta2-*"
+        "Microsoft.Framework.Logging.Console": "1.0.0-beta2-*",
+
+        //"AutoMapper": "3.2.1",
+        "Kestrel": "1.0.0-beta2-*",
+
+        "Westwind.Utilities": "",
+        "AlbumViewerBusiness": ""
+
     },
     "commands": {
         /* Change the port number when you are self hosting this application */
@@ -28,9 +31,12 @@
     "frameworks": {
         "aspnet50": {
             "dependencies": {
-                
             }
         },
-        "aspnetcore50": { }
+        "aspnetcore50": {
+            "dependencies": {
+
+            }
+        }
     }
 }
