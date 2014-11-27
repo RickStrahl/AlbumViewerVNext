@@ -114,6 +114,13 @@ namespace MusicStoreVNext
                     .Where(a => a.ArtistId == artist.Id).ToListAsync()
             };
         }
+
+        [HttpGet]
+        public async Task<bool> DeleteAlbum(int id)
+        {
+            var db = new AlbumRepository(context);
+            return await db.DeleteAlbum(id);
+        }
     }
 
     public class ArtistResponse

@@ -33,7 +33,7 @@
 
         function isSearchVisible(tab) {            
             var tab = tab.toLowerCase();
-
+            
             if (tab == "albums" ||
                 tab == "artists")
                 vm.searchVisible = true;

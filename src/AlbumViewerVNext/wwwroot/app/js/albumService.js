@@ -124,7 +124,7 @@
         }
 
         function deleteAlbum(album){
-            return $http.delete("../api/album/" + album.Id)
+            return $http.get("../api/deletealbum/" + album.Id)
                 .success(function() {
                     service.albums = _.remove(service.albums, function(alb){
                         return album.Id != alb.Id;

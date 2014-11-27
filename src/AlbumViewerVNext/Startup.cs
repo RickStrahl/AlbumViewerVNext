@@ -62,6 +62,10 @@ namespace MusicStoreVNext
                     template: "api/{action}/{id?}",
                     defaults: new { controller = "MusicStoreApi", action = "Index" });
                 routes.MapRoute(
+                    name: "version",
+                    template: "version/{action}",
+                    defaults: new { controller = "VersionApi", action = "Index" });
+                routes.MapRoute(
                     name: "mvc",
                     template: "mvc/{action}/{id?}",
                     defaults: new { controller = "MusicStoreMvc", action = "Index" });

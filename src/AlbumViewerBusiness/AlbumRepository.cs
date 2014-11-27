@@ -15,7 +15,7 @@ namespace AlbumViewerBusiness
         
         public async Task<Album> SaveAlbum(Album postedAlbum)
         {
-            int id = postedAlbum.Id;
+            int id = postedAlbum.Id;            
 
             Album album = null;
             if (id < 1)
@@ -94,6 +94,35 @@ namespace AlbumViewerBusiness
                 return null;
 
             return album;
+        }
+                
+
+        public async Task<bool> DeleteAlbum(int id)
+        {
+            
+
+            // manually delete tracks
+            var tracks = await Context.Tracks.Where(t => t.AlbumId == id).ToListAsync();
+            for (int i = tracks.Count - 1; i > -1; i--)
+            {
+                var track = tracks[i];
+                tracks.Remove(track);
+            }
+
+            var album = await Context.Albums
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (album == null)
+            {
+                SetError("Invalid album id.");
+                return false;
+            }
+
+            Context.Albums.Remove(album);
+
+            var result = await SaveAsync();
+
+            return result;
         }
 
         /// <summary>

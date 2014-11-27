@@ -1897,7 +1897,7 @@ http://en.wikipedia.org/wiki/MIT_License
         return this.substr(0, str.length) == str;
     }
     String.prototype.extract = function(startDelim, endDelim, allowMissingEndDelim, returnDelims)
-    {
+    {        
         var str = this;
         if (str.length == 0)
             return "";

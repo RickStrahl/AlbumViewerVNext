@@ -262,19 +262,20 @@ namespace Westwind.Utilities
             return s.Split('\n').Length;
         }
 
-#if ASPNET50
-        /// <summary>
-        /// Return a string in proper Case format
-        /// </summary>
-        /// <param name="Input"></param>
-        /// <returns></returns>
-        public static string ProperCase(string Input)
-        {
-            if (Input == null)
-                return null;
-            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Input);
-        }
-#endif
+//if false
+//        /// <summary>
+//        /// Return a string in proper Case format
+//        /// </summary>
+//        /// <param name="Input"></param>
+//        /// <returns></returns>
+//        public static string ProperCase(string Input)
+//        {
+//            if (Input == null)
+//                return null;
+//            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Input);
+//        }
+//endif
+    
 
         /// <summary>
         /// Takes a phrase and turns it into CamelCase text.
@@ -484,18 +485,19 @@ namespace Westwind.Utilities
             return text + "...";
         }
 
-
+#if !ASPNETCORE50
         /// <summary>
         /// Simple Logging method that allows quickly writing a string to a file
         /// </summary>
         /// <param name="output"></param>
         /// <param name="filename"></param>
         public static void LogString(string output, string filename)
-        {
-            StreamWriter Writer = new StreamWriter(filename, true);
+        {            
+            StreamWriter Writer = File.AppendText(filename);
             Writer.WriteLine(DateTime.Now.ToString() + " - " + output);
             Writer.Close();
         }
+#endif
 
         /// <summary>
         /// Creates short string id based on a GUID hashcode.
@@ -600,7 +602,7 @@ namespace Westwind.Utilities
             return sb.ToString();
         }
 
-
+#if !ASPNETCORE50
         /// <summary>
         /// Creates a Stream from a string. Internally creates
         /// a memory stream and returns that.
@@ -613,13 +615,13 @@ namespace Westwind.Utilities
             if (encoding == null)
                 encoding = Encoding.UTF8;
 
-            MemoryStream ms = new MemoryStream(text.Length * 2);
+            var ms = new MemoryStream();
             byte[] data = encoding.GetBytes(text);
             ms.Write(data, 0, data.Length);
             ms.Position = 0;
             return ms;
         }
-
+#endif
 
         /// <summary>
         /// Turns a BinHex string that contains raw byte values
