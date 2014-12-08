@@ -3,55 +3,96 @@ using Microsoft.Data.Entity.Metadata;
 using Microsoft.Framework.OptionsModel;
 using System;
 using System.Linq;
+using Microsoft.Data.Entity.Infrastructure;
+using Microsoft.Framework.ConfigurationModel;
 
 namespace AlbumViewerBusiness
 {
-public class MusicStoreContext : DbContext
-{
-    
-    public MusicStoreContext(IServiceProvider serviceProvider)
-        : base(serviceProvider)
-    {   
-            
-    }
-
-    public DbSet<Album> Albums { get; set; }
-    public DbSet<Artist> Artists { get; set; }
-    public DbSet<Track> Tracks { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public class MusicStoreContext : DbContext
     {
-        base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<Album>(e =>
+        /// <summary>
+        /// The default constructor that provides for Dependency Injection
+        /// </summary>
+        /// <param name="serviceProvider"></param>
+        public MusicStoreContext(IServiceProvider serviceProvider)
+            : base(serviceProvider)
+        {        
+        }
+
+
+        /// <summary>
+        /// Manual Configuration that allows for manual instantiation.
+        /// </summary>
+        /// <param name="connectionString"></param>
+        public MusicStoreContext(string connectionString)
+               : base(GetConnectionString(connectionString))
         {
-            e.Key(a => a.Id);
-            e.ForRelational().Table("Albums");
-            e.ForeignKey<Artist>(a => a.ArtistId);
+        }
+
+        /// <summary>
+        /// Default contructor that uses connection string value from a
+        /// config.json file: Data:MusicStore:ConnectionString)
+        /// </summary>
+        public MusicStoreContext()
+            : base(GetConnectionString())
+        {
+        }
+
+        /// <summary>
+        /// Gets ConnectionString
+        /// </summary>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
+        private static DbContextOptions GetConnectionString(string connectionString = null)
+        {
+            if (connectionString == null)
+            {
+                var configuration = new Configuration();
+                configuration.AddJsonFile("config.json");
+                connectionString = configuration.Get("Data:MusicStore:ConnectionString");
+            }
+
+            return new DbContextOptions().UseSqlServer(connectionString);            
+        }
+
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Artist> Artists { get; set; }
+        public DbSet<Track> Tracks { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Album>(e =>
+            {
+                e.Key(a => a.Id);
+                e.ForRelational().Table("Albums");
+                e.ForeignKey<Artist>(a => a.ArtistId);
             //e.OneToMany<Track>(a => a.Tracks);
         });
-        modelBuilder.Entity<Artist>(e =>
-        {
-            e.Key(a => a.Id);
-            e.ForRelational().Table("Artists");
-        });
-        modelBuilder.Entity<Track>(e =>
-        {
-            e.Key(t => t.Id);
-            e.ForRelational().Table("Tracks");
-            e.ForeignKey<Album>(a => a.AlbumId);
-        });
+            modelBuilder.Entity<Artist>(e =>
+            {
+                e.Key(a => a.Id);
+                e.ForRelational().Table("Artists");
+            });
+            modelBuilder.Entity<Track>(e =>
+            {
+                e.Key(t => t.Id);
+                e.ForRelational().Table("Tracks");
+                e.ForeignKey<Album>(a => a.AlbumId);
+            });
 
-        var album = modelBuilder.Model.GetEntityType(typeof(Album));
-        var artist = modelBuilder.Model.GetEntityType(typeof(Artist));
-        var track = modelBuilder.Model.GetEntityType(typeof(Track));
+            var album = modelBuilder.Model.GetEntityType(typeof(Album));
+            var artist = modelBuilder.Model.GetEntityType(typeof(Artist));
+            var track = modelBuilder.Model.GetEntityType(typeof(Track));
 
-        album.AddNavigation("Artist", album.ForeignKeys.Single(k => k.ReferencedEntityType == artist), pointsToPrincipal: true);
-        album.AddNavigation("Tracks", track.ForeignKeys.Single(k => k.ReferencedEntityType == album), pointsToPrincipal: false);            
+            album.AddNavigation("Artist", album.ForeignKeys.Single(k => k.ReferencedEntityType == artist), pointsToPrincipal: true);
+            album.AddNavigation("Tracks", track.ForeignKeys.Single(k => k.ReferencedEntityType == album), pointsToPrincipal: false);
+        }
     }
-}
 
     public class MusicStoreContextOptions : DbContextOptions
-    {        
+    {
     }
 }

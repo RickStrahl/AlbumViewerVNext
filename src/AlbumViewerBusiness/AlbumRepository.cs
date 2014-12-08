@@ -19,7 +19,10 @@ namespace AlbumViewerBusiness
 
             Album album = null;
             if (id < 1)
-                album = Context.Albums.Add(new Album());
+            {
+                album = new Album();
+                Context.Albums.Add(album);
+            }
             else
             {
                 album = await Context.Albums
@@ -37,18 +40,18 @@ namespace AlbumViewerBusiness
                     album.Artist.Id = artist.Id;
             }
 
-            Westwind.Utilities.DataUtils.CopyObjectData(postedAlbum.Artist, album.Artist, "Id");
-            
+            DataUtils.CopyObjectData(postedAlbum.Artist, album.Artist, "Id");
+
+            // new artist 
             if (album.Artist.Id < 1)
                 Context.Artists.Add(album.Artist);
             
-
-            int result = Context.SaveChanges();
+            //result = Context.SaveChanges();
 
             album.ArtistId = album.Artist.Id;
-            Westwind.Utilities.DataUtils.CopyObjectData(postedAlbum, album, "Tracks,Artist,Id,ArtistId");
+            DataUtils.CopyObjectData(postedAlbum, album, "Tracks,Artist,Id,ArtistId");
            
-            result = Context.SaveChanges();
+            //result = Context.SaveChanges();
 
             int albumId = album.Id;
 
@@ -56,14 +59,14 @@ namespace AlbumViewerBusiness
             {
                 var track = album.Tracks.FirstOrDefault(trk => trk.Id == postedTrack.Id);
                 if (postedTrack.Id > 0 && track != null)
-                    Westwind.Utilities.DataUtils.CopyObjectData(postedTrack, track);
+                    DataUtils.CopyObjectData(postedTrack, track);
                 else
                 {
                     track = new Track();
                     Context.Tracks.Add(track);
-                    Westwind.Utilities.DataUtils.CopyObjectData(postedTrack, track, "Id,AlbumId,ArtistId");
+                    DataUtils.CopyObjectData(postedTrack, track, "Id,AlbumId,ArtistId");
                     album.Tracks.Add(track);
-                    track.AlbumId = albumId;
+                    //track.AlbumId = albumId;
                 }
                 
             }
@@ -84,8 +87,10 @@ namespace AlbumViewerBusiness
             {
                 foreach (var dtrack in deletedTracks)
                 {
+                    // This works (but parent instance isn't updated after SubmitChanges())
                     Context.Tracks.Remove(dtrack);
-                    // BUG: this bonks!
+
+                    // BUG: this bonks!                    
                     //album.Tracks.Remove(dtrack);
                 }
             }
@@ -99,8 +104,6 @@ namespace AlbumViewerBusiness
 
         public async Task<bool> DeleteAlbum(int id)
         {
-            
-
             // manually delete tracks
             var tracks = await Context.Tracks.Where(t => t.AlbumId == id).ToListAsync();
             for (int i = tracks.Count - 1; i > -1; i--)

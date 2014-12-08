@@ -1,6 +1,6 @@
 ﻿{
     "Data": {
-        "MusicStoreConnection": {
+        "MusicStore": {
             //"xConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=musicstore.mdf;Trusted_Connection=True;"
           "ConnectionString": "Data Source=.;database=musicstore;integrated security=true;Connect Timeout=30;MultipleActiveResultSets=True"
             //"ConnectionString": "Data Source=RAS-VM2015;database=musicstore;integrated security=true;Connect Timeout=30"

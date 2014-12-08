@@ -36,7 +36,7 @@ namespace MusicStoreVNext
                             .AddSqlServer()
                             .AddDbContext<MusicStoreContext>(options =>
                             {
-                                var val = configuration.Get("Data:MusicStoreConnection:ConnectionString");
+                                var val = configuration.Get("Data:MusicStore:ConnectionString");
                                 options.UseSqlServer(val);
                             });
 

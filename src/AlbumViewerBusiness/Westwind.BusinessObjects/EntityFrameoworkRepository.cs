@@ -24,7 +24,15 @@ namespace Westwind.BusinessObjects
 
         /// <summary>
         /// A collection that can be used to hold errors or
-        /// validation errors. This 
+        /// validation errors. 
+        /// 
+        /// Note you have to explicitly call Validate() to 
+        /// validate explicit business rules you define in code
+        /// as well as entity validation rules.
+        /// 
+        /// Calling Save() will not call this method to validate
+        /// as it can potentially operate on multiple entities,
+        /// but it will fail on entity validations.
         /// </summary>        
         public ValidationErrorCollection ValidationErrors
         {
@@ -36,6 +44,12 @@ namespace Westwind.BusinessObjects
             }
         }
         ValidationErrorCollection _validationErrors;
+
+        /// <summary>
+        /// Determines whether the Validate method is automatically called
+        /// in the Save() operation
+        /// </summary>
+        public bool AutoValidate { get; set; }
 
         /// <summary>
         /// Error Message of the last exception
@@ -92,18 +106,16 @@ namespace Westwind.BusinessObjects
 
         public TEntity Load(object id)
         {
-            throw new NotImplementedException();
-            return null;
+            throw new NotImplementedException();            
         }
 
         public TEntity Load<T>(object id)
             where T : class, new()
         {
-            throw new NotImplementedException();
-            return null;
+            throw new NotImplementedException();            
         }
 
-        public bool Validate(TEntity entity = null)
+        public bool Validate(TEntity entity)
         {
             bool result = OnValidate<TEntity>(entity);
             return result;

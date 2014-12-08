@@ -30,9 +30,12 @@ namespace MusicStoreVNext
         [HttpGet]
         public async Task<IEnumerable<Album>> Albums()
         {
-            var result = await context.Albums                                
-                .Include(ctx => ctx.Tracks)
+            // For demonstration create individual instance
+            var ctxt = new MusicStoreContext();            
+
+            var result = await ctxt.Albums                                                
                 .Include(ctx => ctx.Artist)
+                .Include(ctx => ctx.Tracks)
                 .OrderBy(alb => alb.Title)
                 .ToListAsync();
 
@@ -43,8 +46,8 @@ namespace MusicStoreVNext
         public async Task<Album> Album(int id)
         {
             var album = await context.Albums
-                                     .Include(ctx=> ctx.Tracks)
                                      .Include(ctx => ctx.Artist)
+                                     .Include(ctx=> ctx.Tracks)                                     
                                      .FirstOrDefaultAsync(alb => alb.Id == id);
             //await album.LoadTracksAsync(context);
             return album;
@@ -54,10 +57,58 @@ namespace MusicStoreVNext
         public async Task<Album> Album([FromBody] Album postedAlbum)
         {
             if (!ModelState.IsValid)            
-                throw new ApiException("Model binding failed.",500);            
+                throw new ApiException("Model binding failed.",500);
 
             var albumRepo = new AlbumRepository(context);
-            return await albumRepo.SaveAlbum(postedAlbum);            
+            return await albumRepo.SaveAlbum(postedAlbum);
+
+#if false
+            int id = postedAlbum.Id;
+
+            Album album = null;
+            if (id < 1)
+            {
+                album = new Album();
+                context.Albums.Add(album);
+            }
+            else
+            {
+                album = await context.Albums
+                    .Include(ctx => ctx.Tracks)
+                    .Include(ctx => ctx.Artist)
+                    .FirstOrDefaultAsync(alb => alb.Id == id);
+            }
+
+            // check for existing artist and assign if matched
+            if (album.Artist.Id < 1)
+            {
+                var artist = await context.Artists
+                                          .FirstOrDefaultAsync(art => art.ArtistName == postedAlbum.Artist.ArtistName);
+                if (artist != null)
+                    album.Artist.Id = artist.Id;
+            }
+
+            DataUtils.CopyObjectData(postedAlbum, album, "Id,Tracks,Artist");
+            DataUtils.CopyObjectData(postedAlbum.Artist, album.Artist, "Id");
+
+            foreach (var postedTrack in postedAlbum.Tracks)
+            {
+                var track = album.Tracks.FirstOrDefault(trk => trk.Id == postedTrack.Id);
+                if (postedTrack.Id > 0 && track != null)
+                    DataUtils.CopyObjectData(postedTrack, track);
+                else
+                {
+                    track = new Track();
+                    context.Tracks.Add(track);
+                    DataUtils.CopyObjectData(postedTrack, track, "Id,AlbumId,ArtistId");
+                    album.Tracks.Add(track);
+                }
+            }
+
+            context.SaveChanges();
+
+            return album;
+#endif
         }
 
 
