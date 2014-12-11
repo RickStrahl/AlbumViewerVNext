@@ -1,10 +1,21 @@
+
+
 <div ng-controller="albumsController as view" class="container container-fluid">
+
+    <div class="alert alert-dismissable alert-{{view.error.icon}}"
+         ng-show="view.error.message"
+         role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
+        <span ng-bind="view.error.message"></span>
+    </div>
 
     <button class="btn btn-sm btn-success pull-right" ng-click="view.addAlbum()"><i class="fa fa-plus"></i> Add Album</button>
     <div class="page-header-text"><i class="fa fa-list"></i> Albums <span class="badge">{{view.albums.length}}</span></div>
 
     <hr style="margin-top: 6px;" />
-    
+
     <!-- use a custom $scope filter to search only artist and album name instead of filter: view.searchText -->
     <div class="album" ng-repeat="album in view.albums | filter: view.albumsFilter:view.searchText">
         <div class="album-overlay">

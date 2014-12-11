@@ -51,12 +51,12 @@
 
         vm.addAlbum = function () {            
             albumService.album = albumService.newAlbum();
-            albumService.album.artistPk = vm.artist.pk;
-            albumService.album.artist.pk = vm.artist.pk;
-            albumService.album.artist.artistname = vm.artist.artistname;
+            albumService.album.ArtistId = vm.artist.Id;
+            albumService.album.Artist.Id = vm.artist.Id;
+            albumService.album.Artist.ArtistName = vm.artist.ArtistName;
 
             albumService.updateAlbum(albumService.album);
-            $window.location.hash = "/album/edit/0";
+            $window.location.hash = "/album/edit/-1";
         };
 
         vm.getArtist($routeParams.artistId);

@@ -46,6 +46,7 @@
             setTimeout(function() { $("#SongName").focus(); },300);
         };
         vm.saveSong = function (song) {
+            debugger;
             albumService.addSongToAlbum(vm.album, song);
             vm.albums = albumService.albums;
             vm.album = albumService.album;
@@ -72,12 +73,16 @@
                 })
                 .error(onPageError);
         };
-
-        // Initialization code
-        albumService.getAlbum($routeParams.albumId,true)
-            .success(function (album) {
+        vm.getAlbum = function(id) {            
+            albumService.getAlbum(id, true)
+            .success(function (album) {                
                 vm.album = album;
             });
+
+        }
+
+        // Initialization code
+        vm.getAlbum($routeParams.albumId * 1, true);
         
         // force explicit animation of the view and edit forms always
         $animate.addClass("#MainView","slide-animation");

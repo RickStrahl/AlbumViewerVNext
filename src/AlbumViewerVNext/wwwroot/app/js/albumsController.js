@@ -12,6 +12,13 @@
         var vm = this;
         vm.albums = null;
 
+        vm.error = {
+            message: null,
+            icon: "warning",
+            reset: function () { vm.error = { message: "", icon: "warning" } }
+        };
+
+
         // filled view event emit from root form
         vm.searchText = '';
 
@@ -20,6 +27,15 @@
         vm.albumClick = function(album) {
             window.location = "#/album/" + album.Id;
         };
+        vm.getAlbums = function() {
+            albumService.getAlbums() 
+                .success(function(data) {
+                    vm.albums = data;
+                })
+                .error(function(err) {
+                    alert('failed to get albums');
+                });            
+        }
         vm.addAlbum = function () {            
             albumService.album = albumService.newAlbum();
             albumService.updateAlbum(albumService.album);
@@ -53,17 +69,9 @@
             vm.searchText = searchText;            
         });
 
-
         // controller initialization
-        if (albumService.albums && albumService.albums.length > 0)
-            vm.albums = albumService.albums;
-        else {
-            albumService.getAlbums()
-                .success(function(data) {
-                    vm.albums = data;
-                })
-                .error(function() { alert('failed to get albums');  });
-        }
+        vm.getAlbums();
+        
 
         return;
     }

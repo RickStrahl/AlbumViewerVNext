@@ -9,6 +9,7 @@
 
     function albumService($http,$q) {
         var service = {
+            baseUrl: "../api/",
             albums: [],
             artists: [],
             album: newAlbum(),
@@ -23,7 +24,6 @@
             newSong: newSong,
             activeTab: 'albums'
         };               
-
         return service;
                 
 
@@ -50,18 +50,25 @@
             };
         }
 
-        function getAlbums() {
-
-            return $http.get("../api/albums/")
+        function getAlbums(noCache) {
+            // if albums exist just return
+            if (!noCache && service.albums && service.albums.length > 0)
+                return ww.angular.$httpPromiseFromValue($q, service.albums);                
+            
+            return $http.get(service.baseUrl + "albums/")
                 .success(function (data) {                    
                     service.albums = data;                   
                 })
                 .error(onPageError);
         }
 
-        function getAlbum(id, useExisting) {
-            if (!id)
-                return; 
+        function getAlbum(id, useExisting) {            
+            if (id === 0 || id === '0') {
+                service.album = service.newAlbum();
+                return ww.angular.$httpPromiseFromValue($q,service.album);
+            }                
+            else if (id === -1 || id === '-1' || !id)
+                return ww.angular.$httpPromiseFromValue($q,service.album);
 
             // if the album is already loaded just return it
             // and return the promise
@@ -79,7 +86,7 @@
                     console.log(http, httpObj);
                 });
         }
-        function addSongToAlbum(album, song) {
+        function addSongToAlbum(album, song) {            
             album.Tracks.push(song);
             service.album = album;
         };
@@ -116,7 +123,7 @@
         }
 
         function saveAlbum(album) {            
-            return $http.post("../api/album",album)
+            return $http.post(service.baseUrl + "album", album)
                 .success(function (alb) {                    
                     service.updateAlbum(alb);
                     service.album = alb;                    
@@ -124,7 +131,7 @@
         }
 
         function deleteAlbum(album){
-            return $http.get("../api/deletealbum/" + album.Id)
+            return $http.get(service.baseUrl + "deletealbum/" + album.Id)
                 .success(function() {
                     service.albums = _.remove(service.albums, function(alb){
                         return album.Id != alb.Id;
