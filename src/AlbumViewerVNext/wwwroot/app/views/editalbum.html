@@ -25,18 +25,20 @@
             <form name="form1" action="javascript:{}" novalidate>
                 <div class="form-group">
                     <label for="AlbumName">Album Name:</label>
-                    <div class="input-group">
-                        <input id="AlbumName" type="text" class="form-control input-sm"
-                               placeholder="Album Name" required
-                               ng-model="view.album.Title" />
-                        <span class="input-group-addon" ng-click="clearName()"><span class=" fa fa-times-circle"></span></span>
-                    </div>
+                    <input id="AlbumName" type="text" class="form-control input-sm"
+                           placeholder="Album Name" required
+                           ng-model="view.album.Title" autofocus />                    
+                    
                 </div>
                 <div class="form-group">
                     <label for="BandName">Band Name:</label>
-                    <input type="text" class="form-control input-sm" id="BandName"
+                    <input type="text" class="form-control input-sm typeahead" id="BandName"
                            required
+                           autocomplete="off"
+                           data-provide="typeahead"
                            placeholder="Band Name" ng-model="view.album.Artist.ArtistName" />
+
+
                 </div>
                 <div class="form-group">
                     <label for="Description">Album Description:</label>
@@ -47,25 +49,25 @@
                               style="height: 115px"></textarea>
 
                 </div>
-                
+
                 <div class="form-group">
                     <label for="AmazonUrl">Amazon Url:</label>
                     <input type="text" class="form-control input-sm" id="AmazonUrl"
                            required
-                           placeholder="Amazon Url" ng-model="view.album.AmazonUrl" />
+                           placeholder="Amazon Url" ng-model="view.album.AmazonUrl"/>
                 </div>
                 <div class="form-group">
                     <label for="ImageUrl">Image Url:</label>
                     <input type="text" class="form-control input-sm" id="ImageUrl"
                            required
-                           placeholder="Image Url" ng-model="view.album.ImageUrl" />
+                           placeholder="Image Url" ng-model="view.album.ImageUrl"/>
                 </div>
 
                 <div class="form-group">
                     <label for="YearReleased">Year released:</label>
                     <input type="number" class="form-control input-sm" id="YearReleased"
                            required
-                           placeholder="Year of album release" ng-model="view.album.Year" />
+                           placeholder="Year of album release" ng-model="view.album.Year"/>
                 </div>
 
                 <button ng-click="view.addSong()" accesskey="a"
@@ -73,34 +75,34 @@
                         class="btn btn-info btn-xs" style="margin-bottom: 10px;">
                     <i class="fa fa-plus-circle"></i> Add Song
                 </button>
-                
+
                 <div ng-show="view.isSongVisible" class="well well-sm">
-                    
-                        <div class="row">
-                            <div class=" col-sm-9">
-                                <input class="form-control input-sm" id="SongName"
-                                       placeholder="Name of the song" 
-                                       ng-model="view.song.SongName" />
 
-                            </div>
-                            <div class="col-sm-3">
-                                <input class="form-control input-sm" id="Length"                                       
-                                       ng-model="view.song.Length"
-                                       placeholder="0:00" />
-                            </div>
+                    <div class="row">
+                        <div class=" col-sm-9">
+                            <input class="form-control input-sm" id="SongName"
+                                   placeholder="Name of the song"
+                                   ng-model="view.song.SongName"/>
+
                         </div>
+                        <div class="col-sm-3">
+                            <input class="form-control input-sm" id="Length"
+                                   ng-model="view.song.Length"
+                                   placeholder="0:00"/>
+                        </div>
+                    </div>
 
-                        <button class="btn btn-success btn-xs"
-                                ng-click="view.saveSong(view.song)"
-                                ng-disabled="!view.song.SongName || !view.song.Length"
-                                style="margin-top: 8px;" accesskey="">
-                            <i class="fa fa-plus-circle"></i> Add Song
-                        </button>
-                        <button class="btn btn-default btn-xs"
-                                ng-click="view.cancelSong()"
-                                style="margin-top: 8px;">
-                            <i class="fa fa-times"></i> Cancel
-                        </button>
+                    <button class="btn btn-success btn-xs"
+                            ng-click="view.saveSong(view.song)"
+                            ng-disabled="!view.song.SongName || !view.song.Length"
+                            style="margin-top: 8px;" accesskey="">
+                        <i class="fa fa-plus-circle"></i> Add Song
+                    </button>
+                    <button class="btn btn-default btn-xs"
+                            ng-click="view.cancelSong()"
+                            style="margin-top: 8px;">
+                        <i class="fa fa-times"></i> Cancel
+                    </button>
                 </div>
 
                 <table class=" table table-striped small">
@@ -136,7 +138,7 @@
 
         <div class="col-sm-7">
             <h3>Preview</h3>
-            <img ng-src="{{view.album.ImageUrl}}" class="album-image-big" />
+            <img ng-src="{{view.album.ImageUrl}}" class="album-image-big"/>
             <div style="margin-top: 10px;">
                 <div class="album-title-big">{{view.album.Title}}</div>
                 <div class="album-artist">by {{view.album.Artist.ArtistName}} {{(view.album.Year ? 'in ' + view.album.Year : '')}}
@@ -144,7 +146,7 @@
                 </div>
                 <div class="album-descript" ng-bind-html="view.album.Description | linebreakFilter"></div>
 
-                <hr />
+                <hr/>
 
                 <table class=" table table-striped small">
                     <tr ng-repeat="song in view.album.Tracks">
@@ -158,3 +160,7 @@
     </div>
 
 </div>
+
+<script>
+        
+</script>

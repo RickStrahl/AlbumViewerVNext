@@ -167,6 +167,27 @@ namespace MusicStoreVNext
         }
 
         [HttpGet]
+        public async Task<IEnumerable<object>> ArtistLookup(string search = null)
+        {
+            if (string.IsNullOrEmpty(search))
+                return new List<object>();
+            
+            var db = new AlbumRepository(context);
+
+            var term = search.ToLower();
+            var artists = await db.Context.Artists
+                                  .Where(a => a.ArtistName.ToLower().StartsWith(term))
+                                  .Select(a=> new
+                                  {
+                                      name = a.ArtistName,
+                                      id=a.ArtistName                                      
+                                  })
+                                  .ToListAsync();
+
+            return artists;
+        }
+
+        [HttpGet]
         public async Task<bool> DeleteAlbum(int id)
         {
             var db = new AlbumRepository(context);

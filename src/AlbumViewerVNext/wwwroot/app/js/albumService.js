@@ -9,7 +9,7 @@
 
     function albumService($http,$q) {
         var service = {
-            baseUrl: "../api/",
+            baseUrl: "api/",
             albums: [],
             artists: [],
             album: newAlbum(),
@@ -78,7 +78,7 @@
                 return deferred.promise;
             }
 
-            return $http.get("../api/album/" + id)
+            return $http.get(service.baseUrl + "album/" + id)
                 .success(function(album) {
                     service.album = album;
                 })

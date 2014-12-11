@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6380FC2-82F7-44BB-9643-4C93230E9F24}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		Readme.md = Readme.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AlbumViewerVNext", "src\AlbumViewerVNext\AlbumViewerVNext.kproj", "{C7E8AFD6-C80E-4672-ACF4-F6C6DF57D318}"

@@ -146,6 +146,12 @@ Accept: application/json
 
 ------------------------------------------------------------------
 
+GET http://localhost:51670/api/artistlookup?search=A HTTP/1.1
+Accept-Encoding: gzip,deflate
+Accept: application/json
+
+------------------------------------------------------------------
+
 
 ----- Start WebSurge Options -----
 
@@ -163,9 +169,9 @@ Accept: application/json
   "WarmupSeconds": 2,
   "ReloadTemplates": true,
   "FormattedPreviewTheme": "visualstudio",
-  "LastThreads": 20,
+  "LastThreads": 50,
   "IgnoreCertificateErrors": false,
-  "LastSecondsToRun": 20
+  "LastSecondsToRun": 30
 }
 
 ----- End WebSurge Options -----

@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.album = null;
+        vm.selectedArtist = { ArtistName: null, Description: null };
         vm.error = {
             message: null,
             icon: "warning",
@@ -80,10 +81,28 @@
             });
 
         }
+        vm.bandTypeAhead = function() {
+            var $input = $('#BandName');
+            
+            $input.typeahead({
+                source: [],
+                autoselect: true
+            });
+            $input.keyup(function () {                
+                var s = $(this).val();
+                $.getJSON("../api/artistlookup?search=" + s,
+                    function (data) {
+                        console.log(data);
+                        $input.data('typeahead').source = data;
+                    });
+            });
+        }
 
         // Initialization code
         vm.getAlbum($routeParams.albumId * 1, true);
-        
+
+        vm.bandTypeAhead();
+
         // force explicit animation of the view and edit forms always
         $animate.addClass("#MainView","slide-animation");
     }

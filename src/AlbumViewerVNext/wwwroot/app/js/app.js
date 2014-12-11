@@ -5,11 +5,13 @@
         // Angular modules 
         'ngAnimate',
         'ngRoute',
-        'ngSanitize'
+        'ngSanitize',        
+
 
         // Custom modules 
 
         // 3rd Party Modules
+        
     ]);
 
     app.config([

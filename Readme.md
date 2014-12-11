@@ -33,11 +33,14 @@ the application. Alternately you can run the sample from the command line.
 
 
 **From the command line:**
+
 If you don't have the KRE Runtime installed:
 
 * Go to: https://github.com/aspnet/Home#getting-started
 * Follow the KRuntime install directions
 * Install with PowerShell
+* Run kvm upgrade -runtime CoreClr 
+* Run kvm upgrade -runtime Clr
 
 Once the runtime is installed:
 

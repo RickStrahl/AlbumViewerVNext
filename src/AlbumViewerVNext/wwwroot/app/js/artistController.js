@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.artist = null;
+        vm.baseUrl = "api/";
         vm.albums = [];
         vm.error = {
             message: null,
@@ -23,7 +24,7 @@
         };
 
         vm.getArtist = function(pk) {
-            $http.get("../api/artist?id=" + pk)
+            $http.get(vm.baseUrl + "artist?id=" + pk)
                 .success(function(response) {
                     vm.artist = response.Artist;
                     vm.albums = response.Albums;
@@ -34,7 +35,7 @@
         };
 
         vm.saveArtist = function(artist) {
-            $http.post("../api/artist/", artist)
+            $http.post(vm.baseUrl + "artist/", artist)
                 .success(function (response) {
                     vm.artist = response.Artist;
                     vm.albums = response.Albums;

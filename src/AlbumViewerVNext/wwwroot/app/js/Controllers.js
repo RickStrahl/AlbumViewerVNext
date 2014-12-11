@@ -10,9 +10,9 @@
 
     function headerController($scope,$route,$window,albumService) {
         var vm = $scope;  // straight $scope controller
-
+        
         vm.searchText = "";
-        vm.searchVisible = true;
+        vm.searchVisible = false;
 
         vm.activeTab = albumService.activeTab;
 
@@ -20,15 +20,16 @@
         vm.onKey = function () {        
             $scope.$emit('onsearchkey', vm.searchText);
         }
-
+        
         $scope.searchBlur = function () {            
             vm.searchText = "";
         }
-
+        
         vm.$on("$locationChangeSuccess", function () {            
             var path = $window.location.hash;
             vm.activeTab = path.extract("#/", "/", true);
             isSearchVisible(vm.activeTab);
+            console.log(path, vm.activeTab);            
         });
 
         function isSearchVisible(tab) {            
@@ -39,10 +40,8 @@
                 vm.searchVisible = true;
             else
                 vm.searchVisible = false;
+            console.log(vm.searchVisible);
         }
-
-        isSearchVisible(vm.activeTab);
-
         return;
     }
 
@@ -54,9 +53,10 @@
         var vm = this;  // controller as
         vm.artists = [];
         vm.searchText = "";
+        vm.baseUrl = "api/";
 
-        vm.getArtists = function() {
-            return $http.get("../api/artists")
+        vm.getArtists = function () {            
+            return $http.get(vm.baseUrl + "artists")
                 .success(function(artists) {
                     vm.artists = artists;
                 });
