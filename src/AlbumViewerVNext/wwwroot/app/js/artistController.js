@@ -56,7 +56,7 @@
             albumService.album.Artist.ArtistName = vm.artist.ArtistName;
 
             albumService.updateAlbum(albumService.album);
-            $window.location.hash = "/album/edit/-1";
+            $window.location.hash = "/album/edit/0";
         };
 
         vm.getArtist($routeParams.artistId);
