@@ -135,12 +135,11 @@
             </form>
         </div>
 
-
         <div class="col-sm-7">
             <h3>Preview</h3>
             <img ng-src="{{view.album.ImageUrl}}" class="album-image-big"/>
             <div style="margin-top: 10px;">
-                <div class="album-title-big">{{view.album.Title}}</div>
+                <h2 class="album-title-big">{{view.album.Title}}</h2>
                 <div class="album-artist">by {{view.album.Artist.ArtistName}} {{(view.album.Year ? 'in ' + view.album.Year : '')}}
                     - <a ng-href="{{view.album.AmazonUrl}}" ng-hide="!view.album.AmazonUrl"><i class="fa fa-dollar"></i> Buy on Amazon</a>
                 </div>

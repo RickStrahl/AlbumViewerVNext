@@ -33,9 +33,9 @@ namespace MusicStoreVNext
             // For demonstration create individual instance
             var ctxt = new MusicStoreContext();            
 
-            var result = await ctxt.Albums                                                
-                .Include(ctx => ctx.Artist)
+            var result = await ctxt.Albums
                 .Include(ctx => ctx.Tracks)
+                .Include(ctx => ctx.Artist)                
                 .OrderBy(alb => alb.Title)
                 .ToListAsync();
 

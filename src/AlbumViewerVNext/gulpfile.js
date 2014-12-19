@@ -1,3 +1,4 @@
+/// <binding AfterBuild='scripts' />
 var gulp = require('gulp');
 
 var merge = require('merge-stream');
@@ -40,10 +41,11 @@ gulp.task('scripts', function() {
         .src(['wwwroot/scripts/lodash.min.js',
         'wwwroot/scripts/fastclick.min.js',
         'wwwroot/scripts/ww.angular.js',
-        'wwwroot/scripts/ww.jquery.min.js'        
+        'wwwroot/scripts/ww.jquery.min.js',
+        'wwwroot/scripts/bootstrap-typeahead.min.js'
         ])
     .pipe(sourcemaps.init())
-    .pipe(concat('angular-concat.min.js'))
+    .pipe(concat('libraries.min.js'))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest('wwwroot/js'));
 

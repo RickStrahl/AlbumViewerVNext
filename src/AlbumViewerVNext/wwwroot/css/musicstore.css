@@ -1,9 +1,13 @@
+body {
+       
+}
 .page-header-text{
     font-size: 1.8em;
     font-weight: bold;
     color: steelblue;
 }
 h2,h3 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
     font-weight: bold;
 }
 h3 {
@@ -63,7 +67,7 @@ h3 {
 
 .album-title-big {
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.55em;
 }
 
 .album-descript {

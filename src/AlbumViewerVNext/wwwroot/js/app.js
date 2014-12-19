@@ -5,11 +5,13 @@
         // Angular modules 
         'ngAnimate',
         'ngRoute',
-        'ngSanitize'
+        'ngSanitize',        
+
 
         // Custom modules 
 
         // 3rd Party Modules
+        
     ]);
 
     app.config([
@@ -60,9 +62,9 @@
 
     function headerController($scope,$route,$window,albumService) {
         var vm = $scope;  // straight $scope controller
-
+        
         vm.searchText = "";
-        vm.searchVisible = true;
+        vm.searchVisible = false;
 
         vm.activeTab = albumService.activeTab;
 
@@ -70,15 +72,16 @@
         vm.onKey = function () {        
             $scope.$emit('onsearchkey', vm.searchText);
         }
-
+        
         $scope.searchBlur = function () {            
             vm.searchText = "";
         }
-
+        
         vm.$on("$locationChangeSuccess", function () {            
             var path = $window.location.hash;
             vm.activeTab = path.extract("#/", "/", true);
             isSearchVisible(vm.activeTab);
+            console.log(path, vm.activeTab);            
         });
 
         function isSearchVisible(tab) {            
@@ -89,10 +92,8 @@
                 vm.searchVisible = true;
             else
                 vm.searchVisible = false;
+            console.log(vm.searchVisible);
         }
-
-        isSearchVisible(vm.activeTab);
-
         return;
     }
 
@@ -104,9 +105,10 @@
         var vm = this;  // controller as
         vm.artists = [];
         vm.searchText = "";
+        vm.baseUrl = "api/";
 
-        vm.getArtists = function() {
-            return $http.get("../api/artists")
+        vm.getArtists = function () {            
+            return $http.get(vm.baseUrl + "artists")
                 .success(function(artists) {
                     vm.artists = artists;
                 });
@@ -136,6 +138,7 @@
         var vm = this;
 
         vm.album = null;
+        vm.selectedArtist = { ArtistName: null, Description: null };
         vm.error = {
             message: null,
             icon: "warning",
@@ -205,10 +208,28 @@
             });
 
         }
+        vm.bandTypeAhead = function() {
+            var $input = $('#BandName');
+            
+            $input.typeahead({
+                source: [],
+                autoselect: true
+            });
+            $input.keyup(function () {                
+                var s = $(this).val();
+                $.getJSON("../api/artistlookup?search=" + s,
+                    function (data) {
+                        console.log(data);
+                        $input.data('typeahead').source = data;
+                    });
+            });
+        }
 
         // Initialization code
         vm.getAlbum($routeParams.albumId * 1, true);
-        
+
+        vm.bandTypeAhead();
+
         // force explicit animation of the view and edit forms always
         $animate.addClass("#MainView","slide-animation");
     }
@@ -225,6 +246,7 @@
 
     function albumService($http,$q) {
         var service = {
+            baseUrl: "api/",
             albums: [],
             artists: [],
             album: newAlbum(),
@@ -270,7 +292,7 @@
             if (!noCache && service.albums && service.albums.length > 0)
                 return ww.angular.$httpPromiseFromValue($q, service.albums);                
             
-            return $http.get("../api/albums/")
+            return $http.get(service.baseUrl + "albums/")
                 .success(function (data) {                    
                     service.albums = data;                   
                 })
@@ -293,7 +315,7 @@
                 return deferred.promise;
             }
 
-            return $http.get("../api/album/" + id)
+            return $http.get(service.baseUrl + "album/" + id)
                 .success(function(album) {
                     service.album = album;
                 })
@@ -301,8 +323,7 @@
                     console.log(http, httpObj);
                 });
         }
-        function addSongToAlbum(album, song) {
-            debugger;
+        function addSongToAlbum(album, song) {            
             album.Tracks.push(song);
             service.album = album;
         };
@@ -339,7 +360,7 @@
         }
 
         function saveAlbum(album) {            
-            return $http.post("../api/album",album)
+            return $http.post(service.baseUrl + "album", album)
                 .success(function (alb) {                    
                     service.updateAlbum(alb);
                     service.album = alb;                    
@@ -347,7 +368,7 @@
         }
 
         function deleteAlbum(album){
-            return $http.get("../api/deletealbum/" + album.Id)
+            return $http.get(service.baseUrl + "deletealbum/" + album.Id)
                 .success(function() {
                     service.albums = _.remove(service.albums, function(alb){
                         return album.Id != alb.Id;
@@ -456,6 +477,7 @@
         var vm = this;
 
         vm.artist = null;
+        vm.baseUrl = "api/";
         vm.albums = [];
         vm.error = {
             message: null,
@@ -468,7 +490,7 @@
         };
 
         vm.getArtist = function(pk) {
-            $http.get("../api/artist?id=" + pk)
+            $http.get(vm.baseUrl + "artist?id=" + pk)
                 .success(function(response) {
                     vm.artist = response.Artist;
                     vm.albums = response.Albums;
@@ -479,7 +501,7 @@
         };
 
         vm.saveArtist = function(artist) {
-            $http.post("../api/artist/", artist)
+            $http.post(vm.baseUrl + "artist/", artist)
                 .success(function (response) {
                     vm.artist = response.Artist;
                     vm.albums = response.Albums;
@@ -501,7 +523,7 @@
             albumService.album.Artist.ArtistName = vm.artist.ArtistName;
 
             albumService.updateAlbum(albumService.album);
-            $window.location.hash = "/album/edit/-1";
+            $window.location.hash = "/album/edit/0";
         };
 
         vm.getArtist($routeParams.artistId);

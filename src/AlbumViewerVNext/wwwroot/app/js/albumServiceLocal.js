@@ -3,13 +3,13 @@
 
     angular
         .module('app')
-        .factory('albumService', albumService);
+        .factory('albumServiceLocal', albumServiceLocal);
 
-    albumService.$inject = ['$http','$q'];
+    albumServiceLocal.$inject = ['$http','$q'];
 
-    function albumService($http,$q) {
+    function albumServiceLocal($q) {
         var service = {
-            baseUrl: "api/",
+            baseUrl: "data/",
             albums: [],
             artists: [],
             album: newAlbum(),
@@ -54,7 +54,7 @@
             if (!noCache && service.albums && service.albums.length > 0)
                 return ww.angular.$httpPromiseFromValue($q, service.albums);                
             
-            return $http.get(service.baseUrl + "albums/")
+            return $http.get(service.baseUrl + "albums.json")
                 .success(function (data) {                    
                     service.albums = data;                   
                 })
@@ -77,13 +77,11 @@
                 return deferred.promise;
             }
 
-            return $http.get(service.baseUrl + "album/" + id)
-                .success(function(album) {
-                    service.album = album;
-                })
-                .error(function (http, status, fnc, httpObj) {
-                    console.log(http, httpObj);
-                });
+            var album = findAlbum(id);
+            if (!album)
+                return ww.angular.$httpPromiseFromValue($q, new Error("Couldn't find album"),true);
+
+            return ww.angular.$httpPromiseFromValue($q, album);
         }
         function addSongToAlbum(album, song) {            
             album.Tracks.push(song);
@@ -141,6 +139,12 @@
         function findAlbumIndex(album){
             return  _.findIndex(service.albums, function (a) {
                 return album.Id == a.Id;
+            });
+        }
+
+        function findAlbum(id) {            
+            return _.find(service.albums, function (a) {
+                return id === a.Id;                    
             });
         }
         

@@ -46,8 +46,7 @@
             vm.song = { Id: 0, AlbumId: albumService.album.Id, Name: null, Length: null };
             setTimeout(function() { $("#SongName").focus(); },300);
         };
-        vm.saveSong = function (song) {
-            debugger;
+        vm.saveSong = function (song) {            
             albumService.addSongToAlbum(vm.album, song);
             vm.albums = albumService.albums;
             vm.album = albumService.album;
@@ -79,7 +78,7 @@
             .success(function (album) {                
                 vm.album = album;
             });
-
+            
         }
         vm.bandTypeAhead = function() {
             var $input = $('#BandName');

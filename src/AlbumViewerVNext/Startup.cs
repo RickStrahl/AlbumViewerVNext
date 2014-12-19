@@ -69,7 +69,6 @@ namespace MusicStoreVNext
                     name: "mvc",
                     template: "mvc/{action}/{id?}",
                     defaults: new { controller = "MusicStoreMvc", action = "Index" });
-
             });
 
 

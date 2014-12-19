@@ -20,5 +20,12 @@
   },
   "author": "Rick Strahl, West Wind Technologies",
   "license": "MIT",
-  "repository": "https://github.com/RickStrahl/AlbumViewerVNext"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RickStrahl/AlbumViewerVNext"
+  },
+  "bugs": {
+    "url": "https://github.com/RickStrahl/AlbumViewerVNext/issues"
+  },
+  "homepage": "https://github.com/RickStrahl/AlbumViewerVNext"
 }

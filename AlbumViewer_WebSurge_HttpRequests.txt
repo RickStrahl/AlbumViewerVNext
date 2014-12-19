@@ -146,7 +146,7 @@ Accept: application/json
 
 ------------------------------------------------------------------
 
-GET http://localhost:51670/api/artistlookup?search=A HTTP/1.1
+GET http://localhost:51670/api/artistlookup?search=M HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 
@@ -163,7 +163,7 @@ Accept: application/json
   "ReplaceCookieValue": null,
   "ReplaceAuthorization": null,
   "ReplaceQueryStringValuePairs": null,
-  "ReplaceDomain": "",
+  "ReplaceDomain": "localhost:5000",
   "RandomizeRequests": false,
   "RequestTimeoutMs": 15000,
   "WarmupSeconds": 2,

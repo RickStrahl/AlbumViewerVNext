@@ -55,6 +55,11 @@ http://en.wikipedia.org/wiki/MIT_License
                 def.resolve(val);
             self.$httpDeferredExtender(def);
             return def.promise;
+        },
+        promiseFrom$http: function($q, $http) {
+            var d = $q.defer();
+            d.then($http.success, $http.error);
+            return d.promise;
         }
     };
     self = ww.angular;

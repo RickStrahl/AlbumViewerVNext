@@ -16,7 +16,7 @@ namespace AlbumViewerBusiness
         public async Task<Album> SaveAlbum(Album postedAlbum)
         {
             int id = postedAlbum.Id;            
-
+            
             Album album = null;
             if (id < 1)
             {

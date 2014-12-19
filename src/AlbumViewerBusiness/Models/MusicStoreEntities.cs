@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,7 +10,7 @@ namespace AlbumViewerBusiness
         public int Id { get; set; }
 
         public int ArtistId { get; set; }
-
+        
         public string Title { get; set; }
         public string Description { get; set; }
         public int Year { get; set; }
