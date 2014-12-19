@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     angular
@@ -7,7 +7,7 @@
 
     albumServiceLocal.$inject = ['$http','$q'];
 
-    function albumServiceLocal($q) {
+    function albumServiceLocal($http,$q) {
         var service = {
             baseUrl: "data/",
             albums: [],
@@ -54,7 +54,7 @@
             if (!noCache && service.albums && service.albums.length > 0)
                 return ww.angular.$httpPromiseFromValue($q, service.albums);                
             
-            return $http.get(service.baseUrl + "albums.json")
+            return $http.get(service.baseUrl + "albums.js")
                 .success(function (data) {                    
                     service.albums = data;                   
                 })
@@ -71,18 +71,37 @@
 
             // if the album is already loaded just return it
             // and return the promise
-            if (service.album && useExisting && service.album.pk == id) {
-                var deferred = ww.angular.deferredExtender($q.defer());
-                deferred.resolve(service.album);
-                return deferred.promise;
-            }
-
-            var album = findAlbum(id);
-            if (!album)
-                return ww.angular.$httpPromiseFromValue($q, new Error("Couldn't find album"),true);
-
+            if (service.album && useExisting && service.album.pk == id)               
+                return ww.angular.$httpPromiseFromValue($q,service.album);
+                        
+           // ensure that albums exist - if not load those first and defer                        
+           if (service.albums && service.albums.length > 0) {
+               // just look up from cached list
+                var album = findAlbum(id);
+                if (!album)
+                    return ww.angular.$httpPromiseFromValue($q, new Error("Couldn't find album"),true);
+           }
+           
+           // otherwise load albums first           
+           var d = ww.angular.$httpDeferredExtender($q.defer());               
+           service.getAlbums()
+                .success(function(albums) {                        
+                    service.album = findAlbum(id);
+                    if (!service.album)  
+                       d.reject(new Error("Couldn't find album"));
+                    else
+                       d.resolve(service.album);          
+                })
+                .error(function(err){
+                    d.reject(new Error("Couldn't find album"));
+                });
+           return d.promise; 
+       
+           
             return ww.angular.$httpPromiseFromValue($q, album);
         }
+
+        
         function addSongToAlbum(album, song) {            
             album.Tracks.push(song);
             service.album = album;
@@ -142,8 +161,8 @@
             });
         }
 
-        function findAlbum(id) {            
-            return _.find(service.albums, function (a) {
+        function findAlbum(id) {                      
+            return _.find(service.albums, function (a) {                
                 return id === a.Id;                    
             });
         }

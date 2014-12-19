@@ -14,6 +14,11 @@
         
     ]);
 
+    // config settings
+    app.configuration = {
+        useLocalData: true
+    };
+
     app.config([
             '$routeProvider',
             function($routeProvider) {
@@ -48,5 +53,5 @@
                 return text;
             };
         });
-
+    
 })();

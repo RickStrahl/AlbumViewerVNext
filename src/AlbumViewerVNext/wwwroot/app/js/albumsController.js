@@ -1,12 +1,14 @@
 ﻿(function () {
     'use strict';
 
-    angular
+    var app = angular
         .module('app')
         .controller('albumsController', albumsController);
 
-    albumsController.$inject = ['$scope','albumService'];
-
+    if (!app.configuration.useLocalData)
+        albumsController.$inject = ['$scope', 'albumService'];
+    else
+        albumsController.$inject = ['$scope','albumServiceLocal'];
 
     function albumsController($scope,  albumService) {        
         var vm = this;

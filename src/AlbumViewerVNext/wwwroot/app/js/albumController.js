@@ -1,11 +1,15 @@
-﻿(function () {
+(function () {
     'use strict';
 
-    angular
+    var app = angular
         .module('app')
         .controller('albumController', albumController);
 
-    albumController.$inject = [ '$routeParams', '$window', '$animate','albumService'];
+    
+    if (!app.configuration.useLocalData)
+        albumController.$inject = ['$routeParams', '$window', '$animate', 'albumService'];
+    else
+        albumController.$inject = [ '$routeParams', '$window', '$animate','albumServiceLocal'];
 
     function albumController($routeParams,$window,$animate,albumService) {        
         var vm = this;
@@ -96,7 +100,7 @@
                     });
             });
         }
-
+                
         // Initialization code
         vm.getAlbum($routeParams.albumId * 1, true);
 
