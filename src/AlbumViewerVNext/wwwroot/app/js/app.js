@@ -5,7 +5,7 @@
         // Angular modules 
         'ngAnimate',
         'ngRoute',
-        'ngSanitize',        
+        'ngSanitize'        
 
 
         // Custom modules 
@@ -15,8 +15,8 @@
     ]);
 
     // config settings
-    app.configuration = {
-        useLocalData: true
+    app.configuration = { 
+        useLocalData: false
     };
 
     app.config([

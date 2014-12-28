@@ -152,18 +152,24 @@ Accept: application/json
 
 ------------------------------------------------------------------
 
+GET http://localhost:51670/api/helloworld?name=Rick HTTP/1.1
+Accept-Encoding: gzip,deflate
+Accept: application/json
+
+------------------------------------------------------------------
+
 
 ----- Start WebSurge Options -----
 
 {
-  "NoProgressEvents": false,
+  "NoProgressEvents": true,
   "DelayTimeMs": 0,
   "CaptureMinimalResponseData": false,
   "MaxResponseSize": 0,
   "ReplaceCookieValue": null,
   "ReplaceAuthorization": null,
-  "ReplaceQueryStringValuePairs": null,
-  "ReplaceDomain": "localhost:5000",
+  "ReplaceQueryStringValuePairs": "localhost:9654",
+  "ReplaceDomain": "",
   "RandomizeRequests": false,
   "RequestTimeoutMs": 15000,
   "WarmupSeconds": 2,

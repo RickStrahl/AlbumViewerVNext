@@ -27,6 +27,14 @@ namespace MusicStoreVNext
         }
 
 
+        //[HttpGet]
+        //public async Task<object> HelloWorld(string name = null)
+        //{
+        //    if (string.IsNullOrEmpty(name))
+        //        name = "Johnny Doe";
+        //    return new {helloMessage = "Hello " + name + ". Time is: " + DateTime.Now };
+        //}
+
         [HttpGet]
         public async Task<IEnumerable<Album>> Albums()
         {
@@ -120,6 +128,8 @@ namespace MusicStoreVNext
                             .Select(art=> new
                             {
                                 ArtistName = art.ArtistName,
+                                Description = art.Description,
+                                ImageUrl = art.ImageUrl,                                
                                 Id = art.Id,
                                 AlbumCount = context.Albums.Count(alb=> alb.ArtistId == art.Id)
                             })

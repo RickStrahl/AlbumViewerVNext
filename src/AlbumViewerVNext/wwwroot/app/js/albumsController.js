@@ -6,11 +6,13 @@
         .controller('albumsController', albumsController);
 
     if (!app.configuration.useLocalData)
-        albumsController.$inject = ['$scope', 'albumService'];
+        albumsController.$inject = ['$scope','albumService'];
     else
         albumsController.$inject = ['$scope','albumServiceLocal'];
+    
 
-    function albumsController($scope,  albumService) {        
+    function albumsController($scope,  albumService) {
+        
         var vm = this;
         vm.albums = null;
 
