@@ -15,8 +15,8 @@
     ]);
 
     // config settings
-    app.configuration = {
-        useLocalData: true
+    app.configuration = { 
+        useLocalData: false
     };
 
     app.config([
@@ -571,17 +571,14 @@
         .module('app')
         .controller('albumsController', albumsController);
 
-    debugger;
-
     if (!app.configuration.useLocalData)
-        albumsController.$inject = ['$scope', 'albumService'];
+        albumsController.$inject = ['$scope','albumService'];
     else
         albumsController.$inject = ['$scope','albumServiceLocal'];
     
 
     function albumsController($scope,  albumService) {
-        debugger;
-
+        
         var vm = this;
         vm.albums = null;
 
