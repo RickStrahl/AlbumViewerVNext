@@ -14,7 +14,7 @@
     <AssemblyName>AlbumViewerVNext</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AssemblyName>AlbumViewerVNext</AssemblyName>
+    <AssemblyName>r10cAlbumViewerVNext</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
