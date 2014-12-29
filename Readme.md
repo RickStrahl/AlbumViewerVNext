@@ -7,18 +7,16 @@ posts from Rick Strahl's Web Log.
 
 
 ### Getting Started ###
-The sample uses SQL Server sample data from a database that is provided 
-as a backup file.
+The sample uses SQL Server sample data which you can import from a SQL script.
 
-You can restore the backup into SQL Server with:
+To use it:
 
-```sql
--- change the path to your install location (c:\code\ here)
-RESTORE DATABASE MusicStore
- FROM DISK = 'c:\code\AlbumViewerVNext\src\AlbumViewerVNext\app_data\musicstore.bak'
- WITH MOVE 'MusicStore' TO 'c:\code\AlbumViewerVNext\src\AlbumViewerVNext\app_data\musicstore.mdf',
-      MOVE 'MusicStore_Log' TO 'c:\code\AlbumViewerVNext\src\AlbumViewerVNext\app_data\musicstore.log'
-```
+* Open the Sql Data Tools or Sql Server Management Studio
+* Create a database named MusicStore
+* Select the MusicStore database
+* Run the MusicStore.sql script from the AlbumViewerVNext\App_Data folder
+
+The script creates the tables and sample data in order for the application to run.
 
 ### Running the Application ###
 You can run the application in a number of different ways. The easiest is probably
@@ -46,7 +44,7 @@ Once the runtime is installed:
 
 * Change to <install>\src\albumviewervnext folder
 * Run k web
-* Navigate to http://localhost:5000/
+* Navigate to http://localhost:5000/ in your browser
 
 Alternately:
 

@@ -52,9 +52,10 @@ namespace AlbumViewerBusiness
                 configuration.AddJsonFile("config.json");
                 connectionString = configuration.Get("Data:MusicStore:ConnectionString");
             }
-            
 
-            return new DbContextOptions().UseSqlServer(connectionString);            
+            var options = new DbContextOptions<MusicStoreContext>();
+            options.UseSqlServer(connectionString);
+            return options;
         }
 
         public DbSet<Album> Albums { get; set; }
