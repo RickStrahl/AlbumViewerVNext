@@ -41,48 +41,37 @@
 </head>
 <body ng-app="app">
 
-    <div class="navbar navbar-inverse navbar-fixed-top"
-          role="navigation" ng-controller="headerController">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed"
-                        data-toggle="collapse"
-                        data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <div style="position: absolute; top: 3px; left: 6px;">
-                    <a href="#/albums">
-                        <img src="images/headphone-head.png" style="height: 45px;float:left" />
-                        <div style="float: left;margin-left: 5px; line-height: 1.2">
-                            <i style="color: steelblue;font-size: 1em; font-weight: bold;">West Wind</i><br />
-                            <i style="color: whitesmoke; font-size: 1.7em;font-weight: bold;">Album Viewer SPA</i>
-                        </div>
-                    </a>
-                </div>
+    <div id="TitleBar">
+        <a href="#/albums">
+            <img src="images/headphone-head.png"
+                 style="height: 35px; float: left" />
+            <div style="float: left; margin-left: 5px; line-height: 1.2">
+                <i style="color: steelblue; font-size: 0.8em; font-weight: bold;">West Wind</i><br />
+                <i style="color: whitesmoke; font-size: 1.25em; font-weight: bold;">AlbumViewer</i>
             </div>
-
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">Albums</a></li>
-                    <li><a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">Artists</a></li>
-                    <li><a href="#/about" ng-class="{ selected: activeTab == 'about'}">About</a></li>
-                </ul>
-                <form id="SearchBoxForm" class="navbar-form navbar-right" ng-show="searchVisible">
-                    <input id="SearchBox" type="text" class="form-control" placeholder="Search..."
-                           ng-model="searchText"
-                           ng-keyup="onKey()" ng-blur="searchBlur()">
-                </form>
-            </div>
-
-        </div>
+        </a>
     </div>
 
-    <div class="ng-cloak" style="margin-top: 60px;padding: 10px;">
-        <div id="MainView" autoscroll=""
+    <div class="banner" ng-controller="headerController" ng-cloak>
+        <nav id="TopMenu" class="pull-right">
+            <form style="float: left; padding-top: 2px;">
+                <input id="SearchBox" type="text"
+                       class="form-control" placeholder="Search..."
+                       ng-model="searchText"
+                       ng-keyup="onKey()"
+                       ng-blur="searchBlur()"
+                       ng-hide="!searchAllowed || !searchVisible">
+            </form>
+            <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed"><i class=" fa fa-search" title="Search" style="font-size: 135%"></i> <span>Search</span></a>
+            <a href="#/albums" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'albums'}"><img src="images/record.png" title="Albums" style="height: 20px; vertical-align: top;" /> <span>Albums</span></a>
+            <a href="#/artists" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'artists'}"><img src="images/artists32.png" title="Artists" style="height: 20px" /> <span>Artists</span></a>
+            <!--<a href="javascript: window.location.reload();" ng-class="{ selected: activeTab == 'about'}"><i class=" fa fa-info-circle" title="About" style="font-size: 165%;vertical-align: bottom"></i> <span>About</span></a>-->
+        </nav>
+
+    </div>
+
+    <div ng-cloak style="margin-top: 72px; padding: 1px;">
+        <div id="MainView" autoscroll="true"
              ng-view>
         </div>
     </div>
@@ -91,14 +80,18 @@
     <script src="scripts/ww.jquery.min.js"></script>
     <script src="scripts/ww.angular.js"></script>
     <script src="scripts/lodash.min.js"></script>
+
     <script src="scripts/fastclick.min.js"></script>
 
 
     <script>
         // hook up fast click for mobile devices - avoid 300ms delay
-        //window.addEventListener('load', function () {
-        //    FastClick.attach(document.body);
-        //}, false);
+        window.addEventListener('load', function () {
+            // only use FastClick for iOS
+            if (navigator.userAgent.indexOf('iPhone') ||
+                navigator.userAgent.indexOf('iPad'))
+                FastClick.attach(document.body);
+        }, false);
 
         // enable animations on all screens for small screen sizes
         var width = $(window).width();
@@ -140,8 +133,11 @@
     <!--<script src="js/app.min.js"></script>-->
 
     <script src="app/js/app.js"></script>
-    <script src="app/js/controllers.js"></script>
-<script src="app/js/albumService.js"></script>
+    <script src="app/js/albumService.js"></script>
+    <script src="app/js/artistscontroller.js"></script>
+    <script src="app/js/artistservice.js"></script>
+    <script src="app/js/artistservicelocal.js"></script>
+    <script src="app/js/headercontroller.js"></script>
     <script src="app/js/albumServiceLocal.js"></script>
     <script src="app/js/albumsController.js"></script>
     <script src="app/js/albumController.js"></script>

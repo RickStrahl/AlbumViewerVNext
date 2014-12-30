@@ -1,13 +1,16 @@
 ﻿(function () {
     'use strict';
 
-    angular
+    var app = angular
         .module('app')
         .controller('artistController', artistController);
 
-    artistController.$inject = ["$http","$window","$routeParams","$animate","albumService"];
+    if (app.configuration.useLocalData)
+        artistController.$inject = ["$http", "$window", "$routeParams", "$animate", "artistServiceLocal"];
+    else
+        artistController.$inject = ["$http","$window","$routeParams","$animate","artistService"];
 
-    function artistController($http,$window,$routeParams,$animate,albumService) {        
+    function artistController($http,$window,$routeParams,$animate,artistService) {        
         var vm = this;
 
         vm.artist = null;
@@ -23,9 +26,9 @@
             }
         };
 
-        vm.getArtist = function(pk) {
-            $http.get(vm.baseUrl + "artist?id=" + pk)
-                .success(function(response) {
+        vm.getArtist = function (pk) {
+            artistService.getArtist(pk)
+                .success(function (response) {                    
                     vm.artist = response.Artist;
                     vm.albums = response.Albums;
                 })
@@ -34,8 +37,8 @@
                 });
         };
 
-        vm.saveArtist = function(artist) {
-            $http.post(vm.baseUrl + "artist/", artist)
+        vm.saveArtist = function (artist) {
+            artistService.saveArtist(artist)
                 .success(function (response) {
                     vm.artist = response.Artist;
                     vm.albums = response.Albums;

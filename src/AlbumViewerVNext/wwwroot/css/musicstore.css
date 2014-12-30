@@ -13,13 +13,86 @@ h2,h3 {
 h3 {
     color: steelblue;
 }
+#TitleBar {
+    position: fixed;
+    top: 18px;
+    left: 8px;
+    z-index: 100;
+}
+#TopMenu {
+}
+#SearchBox {
+    width: 220px;
+}
+@media(max-width: 500px) {
+    #SearchBox {
+        width: 135px;
+    }    
+}
+    #TopMenu input {
+        color: #535353;
+        padding: 4px 5px;
+        height: auto;
+    }
+.banner {
+    background: #535353;
+    color: #e1e1e1;
+    border-bottom: solid 1px black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 15px;
+    height: 58px;
+    width: 100%;
+    z-index: 10;   
+}
+    .banner.active {
+        color: white;
+        font-weight: bolder;
+    }
+
+
+.banner nav {
+    display: inline-block;
+    margin-top: 2px;
+    margin-right: 3px;
+    padding: 0;    
+}
+
+    .banner nav a, .banner nav input {
+        display: inline-block;
+        padding: 7px 5px;
+        color: #e1e1e1;
+        text-decoration: none;
+    }
+
+    .banner nav a:hover {
+        color: white;
+        background: #767676;
+        text-decoration: none;
+        border-bottom: solid 4px silver;
+        border-radius: 2px;
+    }
+
+    .banner nav a.active, .banner nav a.selected {
+        color: white;        
+        font-weight: bold;
+        border-bottom: solid 4px orange;
+        border-radius: 2px;
+    }
+    @media(max-width: 640px) {
+        .banner nav a span {
+            display: none;
+        }
+    }
+
 .album {
     margin-bottom: 10px;
     margin-right: 5px;
     padding: 10px;
     border: 1px solid silver;
     border-radius: 6px;
-    height: 185px;
+    height: 135px;
     overflow-y:hidden;
     float: left;
     max-width: 300px;
@@ -148,13 +221,15 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
         border-bottom: solid 2px orange;
     border-radius: 2px;
 }
+.modal-dialog {
+    margin: 30px auto;
+}
 .modal-header {
     padding: 15px 15px 5px;
 }
 .modal-body {
     padding: 10px 20px 5px 20px;
 }
-
 
 @-webkit-keyframes slideOutLeft {    
     to {
@@ -202,4 +277,7 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
    -webkit-animation: slideOutLeft 0.35s both ease-in;
     animation: slideOutLeft 0.35s both ease-in;
     z-index: 8888;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
