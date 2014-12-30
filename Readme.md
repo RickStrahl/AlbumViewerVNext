@@ -5,6 +5,10 @@ This is the sample code for the Album Viewer sample application from the
 CoDe Magazine Article *A First Look at ASP.NET vNext* and various vNext blog
 posts from Rick Strahl's Web Log.
 
+* [A First Look at ASP.NET VNext](http://www.codemag.com/Article/1501081)
+* [ASP.NET VNext: The Next Generation](http://www.codemag.com/Article/1501061)
+
+![](AlbumViewer.png)
 
 ### Getting Started ###
 The sample uses SQL Server sample data which you can import from a SQL script.

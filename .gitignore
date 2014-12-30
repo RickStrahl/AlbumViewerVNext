@@ -38,3 +38,4 @@ node_modules
 *.ng.ts
 *.sln.ide
 src/AlbumViewerVNext/wwwroot/web.config__X
+thumbs.db
