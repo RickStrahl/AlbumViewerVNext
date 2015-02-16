@@ -5,6 +5,7 @@ using Microsoft.AspNet.Routing;
 using Microsoft.Data.Entity;
 
 using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.ConfigurationModel.Json;
 using Microsoft.Framework.DependencyInjection;
 using AlbumViewerBusiness;
 using Microsoft.AspNet.Hosting;
@@ -16,14 +17,12 @@ namespace MusicStoreVNext
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app,
-            ILoggerFactory logFactory,
-            IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, ILoggerFactory logFactory)                       
         {
             // Setup configuration sources
             var configuration = new Configuration();
             configuration.AddJsonFile("config.json");
-            //configuration.AddEnvironmentVariables();
+            configuration.AddEnvironmentVariables();
 
             // dump log output to the console when running from command line
             logFactory.AddConsole();

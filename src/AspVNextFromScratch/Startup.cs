@@ -1,19 +1,23 @@
-﻿using System;
+﻿
+using System;
+using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Builder;
+using Microsoft.Framework.DependencyInjection;
+
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Mvc;
 using System.Reflection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Routing;
-using Microsoft.Framework.DependencyInjection;
 
 namespace AspVNextFromScratch
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
             // Set up application services and DI
             app.UseServices(services =>
@@ -24,8 +28,8 @@ namespace AspVNextFromScratch
             app.UseStaticFiles();
             app.UseErrorPage(ErrorPageOptions.ShowAll);
 
-            if (env.EnvironmentName == "Development")
-                app.UseErrorPage(ErrorPageOptions.ShowAll);
+            //if (env.EnvironmentName == "Development")
+             app.UseErrorPage(ErrorPageOptions.ShowAll);
 
 
 

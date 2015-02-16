@@ -1,9 +1,10 @@
 ﻿{
     "version": "0.1.0-*",
     "dependencies": {
-        "EntityFramework": "7.0.0-rc1-*",
-        "EntityFramework.SqlServer": "7.0.0-rc1-*",        
-        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-rc1-*",      
+        "EntityFramework": "7.0.0-beta2",
+        "EntityFramework.SqlServer": "7.0.0-beta2",        
+        "Microsoft.Framework.ConfigurationModel": "1.0.0-beta2",
+        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-beta2",      
         "Westwind.Utilities": ""
     },
     "frameworks": {

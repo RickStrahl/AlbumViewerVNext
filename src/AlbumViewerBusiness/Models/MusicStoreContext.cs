@@ -1,9 +1,6 @@
 ﻿using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
-using Microsoft.Framework.OptionsModel;
 using System;
-using System.Linq;
-using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Framework.ConfigurationModel;
 
 namespace AlbumViewerBusiness
@@ -62,11 +59,22 @@ namespace AlbumViewerBusiness
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Track> Tracks { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(builder);
 
-            modelBuilder.Entity<Album>(e =>
+            //builder.Entity<Album>().Key(a => a.Id);
+            //builder.Entity<Artist>().Key(a => a.Id);
+            //builder.Entity<Track>().Key(t => t.Id);
+
+            //builder.Entity<Album>().HasOne(typeof(Artist));
+            //builder.Entity<Album>().HasMany(typeof(Track));
+
+            //base.OnModelCreating(builder);
+
+            //// old 2
+
+            builder.Entity<Album>(e =>
             {
                 e.Key(a => a.Id);
                 e.ForRelational().Table("Albums");
@@ -74,18 +82,19 @@ namespace AlbumViewerBusiness
                 e.ManyToOne(a => a.Artist);
                 e.OneToMany<Track>(a => a.Tracks);
             });
-            modelBuilder.Entity<Artist>(e =>
+            builder.Entity<Artist>(e =>
             {
                 e.Key(a => a.Id);
-                e.ForRelational().Table("Artists");                
+                e.ForRelational().Table("Artists");
             });
-            modelBuilder.Entity<Track>(e =>
+            builder.Entity<Track>(e =>
             {
                 e.Key(t => t.Id);
                 e.ForRelational().Table("Tracks");
-                e.ForeignKey<Album>(a => a.AlbumId);                
+                e.ForeignKey<Album>(a => a.AlbumId);
             });
 
+            // old1 - beta 1
 
             //var album = modelBuilder.Model.GetEntityType(typeof(Album));
             //var artist = modelBuilder.Model.GetEntityType(typeof(Artist));

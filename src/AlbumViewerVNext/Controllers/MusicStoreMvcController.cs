@@ -15,13 +15,12 @@ namespace MusicStoreVNext
 {
     public class MusicStoreMvcController : Controller
     {
-        MusicStoreContext context;
-        IApplicationEnvironment environment;
+        MusicStoreContext context;        
 
-        public MusicStoreMvcController(MusicStoreContext ctx, IApplicationEnvironment environment)
+        public MusicStoreMvcController(MusicStoreContext ctx)
         {
             context = ctx;
-            this.environment = environment;
+            //this.environment = environment;
         }
 
         public async Task<ActionResult> Index()
