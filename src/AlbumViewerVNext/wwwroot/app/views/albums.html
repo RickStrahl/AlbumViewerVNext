@@ -17,12 +17,12 @@
     <hr style="margin-top: 6px;" />
 
     <!-- use a custom $scope filter to search only artist and album name instead of filter: view.searchText -->
-    <div class="album" ng-repeat="album in view.albums | filter: view.albumsFilter:view.searchText">
+    <div class="album" ng-repeat="album in view.albums | filter: view.albumsFilter:view.searchText" ng-click="view.albumClick(album)">
         <div class="album-overlay">
             <a href="#/album/edit/{{album.Id}}"><i class="fa fa-edit" title="Edit"></i></a> &nbsp;
             <a ng-click="view.deleteAlbum(album)"><i class="fa fa-remove" title="Delete"></i></a>
         </div>
-        <div ng-click="view.albumClick(album)">
+        <div>
             <img ng-src="{{album.ImageUrl}}" class="album-image" />
             <div style="padding-left: 80px;">
                 <div class="album-title">{{album.Title}}</div>

@@ -5,7 +5,8 @@
         // Angular modules 
         'ngAnimate',
         'ngRoute',
-        'ngSanitize'        
+        'ngSanitize',
+        'ngAria'
 
 
         // Custom modules 

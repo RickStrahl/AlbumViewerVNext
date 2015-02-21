@@ -159,7 +159,7 @@ Accept: application/json
   "NoProgressEvents": false,
   "DelayTimeMs": 0,
   "CaptureMinimalResponseData": false,
-  "MaxResponseSize": 5000,
+  "MaxResponseSize": 0,
   "ReplaceCookieValue": null,
   "ReplaceAuthorization": null,
   "ReplaceQueryStringValuePairs": null,
