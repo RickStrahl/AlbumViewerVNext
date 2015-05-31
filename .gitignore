@@ -39,3 +39,4 @@ node_modules
 *.sln.ide
 src/AlbumViewerVNext/wwwroot/web.config__X
 thumbs.db
+.vs
