@@ -263,7 +263,7 @@ namespace Westwind.Utilities
         }
 
         
-#if !ASPNETCORE50
+#if !DNXCORE50
         /// <summary>
         /// Return a string in proper Case format
         /// </summary>

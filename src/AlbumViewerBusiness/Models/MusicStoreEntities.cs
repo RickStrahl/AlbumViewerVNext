@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+
 namespace AlbumViewerBusiness
 {
+    
     public class Album
-    {
-       
+    {           
         public int Id { get; set; }
-
-        public int ArtistId { get; set; }
-        
+        public int ArtistId { get; set; }        
         public string Title { get; set; }
         public string Description { get; set; }
         public int Year { get; set; }
         public string ImageUrl { get; set; }
         public string AmazonUrl { get; set; }
+        public string SpotifyUrl { get; set; }
 
 
         public virtual Artist Artist { get; set; }
@@ -65,10 +65,7 @@ namespace AlbumViewerBusiness
     public class Track
     {
         public int Id { get; set; }
-
-        public int AlbumId { get; set; }
-        
-        public int ArtistId { get; set; }
+        public int AlbumId { get; set; }                
         public string SongName { get; set; }
         public string Length { get; set; }
         public int Bytes { get; set; }

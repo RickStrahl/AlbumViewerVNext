@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.Entity;
+﻿
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -99,8 +99,7 @@ namespace AlbumViewerBusiness
                 return null;
 
             return album;
-        }
-                
+        }                
 
         public async Task<bool> DeleteAlbum(int id)
         {
@@ -123,6 +122,8 @@ namespace AlbumViewerBusiness
 
             Context.Albums.Remove(album);
 
+            // don't do the save asynchronously to avoid
+            // overlapping delete updates            
             var result = await SaveAsync();
 
             return result;
@@ -154,6 +155,31 @@ namespace AlbumViewerBusiness
                 return null;
 
             return artist;
+        }
+
+        public async Task<bool> DeleteArtist(int id)
+        {
+            var artist = await Context.Artists.FirstOrDefaultAsync(art => art.Id == id);
+
+            // already gone
+            if (artist == null)
+                return true;
+
+            var albumIds = await Context.Albums.Where(alb => alb.ArtistId == id).Select(alb => alb.Id).ToListAsync();
+            
+
+            foreach (var albumId in albumIds)
+            {
+                // don't run async or we get p
+                bool result = await DeleteAlbum(albumId);
+                if (!result)
+                    return false;
+            }
+
+            Context.Artists.Remove(artist);
+
+            return await this.SaveAsync();
+            
         }
 
     }

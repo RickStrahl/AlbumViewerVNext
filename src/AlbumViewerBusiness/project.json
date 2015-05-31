@@ -1,14 +1,29 @@
 ﻿{
-    "version": "0.1.0-*",
+    "version": "1.0.0-*",
+    "description": "",
+    "authors": [ "" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+
     "dependencies": {
-        "EntityFramework": "7.0.0-beta2",
-        "EntityFramework.SqlServer": "7.0.0-beta2",        
-        "Microsoft.Framework.ConfigurationModel": "1.0.0-beta2",
-        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-beta2",      
+        "EntityFramework": "7.0.0-beta4",
+        "EntityFramework.SqlServer": "7.0.0-beta4",         
+        "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta4",
+        "Microsoft.Framework.ConfigurationModel": "1.0.0-beta4",
+        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-beta4",
+        
         "Westwind.Utilities": ""
     },
+
     "frameworks": {
-        "aspnet50": { },
-        "aspnetcore50": {  }
+        "dnx451": {
+            "frameworkAssemblies": {                
+            }            
+        },
+        "dnxcore50": {
+            "dependencies": {
+            }
+        }
     }
 }

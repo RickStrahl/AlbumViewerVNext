@@ -1,6 +1,8 @@
 ﻿using Microsoft.Data.Entity;
+using Microsoft.Data.Entity.SqlServer.Extensions;
 using Microsoft.Data.Entity.Metadata;
 using System;
+using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Framework.ConfigurationModel;
 
 namespace AlbumViewerBusiness
@@ -50,9 +52,9 @@ namespace AlbumViewerBusiness
                 connectionString = configuration.Get("Data:MusicStore:ConnectionString");
             }
 
-            var options = new DbContextOptions<MusicStoreContext>();
+            var options = new DbContextOptionsBuilder<MusicStoreContext>();
             options.UseSqlServer(connectionString);
-            return options;
+            return options.Options;
         }
 
         public DbSet<Album> Albums { get; set; }
@@ -61,49 +63,71 @@ namespace AlbumViewerBusiness
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
+            builder.ForSqlServer().UseIdentity();
 
-            //builder.Entity<Album>().Key(a => a.Id);
-            //builder.Entity<Artist>().Key(a => a.Id);
-            //builder.Entity<Track>().Key(t => t.Id);
-
-            //builder.Entity<Album>().HasOne(typeof(Artist));
-            //builder.Entity<Album>().HasMany(typeof(Track));
-
-            //base.OnModelCreating(builder);
-
-            //// old 2
-
+            // Pluralization and key discovery not working based on
+            // conventions
             builder.Entity<Album>(e =>
-            {
-                e.Key(a => a.Id);
+            {                
+                e.Key(et=> et.Id);
                 e.ForRelational().Table("Albums");
-                e.ForeignKey<Artist>(a => a.ArtistId);
-                e.ManyToOne(a => a.Artist);
-                e.OneToMany<Track>(a => a.Tracks);
+                e.Key(a => a.Id);
             });
             builder.Entity<Artist>(e =>
             {
-                e.Key(a => a.Id);
+                e.Key(et => et.Id);
                 e.ForRelational().Table("Artists");
+                e.Key(a => a.Id);
             });
+
             builder.Entity<Track>(e =>
             {
-                e.Key(t => t.Id);
-                e.ForRelational().Table("Tracks");
-                e.ForeignKey<Album>(a => a.AlbumId);
+                e.Key(et => et.Id);
+               e.ForRelational().Table("Tracks");
+               e.Key(t => t.Id);
             });
 
-            // old1 - beta 1
+            base.OnModelCreating(builder);
 
-            //var album = modelBuilder.Model.GetEntityType(typeof(Album));
-            //var artist = modelBuilder.Model.GetEntityType(typeof(Artist));
-            //var track = modelBuilder.Model.GetEntityType(typeof(Track));
+
+            ////builder.Entity<Album>().HasOne(typeof(Artist));
+            ////builder.Entity<Album>().HasMany(typeof(Track));
+
+            ////base.OnModelCreating(builder);
+
+            ////// old 2
+
+            //builder.Entity<Album>(e =>
+            //{
+            //    e.Key(a => a.Id);                
+            //    e.ForRelational().Table("Albums");
+            //    e.ForeignKey<Artist>(a => a.ArtistId);
+            //    e.ManyToOne(a => a.Artist);
+            //    e.OneToMany<Track>(a => a.Tracks);
+            //});
+            //builder.Entity<Artist>(e =>
+            //{
+            //    e.Key(a => a.Id);
+            //    e.ForRelational().Table("Artists");
+            //});
+            //builder.Entity<Track>(e =>
+            //{
+            //    e.Key(t => t.Id);
+            //    e.ForRelational().Table("Tracks");
+            //    e.ForeignKey<Album>(a => a.AlbumId);
+            //});
+
+            //// old1 - beta 1
+
+            ////var album = modelBuilder.Model.GetEntityType(typeof(Album));
+            ////var artist = modelBuilder.Model.GetEntityType(typeof(Artist));
+            ////var track = modelBuilder.Model.GetEntityType(typeof(Track));
 
         }
     }
 
-    public class MusicStoreContextOptions : DbContextOptions
-    {
-    }
+    //public class MusicStoreContextOptions : DbContextOptions
+    //{
+    //    new DbContextOptions(
+    //}
 }
