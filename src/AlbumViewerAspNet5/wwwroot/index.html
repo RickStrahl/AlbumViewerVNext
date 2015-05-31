@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
 
-    <!-- WEB FONTS -->
-    <!--<link href="//fonts.googleapis.com/css?family=Raleway:300,400,700,800" rel="stylesheet" type="text/css" />
-    <link href="//fonts.googleapis.com/css?family=Montserrat:700,800" rel="stylesheet" type="text/css" />-->
-
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -52,96 +48,123 @@
         </a>
     </div>
 
-    <div class="banner" ng-controller="headerController" ng-cloak>
-        <nav id="TopMenu" class="pull-right">
-            <form style="float: left; padding-top: 2px;">
-                <input id="SearchBox" type="text"
-                       class="form-control" placeholder="Search..."
-                       ng-model="searchText"
-                       ng-keyup="onKey()"
-                       ng-blur="searchBlur()"
-                       ng-hide="!searchAllowed || !searchVisible">
-            </form>
-            <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed"><i class=" fa fa-search" title="Search" style="font-size: 135%"></i> <span>Search</span></a>
-            <a href="#/albums" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'albums'}"><img src="images/record.png" title="Albums" style="height: 20px; vertical-align: top;" /> <span>Albums</span></a>
-            <a href="#/artists" ng-hide="searchVisible" ng-class="{ selected: activeTab == 'artists'}"><img src="images/artists32.png" title="Artists" style="height: 20px" /> <span>Artists</span></a>
-            <!--<a href="javascript: window.location.reload();" ng-class="{ selected: activeTab == 'about'}"><i class=" fa fa-info-circle" title="About" style="font-size: 165%;vertical-align: bottom"></i> <span>About</span></a>-->
-        </nav>
-
-    </div>
-
-    <div ng-cloak style="margin-top: 72px; padding: 1px;">
-        <div id="MainView" autoscroll="true"
-             ng-view>
+    <div ng-controller="headerController" ng-cloak
+         style="margin: 0; padding: 0; border: none;">
+        <div class="banner">
+            <nav id="Toolbar-Top" class="pull-right">
+                <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
+                    <img src="images/record.png" title="Albums" /> <span>Albums</span>
+                </a>
+                <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
+                    <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
+                </a>
+                <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
+                    <img src="images/gear.png" title="Options" /> <span>Options</span>
+                </a>
+            </nav>
+            <nav id="TopMenu" class="pull-right">
+                <form style="float: left; width: 140px; padding-top: 2px;">
+                    <input id="SearchBox" type="text"
+                           class="form-control" placeholder="Search..."
+                           ng-model="searchText"
+                           ng-keyup="onKey()"
+                           ng-blur="searchBlur()"
+                           ng-hide="!searchAllowed || !searchVisible">
+                </form>
+                <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed">
+                    <img src="images/search.png" /> <span>Search</span>
+                </a>
+            </nav>
         </div>
-    </div>
 
-    <script src="scripts/jquery.min.js"></script>
-    <script src="scripts/ww.jquery.min.js"></script>
-    <script src="scripts/ww.angular.js"></script>
-    <script src="scripts/lodash.min.js"></script>
+        <div ng-cloak style="margin-top: 72px; padding: 1px;">
 
-    <script src="scripts/fastclick.min.js"></script>
+            <div id="MainView" autoscroll="true" ng-view class="slide-animation">
+            </div>
 
 
-    <script>
-        // hook up fast click for mobile devices - avoid 300ms delay
-        window.addEventListener('load', function () {
-            // only use FastClick for iOS
-            if (navigator.userAgent.indexOf('iPhone') ||
-                navigator.userAgent.indexOf('iPad'))
-                FastClick.attach(document.body);
-        }, false);
+            <div class="banner banner-bottom">
+                <nav id="Toolbar">
+                    <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
+                        <img src="images/record.png" title="Albums" /> <span>Albums</span>
+                    </a>
+                    <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
+                        <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
+                    </a>
+                    <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
+                        <img src="images/gear.png" title="Options" /> <span>Options</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
 
-        // enable animations on all screens for small screen sizes
-        var width = $(window).width();
-        if (width < 769)
-            // make every animation a slide animation
-            // otherwise only view/edit are
-            $("#MainView").addClass("slide-animation");
+        <script src="scripts/jquery.min.js"></script>
+        <script src="scripts/ww.jquery.min.js"></script>
+        <script src="scripts/ww.angular.js"></script>
+        <script src="scripts/lodash.min.js"></script>
 
-        // close menu after click
-        $(".navbar-nav li a").on('click', function () {
-            if ($(window).width() < 769)
-                $(".navbar-collapse").collapse('hide');
-        });
-        $("#SearchBox").on("keydown", function (e) {
-            if ($(window).width() > 768)
-                return;
-
-            if (e.keyCode == 13 || e.keyCode == 27 || e.keyCode == 9)
-                $(".navbar-collapse").collapse('hide');
-        });
-    </script>
+        <script src="scripts/fastclick.min.js"></script>
 
 
+        <script>
+            // hook up fast click for mobile devices - avoid 300ms delay
+            window.addEventListener('load', function () {
+                // only use FastClick for iOS
+                if (navigator.userAgent.indexOf('iPhone') ||
+                    navigator.userAgent.indexOf('iPad'))
+                    FastClick.attach(document.body);
+            }, false);
 
-    <!--<script src="js/angular-concat.min.js"></script>-->
+            // enable animations on all screens for small screen sizes
+            var width = $(window).width();
+            if (width < 769)
+                // make every animation a slide animation
+                // otherwise only view/edit are
+                $("#MainView").addClass("slide-animation");
 
-    <script src="scripts/angular/angular.min.js"></script>
-    <script src="scripts/angular/angular-route.min.js"></script>
-    <script src="scripts/angular/angular-aria.min.js"></script>
-    <script src="scripts/angular/angular-animate.min.js"></script>
-    <script src="scripts/angular/angular-sanitize.min.js"></script>
-    <script src="scripts/angular/angular-touch.min.js"></script>
+            // close menu after click
+            $(".navbar-nav li a").on('click', function () {
+                if ($(window).width() < 769)
+                    $(".navbar-collapse").collapse('hide');
+            });
+            $("#SearchBox").on("keydown", function (e) {
+                if ($(window).width() > 768)
+                    return;
+
+                if (e.keyCode == 13 || e.keyCode == 27 || e.keyCode == 9)
+                    $(".navbar-collapse").collapse('hide');
+            });
+        </script>
 
 
-    <!--<script src="../scripts/ww.angular.min.js"></script>-->
-    <script src="css/bootstrap.min.js"></script>
-    <script src="scripts/bootstrap-typeahead.min.js"></script>
 
-    <!-- combined app scripts - build with gulp -->
-    <!--<script src="js/app.min.js"></script>-->
+        <!--<script src="js/angular-concat.min.js"></script>-->
 
-    <script src="app/js/app.js"></script>
-    <script src="app/js/albumService.js"></script>
-    <script src="app/js/artistscontroller.js"></script>
-    <script src="app/js/artistservice.js"></script>
-    <script src="app/js/artistservicelocal.js"></script>
-    <script src="app/js/headercontroller.js"></script>
-    <script src="app/js/albumServiceLocal.js"></script>
-    <script src="app/js/albumsController.js"></script>
-    <script src="app/js/albumController.js"></script>
-    <script src="app/js/artistController.js"></script>
+        <script src="scripts/angular/angular.min.js"></script>
+        <script src="scripts/angular/angular-route.min.js"></script>
+        <script src="scripts/angular/angular-aria.min.js"></script>
+        <script src="scripts/angular/angular-animate.min.js"></script>
+        <script src="scripts/angular/angular-sanitize.min.js"></script>
+        <script src="scripts/angular/angular-touch.min.js"></script>
+
+
+        <!--<script src="../scripts/ww.angular.min.js"></script>-->
+        <script src="css/bootstrap.min.js"></script>
+        <script src="scripts/bootstrap-typeahead.min.js"></script>
+
+        <!-- combined app scripts - build with gulp -->
+        <!--<script src="js/app.min.js"></script>-->
+
+        <script src="app/js/app.js"></script>
+        <script src="app/js/albumService.js"></script>
+        <script src="app/js/artistscontroller.js"></script>
+        <script src="app/js/artistservice.js"></script>
+        <script src="app/js/artistservicelocal.js"></script>
+        <script src="app/js/headercontroller.js"></script>
+        <script src="app/js/albumServiceLocal.js"></script>
+        <script src="app/js/albumsController.js"></script>
+        <script src="app/js/albumController.js"></script>
+        <script src="app/js/artistController.js"></script>
+        <script src="app/js/optionsController.js"></script>
 </body>
 </html>

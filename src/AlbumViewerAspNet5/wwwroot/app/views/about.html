@@ -1,77 +1,48 @@
 <div class="container">
-    <style>h4 { color: steelblue; font-weight: bold; }</style>
+    <style>
+        h4 {
+            color: steelblue;
+            font-weight: bold;
+        }
+    </style>
     <h3>
-        <i class="fa fa-info"></i>  About the Music Store Sample
+        <i class="fa fa-info"></i>  About the AlbumViewer Sample
     </h3>
 
-    <div class="btn-group" style="margin-bottom: 10px;">
-        <a href="#/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i>Angular API Sample</a>
-        <a href="mvc/albums" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> MVC Sample</a>
-    </div>
-
-    <div class="separator"></div>
-
-    <p>
-        This sample application demonstrates using a client centric JavaScript
-        framework to communicate with a Web Connection backend via JSON. This is
-        a common usage pattern today that uses the Web Browser as a rich client
-        to provide an interactive user interface connected to data served from
-        a Web Server. This example uses <a href="http://angularjs.org">AngularJs</a>,
-        <a href="http://getbootstrap.com">Bootstrap</a> css and the web
-        connection <a href="http://west-wind.com/webconnection/docs?page=_45p0t1xls.htm">wwRestProcess class</a>
-        to provide this client centric and mobile aware, Web based sample.
-    </p>
 
 
     <div class="well well-sm">
-        <<!--img width="90" height="90" 
-             style="margin-left: 10px;"
-             class="pull-right" alt="QR Tag for current URL open in your web browser"
-             src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fwest-wind.com%2Fwconnect%2Fmusicstore&chs=120x120" />-->
+        <h4>ASP.NET 5 MVC 6 Service Backend</h4>
+        <p>
+            This sample application uses an ASP.NET 5 MVC 6 backend
+            to serve JSON data to the Angular front end application. asdasdas
+        </p>        
+    </div>
 
-        <h4>Mobile</h4>
+    <div class="well well-sm">
+        <h4>Angular JS Front End</h4>
+        <p>
+            The client interface uses Angular JS to provide the front en logic and
+            UI management features. There are album and artist services that
+            talk to the backend interface and page level controllers for each
+            of the individual view pages of the application.
+        </p>
+    </div>
 
-        <p>
-            The sample is built using <a href="http://getbootstrap.com">Bootstrap</a> using mobile-first design mode. What this
-            means is that the site is adaptive and works well on mobile devices as well as on large screens. You
-            should be able to access this sample with just about any reasonably recent
-            smartphone browser and get a decent usability experience. If you want to
-            access the site with a mobile phone you can use the QR code on the right
-            to scan and launch the site on your phone.
-        </p>
-    </div>
     <div class="well well-sm">
-        <h4>Two Versions: Service and MVC</h4>
+        <h4>Mobile enabled based on modified Bootstrap Interface</h4>
         <p>
-            There are two versions of this sample: An Angular application that uses
-            an API back-end and a second incomplete version that uses MVC. Both 
-            controllers look very similar with the difference of returing either raw
-            data results or API results.
+            The base Bootstrap framework is used for the core UI features
+            of the interface. The base template has been customized for
+            this application.
+        </p>
+        <p>
+            The application is mobile focused and uses custom resizing
+            and toolbar relocation based on the screen/device size used.
+            The application should be comfortably usable from phone up to full screen
+            desktop applications.
         </p>
     </div>
-    <div class="well well-sm">
-        <h4>AngularJs Front End</h4>
-        <p>
-            The client application is a pure JavaScript based front end launched from
-            a plain .html page (no server code in the HTML). The front end uses <a href="angularjs.org">AngularJs</a>
-            UI presentation, data-binding and accessing of the remote HTTP service to
-            pull down the application data. AngularJs's strongly opinionated framework
-            and especially the databinding and modularization of client side JavaScript code
-            make it easy to create rich front ends to backend data as demonstrated by this small
-            sample application.
-        </p>
-    </div>
-    
-        <p>
-            Note that this application purposefully mixes a few different approaches in
-            some of the modules to demonstrate different ways that you can do things. The
-            albums views use the albumsService to explicitly isolate 'data' specific service
-            operations and 'business logic'. The Artist views opt for the simpler direct
-            access to data from controllers, which - while considered bad practice for
-            testing and reusability - does make for a lot less code and easier to follow
-            self-contained logic. The latter approach is valid for isolated or simple
-            components/pieces in applications.
-        </p>
 
     <hr />
     <a href="#/albums">Back to Application</a>

@@ -1,5 +1,5 @@
 body {
-       
+    overflow-x: hidden;
 }
 .page-header-text{
     font-size: 1.8em;
@@ -14,25 +14,35 @@ h3 {
     color: steelblue;
 }
 #TitleBar {
-    position: fixed;
-    top: 18px;
+    position: absolute;
+    top: 5px;
     left: 8px;
-    z-index: 100;
+    z-index: 11;
+}
+#Toolbar {
+    display: none;   
+}
+#Toolbar-Top {    
 }
 #TopMenu {
 }
-#SearchBox {
-    width: 220px;
-}
-@media(max-width: 500px) {
-    #SearchBox {
-        width: 135px;
-    }    
-}
+
     #TopMenu input {
         color: #535353;
         padding: 4px 5px;
         height: auto;
+    }
+    #MainView {
+        position: absolute;
+        left: 0;
+        top: 48px;
+        bottom: 0;
+        padding-top: 10px;
+        width:100%;
+        z-index: 11;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;        
     }
 .banner {
     background: #535353;
@@ -41,8 +51,8 @@ h3 {
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 15px;
-    height: 58px;
+    padding-top: 5px;
+    height: 48px;
     width: 100%;
     z-index: 10;   
 }
@@ -53,18 +63,21 @@ h3 {
 
 
 .banner nav {
-    display: inline-block;
-    margin-top: 2px;
+    display: inline-block;    
     margin-right: 3px;
-    padding: 0;    
+    padding: 4px;    
 }
-
     .banner nav a, .banner nav input {
         display: inline-block;
-        padding: 7px 5px;
+        padding: 6px 6px 6px;
         color: #e1e1e1;
         text-decoration: none;
     }
+     .banner nav a img {
+        height: 23px; 
+        vertical-align: top;
+    }
+
 
     .banner nav a:hover {
         color: white;
@@ -74,12 +87,26 @@ h3 {
         border-radius: 2px;
     }
 
-    .banner nav a.active, .banner nav a.selected {
+    .banner nav a.active, .banner nav a.selected   
+     {
         color: white;        
         font-weight: bold;
         border-bottom: solid 4px orange;
         border-radius: 2px;
     }
+  .banner-bottom {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    text-align: center;
+    padding-top: inherit;      
+    height: 43px;
+    display: none;
+}
+  .banner-bottom a {
+        margin: 0 20px;      
+    }
+
     @media(max-width: 640px) {
         .banner nav a span {
             display: none;
@@ -112,7 +139,7 @@ h3 {
         position: relative;
         float: right;
         background: #034e8d;
-        color: #whitesmoke;        
+        color: whitesmoke;        
         padding: 5px;        
         min-width: 40px;
         display: none;
@@ -201,28 +228,27 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
         min-height: 100px;
     }
 
+    #Toolbar-Top {
+        display: none;
+    }
+    #Toolbar {
+        display: block;
+    }
+    .banner-bottom {
+        display: block;
+    }
+    #MainView {
+        bottom: 43px;
+    }
 }
 
-
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
-   border-bottom: solid 2px transparent;
-}
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a:hover {
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
-    color: white;
-    background: #535353 !important;
-    border-bottom: solid 2px darkorange;
-    border-radius: 2px;
-}
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a.selected {
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
-    color: white;
-    background: #535353 !important;
-        border-bottom: solid 2px orange;
-    border-radius: 2px;
+.modal {
+    position: absolute;
+    top: 0;
+    z-index: 1040;        
 }
 .modal-dialog {
-    margin: 30px auto;
+    margin: 2px auto;   
 }
 .modal-header {
     padding: 15px 15px 5px;
@@ -232,27 +258,32 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
 }
 
 @-webkit-keyframes slideOutLeft {    
-    to {
+     from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+     to {
         -webkit-transform: translateX(-100%);
         transform: translateX(-100%);
     }	
 }
 @keyframes slideOutLeft {
-
+    from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
     to {
         -webkit-transform: translateX(-100%);
         transform: translateX(-100%);
     }
 }
-
-/* slide in from the bottom */
 @-webkit-keyframes slideInRight {
     from {
         -webkit-transform: translateX(100%);
         transform: translateX(100%);
     }
     to {
-        -webkit-transform: translateX(0%);
+        -webkit-transform: translateX(0);
         transform: translateX(0);
     }
 }
@@ -262,7 +293,7 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
         transform: translateX(100%);
     }
     to {
-        -webkit-transform: translateX(0%);
+        -webkit-transform: translateX(0);
         transform: translateX(0);
     }
 }
@@ -270,14 +301,31 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
 .slide-animation.ng-enter {
     -webkit-animation: slideInRight 0.70s both ease-in;
     animation: slideInRight 0.70s both ease-in;
-    z-index: 9999;    
+    z-index: 9999;        
 }
 
 .slide-animation.ng-leave {
-   -webkit-animation: slideOutLeft 0.35s both ease-in;
-    animation: slideOutLeft 0.35s both ease-in;
+   -webkit-animation: slideOutLeft 0.70s both ease-in;
+    animation: slideOutLeft 0.70s both ease-in;
     z-index: 8888;
 }
+
+/*.slide-animation {
+    left: 0;           
+    -webkit-transition: left 1s ease;    
+    transition: all 0.5s ease;
+}
+.slide-animation.ng-leave-active  {
+    left: -100% !important;
+    overflow: hidden !important;
+}
+.slide-animation.ng-enter  {
+    left: 100% !important;
+    -webkit-transition: none;
+    transition: none;
+    overflow: hidden !important;        
+}*/
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }

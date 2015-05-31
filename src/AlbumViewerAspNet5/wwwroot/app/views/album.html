@@ -1,9 +1,11 @@
 <div ng-controller="albumController as view" class="container">
 
     <div class="btn-group" style="margin-bottom: 10px;">
-        <a href="#/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i> List</a>
-        <a href="#/album/edit/{{view.album.Id}}" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
-        <a href="{{view.album.AmazonUrl}}" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
+        <a href="#/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i> Albums</a>
+        <a ng-href="#/album/edit/{{view.album.Id}}" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
+        <a ng-disabled="!view.album.AmazonUrl" href="{{view.album.AmazonUrl}}" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
+
+        <a ng-disabled="!view.album.SpotifyUrl" href="{{view.album.SpotifyUrl}}" class="btn btn-sm btn-default"><i class="fa fa-volume-up"></i> Listen</a>
         <button ng-click="view.deleteAlbum(view.album)" class="btn btn-sm btn-default"><i class="fa fa-remove"></i> Delete</button>
     </div>
 
@@ -26,7 +28,11 @@
             </div>
             <div ng-bind-html="view.album.Description | linebreakFilter"></div>
 
-            <hr />
+            <div style="margin: 10px 0" class="pull-right">
+                &nbsp;
+                <a ng-show="view.album.AmazonUrl" ng-href="{{view.album.AmazonUrl}}" class="btn btn-link btn-sm" target="_amazon"><i class="fa fa-dollar"></i> Buy</a> &nbsp;&nbsp;
+                <a ng-show="view.album.SpotifyUrl" ng-href="{{view.album.SpotifyUrl}}" class="btn btn-link btn-sm" target="_spotify"><i class="fa fa-volume-up"></i> Play</a>
+            </div>
 
             <table class=" table table-striped small">
                 <tr ng-repeat="song in view.album.Tracks">
@@ -37,7 +43,8 @@
 
             <hr />
             More from
-            <a href="#/artist/{{view.album.ArtistId}}">{{view.album.Artist.ArtistName}}<br/>            
+            <a href="#/artist/{{view.album.ArtistId}}">
+                {{view.album.Artist.ArtistName}}<br />
                 <img ng-src="{{view.album.Artist.ImageUrl}}" style="height: 100px; border-radius: 5px;box-shadow: 2px 2px 3px #535353" />
             </a>
         </div>

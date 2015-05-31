@@ -1,0 +1,22 @@
+<div ng-controller="optionsController as view" class="container">
+
+    <div class="alert alert-dismissable alert-{{view.error.icon}}"
+         ng-show="view.error.message"
+         role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
+        <span ng-bind="view.error.message"></span>
+    </div>
+
+    <div class="list-group" style="margin-top: 20px;">
+        <a  href="#/options" ng-click="view.reloadData()" class="list-group-item">            
+            <h4 class="list-group-item-heading"><i class="fa fa-refresh"></i> &nbsp; Reset Data</h4>
+            <p class="list-group-item-text">Reset data to original sample data.</p>
+        </a>
+        <a href="#/about" class="list-group-item">
+            <h4 class="list-group-item-heading"><i class="fa fa-info-circle"></i> &nbsp; About Album Viewer</h4>            
+        </a>
+    </div>
+
+</div>

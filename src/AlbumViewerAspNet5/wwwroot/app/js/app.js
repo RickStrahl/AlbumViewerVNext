@@ -42,6 +42,9 @@
                     .when("/about", {
                         templateUrl: "app/views/about.html"
                     })
+                    .when("/options", {
+                        templateUrl: "app/views/options.html"
+                    })
                     .otherwise({
                         redirectTo: '/albums'
                     });
