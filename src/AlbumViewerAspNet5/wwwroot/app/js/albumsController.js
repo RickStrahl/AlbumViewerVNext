@@ -5,13 +5,13 @@
         .module('app')
         .controller('albumsController', albumsController);
 
-    if (!app.configuration.useLocalData)
-        albumsController.$inject = ['$scope','albumService'];
-    else
-        albumsController.$inject = ['$scope','albumServiceLocal'];
+    var service = "albumService";
+    if (app.configuration.useLocalData)
+        service = "albumServiceLocal"; 
+    albumsController.$inject = ['$scope','$location','$timeout', service];
     
 
-    function albumsController($scope,  albumService) {
+    function albumsController($scope,  $location, $timeout, albumService) {
         
         var vm = this;
         vm.albums = null;
@@ -28,12 +28,17 @@
 
         vm.artistpk = 0;
 
-        vm.albumClick = function(album) {
-            window.location = "#/album/" + album.Id;
+        vm.albumClick = function (album) {
+            albumService.listScrollPos = $("#MainView").scrollTop();           
+            $location.path( "/album/" + album.Id);
         };
         vm.getAlbums = function() {
             albumService.getAlbums() 
-                .success(function(data) {
+                .success(function (data) {
+                    if (albumService.listScrollPos)
+                        $timeout(function () {
+                            $("#MainView").scrollTop(albumService.listScrollPos);
+                        },900);
                     vm.albums = data;
                 })
                 .error(function(err) {
@@ -43,7 +48,7 @@
         vm.addAlbum = function () {            
             albumService.album = albumService.newAlbum();
             albumService.updateAlbum(albumService.album);
-            window.location = "#/album/edit/" + albumService.album.Id;
+            $location.path("/album/edit/" + albumService.album.Id);
         };
         vm.deleteAlbum = function (album) {
             // on purpose! - force explicit prompt to minimize vandalization of demo
@@ -74,9 +79,6 @@
         });
 
         // controller initialization
-        vm.getAlbums();
-        
-
-        return;
+        vm.getAlbums();       
     }
 })();

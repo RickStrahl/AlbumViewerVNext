@@ -42,7 +42,8 @@ namespace MusicStoreVNext
         public async Task<IEnumerable<Album>> Albums()
         {
             // For demonstration create individual instance
-            var ctxt = new MusicStoreContext();            
+            var ctxt = new MusicStoreContext();
+            
 
             var result = await ctxt.Albums
                 .Include(ctx => ctx.Tracks)
@@ -73,53 +74,6 @@ namespace MusicStoreVNext
             var albumRepo = new AlbumRepository(context);
             return await albumRepo.SaveAlbum(postedAlbum);
 
-#if false
-            int id = postedAlbum.Id;
-
-            Album album = null;
-            if (id < 1)
-            {
-                album = new Album();
-                context.Albums.Add(album);
-            }
-            else
-            {
-                album = await context.Albums
-                    .Include(ctx => ctx.Tracks)
-                    .Include(ctx => ctx.Artist)
-                    .FirstOrDefaultAsync(alb => alb.Id == id);
-            }
-
-            // check for existing artist and assign if matched
-            if (album.Artist.Id < 1)
-            {
-                var artist = await context.Artists
-                                          .FirstOrDefaultAsync(art => art.ArtistName == postedAlbum.Artist.ArtistName);
-                if (artist != null)
-                    album.Artist.Id = artist.Id;
-            }
-
-            DataUtils.CopyObjectData(postedAlbum, album, "Id,Tracks,Artist");
-            DataUtils.CopyObjectData(postedAlbum.Artist, album.Artist, "Id");
-
-            foreach (var postedTrack in postedAlbum.Tracks)
-            {
-                var track = album.Tracks.FirstOrDefault(trk => trk.Id == postedTrack.Id);
-                if (postedTrack.Id > 0 && track != null)
-                    DataUtils.CopyObjectData(postedTrack, track);
-                else
-                {
-                    track = new Track();
-                    context.Tracks.Add(track);
-                    DataUtils.CopyObjectData(postedTrack, track, "Id,AlbumId,ArtistId");
-                    album.Tracks.Add(track);
-                }
-            }
-
-            context.SaveChanges();
-
-            return album;
-#endif
         }
 
 
