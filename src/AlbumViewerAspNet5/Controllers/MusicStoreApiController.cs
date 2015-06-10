@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Text;
 using Westwind.Utilities;
 //using Westwind.Utilities;
 
@@ -41,15 +42,16 @@ namespace MusicStoreVNext
         [Route("api/albums")]
         public async Task<IEnumerable<Album>> Albums()
         {
-            // For demonstration create individual instance
-            var ctxt = new MusicStoreContext();
+            List<Album> result;
             
-
-            var result = await ctxt.Albums
-                .Include(ctx => ctx.Tracks)
-                .Include(ctx => ctx.Artist)                
-                .OrderBy(alb => alb.Title)
-                .ToListAsync();
+            // For demonstration create Context Instance manually 
+            using (var ctxt = new MusicStoreContext())
+            {
+                result = await ctxt.Albums.Include(ctx => ctx.Tracks)
+                    .Include(ctx => ctx.Artist)
+                    .OrderBy(alb => alb.Title)
+                    .ToListAsync();
+            }
 
             return result;
         }
@@ -80,19 +82,23 @@ namespace MusicStoreVNext
         [HttpGet]
         [Route("api/artists")]
         public async Task<IEnumerable> Artists()
-        {            
-            var result = await context.Artists                            
-                            .OrderBy(art => art.ArtistName)
-                            .Select(art=> new
-                            {
-                                ArtistName = art.ArtistName,
-                                Description = art.Description,
-                                ImageUrl = art.ImageUrl,                                
-                                Id = art.Id,
-                                AlbumCount = context.Albums.Count(alb=> alb.ArtistId == art.Id)
-                            })
-                            .ToListAsync();
-            return result;
+        {
+            using (context = new MusicStoreContext())
+            {
+
+                var result = await context.Artists
+                    .OrderBy(art => art.ArtistName)
+                    .Select(art => new
+                    {
+                        ArtistName = art.ArtistName,
+                        Description = art.Description,
+                        ImageUrl = art.ImageUrl,
+                        Id = art.Id,
+                        AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
+                    })
+                    .ToListAsync();
+                return result;
+            }
         }
 
         [HttpGet]
@@ -168,6 +174,24 @@ namespace MusicStoreVNext
         {
             var db = new AlbumRepository(context);
             return await db.DeleteArtist(id);
+        }
+
+        [HttpGet]
+        public async Task<string> DeleteAlbumByName(string name)
+        {
+            var repo = new AlbumRepository(context);
+
+            var pks = await context.Albums.Where(alb => alb.Title == name).Select(alb => alb.Id).ToListAsync();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (int pk in pks)
+            {
+                bool result = await repo.DeleteAlbum(pk);
+                if (!result)
+                    sb.AppendLine(repo.ErrorMessage);
+            }
+
+            return sb.ToString();
         }
     }
 

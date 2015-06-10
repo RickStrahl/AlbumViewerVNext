@@ -12,7 +12,7 @@
         "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta4",
         "Microsoft.Framework.ConfigurationModel": "1.0.0-beta4",
         "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-beta4",
-        
+        "System.Reflection.Metadata": "1.0.18-beta",        
         "Westwind.Utilities": ""
     },
 

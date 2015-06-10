@@ -107,8 +107,9 @@ namespace AlbumViewerBusiness
             var tracks = await Context.Tracks.Where(t => t.AlbumId == id).ToListAsync();
             for (int i = tracks.Count - 1; i > -1; i--)
             {
-                var track = tracks[i];
+                var track = tracks[i];                
                 tracks.Remove(track);
+                Context.Tracks.Remove(track);
             }
 
             var album = await Context.Albums

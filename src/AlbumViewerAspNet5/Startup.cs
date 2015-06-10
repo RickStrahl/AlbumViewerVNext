@@ -24,6 +24,7 @@ namespace AlbumViewerAspNet5
             // Setup configuration sources.
             Configuration = new Configuration()
                 .AddJsonFile("config.json")
+                .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
         }
 

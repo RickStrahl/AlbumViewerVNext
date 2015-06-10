@@ -40,3 +40,4 @@ node_modules
 src/AlbumViewerVNext/wwwroot/web.config__X
 thumbs.db
 .vs
+/AlbumViewerVnext.azurewebsites.net.PublishSettings

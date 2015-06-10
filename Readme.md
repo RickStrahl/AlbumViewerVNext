@@ -11,6 +11,7 @@ This sample is a Mobile Web enabled album viewer that allows you to browse, add 
 
 * [A First Look at ASP.NET VNext](http://www.codemag.com/Article/1501081)
 * [ASP.NET VNext: The Next Generation](http://www.codemag.com/Article/1501061)
+* [Online Sample](http://samples.west-wind.com/albumviewer/index.html)
 
 ![](AlbumViewer.png)
 
