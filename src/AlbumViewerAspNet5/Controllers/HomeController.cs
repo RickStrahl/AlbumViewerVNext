@@ -10,7 +10,7 @@ namespace AlbumViewerAspNet5.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return Redirect("index.html");
         }
 
         public IActionResult About()
