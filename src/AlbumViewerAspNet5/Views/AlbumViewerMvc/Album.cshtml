@@ -1,49 +1,52 @@
-﻿@model MusicStoreBusiness.Album
-<div ng-controller="albumController as view" class="container">
-    @Model.Title
-
-    Tag Helper: <input type="text" for="Title" class="inputfield" />
+﻿@model AlbumViewerBusiness.Album
+<div class="container">
 
     <div class="btn-group" style="margin-bottom: 10px;">
-        <a href="#/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i> List</a>
-        <a href="#/album/edit/{{view.album.Id}}" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
-        <a href="{{view.album.AmazonUrl}}" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
+        <a href="@Url.Action("Albums")" class="btn btn-sm btn-default"><i class="fa fa-list"></i> List</a>
+        <a href="@Url.Action("edit","album", new { Model.Id})" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
+        <a href="@Model.AmazonUrl" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
         <button ng-click="view.deleteAlbum(view.album)" class="btn btn-sm btn-default"><i class="fa fa-remove"></i> Delete</button>
     </div>
 
     <div class="separator"></div>
 
-
     <div class="row">
         <div class="col-sm-3">
-            <img ng-src="{{view.album.ImageUrl}}" class="album-image-big" />
+            <img src="@Model.ImageUrl" class="album-image-big" />
         </div>
         <div class="col-sm-9">
+            <h2 class="album-title-big">
+                @Model.Title
+            </h2>
             <div class="album-title-big">
-                {{view.album.Title}}
+                @Model.Title
             </div>
 
             <div class="album-artist">
-
-                by <a href="#/artist/{{view.album.ArtistId}}">{{view.album.Artist.ArtistName}}</a>
-                {{(view.album.Year ? 'in ' + view.album.Year : '')}}
+                by <a href="#/artist/@Model.ArtistId">@Model.Artist.ArtistName</a>
+                @( Model.Year > 0 ? "in " + Model.Year : "" )
             </div>
-            <div ng-bind-html="view.album.Description | linebreakFilter"></div>
+            <div>
+                @Model.Description
+            </div>
 
-            <hr />
+            <hr/>
 
             <table class=" table table-striped small">
-                <tr ng-repeat="song in view.album.Tracks">
-                    <td>{{song.SongName}}</td>
-                    <td>{{song.Length}}</td>
-                </tr>
+                @foreach (var song in @Model.Tracks)
+                {
+                    <tr>
+                        <td>@song.SongName</td>
+                        <td>@song.Length</td>
+                    </tr>
+                }
             </table>
 
-            <hr />
+            <hr/>
             More from
-            <a href="#/artist/{{view.album.ArtistId}}">
-                {{view.album.Artist.ArtistName}}<br />
-                <img ng-src="{{view.album.Artist.ImageUrl}}" style="height: 100px; border-radius: 5px;box-shadow: 2px 2px 3px #535353" />
+            <a href="artist/@Model.ArtistId">
+                @Model.Artist.ArtistName<br/>
+                <img src="@Model.Artist.ImageUrl" style="height: 100px; border-radius: 5px; box-shadow: 2px 2px 3px #535353"/>
             </a>
         </div>
     </div>

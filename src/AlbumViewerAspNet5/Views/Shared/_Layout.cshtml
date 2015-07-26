@@ -33,8 +33,8 @@
 
 
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
 
     <link href="../css/musicstore.css" rel="stylesheet" />
 </head>
@@ -65,9 +65,9 @@
 
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">Albums</a></li>
-                    <li><a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">Artists</a></li>
-                    <li><a href="#/about" ng-class="{ selected: activeTab == 'about'}">About</a></li>
+                    <li><a href="albums" ng-class="{ selected: activeTab == 'albums'}">Albums</a></li>
+                    <li><a href="artists" ng-class="{ selected: activeTab == 'artists'}">Artists</a></li>
+                    <li><a href="about" ng-class="{ selected: activeTab == 'about'}">About</a></li>
                 </ul>
                 <form id="SearchBoxForm" class="navbar-form navbar-right" ng-show="searchVisible">
                     <input id="SearchBox" type="text" class="form-control" placeholder="Search..."
@@ -79,7 +79,7 @@
         </div>
     </div>
 
-    <div class="ng-cloak" style="margin-top: 60px;padding: 10px;">
+    <div  style="margin-top: 60px;padding: 10px;">
         <div id="MainView" autoscroll=""
              ng-view>
             @RenderBody()

@@ -25,10 +25,12 @@ namespace MusicStoreVNext
     public class AlbumViewerApiController : Controller
     {
         AlbumViewerContext context;
+        IServiceProvider serviceProvider;
        
-        public AlbumViewerApiController(AlbumViewerContext ctx)
+        public AlbumViewerApiController(AlbumViewerContext ctx, IServiceProvider svcProvider)
         {
             context = ctx;
+            serviceProvider = svcProvider;
         }
 
 
@@ -45,16 +47,11 @@ namespace MusicStoreVNext
         [Route("api/albums")]
         public async Task<IEnumerable<Album>> Albums()
         {
-            List<Album> result;
-
-            // For demonstration create Context Instance manually 
-            using (var ctxt = context) // new AlbumViewerContext())
-            {
-                result = await ctxt.Albums.Include(ctx => ctx.Tracks)
-                    .Include(ctx => ctx.Artist)
-                    .OrderBy(alb => alb.Title)
-                    .ToListAsync();
-            }
+            var result = await context.Albums
+                .Include(ctx => ctx.Tracks)
+                .Include(ctx => ctx.Artist)
+                .OrderBy(alb => alb.Title)
+                .ToListAsync();
 
             return result;
         }
@@ -86,19 +83,36 @@ namespace MusicStoreVNext
         [Route("api/artists")]
         public async Task<IEnumerable> Artists()
         {
-            var result = await context.Artists
-                .OrderBy(art => art.ArtistName)
-                .Select(art => new
-                {
-                    ArtistName = art.ArtistName,
-                    Description = art.Description,
-                    ImageUrl = art.ImageUrl,
-                    Id = art.Id,
-                    AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
-                })
-                .ToListAsync();
-            return result;
+            // For demonstration use a manually instantiated instance of
+            // the dbContext.
+            //
+            // Note the need to pass in serviceProvider or *something*
+            // that gives access to the Configuration so the connection
+            // string from config can be found.
+            // 
+            // This overload is what EF uses internally to create a
+            // to create a configured instance of a context.
+            //
+            // Scoped instances of Context can be problematic in some
+            // controllers - you're incurring overhead for each hit even
+            // if context is isn't used in an action. If you need multiple instances
+            // of contexts you may also need to manually instantiate. 
+            using (var ctxt = new AlbumViewerContext(serviceProvider))
+            {
+                var result = await ctxt.Artists
+                    .OrderBy(art => art.ArtistName)
+                    .Select(art => new
+                    {
+                        art.ArtistName,
+                        art.Description,
+                        art.ImageUrl,
+                        art.Id,
+                        AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
+                    })
+                    .ToListAsync();
 
+                return result;
+            }
         }
 
         [HttpGet]

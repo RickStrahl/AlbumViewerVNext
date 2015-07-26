@@ -16,11 +16,13 @@ namespace MusicStoreVNext
 {
     public class AlbumViewerMvcController : Controller
     {
-        AlbumViewerContext context;        
+        AlbumViewerContext context;
+        private readonly IServiceProvider serviceProvider;
 
-        public AlbumViewerMvcController(AlbumViewerContext ctx)
+        public AlbumViewerMvcController(AlbumViewerContext ctx, IServiceProvider svcProvider)
         {
             context = ctx;
+            serviceProvider = svcProvider;
             //this.environment = environment;
         }
 
@@ -31,6 +33,7 @@ namespace MusicStoreVNext
 
         public async Task<ActionResult> Albums()
         {
+            
             var result = await context.Albums
                 .Include(ctx => ctx.Tracks)
                 .Include(ctx => ctx.Artist)
