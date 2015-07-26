@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Data.Entity;
 
 
 namespace AlbumViewerBusiness
@@ -27,20 +28,20 @@ namespace AlbumViewerBusiness
             Tracks = new List<Track>();
         }
 
-        public async Task<bool> LoadChildrenAsync(MusicStoreContext ctx)
+        public async Task<bool> LoadChildrenAsync(AlbumViewerContext ctx)
         {
-            Artist = await ctx.Artists.FirstOrDefaultAsync(art => art.Id == ArtistId);
+            Artist = await ctx.Artists.SingleOrDefaultAsync(art => art.Id == ArtistId);
             Tracks = await ctx.Tracks.Where(tk => tk.AlbumId == Id).ToListAsync();
 
             return true;
         }
 
-        public async Task<bool> LoadArtistAsync(MusicStoreContext ctx)
+        public async Task<bool> LoadArtistAsync(AlbumViewerContext ctx)
         {
             Artist = await ctx.Artists.FirstOrDefaultAsync(art => art.Id == ArtistId);
             return true;
         }
-        public async Task<bool> LoadTracksAsync(MusicStoreContext ctx)
+        public async Task<bool> LoadTracksAsync(AlbumViewerContext ctx)
         {
             Tracks = await ctx.Tracks.Where(tk => tk.AlbumId == Id).ToListAsync();
             return true;

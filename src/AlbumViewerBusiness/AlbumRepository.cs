@@ -2,14 +2,15 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Data.Entity;
 using Westwind.BusinessObjects;
 using Westwind.Utilities;
 
 namespace AlbumViewerBusiness
 {
-    public class AlbumRepository : EntityFrameworkRepository<MusicStoreContext,Album>
+    public class AlbumRepository : EntityFrameworkRepository<AlbumViewerContext,Album>
     {    
-        public AlbumRepository(MusicStoreContext context)
+        public AlbumRepository(AlbumViewerContext context)
             : base(context)
         { }
         
@@ -28,7 +29,7 @@ namespace AlbumViewerBusiness
                 album = await Context.Albums
                     .Include(ctx => ctx.Tracks)
                     .Include(ctx => ctx.Artist)
-                    .FirstOrDefaultAsync(alb => alb.Id == id);
+                    .SingleOrDefaultAsync(alb => alb.Id == id);
             }
 
             // check for existing artist and assign if matched

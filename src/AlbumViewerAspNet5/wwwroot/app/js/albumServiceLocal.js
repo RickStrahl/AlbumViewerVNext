@@ -24,7 +24,8 @@
             removeSong: removeSong,
             newAlbum: newAlbum,
             newSong: newSong,
-            activeTab: 'albums'
+            activeTab: 'albums',
+            listScrollPos: 0
         };
         return service;
 

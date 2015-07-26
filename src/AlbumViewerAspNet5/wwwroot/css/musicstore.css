@@ -42,7 +42,10 @@ h3 {
         z-index: 11;
         overflow-x: hidden;
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch;        
+        -webkit-overflow-scrolling: touch;
+        padding-top: 10px; 
+        background: white;
+        overflow-x: hidden;
     }
 .banner {
     background: #535353;
@@ -320,21 +323,8 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
     z-index: 8888;
 }
 
-/*.slide-animation {
-    left: 0;           
-    -webkit-transition: left 1s ease;    
-    transition: all 0.5s ease;
-}
-.slide-animation.ng-leave-active  {
-    left: -100% !important;
-    overflow: hidden !important;
-}
-.slide-animation.ng-enter  {
-    left: 100% !important;
-    -webkit-transition: none;
-    transition: none;
-    overflow: hidden !important;        
-}*/
+
+
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;

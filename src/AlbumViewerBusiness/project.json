@@ -1,29 +1,27 @@
 ﻿{
-    "version": "1.0.0-*",
-    "description": "",
-    "authors": [ "" ],
-    "tags": [ "" ],
-    "projectUrl": "",
-    "licenseUrl": "",
+  "version": "1.0.0-*",
 
-    "dependencies": {
-        "EntityFramework": "7.0.0-beta4",
-        "EntityFramework.SqlServer": "7.0.0-beta4",         
-        "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta4",
-        "Microsoft.Framework.ConfigurationModel": "1.0.0-beta4",
-        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-beta4",
-        "System.Reflection.Metadata": "1.0.18-beta",        
-        "Westwind.Utilities": ""
+  "description": "",
+  "authors": [ "" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "dependencies": {
+    "EntityFramework.SqlServer": "7.0.0-beta5",
+    "EntityFramework.Commands": "7.0.0-beta5",
+    "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta5",
+    "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta5",
+    "Microsoft.Framework.Configuration": "1.0.0-beta5",
+    "Microsoft.Framework.Configuration.Json": "1.0.0-beta5",
+    "Westwind.Utilities": ""
+  },
+  "frameworks": {
+    "dnx451": {
+      "dependencies": {
+        "EntityFramework.Core": "7.0.0-beta5"
+      }
     },
+    "dnxcore50": { }
+  }
 
-    "frameworks": {
-        "dnx451": {
-            "frameworkAssemblies": {                
-            }            
-        },
-        "dnxcore50": {
-            "dependencies": {
-            }
-        }
-    }
 }

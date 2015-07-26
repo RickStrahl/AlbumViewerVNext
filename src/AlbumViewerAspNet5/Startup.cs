@@ -8,32 +8,35 @@ using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Routing;
-using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
 using Microsoft.Data.Entity;
+using Microsoft.Framework.Configuration;
+using Microsoft.Framework.Runtime;
 
 
 namespace AlbumViewerAspNet5
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
             // Setup configuration sources.
-            Configuration = new Configuration()
+            var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
                 .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
+            Configuration = builder.Build();
         }
 
-        public IConfiguration Configuration { get; set; }
+        public static IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<AppSettings>(Configuration.GetSubKey("AppSettings"));
+            services.Configure<AppSettings>(Configuration.GetConfigurationSection("AppSettings"));
 
             // Add MVC services to the services container.
             services.AddMvc();
@@ -41,14 +44,14 @@ namespace AlbumViewerAspNet5
             // Add EF services to the services container
             services.AddEntityFramework()
                         .AddSqlServer()
-                        .AddDbContext<MusicStoreContext>(options =>
+                        .AddDbContext<AlbumViewerContext>(options =>
                         {
                             var val = Configuration.Get("Data:MusicStore:ConnectionString");
                             options.UseSqlServer(val);
                         });
 
             // Inject DbContext as per Request context
-            services.AddScoped<MusicStoreContext>();
+            services.AddScoped<AlbumViewerContext>();
         }
 
         // Configure is called after ConfigureServices is called.
@@ -82,7 +85,7 @@ namespace AlbumViewerAspNet5
                 routes.MapRoute(
                     name: "api",
                     template: "api/{action}/{id?}",
-                    defaults: new {controller = "MusicStoreApi", action = "Index"});
+                    defaults: new {controller = "AlbumViewerApi", action = "Index"});
                 routes.MapRoute(
                     name: "version",
                     template: "version/{action}",
@@ -90,7 +93,7 @@ namespace AlbumViewerAspNet5
                 routes.MapRoute(
                     name: "mvc",
                     template: "mvc/{action}/{id?}",
-                    defaults: new {controller = "MusicStoreMvc", action = "Index"});
+                    defaults: new {controller = "AlbumViewerMvc", action = "Index"});
 
 
                 routes.MapRoute(

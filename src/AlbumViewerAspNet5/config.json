@@ -5,7 +5,7 @@
     "Data": {
         "MusicStore": {
             //"xConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=musicstore.mdf;Trusted_Connection=True;"
-            "ConnectionString": "Data Source=.;database=albumviewerVNext;integrated security=true;Connect Timeout=30;MultipleActiveResultSets=True"            
+            "ConnectionString": "Data Source=.;database=albumviewerNew;integrated security=true;Connect Timeout=30;MultipleActiveResultSets=True"            
         }
     }
 }

@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Text;
 using Westwind.Utilities;
+using Microsoft.Data.Entity;
+using Microsoft.Framework.Configuration;
+using Microsoft.Framework.DependencyInjection;
+
 //using Westwind.Utilities;
 
 
@@ -18,12 +22,11 @@ using Westwind.Utilities;
 
 namespace MusicStoreVNext
 {
-    public class MusicStoreApiController : Controller
+    public class AlbumViewerApiController : Controller
     {
-        MusicStoreContext context;
-
-
-        public MusicStoreApiController(MusicStoreContext ctx)
+        AlbumViewerContext context;
+       
+        public AlbumViewerApiController(AlbumViewerContext ctx)
         {
             context = ctx;
         }
@@ -31,7 +34,7 @@ namespace MusicStoreVNext
 
         [HttpGet]
         [Route("api/HelloWorld")]
-        public async Task<object> HelloWorld(string name = null)
+        public object HelloWorld(string name = null)
         {
             if (string.IsNullOrEmpty(name))
                 name = "Johnny Doe";
@@ -43,9 +46,9 @@ namespace MusicStoreVNext
         public async Task<IEnumerable<Album>> Albums()
         {
             List<Album> result;
-            
+
             // For demonstration create Context Instance manually 
-            using (var ctxt = new MusicStoreContext())
+            using (var ctxt = context) // new AlbumViewerContext())
             {
                 result = await ctxt.Albums.Include(ctx => ctx.Tracks)
                     .Include(ctx => ctx.Artist)
@@ -83,22 +86,19 @@ namespace MusicStoreVNext
         [Route("api/artists")]
         public async Task<IEnumerable> Artists()
         {
-            using (context = new MusicStoreContext())
-            {
+            var result = await context.Artists
+                .OrderBy(art => art.ArtistName)
+                .Select(art => new
+                {
+                    ArtistName = art.ArtistName,
+                    Description = art.Description,
+                    ImageUrl = art.ImageUrl,
+                    Id = art.Id,
+                    AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
+                })
+                .ToListAsync();
+            return result;
 
-                var result = await context.Artists
-                    .OrderBy(art => art.ArtistName)
-                    .Select(art => new
-                    {
-                        ArtistName = art.ArtistName,
-                        Description = art.Description,
-                        ImageUrl = art.ImageUrl,
-                        Id = art.Id,
-                        AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
-                    })
-                    .ToListAsync();
-                return result;
-            }
         }
 
         [HttpGet]

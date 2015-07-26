@@ -8,16 +8,17 @@ using System.Linq;
 
 using System.Reflection;
 using System.Threading.Tasks;
+using Microsoft.Data.Entity;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MusicStoreVNext
 {
-    public class MusicStoreMvcController : Controller
+    public class AlbumViewerMvcController : Controller
     {
-        MusicStoreContext context;        
+        AlbumViewerContext context;        
 
-        public MusicStoreMvcController(MusicStoreContext ctx)
+        public AlbumViewerMvcController(AlbumViewerContext ctx)
         {
             context = ctx;
             //this.environment = environment;
