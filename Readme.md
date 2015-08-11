@@ -7,7 +7,7 @@ posts from Rick Strahl's Web Log.
 
 This sample is a Mobile Web enabled album viewer that allows you to browse, add and music albums and artists that demonstrates using a client side AngularJs application talking to a ASP.NET 5 API backend using Entity Framework and a simple layer to handle data access. 
 
-> Current Supported Version: Beta4 (use tags for others)
+> Current Supported Version: Beta6 (use tags for others)
 
 * [A First Look at ASP.NET VNext](http://www.codemag.com/Article/1501081)
 * [ASP.NET VNext: The Next Generation](http://www.codemag.com/Article/1501061)
@@ -21,9 +21,9 @@ The sample uses SQL Server sample data which you can import from a SQL script.
 To use it:
 
 * Open the Sql Data Tools or Sql Server Management Studio
-* Create a database named AlbumViewerVNext (or whatever)
+* Create a database named AlbumViewer (or whatever)
 * Select the database
-* Run the AlbumViewerVNext.sql script from the AlbumViewerAspNet5\App_Data folder
+* Run the AlbumViewer.sql script from the AlbumViewerAspNet5\App_Data folder
 
 The script creates the tables and sample data in order for the application to run.
 
@@ -34,25 +34,24 @@ the application. Alternately you can run the sample from the command line.
 
 **From Visual Studio**
 * Open Visual Studio
-* Open the AlbumViewerVNext Solution
+* Open the AlbumViewerAspNet5 Solution
 * Run the AlbumViewerAspNet5 Project
 * Or: Select Index.html in /wwwroot/ and View in Web Browser
 
-
 **From the command line:**
 
-If you don't have the KRE Runtime installed:
+If you don't have the DNX Runtime installed:
 
 * Go to: https://github.com/aspnet/Home#getting-started
-* Follow the KRuntime install directions
+* Follow the DNX Runtime install directions
 * Install with PowerShell
 * Run dnvm upgrade -runtime CoreClr 
 * Run dnvm upgrade -runtime Clr
 
 Once the runtime is installed:
 
-* Change to <install>\src\albumviewervnext folder
-* Run dnx web
+* Change to <install>\src\albumviewervaspnet5 folder
+* Run `dnx . web`
 * Navigate to http://localhost:5000/ in your browser
 
 **Requirements:**
