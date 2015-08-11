@@ -7,7 +7,8 @@
 
     var service = "albumService";
     if (app.configuration.useLocalData)
-        service = "albumServiceLocal"; 
+        service = "albumServiceLocal";
+
     albumsController.$inject = ['$scope','$location','$timeout', service];
     
 

@@ -23,7 +23,7 @@
             newAlbum: newAlbum,
             newSong: newSong,
             activeTab: 'albums',
-            listScrollPos: 0
+            listScrollPos: 0            
         };               
         return service;       
 
@@ -67,6 +67,7 @@
                 service.album = service.newAlbum();
                 return ww.angular.$httpPromiseFromValue($q,service.album);
             }                
+            // -1 - use the album previously set
             else if (id === -1 || id === '-1' || !id)
                 return ww.angular.$httpPromiseFromValue($q,service.album);
 

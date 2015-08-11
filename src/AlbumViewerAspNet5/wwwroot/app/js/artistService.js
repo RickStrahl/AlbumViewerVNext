@@ -30,7 +30,9 @@
             return {
                 Id: 0,
                 ArtistName: null,
+                Description: null,
                 AmazonUrl: null,
+                ImageUrl: null,
                 AlbumCount: 0
             };
         }
@@ -47,7 +49,7 @@
                 .error(onPageError);
         }
 
-        function getArtist(id, useExisting) {
+        function getArtist(id, useExisting) {            
             if (id === 0 || id === '0') {
                 service.artist = service.newArtist();
                 return ww.angular.$httpPromiseFromValue($q, service.album);
@@ -133,8 +135,7 @@
 
         function findArtist(id) {
             id = id * 1;
-            var a = _.find(service.artists, function (a) {
-                console.log(id, a.Id);
+            var a = _.find(service.artists, function (a) {                
                 return id === a.Id;
             });            
             return a;

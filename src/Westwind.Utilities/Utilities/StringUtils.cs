@@ -462,7 +462,7 @@ namespace Westwind.Utilities
             if (encoding == null)
                 encoding = Encoding.Unicode;
 
-            return encoding.GetString(buffer);
+            return encoding.GetString(buffer,0,buffer.Length);
         }
 
         /// <summary>

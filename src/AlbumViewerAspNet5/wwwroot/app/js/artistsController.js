@@ -5,12 +5,11 @@
         .module('app')
         .controller('artistsController', artistsController);
 
+    var serviceName = "artistService";
     if(app.configuration.useLocalData)
-        artistsController.$inject = ["$scope", "$http", "artistServiceLocal"];
-    else
-        artistsController.$inject = ["$scope", "$http", "artistService"];
+        serviceName =  "artistServiceLocal";
 
-
+    artistsController.$inject = ["$scope", "$http",serviceName];
 
     function artistsController($scope, $http, artistService) {
         console.log('artists controller');

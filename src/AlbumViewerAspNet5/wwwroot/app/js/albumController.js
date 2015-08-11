@@ -5,15 +5,15 @@
         .module('app')
         .controller('albumController', albumController);
 
-    
-    if (!app.configuration.useLocalData)
-        albumController.$inject = ['$routeParams', '$window', '$animate', '$location','albumService'];
-    else
-        albumController.$inject = [ '$routeParams', '$window', '$animate','$location','albumServiceLocal'];
+    var serviceName = "albumService";
+    if (app.configuration.useLocalData)
+        serviceName = "albumServiceLocal";
 
+    albumController.$inject = ['$routeParams', '$window', '$animate', '$location',serviceName];
+    
     function albumController($routeParams,$window,$animate,$location, albumService) {        
         var vm = this;
-
+        
         vm.album = null;
         vm.selectedArtist = { ArtistName: null, Description: null };
         vm.error = {
@@ -100,8 +100,9 @@
                     });
             });
         }
-                
-        // Initialization code
+        
+        
+        // Initialization code                  
         vm.getAlbum($routeParams.albumId * 1, true);
 
         vm.bandTypeAhead();

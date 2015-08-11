@@ -45,25 +45,31 @@ namespace MusicStoreVNext
 
         [HttpGet]
         [Route("api/albums")]
-        public async Task<IEnumerable<Album>> Albums()
+        public async Task<IEnumerable<Album>> Albums(int page = -1, int pageSize = 15)
         {
-            var result = await context.Albums
+            IQueryable<Album> enumResult = context.Albums
                 .Include(ctx => ctx.Tracks)
                 .Include(ctx => ctx.Artist)
-                .OrderBy(alb => alb.Title)
-                .ToListAsync();
+                .OrderBy(alb => alb.Title);
 
-            return result;
+            if (page > 0)
+            {
+                enumResult = enumResult
+                                .Skip( (page - 1)  * pageSize)
+                                .Take(pageSize);
+            }   
+
+            return await enumResult.ToListAsync();            
         }
 
         [HttpGet]
         public async Task<Album> Album(int id)
         {
+            // var contextAlbums = new AlbumViewerContext(serviceProvider);
             var album = await context.Albums
-                                     .Include(ctx => ctx.Artist)
-                                     .Include(ctx=> ctx.Tracks)                                     
-                                     .FirstOrDefaultAsync(alb => alb.Id == id);
-            //await album.LoadTracksAsync(context);
+                                .Include(ctx => ctx.Artist)
+                                .Include(ctx => ctx.Tracks)
+                                .FirstOrDefaultAsync(alb => alb.Id == id);
             return album;
         }
 

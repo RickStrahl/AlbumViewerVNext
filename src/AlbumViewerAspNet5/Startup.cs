@@ -66,7 +66,7 @@ namespace AlbumViewerAspNet5
             if (env.IsEnvironment("Development"))
             {
                 app.UseBrowserLink();
-                app.UseErrorPage(ErrorPageOptions.ShowAll);
+                app.UseErrorPage( new ErrorPageOptions() );
             }
             else
             {

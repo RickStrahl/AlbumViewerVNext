@@ -11,7 +11,8 @@ namespace AlbumViewerBusiness
     {
 
         public string ConnectionString { get; set; }
-        public static IConfiguration Configuration { get; set; }
+        //public static IConfiguration Configuration { get; set; }
+        protected static IServiceProvider ServiceProvider { get; set; }
 
 
         /// <summary>
@@ -21,12 +22,8 @@ namespace AlbumViewerBusiness
         public AlbumViewerContext(IServiceProvider serviceProvider)
             : base(serviceProvider)
         {
-            var x = 1;
-            x++;
-
-            var config = serviceProvider.GetService(typeof(IConfiguration));
-
-            x++;
+            if(ServiceProvider == null)
+                ServiceProvider = serviceProvider;
         }
 
 
@@ -43,9 +40,13 @@ namespace AlbumViewerBusiness
         /// Default contructor that uses connection string value from a
         /// config.json file: Data:MusicStore:ConnectionString)
         /// </summary>
-        public AlbumViewerContext()
-        {
-        }
+        //public AlbumViewerContext() //: base(GetOptions(null))
+        //{
+        //}
+
+        //public AlbumViewerContext(string connString) : base(GetOptions(connString))
+        //{
+        //}
 
 
         //public AlbumViewerContext()
@@ -62,17 +63,18 @@ namespace AlbumViewerBusiness
         /// </summary>
         /// <param name="connectionString"></param>
         /// <returns></returns>
-        private static EntityOptions GetConnectionString(string connectionString = null)
+        private static DbContextOptions GetOptions(string connectionString)
         {
             if (connectionString == null)
             {
-                var builder = new ConfigurationBuilder();
-                builder.AddJsonFile("config.json");
-                var configuration = builder.Build();
+                //var builder = new ConfigurationBuilder();
+                //builder.AddJsonFile("config.json");
+                //var configuration = builder.Build();
+                var configuration = ServiceProvider.GetService(typeof(IConfiguration)) as IConfiguration;
                 connectionString = configuration.Get("Data:MusicStore:ConnectionString");
             }
 
-            var options = new EntityOptionsBuilder<AlbumViewerContext>();
+            var options = new DbContextOptionsBuilder<AlbumViewerContext>();
             options.UseSqlServer(connectionString);
             return options.Options;
         }
@@ -81,33 +83,49 @@ namespace AlbumViewerBusiness
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Track> Tracks { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //builder.ForSqlServer().UseIdentity();
+            base.OnConfiguring(optionsBuilder);
 
-            // Pluralization and key discovery not working based on
-            // conventions
-            builder.Entity<Album>(e =>
-            {                
-                e.Key(et=> et.Id);
-                e.Table("Albums");
-                e.Key(a => a.Id);
-            });
-            builder.Entity<Artist>(e =>
-            {
-                e.Key(et => et.Id);
-                e.Table("Artists");
-                e.Key(a => a.Id);
-            });
+            if (optionsBuilder.IsConfigured)
+                return;                
+            
+            //throw new InvalidOperationException(
+            //    "MusicStoreContext not configured. Please use either DI or one of the parametered constructors to provide configuration information");
 
-            builder.Entity<Track>(e =>
-            {
-               e.Key(et => et.Id);
-               e.Table("Tracks");
-               e.Key(t => t.Id);
-            });
+            var builder = new ConfigurationBuilder();  // this is the problem: needs basepath
+            builder.AddJsonFile("config.json");
+            var configuration = builder.Build();
+            string connectionString = configuration.Get("Data:MusicStore:ConnectionString");
 
-            base.OnModelCreating(builder);
+            optionsBuilder.UseSqlServer(connectionString);
+
         }
+
+
+protected override void OnModelCreating(ModelBuilder builder)
+{
+    //builder.ForSqlServer().UseIdentity();
+
+    // Pluralization and key discovery not working based on conventions
+    builder.Entity<Album>(e =>
+    {                
+        e.Key(et=> et.Id);
+        e.ToTable("Albums");
+    });
+    builder.Entity<Artist>(e =>
+    {
+        e.Key(et => et.Id);
+        e.ToTable("Artists");
+    });
+
+    builder.Entity<Track>(e =>
+    {
+        e.Key(et => et.Id);
+        e.ToTable("Tracks");        
+    });
+
+    base.OnModelCreating(builder);
+}
     }
 }

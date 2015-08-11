@@ -5,13 +5,19 @@
         .module('app')
         .controller('artistController', artistController);
 
-    var service = "artistService";
+    var artistServiceName = "artistService";
     if (app.configuration.useLocalData)
-        service = "artistServiceLocal";
+        artistServiceName = "artistServiceLocal";
 
-    artistController.$inject = ["$http", "$window", "$routeParams", "$animate","$location",artistService];
+    var albumServiceName = "albumService";
+    if (app.configuration.useLocalData)
+        albumServiceName = "albumServiceLocal";
+
+    artistController.$inject = ["$http", "$window", "$routeParams", "$animate", "$location",
+        artistServiceName,albumServiceName];
     
-    function artistController($http,$window,$routeParams,$animate,$location, artistService) {        
+    function artistController($http, $window, $routeParams, $animate, $location,
+                              artistService, albumService) {
         var vm = this;
 
         vm.artist = null;
@@ -52,8 +58,7 @@
 
         vm.deleteArtist = function (artist) {            
             artistService.deleteArtist(artist)
-                .success(function (result) {
-                    debugger;
+                .success(function (result) {                    
                     if (result) {
                         vm.artists = artistService.artists;
                         $location.path("/artists");
@@ -70,16 +75,18 @@
         };
 
         vm.addAlbum = function () {            
-            albumService.album = albumService.newAlbum();
-            albumService.album.ArtistId = vm.artist.Id;
-            albumService.album.Artist.Id = vm.artist.Id;
-            albumService.album.Artist.ArtistName = vm.artist.ArtistName;
+            var alb = albumService.newAlbum();
+            alb.Id = -1;  // flags that we should use this record
+            alb.ArtistId = vm.artist.Id;
+            alb.Artist.Id = vm.artist.Id;
+            alb.Artist.Id = vm.artist.Id;
+            alb.Artist.ArtistName = vm.artist.ArtistName;
+            albumService.album = alb;
 
             albumService.updateAlbum(albumService.album);
-            $window.location.hash = "/album/edit/0";
+            $window.location.hash = "/album/edit/-1";
         };
 
         vm.getArtist($routeParams.artistId);
-
     }
 })();
