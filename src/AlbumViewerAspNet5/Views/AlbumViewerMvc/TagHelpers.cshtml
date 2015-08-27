@@ -1,0 +1,36 @@
+﻿@addTagHelper "*, Microsoft.AspNet.Mvc.TagHelpers"
+@addTagHelper "*,AlbumViewerAspNet5"
+
+@model AlbumViewerBusiness.Album
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "TagHelper Sample";
+}
+<div class="container">
+    <form action="" method="POST">
+
+        <error-display message="@Model.Title" icon="warning" alert-class="danger">
+        </error-display>
+
+        <img src="~/images/artists.png"  />
+
+        <h1>Test</h1>
+        <a asp-action="Albums"
+           asp-controller="AlbumViewerMvc">Albums</a>
+
+
+        <div class="form-group">
+            <label asp-for="Title">Title:</label>
+            <input asp-for="Title" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description">Description</label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>
+</div>

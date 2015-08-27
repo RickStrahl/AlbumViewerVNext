@@ -54,5 +54,32 @@ namespace MusicStoreVNext
             return View(album);
         }
 
+        [HttpGet,HttpPost]
+        public async Task<ActionResult> TagHelpers(Album album = null)
+        {
+            if (album == null || (string.IsNullOrEmpty(album.Description) && string.IsNullOrEmpty(album.Title)))
+            {
+                album = new Album()
+                {
+                    Id = 1,
+                    Title = "Highway to Hell",
+                    Description = "AC/DC's best"
+                };
+            }
+            else
+            {
+
+                if (ModelState.IsValid)
+                {
+                    ModelState.Remove("Title");
+                    album.Title = album.Title + " updated.";
+                }
+            }
+
+            return View(album);
+        }
+
+
+
     }
 }
