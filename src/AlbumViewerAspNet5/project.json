@@ -17,8 +17,7 @@
     "Microsoft.Framework.Logging": "1.0.0-beta7",
     "Microsoft.Framework.Logging.Console": "1.0.0-beta7",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta7",
-    "AlbumViewerBusiness": "",
-    "Microsoft.Dnx.Runtime.Abstractions": "1.0.0-beta8"    
+    "AlbumViewerBusiness": ""    
   },
 
    "commands": {

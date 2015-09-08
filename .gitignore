@@ -41,3 +41,4 @@ src/AlbumViewerVNext/wwwroot/web.config__X
 thumbs.db
 .vs
 /AlbumViewerVnext.azurewebsites.net.PublishSettings
+src/AlbumViewerAspNet5/project.lock.json
