@@ -13,8 +13,8 @@ using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
 using Microsoft.Data.Entity;
 using Microsoft.Framework.Configuration;
-using Microsoft.Framework.Runtime;
-
+using System.Runtime;
+using Microsoft.Dnx.Runtime;
 
 namespace AlbumViewerAspNet5
 {
@@ -36,7 +36,7 @@ namespace AlbumViewerAspNet5
         // This method gets called by the runtime.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<AppSettings>(Configuration.GetConfigurationSection("AppSettings"));
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             // Add MVC services to the services container.
             services.AddMvc();
@@ -46,7 +46,7 @@ namespace AlbumViewerAspNet5
                         .AddSqlServer()
                         .AddDbContext<AlbumViewerContext>(options =>
                         {
-                            var val = Configuration.Get("Data:MusicStore:ConnectionString");
+                            var val = Configuration["Data:MusicStore:ConnectionString"];
                             options.UseSqlServer(val);
                         });
 

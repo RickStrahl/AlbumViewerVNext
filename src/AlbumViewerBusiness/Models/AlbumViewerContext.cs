@@ -22,7 +22,7 @@ namespace AlbumViewerBusiness
         public AlbumViewerContext(IServiceProvider serviceProvider)
             : base(serviceProvider)
         {
-            if(ServiceProvider == null)
+            if (ServiceProvider == null)
                 ServiceProvider = serviceProvider;
         }
 
@@ -63,21 +63,21 @@ namespace AlbumViewerBusiness
         /// </summary>
         /// <param name="connectionString"></param>
         /// <returns></returns>
-        private static DbContextOptions GetOptions(string connectionString)
-        {
-            if (connectionString == null)
-            {
-                //var builder = new ConfigurationBuilder();
-                //builder.AddJsonFile("config.json");
-                //var configuration = builder.Build();
-                var configuration = ServiceProvider.GetService(typeof(IConfiguration)) as IConfiguration;
-                connectionString = configuration.Get("Data:MusicStore:ConnectionString");
-            }
+        //private static DbContextOptions GetOptions(string connectionString)
+        //{
+        //    if (connectionString == null)
+        //    {
+        //        //var builder = new ConfigurationBuilder();
+        //        //builder.AddJsonFile("config.json");
+        //        //var configuration = builder.Build();
+        //        var configuration = ServiceProvider.GetService(typeof(IConfiguration)) as IConfiguration;
+        //        connectionString = configuration.Get("Data:MusicStore:ConnectionString");
+        //    }
 
-            var options = new DbContextOptionsBuilder<AlbumViewerContext>();
-            options.UseSqlServer(connectionString);
-            return options.Options;
-        }
+        //    var options = new DbContextOptionsBuilder<AlbumViewerContext>();
+        //    options.UseSqlServer(connectionString);
+        //    return options.Options;
+        //}
 
         public DbSet<Album> Albums { get; set; }
         public DbSet<Artist> Artists { get; set; }
@@ -88,44 +88,44 @@ namespace AlbumViewerBusiness
             base.OnConfiguring(optionsBuilder);
 
             if (optionsBuilder.IsConfigured)
-                return;                
-            
+                return;
+
             //throw new InvalidOperationException(
             //    "MusicStoreContext not configured. Please use either DI or one of the parametered constructors to provide configuration information");
 
-            var builder = new ConfigurationBuilder();  // this is the problem: needs basepath
-            builder.AddJsonFile("config.json");
-            var configuration = builder.Build();
-            string connectionString = configuration.Get("Data:MusicStore:ConnectionString");
+            //var builder = new ConfigurationBuilder();  // this is the problem: needs basepath
+            //builder.AddJsonFile("config.json");
+            //var configuration = builder.Build();
+            //string connectionString = configuration.Get("Data:MusicStore:ConnectionString");
 
-            optionsBuilder.UseSqlServer(connectionString);
+            //optionsBuilder.UseSqlServer(connectionString);
 
         }
 
 
-protected override void OnModelCreating(ModelBuilder builder)
-{
-    //builder.ForSqlServer().UseIdentity();
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            //builder.ForSqlServer().UseIdentity();
 
-    // Pluralization and key discovery not working based on conventions
-    builder.Entity<Album>(e =>
-    {                
-        e.Key(et=> et.Id);
-        e.ToTable("Albums");
-    });
-    builder.Entity<Artist>(e =>
-    {
-        e.Key(et => et.Id);
-        e.ToTable("Artists");
-    });
+            // Pluralization and key discovery not working based on conventions
+            builder.Entity<Album>(e =>
+            {
+                e.Key(et => et.Id);
+                e.ToTable("Albums");
+            });
+            builder.Entity<Artist>(e =>
+            {
+                e.Key(et => et.Id);
+                e.ToTable("Artists");
+            });
 
-    builder.Entity<Track>(e =>
-    {
-        e.Key(et => et.Id);
-        e.ToTable("Tracks");        
-    });
+            builder.Entity<Track>(e =>
+            {
+                e.Key(et => et.Id);
+                e.ToTable("Tracks");
+            });
 
-    base.OnModelCreating(builder);
-}
+            base.OnModelCreating(builder);
+        }
     }
 }

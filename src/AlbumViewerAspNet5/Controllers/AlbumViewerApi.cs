@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.ModelBinding;
-using Microsoft.Framework.Runtime;
+using System.Runtime;
 using AlbumViewerBusiness;
 using System;
 using System.Collections.Generic;
