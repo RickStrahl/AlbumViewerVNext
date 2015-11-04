@@ -14,6 +14,8 @@ using Westwind.Utilities;
 using Microsoft.Data.Entity;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
+using Microsoft.Framework.Internal;
+using Microsoft.AspNet.Mvc.Filters;
 
 //using Westwind.Utilities;
 
@@ -31,6 +33,12 @@ namespace MusicStoreVNext
         {
             context = ctx;
             serviceProvider = svcProvider;
+        }
+
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            Response.Headers.Add("Access-Control-Allow-Origin", new string[] { "*" });
+            base.OnActionExecuting(context);
         }
 
 
@@ -103,22 +111,31 @@ namespace MusicStoreVNext
             // controllers - you're incurring overhead for each hit even
             // if context is isn't used in an action. If you need multiple instances
             // of contexts you may also need to manually instantiate. 
-            using (var ctxt = new AlbumViewerContext(serviceProvider))
-            {
-                var result = await ctxt.Artists
+            //using (var ctxt = new AlbumViewerContext(serviceProvider))
+            //{
+                var artists = await context.Artists
                     .OrderBy(art => art.ArtistName)
-                    .Select(art => new
+                    .Select(art => new ArtistWithAlbum()
                     {
-                        art.ArtistName,
-                        art.Description,
-                        art.ImageUrl,
-                        art.Id,
-                        AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
+                        ArtistName =  art.ArtistName,
+                        Description = art.Description,
+                        ImageUrl = art.ImageUrl,
+                        Id = art.Id,
+                        AmazonUrl = art.AmazonUrl,
+
+                        // THIS CODE BOMBS
+                        //AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
                     })
                     .ToListAsync();
 
-                return result;
-            }
+                            // workaround for the AlbumCount var issue - REMOVE ASAP
+                foreach (var artist in artists)
+                {
+                    artist.AlbumCount = context.Albums.Count(alb => alb.ArtistId == artist.Id);
+                }
+
+            return artists;
+            //}
         }
 
         [HttpGet]
@@ -222,6 +239,10 @@ namespace MusicStoreVNext
         public List<Album> Albums { get; set; }
     }
 
+    public class ArtistWithAlbum : Artist
+    {
+        public int AlbumCount { get; set; }
+    }
 
     public class ApiError
     {

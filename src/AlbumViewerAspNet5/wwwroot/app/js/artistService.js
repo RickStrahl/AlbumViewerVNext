@@ -1,17 +1,15 @@
 (function () {
     'use strict';
 
-    angular
+    var app = angular
         .module('app')
         .factory('artistService', artistService);
 
     artistService.$inject = ['$http','$q','$location'];
 
-
-
     function artistService($http,$q,$location) {
         var service = {
-            baseUrl: "api/",
+            baseUrl: app.configuration.appBaseUrl,
             artist: newArtist(),
             artists: [],
             albums: [],
@@ -42,6 +40,7 @@
             if (!noCache && service.artists && service.artists.length > 0)
                 return ww.angular.$httpPromiseFromValue($q, service.artists);
 
+            debugger;
             return $http.get(service.baseUrl + "artists")
                 .success(function (data) {
                     service.artists = data;

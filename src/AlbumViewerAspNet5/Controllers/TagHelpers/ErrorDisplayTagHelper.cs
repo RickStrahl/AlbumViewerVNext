@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+﻿using Microsoft.AspNet.Razor.Runtime.TagHelpers;
 
 namespace AlbumViewerAspNet5.Controllers.TagHelpers
 {
 
-/// <summary>
-/// TagHelper that display a bootstrap alert window conditionally 
-/// if a message or header are set on this helper. Otherwise - nothing
-/// displays.
-/// </summary>
-[TargetElement("error-display")]
+    /// <summary>
+    /// TagHelper that display a bootstrap alert window conditionally 
+    /// if a message or header are set on this helper. Otherwise - nothing
+    /// displays.
+    /// </summary>
+    [HtmlTargetElement("error-display")]
 public class ErrorDisplayTagHelper : TagHelper
 {
     /// <summary>

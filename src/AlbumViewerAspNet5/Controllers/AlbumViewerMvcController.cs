@@ -55,7 +55,7 @@ namespace MusicStoreVNext
         }
 
         [HttpGet,HttpPost]
-        public async Task<ActionResult> TagHelpers(Album album = null)
+        public ActionResult TagHelpers(Album album = null)
         {
             if (album == null || (string.IsNullOrEmpty(album.Description) && string.IsNullOrEmpty(album.Title)))
             {

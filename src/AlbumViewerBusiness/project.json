@@ -7,19 +7,19 @@
   "projectUrl": "",
   "licenseUrl": "",
   "dependencies": {
-    "EntityFramework.SqlServer": "7.0.0-beta7",
-    "EntityFramework.Commands": "7.0.0-beta7",
-    "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta7",
-    "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta7",
-    "Microsoft.Framework.Configuration": "1.0.0-beta7",
-    "Microsoft.Framework.Configuration.Json": "1.0.0-beta7",
+    "EntityFramework.SqlServer": "7.0.0-beta8",
+    "EntityFramework.Commands": "7.0.0-beta8",
+    "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta8",
+    "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta8",
+    "Microsoft.Framework.Configuration": "1.0.0-beta8",
+    "Microsoft.Framework.Configuration.Json": "1.0.0-beta8",
     "Westwind.Utilities": "",
-    "Microsoft.CSharp": "4.0.1-beta"
+    "Microsoft.CSharp": "4.0.1-beta-*"
   },
   "frameworks": {
     "dnx451": {
       "dependencies": {
-        "EntityFramework.Core": "7.0.0-beta7"
+        "EntityFramework.Core": "7.0.0-beta8"
       }
     },
     "dnxcore50": {

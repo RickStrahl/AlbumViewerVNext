@@ -1,15 +1,14 @@
 ﻿(function () {
     'use strict';
 
-    angular
-        .module('app')
-        .factory('albumService', albumService);
+    var app = angular.module('app');
+    app.factory('albumService', albumService);
 
     albumService.$inject = ['$http','$q'];
 
     function albumService($http,$q) {
         var service = {
-            baseUrl: "api/",
+            baseUrl: app.configuration.appBaseUrl,
             albums: [],
             artists: [],
             album: newAlbum(),
@@ -51,6 +50,7 @@
         }
 
         function getAlbums(noCache) {
+         
             // if albums exist just return
             if (!noCache && service.albums && service.albums.length > 0)
                 return ww.angular.$httpPromiseFromValue($q, service.albums);                

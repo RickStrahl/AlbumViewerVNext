@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AlbumViewerBusiness;
+﻿using AlbumViewerBusiness;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Cors.Core;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Routing;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
-using Microsoft.Framework.Logging.Console;
 using Microsoft.Data.Entity;
 using Microsoft.Framework.Configuration;
-using System.Runtime;
 using Microsoft.Dnx.Runtime;
 
 namespace AlbumViewerAspNet5
@@ -23,7 +16,8 @@ namespace AlbumViewerAspNet5
         public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
             // Setup configuration sources.
-            var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
                 .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
@@ -52,6 +46,15 @@ namespace AlbumViewerAspNet5
 
             // Inject DbContext as per Request context
             services.AddScoped<AlbumViewerContext>();
+
+            services.Configure<CorsOptions>(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder.WithOrigins("http://localhost");
+                });
+            });
+
         }
 
         // Configure is called after ConfigureServices is called.
@@ -59,6 +62,7 @@ namespace AlbumViewerAspNet5
         {
             // Configure the HTTP request pipeline.
 
+            
             // Add the console logger.
             loggerfactory.AddConsole();
 
@@ -66,14 +70,16 @@ namespace AlbumViewerAspNet5
             if (env.IsEnvironment("Development"))
             {
                 app.UseBrowserLink();
-                app.UseErrorPage( new ErrorPageOptions() );
+                app.UseDeveloperExceptionPage( new ErrorPageOptions() );
             }
             else
             {
                 // Add Error handling middleware which catches all application specific errors and
                 // send the request to the following path or controller action.
-                app.UseErrorHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseIISPlatformHandler();
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();

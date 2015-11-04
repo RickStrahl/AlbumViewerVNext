@@ -1,9 +1,5 @@
 ﻿using Microsoft.Data.Entity;
-using Microsoft.Data.Entity.SqlServer.Extensions;
-using Microsoft.Data.Entity.Metadata;
 using System;
-using Microsoft.Data.Entity.Infrastructure;
-using Microsoft.Framework.Configuration;
 
 namespace AlbumViewerBusiness
 {
@@ -110,18 +106,17 @@ namespace AlbumViewerBusiness
             // Pluralization and key discovery not working based on conventions
             builder.Entity<Album>(e =>
             {
-                e.Key(et => et.Id);
                 e.ToTable("Albums");
+                e.HasKey(es => es.Id);
+                
             });
             builder.Entity<Artist>(e =>
             {
-                e.Key(et => et.Id);
                 e.ToTable("Artists");
             });
 
             builder.Entity<Track>(e =>
             {
-                e.Key(et => et.Id);
                 e.ToTable("Tracks");
             });
 

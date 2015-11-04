@@ -17,7 +17,8 @@
 
     // config settings
     app.configuration = { 
-        useLocalData: false
+        useLocalData: false,
+        appBaseUrl: "api/"
     };
 
     app.config([
