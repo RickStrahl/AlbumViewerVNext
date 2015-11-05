@@ -5,14 +5,13 @@
         .module('app')
         .controller('optionsController', optionsController);
 
-    optionsController.$inject = [ "$animate", "artistServiceLocal","albumServiceLocal"];
-
-
+    optionsController.$inject = [ "$animate", "artistService","albumService"];
 
     function optionsController($animate, artistService, albumService) {
         console.log('options controller');
 
         var vm = this; // controller as
+        vm.config = app.configuration;        
 
         vm.error = {
             message: null,

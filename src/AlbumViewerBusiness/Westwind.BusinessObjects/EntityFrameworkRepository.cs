@@ -138,9 +138,9 @@ namespace Westwind.BusinessObjects
         /// <summary>
         /// Saves changes to the repo
         /// </summary>
-        public async Task<bool> SaveAsync()
+        public async Task<bool> SaveAsync(TEntity entity = null)
         {
-            if (!OnBeforeSave())
+            if (!OnBeforeSave(entity))
                 return false;
 
             int result = await Context.SaveChangesAsync();
@@ -148,7 +148,7 @@ namespace Westwind.BusinessObjects
             if (result == -1)
                 return false;
 
-            if (!OnAfterSave())
+            if (!OnAfterSave(entity))
                 return false;
 
             return true;
@@ -158,9 +158,9 @@ namespace Westwind.BusinessObjects
         /// Saves the underlying data with hooks
         /// </summary>
         /// <returns></returns>
-        public bool Save()
+        public bool Save(TEntity entity = null)
         {
-            if (!OnBeforeSave())
+            if (!OnBeforeSave(entity))
                 return false;
 
             try {
@@ -174,8 +174,7 @@ namespace Westwind.BusinessObjects
                 return false;
             }
 
-
-            if (!OnAfterSave())
+            if (!OnAfterSave(entity))
                 return false;
 
             return true;
@@ -188,7 +187,7 @@ namespace Westwind.BusinessObjects
         /// Save() operation should not occur
         /// </summary>
         /// <returns></returns>
-        protected virtual bool OnBeforeSave()
+        protected virtual bool OnBeforeSave(TEntity entity)
         {
             return true;
         }
@@ -201,7 +200,7 @@ namespace Westwind.BusinessObjects
         /// did not complete successfull (but
         /// data has been save
         /// </summary>
-        protected virtual bool OnAfterSave()
+        protected virtual bool OnAfterSave(TEntity entity)
         {
             return true;
         }

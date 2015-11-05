@@ -1,41 +1,42 @@
-<div ng-controller="albumController as view" class="container">
+<div ng-controller="albumController as vm" class="container">
 
     <div class="btn-group" style="margin-bottom: 10px;">
         <a href="#/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i> Albums</a>
-        <a ng-href="#/album/edit/{{view.album.Id}}" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
-        <a ng-disabled="!view.album.AmazonUrl" href="{{view.album.AmazonUrl}}" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
+        <a ng-click="vm.editAlbum(vm.album.Id)" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
+        <a ng-disabled="!vm.album.AmazonUrl" href="{{vm.album.AmazonUrl}}" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
 
-        <a ng-disabled="!view.album.SpotifyUrl" href="{{view.album.SpotifyUrl}}" class="btn btn-sm btn-default"><i class="fa fa-volume-up"></i> Listen</a>
-        <button ng-click="view.deleteAlbum(view.album)" class="btn btn-sm btn-default"><i class="fa fa-remove"></i> Delete</button>
+        <a ng-disabled="!vm.album.SpotifyUrl" href="{{vm.album.SpotifyUrl}}" class="btn btn-sm btn-default"><i class="fa fa-volume-up"></i> Listen</a>
+        <button ng-click="vm.deleteAlbum(vm.album)" class="btn btn-sm btn-default"><i class="fa fa-remove"></i> Delete</button>
     </div>
 
     <div class="separator"></div>
 
+    <error-display error="vm.error" ></error-display>
 
     <div class="row">
         <div class="col-sm-3">
-            <img ng-src="{{view.album.ImageUrl}}" class="album-image-big" />
+            <img ng-src="{{vm.album.ImageUrl}}" class="album-image-big" />
         </div>
         <div class="col-sm-9">
             <h2 class="album-title-big">
-                {{view.album.Title}}
+                {{vm.album.Title}}
             </h2>
 
             <div class="album-artist">
 
-                by <a href="#/artist/{{view.album.ArtistId}}">{{view.album.Artist.ArtistName}}</a>
-                {{(view.album.Year ? 'in ' + view.album.Year : '')}}
+                by <a href="#/artist/{{vm.album.ArtistId}}">{{vm.album.Artist.ArtistName}}</a>
+                {{(vm.album.Year ? 'in ' + vm.album.Year : '')}}
             </div>
-            <div ng-bind-html="view.album.Description | linebreakFilter"></div>
+            <div ng-bind-html="vm.album.Description | linebreakFilter"></div>
 
             <div style="margin: 10px 0" class="pull-right">
                 &nbsp;
-                <a ng-show="view.album.AmazonUrl" ng-href="{{view.album.AmazonUrl}}" class="btn btn-link btn-sm" target="_amazon"><i class="fa fa-dollar"></i> Buy</a> &nbsp;&nbsp;
-                <a ng-show="view.album.SpotifyUrl" ng-href="{{view.album.SpotifyUrl}}" class="btn btn-link btn-sm" target="_spotify"><i class="fa fa-volume-up"></i> Play</a>
+                <a ng-show="vm.album.AmazonUrl" ng-href="{{vm.album.AmazonUrl}}" class="btn btn-link btn-sm" target="_amazon"><i class="fa fa-dollar"></i> Buy</a> &nbsp;&nbsp;
+                <a ng-show="vm.album.SpotifyUrl" ng-href="{{vm.album.SpotifyUrl}}" class="btn btn-link btn-sm" target="_spotify"><i class="fa fa-volume-up"></i> Play</a>
             </div>
 
             <table class=" table table-striped small">
-                <tr ng-repeat="song in view.album.Tracks">
+                <tr ng-repeat="song in vm.album.Tracks">
                     <td>{{song.SongName}}</td>
                     <td>{{song.Length}}</td>
                 </tr>
@@ -43,9 +44,10 @@
 
             <hr />
             More from
-            <a href="#/artist/{{view.album.ArtistId}}">
-                {{view.album.Artist.ArtistName}}<br />
-                <img ng-src="{{view.album.Artist.ImageUrl}}" style="height: 100px; border-radius: 5px;box-shadow: 2px 2px 3px #535353" />
+            <a href="#/artist/{{vm.album.ArtistId}}">
+                {{vm.album.Artist.ArtistName}}<br />
+                <img ng-src="{{vm.album.Artist.ImageUrl}}" 
+                     style="height: 100px; border-radius: 5px;box-shadow: 2px 2px 3px #535353" />
             </a>
         </div>
     </div>

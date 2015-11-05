@@ -1,0 +1,316 @@
+﻿html, body {
+    overflow-x: hidden;
+    height: 100%;    
+}
+h1, h2, h3, h4,h5,h6,.page-header-text {
+    font-family: Trebuchet, 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;    
+}
+
+h3 {
+    font-size: 1.3em;
+    color: #2B547E;
+    font-weight: bold;
+}
+h4 {
+    font-size: 1.2em;
+    color: #2B547E;
+    font-weight: bold;
+}
+h5
+{
+    font-size: 1.1em;
+}
+h6
+{
+    font-size: 1em;
+}
+td,th {
+    padding: 4px;
+    vertical-align: top;
+}
+option {
+    padding: 4px 3px;
+    border-radius: 3px;
+}
+footer {
+    margin: 30px 0 12px;
+    padding: 10px;
+    border-top: 1px solid silver;
+    font-size: 0.85em;
+}
+
+.table tr th {
+    background: #636363;
+    color: white;
+}
+
+/* BootStrap overrides */
+
+.panel-heading {
+    font-weight: bold;
+}
+
+/* Common CSS */
+
+.right{ 
+    text-align: right;
+}
+
+/* West Wind Component Features */
+
+.error, .red-highlight, .binding-error {
+    color: firebrick;
+    font-weight: bold;
+}
+.error-inline {
+    color: firebrick;
+    display: inline;    
+}
+.binding-error {
+    padding: 5px 0;
+    font-size: 0.85em;
+}
+
+.title-bar {
+    position: absolute;
+    top: 2px;
+    left: 32px;
+    z-index: 11;
+}
+.title-bar.no-slide-menu {
+    left: 5px;
+}
+.title-bar-icon {
+    height: 45px; 
+    float: left
+}
+
+
+.banner {
+    background: #535353;
+    color: #e1e1e1;    
+    position: fixed;
+    opacity: .95;
+    top: 0;
+    left: 0;
+    padding-top: 6px;
+    height: 52px;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 3px 3px 8px #828282;
+}
+.banner.active {
+    color: white;
+    font-weight: bolder;
+}
+.banner nav {
+    display: inline-block;
+    margin-right: 3px;
+    padding: 4px;
+}
+
+.banner nav a, .banner nav input {
+    display: inline-block;
+    padding: 11px 6px 6px;
+    color: #eee;    
+    text-decoration: none;
+}
+
+.banner nav a img {
+    height: 23px;
+    vertical-align: top;
+}
+
+.banner nav a:hover {
+    color: white;
+    background: #767676;
+    text-decoration: none;
+    border-bottom: solid 4px silver;
+    border-radius: 2px;
+}
+
+.banner nav a.active, .banner nav a.selected {
+    color: white;
+    font-weight: bold;
+    border-bottom: solid 4px orange;
+    border-radius: 2px;
+}
+
+.banner-bottom {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    text-align: center;
+    padding-top: inherit;
+    height: 43px;
+    display: none;
+}
+
+    .banner-bottom a {
+        margin: 0 20px;
+    }
+    
+.slide-menu {    
+    position: absolute;        
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;    
+    background: #535353 ;
+    background-image: linear-gradient(to bottom,  #535353 0, #707070 100%);
+    transition: width 0.50s ease-out;
+    white-space: nowrap;
+    overflow-x:auto;
+    overflow-y: hidden;
+    z-index: 2000;    
+}
+.slide-menu.active {       
+    width: 300px;   
+    border: 1px #868686 solid;
+    box-shadow: 2px 2px 4px #535353;    
+}
+.slide-menu a, .slide-menu a:visited, .slide-menu a:hover {
+    text-decoration: none;
+    color: white;
+    display: block;    
+    padding: 10px;
+    overflow-x: hidden;
+    border-bottom: 1px solid silver;
+}
+.slide-menu a.indented {
+    margin-left: 25px;
+}
+.slide-menu a:hover {
+    background: white;
+    color: #535353;
+}
+.slide-menu a.disabled {
+    background: transparent;    
+    color: #ccc;
+}
+a.slide-menu-toggle-close, a.slide-menu-toggle-close:hover {
+    background: transparent;
+    color: white;
+    width: 40px;
+    font-size: 1.2em;
+    padding: 3px;   
+    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-top: 7px;
+    border-bottom: 0 none !important;
+}
+a.slide-menu-toggle-open, a.slide-menu-toggle-open:hover {
+    position: absolute;
+    text-decoration: none;
+    top: 20px;
+    left: 10px;
+    font-size: 1.2em;     
+    color: white;
+    margin-bottom: 10px;
+    border-bottom: none;    
+}
+.slide-menu-toggle-open.no-slide-menu {
+    display: none;
+}
+
+/* West Wind Main Page Layout */
+
+#MainView {
+    margin-top: 70px;
+    width: 100%;       
+}
+#MainView.fixed {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    bottom: 0;
+    padding-top: 10px;
+    width: 100%;
+    z-index: 11;    
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.page-header-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color:  #0092d0;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e1e1e1;
+}
+.separator {
+    padding: 3px 0;
+    margin: 10px 0 15px 0;
+    border-bottom: solid 1px #e1e1e1;
+}
+.margin-top {
+    margin-top: 20px;
+}
+.margin-bottom {
+    margin-bottom: 20px;
+}
+
+.record-container {
+    background: #f1f1f1;
+    border: 1px solid silver;
+}
+.record-container>.row {
+    padding: 8px 12px;
+    margin-right: 0;
+    margin-left: 0;
+}   
+    .record-container>.row.alternate {
+        background: white;
+    }
+@media(max-width: 767px) {
+    .container {
+    	padding-left: 5px;
+        padding-right: 5px;
+    }
+    .banner nav a span {
+        display: none;
+    }
+    a.slide-menu-toggle-open,a.slide-menu-toggle-open:hover {
+        display: block;
+    }
+    .menu-hidable, .hidable {
+        display: none !important;
+    }
+    .record-container {
+        border: none;
+    }
+        .record-container > .row {
+            border: none;
+        }
+}
+@media(max-width: 480px){
+    .hidable-xs {
+        display: none !important;
+    }
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    z-index: 1040;
+}
+
+.modal-dialog {
+    margin: 2px auto;
+}
+
+.modal-header {
+    padding: 15px 15px 5px;
+}
+
+.modal-body {
+    padding: 10px 20px 5px 20px;
+}
+
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}

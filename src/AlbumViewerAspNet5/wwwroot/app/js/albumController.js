@@ -6,8 +6,6 @@
         .controller('albumController', albumController);
 
     var serviceName = "albumService";
-    if (app.configuration.useLocalData)
-        serviceName = "albumServiceLocal";
 
     albumController.$inject = ['$routeParams', '$window', '$animate', '$location',serviceName];
     
@@ -19,7 +17,9 @@
         vm.error = {
             message: null,
             icon: "warning",
-            reset: function() { vm.error = { message: "", icon: "warning"} }
+            dismissable: true,
+            reset: function () { vm.error.message = ""; vm.error.icon = "warning" },
+            show: function(msg,icon) { vm.error.message = msg; vm.error.icon = icon } 
         };
 
         vm.isSongVisible = false;
@@ -34,15 +34,16 @@
             console.log(album);
             albumService.saveAlbum(album)
                 .success(function(album) {
-                    vm.error.message = "Album saved";
-                    vm.error.icon = "info";
+                    vm.error.message = "Album has been saved.";
+                    vm.error.icon = "success";
                     setTimeout(function() {
                         $window.location.hash = "/album/" + album.Id;
-                    },1000);
+                    },3000);
                 })
-                .error(function() {
-                    vm.error.message = "Album saved";
-                    vm.error.icon = "info";
+                .error(function (args) {
+                    var err = ww.angular.parseHttpError(args);
+                    vm.error.message = "Couldn't save: " + err.message;
+                    vm.error.icon = "warning";
                 });
         };
         vm.addSong = function () {
@@ -73,10 +74,29 @@
             albumService.deleteAlbum(album)
                 .success(function() {
                     vm.albums = albumService.albums;
-                    $location.path("#/albums");
+                    window.location = ("#/albums");
                 })
-                .error(onPageError);
+                .error(function (args) {
+                    var err = ww.angular.parseHttpError(args);
+                    vm.error.message = err.message;
+                    vm.error.icon = "warning";
+                });
         };
+
+        vm.editAlbum = function (id) {            
+            if (app.configuration.useLocalData) {
+                vm.error.message = "Data can't be edited when using local data.";
+                vm.error.icon = "warning";
+                return;
+            }
+                
+            if (!app.configuration.user.isAuthenticated) {                
+                window.location = "#/login";
+                return;
+            }
+             window.location = "#/album/edit/" + id;
+        };
+
         vm.getAlbum = function(id) {            
             albumService.getAlbum(id, true)
             .success(function (album) {                
@@ -86,28 +106,30 @@
         }
         vm.bandTypeAhead = function() {
             var $input = $('#BandName');
-            
+
             $input.typeahead({
                 source: [],
-                autoselect: true
-            });
+                autoselect: true,
+                minLength: 0
+        });
             $input.keyup(function () {                
                 var s = $(this).val();
-                $.getJSON("../api/artistlookup?search=" + s,
+                $.getJSON(albumService.baseUrl + "artistlookup?search=" + s,
                     function (data) {
                         console.log(data);
-                        $input.data('typeahead').source = data;
+                        $input.data('typeahead').source = data;                        
                     });
             });
         }
-        
-        
+                
+        console.log($routeParams);
+
         // Initialization code                  
         vm.getAlbum($routeParams.albumId * 1, true);
 
         vm.bandTypeAhead();
 
         // force explicit animation of the view and edit forms always
-        $animate.addClass("#MainView","slide-animation");
+        //$animate.addClass("#MainView","slide-animation");
     }
 })();

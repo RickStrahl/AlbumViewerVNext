@@ -2,19 +2,27 @@
 
     <div class="btn-group" style="margin-bottom: 10px;">
         <a href="#/artists" class="btn btn-sm btn-default"><i class="fa fa-list"></i> Artists</a>
-        <a href="javascript:{}" data-toggle="modal" data-target="#EditModal" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
-        
-        <button ng-click="view.deleteArtist(view.artist)" class="btn btn-sm btn-default"><i class="fa fa-remove"></i> Delete</button>
+        <a ng-click="view.editArtist()"            
+           class="btn btn-sm btn-default">
+            <i class="fa fa-edit"></i>
+            Edit
+        </a>
+
+        <button ng-click="view.deleteArtist(view.artist)"
+                class="btn btn-sm btn-default">
+            <i class="fa fa-remove"></i> Delete
+        </button>
     </div>
 
-    <div class="alert alert-dismissable alert-{{view.error.icon}}"
-         ng-show="view.error.message"
-         role="alert">
+    <!--<div class="alert alert-dismissable alert-{{view.error.icon}}"
+             ng-show="view.error.message"
+             role="alert">
         <button type="button" class="close" data-dismiss="alert">
             <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
         </button>
         <span ng-bind="view.error.message"></span>
-    </div>
+    </div>-->
+    <error-display error="view.error"></error-display>    
 
     <h2>{{view.artist.ArtistName}}</h2>
 
@@ -23,7 +31,7 @@
     <div class="row">
         <div class="col-sm-3">
             <img ng-src="{{view.artist.ImageUrl}}"
-                 style="width: 97%; margin-bottom: 8px;border-radius: 4px; box-shadow: 2px 2px 4px #535353" />
+                 style="width: 97%; margin-bottom: 8px; border-radius: 4px; box-shadow: 2px 2px 4px #535353" />
         </div>
         <div class="col-sm-8" ng-bind-html="view.artist.Description | linebreakFilter"></div>
     </div>
@@ -50,6 +58,8 @@
     </div>
 
     <button class="btn btn-sm btn-success" ng-click="view.addAlbum()"><i class="fa fa-plus"></i> Add Album</button>
+
+
 
     <!-- Modal -->
     <div class="modal fade" id="EditModal"
@@ -100,6 +110,5 @@
             </div>
         </div>
     </div>
-
 
 </div>

@@ -8,7 +8,7 @@
         .module('app')
         .controller('headerController', headerController);
 
-    headerController.$inject = ['$scope', '$route', '$window', 'albumServiceLocal'];
+    headerController.$inject = ['$scope', '$route', '$window', 'albumService'];
 
     
     function headerController($scope, $route, $window, albumService) {

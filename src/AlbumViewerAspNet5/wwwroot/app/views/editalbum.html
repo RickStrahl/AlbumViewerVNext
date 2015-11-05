@@ -9,14 +9,16 @@
 
     <div class="separator"></div>
 
-    <div class="alert alert-dismissable alert-{{view.error.icon}}"
+    <error-display error="view.error"></error-display>
+
+    <!--<div class="alert alert-dismissable alert-{{view.error.icon}}"
          ng-show="view.error.message"
          role="alert">
         <button type="button" class="close" data-dismiss="alert">
             <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
         </button>
         <span ng-bind="view.error.message"></span>
-    </div>
+    </div>-->
 
 
     <div class="row">
@@ -36,7 +38,8 @@
                            required
                            autocomplete="off"
                            data-provide="typeahead"
-                           placeholder="Band Name" ng-model="view.album.Artist.ArtistName" />
+                           placeholder="Band Name" 
+                           ng-model="view.album.Artist.ArtistName" />
 
 
                 </div>
@@ -44,14 +47,11 @@
                     <label for="Description">Album Description:</label>
                     <textarea class="form-control input-sm" id="Description"
                               placeholder="Album description or review"
-                              required
+                              required                              
                               ng-model="view.album.Description"
                               style="height: 115px"></textarea>
 
                 </div>
-
-
-
 
                 <div class="form-group">
                     <div class="input-group">
@@ -175,7 +175,3 @@
     </div>
 
 </div>
-
-<script>
-        
-</script>

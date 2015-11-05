@@ -198,6 +198,24 @@ Websurge-Request-Name: Delete Artist
 
 ------------------------------------------------------------------
 
+POST http://localhost:5005/api/login HTTP/1.1
+Accept-Encoding: gzip,deflate
+Content-Type: application/json
+Websurge-Request-Name: Login
+
+{
+   Username: "rstrahl@west-wind.com",
+   Password: "ww"
+}
+
+------------------------------------------------------------------
+
+GET http://localhost:5005/api/logout HTTP/1.1
+Accept-Encoding: gzip,deflate
+Websurge-Request-Name: Logout
+
+------------------------------------------------------------------
+
 
 ----- Start WebSurge Options -----
 
@@ -210,7 +228,7 @@ Websurge-Request-Name: Delete Artist
   "ReplaceCookieValue": null,
   "ReplaceAuthorization": null,
   "ReplaceQueryStringValuePairs": null,
-  "ReplaceDomain": null,
+  "ReplaceDomain": "localhost:5000",
   "Username": null,
   "Password": "",
   "RandomizeRequests": false,

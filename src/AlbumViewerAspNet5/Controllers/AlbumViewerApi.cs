@@ -22,8 +22,9 @@ using Microsoft.AspNet.Mvc.Filters;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace MusicStoreVNext
+namespace AlbumViewerAspNet5
 {
+    [ApiExceptionFilter]
     public class AlbumViewerApiController : Controller
     {
         AlbumViewerContext context;
@@ -35,12 +36,11 @@ namespace MusicStoreVNext
             serviceProvider = svcProvider;
         }
 
-        public override void OnActionExecuting(ActionExecutingContext context)
-        {
-            Response.Headers.Add("Access-Control-Allow-Origin", new string[] { "*" });
-            base.OnActionExecuting(context);
-        }
-
+        //public override void OnActionExecuting(ActionExecutingContext context)
+        //{
+        //    Response.Headers.Add("Access-Control-Allow-Origin", new string[] { "*" });
+        //    base.OnActionExecuting(context);
+        //}
 
         [HttpGet]
         [Route("api/HelloWorld")]
@@ -84,12 +84,14 @@ namespace MusicStoreVNext
         [HttpPost]
         public async Task<Album> Album([FromBody] Album postedAlbum)
         {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+                throw new ApiException("You have to be logged in to modify data", 401);
+
             if (!ModelState.IsValid)            
                 throw new ApiException("Model binding failed.",500);
 
             var albumRepo = new AlbumRepository(context);
             return await albumRepo.SaveAlbum(postedAlbum);
-
         }
 
 
@@ -161,6 +163,9 @@ namespace MusicStoreVNext
         [HttpPost]
         public async Task<ArtistResponse> Artist([FromBody] Artist postedArtist)
         {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+                throw new ApiException("You have to be logged in to modify data",401);
+
             var db = new AlbumRepository(context);
             var artist = await db.SaveArtist(postedArtist);
 
@@ -201,6 +206,10 @@ namespace MusicStoreVNext
         [HttpGet]
         public async Task<bool> DeleteAlbum(int id)
         {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+                throw new ApiException("You have to be logged in to modify data", 401);
+
+
             var db = new AlbumRepository(context);
             return await db.DeleteAlbum(id);
         }
@@ -209,6 +218,10 @@ namespace MusicStoreVNext
         [HttpDelete]
         public async Task<bool> DeleteArtist(int id)
         {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+                throw new ApiException("You have to be logged in to modify data", 401);
+
+
             var db = new AlbumRepository(context);
             return await db.DeleteArtist(id);
         }
@@ -216,6 +229,9 @@ namespace MusicStoreVNext
         [HttpGet]
         public async Task<string> DeleteAlbumByName(string name)
         {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+                throw new ApiException("You have to be logged in to modify data", 401);
+
             var repo = new AlbumRepository(context);
 
             var pks = await context.Albums.Where(alb => alb.Title == name).Select(alb => alb.Id).ToListAsync();
@@ -242,39 +258,6 @@ namespace MusicStoreVNext
     public class ArtistWithAlbum : Artist
     {
         public int AlbumCount { get; set; }
-    }
-
-    public class ApiError
-    {
-        public bool isError { get; set; }
-        public string message { get; set; }
-        public string detail { get; set; }
-        public Dictionary<string, string> errors { get; set; }
-
-        public ApiError(ModelStateDictionary modelState)
-        {
-            if (modelState.Any(m => m.Value.Errors.Count > 0))
-            {
-                message = "Please correct the specified errors and try again.";
-                //errors = modelState.SelectMany(m => m.Value.Errors).ToDictionary(m => m.Key, m=> m.ErrorMessage);
-                //errors = modelState.SelectMany(m => m.Value.Errors.Select( me => new KeyValuePair<string,string>( m.Key,me.ErrorMessage) ));
-                //errors = modelState.SelectMany(m => m.Value.Errors.Select(me => new ModelError { FieldName = m.Key, ErrorMessage = me.ErrorMessage }));
-            }
-        }
-    }
-
-    public class ApiException : Exception
-    {
-        public int StatusCode { get; set; }
-        public ApiException(string message, int statusCode = 500) :
-            base(message)
-        {
-            StatusCode = StatusCode;
-        }
-        public ApiException(Exception ex, int statusCode = 500) : base(ex.Message)
-        {
-            StatusCode = statusCode;
-        }
     }
 
 }

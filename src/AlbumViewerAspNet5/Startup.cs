@@ -8,6 +8,9 @@ using Microsoft.Framework.Logging;
 using Microsoft.Data.Entity;
 using Microsoft.Framework.Configuration;
 using Microsoft.Dnx.Runtime;
+using System.Linq;
+using System.Security.Claims;
+using Microsoft.AspNet.Authentication.Cookies;
 
 namespace AlbumViewerAspNet5
 {
@@ -47,6 +50,12 @@ namespace AlbumViewerAspNet5
             // Inject DbContext as per Request context
             services.AddScoped<AlbumViewerContext>();
 
+            //services.AddTransient<User>();
+            //services.AddTransient<UserRole>();
+
+            //services.AddIdentity<User,UserRole>();
+            services.AddAuthentication();
+
             services.Configure<CorsOptions>(options =>
             {
                 options.AddPolicy("CorsPolicy", builder =>
@@ -69,7 +78,7 @@ namespace AlbumViewerAspNet5
             // Add the following to the request pipeline only in development environment.
             if (env.IsEnvironment("Development"))
             {
-                app.UseBrowserLink();
+                //app.UseBrowserLink();
                 app.UseDeveloperExceptionPage( new ErrorPageOptions() );
             }
             else
@@ -81,13 +90,39 @@ namespace AlbumViewerAspNet5
 
             app.UseIISPlatformHandler();
 
+            //app.UseIdentity();
+
+            // Enable Cookie Auth with automatic user policy
+            app.UseCookieAuthentication(options =>
+            {
+                options.AutomaticAuthentication = true;
+                //options.AccessDeniedPath = "/api/Login";
+                options.LoginPath = "/api/login";
+            });
+
+            // 
+            //app.Run(async context =>
+            //{
+            //    if (!context.User.Identities.Any(identity => identity.IsAuthenticated))
+            //    {
+            //        var user = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, "bob") }, CookieAuthenticationDefaults.AuthenticationScheme));
+            //        await context.Authentication.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, user);
+
+            //        context.Response.ContentType = "text/plain";
+            //        await context.Response.WriteAsync("Hello First timer");
+            //        return;
+            //    }
+
+            //    context.Response.ContentType = "text/plain";
+            //    await context.Response.WriteAsync("Hello old timer");
+            //});
+
             // Add static files to the request pipeline.
             app.UseStaticFiles();
 
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>
             {
-
                 routes.MapRoute(
                     name: "api",
                     template: "api/{action}/{id?}",
@@ -110,5 +145,10 @@ namespace AlbumViewerAspNet5
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
         }
+    }
+
+    public class UserRole
+    {
+
     }
 }

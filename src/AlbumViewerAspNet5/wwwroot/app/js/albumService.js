@@ -1,14 +1,19 @@
-﻿(function () {
+/// <reference path="../../bower_components/lodash/lodash.js" />
+(function () {
     'use strict';
 
-    var app = angular.module('app');
-    app.factory('albumService', albumService);
+    var app = angular
+        .module('app')
+        .factory('albumService', albumService);
 
     albumService.$inject = ['$http','$q'];
 
     function albumService($http,$q) {
         var service = {
-            baseUrl: app.configuration.appBaseUrl,
+            baseUrl: app.configuration.baseUrl,
+            localAlbumFile: "data/albums.js",
+            //baseUrl: "api/",
+            //baseUrl: "http://localhost/albumviewer/"
             albums: [],
             artists: [],
             album: newAlbum(),
@@ -50,12 +55,16 @@
         }
 
         function getAlbums(noCache) {
-         
             // if albums exist just return
             if (!noCache && service.albums && service.albums.length > 0)
-                return ww.angular.$httpPromiseFromValue($q, service.albums);                
+                return ww.angular.$httpPromiseFromValue($q, service.albums);
+
             
-            return $http.get(service.baseUrl + "albums/")
+            var url = service.baseUrl + "albums";
+            if (app.configuration.useLocalData)
+                url = service.localAlbumFile;
+
+            return $http.get(url)
                 .success(function (data) {                    
                     service.albums = data;                   
                 })
@@ -73,12 +82,35 @@
 
             // if the album is already loaded just return it
             // and return the promise
-            if (service.album && useExisting && service.album.pk == id) {
-                var deferred = ww.angular.deferredExtender($q.defer());
-                deferred.resolve(service.album);
-                return deferred.promise;
+            if (service.album && useExisting && service.album.Id == id) 
+                return ww.angular.$httpPromiseFromValue($q,service.album);
+            
+
+            // handle local data differently
+            if (app.configuration.useLocalData) {
+                if (service.albums && service.albums.length > 0) {                                                 
+                    var album = findAlbumFromId(id);
+                    service.album = album;
+                    return ww.angular.$httpPromiseFromValue($q,album);
+                }
+                // otherwise load albums first with custom promise
+                var d = ww.angular.$httpDeferredExtender($q.defer());
+                service.getAlbums()
+                    .success(function(albums) {                               
+                        service.albums = albums;
+                        service.album = findAlbumFromId(id);
+                        if (!service.album)
+                            d.reject(new Error("Couldn't find album"));
+                        else
+                            d.resolve(service.album);
+                    })
+                    .error(function(err) {
+                        d.reject(new Error("Couldn't find album"));
+                    });
+                return d.promise;
             }
 
+            // otherwise load from HTTP
             return $http.get(service.baseUrl + "album/" + id)
                 .success(function(album) {
                     service.album = album;
@@ -92,7 +124,7 @@
             service.album = album;
         };
 
-        function removeSong(album, song) {
+        function removeSong(album, song) {            
             var i = findAlbumIndex(album);
             if (i == -1)
                 return;
@@ -136,16 +168,21 @@
                 .success(function() {
                     service.albums = _.remove(service.albums, function(alb){
                         return album.Id != alb.Id;
-                    });
+                    });                    
                 });
         }
 
+        
         function findAlbumIndex(album){
             return  _.findIndex(service.albums, function (a) {
-                return album.Id == a.Id;
+                return album.Id === a.Id;
             });
         }
-        
+        function findAlbumFromId(id) {
+            return _.find(service.albums, function (a) {
+                return id === a.Id;
+            });
+        }
 
     }
 })();

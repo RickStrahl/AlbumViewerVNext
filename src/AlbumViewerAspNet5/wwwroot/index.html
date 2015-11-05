@@ -1,11 +1,10 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Web Connection Albumviewer Sample Application">    
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -21,19 +20,14 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
      <![endif]-->
 
-    <title>West Wind Album Viewer SPA</title>
+    <title>West Wind Album Viewer</title>
+    <!--<link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>-->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
-    <!-- combined CSS file - build with gulp -->
-    <!--<link href="build/app.min.css" rel="stylesheet" />-->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />-->
-
-
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-
-    <link href="css/musicstore.css" rel="stylesheet" />
+    <link href="css/albumviewer.css" rel="stylesheet" />
 </head>
 <body ng-app="app">
 
@@ -82,7 +76,6 @@
             <div id="MainView" autoscroll="true" ng-view class="slide-animation">
             </div>
 
-
             <div class="banner banner-bottom">
                 <nav id="Toolbar">
                     <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
@@ -96,75 +89,80 @@
                     </a>
                 </nav>
             </div>
+
         </div>
 
-        <script src="scripts/jquery.min.js"></script>
-        <script src="scripts/ww.jquery.min.js"></script>
-        <script src="scripts/ww.angular.js"></script>
-        <script src="scripts/lodash.min.js"></script>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="scripts/ww.jquery.min.js"></script>
+    <script src="scripts/ww.angular.js"></script>
+    <script src="bower_components/lodash/lodash.min.js"></script>
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
+    <script>
+        // hook up fast click for mobile devices - avoid 300ms delay
+        window.addEventListener('load', function () {
+            // only use FastClick for iOS
+            if (navigator.userAgent.indexOf('iPhone') ||
+                navigator.userAgent.indexOf('iPad'))
+                FastClick.attach(document.body);
+        }, false);
 
-        <script src="scripts/fastclick.min.js"></script>
+        // enable animations on all screens for small screen sizes
+        var width = $(window).width();
+        if (width < 769)
+            // make every animation a slide animation
+            // otherwise only view/edit are
+            $("#MainView").addClass("slide-animation");
 
+        // close menu after click
+        $(".navbar-nav li a").on('click', function () {
+            if ($(window).width() < 769)
+                $(".navbar-collapse").collapse('hide');
+        });
+        $("#SearchBox").on("keydown", function (e) {
+            if ($(window).width() > 768)
+                return;
 
-        <script>
-            // hook up fast click for mobile devices - avoid 300ms delay
-            window.addEventListener('load', function () {
-                // only use FastClick for iOS
-                if (navigator.userAgent.indexOf('iPhone') ||
-                    navigator.userAgent.indexOf('iPad'))
-                    FastClick.attach(document.body);
-            }, false);
-
-            // enable animations on all screens for small screen sizes
-            var width = $(window).width();
-            if (width < 769)
-                // make every animation a slide animation
-                // otherwise only view/edit are
-                $("#MainView").addClass("slide-animation");
-
-            // close menu after click
-            $(".navbar-nav li a").on('click', function () {
-                if ($(window).width() < 769)
-                    $(".navbar-collapse").collapse('hide');
-            });
-            $("#SearchBox").on("keydown", function (e) {
-                if ($(window).width() > 768)
-                    return;
-
-                if (e.keyCode == 13 || e.keyCode == 27 || e.keyCode == 9)
-                    $(".navbar-collapse").collapse('hide');
-            });
-        </script>
+            if (e.keyCode == 13 || e.keyCode == 27 || e.keyCode == 9)
+                $(".navbar-collapse").collapse('hide');
+        });
+    </script>
 
 
+    <!--<script src="js/angular-concat.min.js"></script>-->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.min.js"></script>
 
-        <!--<script src="js/angular-concat.min.js"></script>-->
+    <!--<script src="../scripts/ww.angular.min.js"></script>-->
 
-        <script src="scripts/angular/angular.min.js"></script>
-        <script src="scripts/angular/angular-route.min.js"></script>
-        <script src="scripts/angular/angular-aria.min.js"></script>
-        <script src="scripts/angular/angular-animate.min.js"></script>
-        <script src="scripts/angular/angular-sanitize.min.js"></script>
-        <script src="scripts/angular/angular-touch.min.js"></script>
+    <!--<script src="css/bootstrap.min.js"></script>-->
 
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap3-typeahead/bootstrap3-typeahead.min.js"></script>
 
-        <!--<script src="../scripts/ww.angular.min.js"></script>-->
-        <script src="css/bootstrap.min.js"></script>
-        <script src="scripts/bootstrap-typeahead.min.js"></script>
+    <!-- combined app scripts - build with gulp -->
+    <!--<script src="js/app.min.js"></script>-->
 
-        <!-- combined app scripts - build with gulp -->
-        <!--<script src="js/app.min.js"></script>-->
+    <!-- Reference this first - Angular Initialization for this app -->
+    <script src="app/js/app.js"></script>
 
-        <script src="app/js/app.js"></script>
-        <script src="app/js/albumService.js"></script>
-        <script src="app/js/artistscontroller.js"></script>
-        <script src="app/js/artistservice.js"></script>
-        <script src="app/js/artistservicelocal.js"></script>
-        <script src="app/js/headercontroller.js"></script>
-        <script src="app/js/albumServiceLocal.js"></script>
-        <script src="app/js/albumsController.js"></script>
-        <script src="app/js/albumController.js"></script>
-        <script src="app/js/artistController.js"></script>
-        <script src="app/js/optionsController.js"></script>
+    <!-- Controllers, Services, Directives etc.  (any order - angular loads these)-->
+    <script src="app/js/albumService.js"></script>
+    <script src="app/js/artistsController.js"></script>
+    <script src="app/js/artistService.js"></script>    
+    <script src="app/js/headerController.js"></script>    
+    <script src="app/js/albumsController.js"></script>
+    <script src="app/js/albumController.js"></script>
+    <script src="app/js/artistController.js"></script>
+    <script src="app/js/optionsController.js"></script>
+    <script src="app/js/loginController.js"></script>
+    
+    <script src="app/directives/errorDisplay.js"></script>   
+    <script src="app/directives/wwrtl.js"></script>     
 </body>
+
 </html>

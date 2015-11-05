@@ -5,43 +5,44 @@
         .module('app')
         .controller('artistController', artistController);
 
-    var artistServiceName = "artistService";
-    if (app.configuration.useLocalData)
-        artistServiceName = "artistServiceLocal";
+    artistController.$inject = ["$http", "$window", "$routeParams",
+                                "$animate", "$location",
+                                "artistService", "albumService",
+                                "errorDisplayService"];
 
-    var albumServiceName = "albumService";
-    if (app.configuration.useLocalData)
-        albumServiceName = "albumServiceLocal";
-
-    artistController.$inject = ["$http", "$window", "$routeParams", "$animate", "$location",
-        artistServiceName,albumServiceName];
-    
-    function artistController($http, $window, $routeParams, $animate, $location,
-                              artistService, albumService) {
+    function artistController($http, $window, $routeParams,
+        $animate, $location,artistService, albumService,
+        errorDisplayService) {
         var vm = this;
 
         vm.artist = null;
         vm.baseUrl = "api/";
         vm.albums = [];
-        vm.error = {
-            message: null,
-            icon: "warning",
-            reset: function() { vm.error = { message: "", icon: "warning" } },
-            show: function(msg, icon) {
-                vm.error.message = msg;
-                vm.error.icon = icon ? icon : "warning";
-            }
-        };
+        vm.error = errorDisplayService.newErrorModel();
 
-        vm.getArtist = function (pk) {
+        vm.getArtist = function (pk) {            
             artistService.getArtist(pk)
-                .success(function (response) {                    
-                    vm.artist = response.Artist;
-                    vm.albums = response.Albums;
+                .success(function (response) {                     
+                    if (response.hasOwnProperty("Albums")) { // service
+                        vm.artist = response.Artist;
+                        vm.albums = response.Albums;
+                    } else {   // local                        
+                        vm.artist = response;
+                        vm.albums = [];
+                    }
                 })
                 .error(function() {
-                    vm.error.show("Artist couldn't be loaded.", "warning");
+                    vm.error.message = "Artist couldn't be loaded.";
+                    vm.error.message = "warning";
                 });
+        };
+        vm.editArtist = function() {
+            if (!app.configuration.user.isAuthenticated) {
+                window.location = "#/login";
+                return;
+            }
+
+            $("#EditModal").modal();
         };
 
         vm.saveArtist = function (artist) {
@@ -50,9 +51,13 @@
                     vm.artist = response.Artist;
                     vm.albums = response.Albums;
                     $("#EditModal").modal("hide");
+
+                    vm.error.message = "Artist saved.";
+                    vm.error.icon = "success";
                 })
                 .error(function (error) {
-                    vm.error.show("Artist couldn't be saved.", "warning");
+                    vm.error.message = "Artist couldn't be saved.";
+                    vm.error.icon = "warning";
                 });
         }
 
@@ -64,8 +69,9 @@
                         $location.path("/artists");
                     }
                 })
-                .error(function () {                    
-                    vm.error.message = "Failed to delete artist: ";
+                .error(function (args) {                    
+                    var err = ww.angular.parseHttpError(args);
+                    vm.error.message = "Failed to delete artist: " + err.message;
                     vm.error.icon = "warning";
                 });
         }
@@ -86,7 +92,7 @@
             albumService.updateAlbum(albumService.album);
             $window.location.hash = "/album/edit/-1";
         };
-
+        
         vm.getArtist($routeParams.artistId);
     }
 })();

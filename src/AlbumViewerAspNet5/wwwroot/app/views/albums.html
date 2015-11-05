@@ -1,26 +1,32 @@
+<div ng-controller="albumsController as vm"
+     class="container container-fluid">
 
-
-<div ng-controller="albumsController as view" class="container container-fluid">
-
-    <div class="alert alert-dismissable alert-{{view.error.icon}}"
-         ng-show="view.error.message"
+    <error-display error="vm.error"></error-display>
+    <!--<div class="alert alert-dismissable alert-{{vm.error.icon}}"
+         ng-show="vm.error.message"
          role="alert">
         <button type="button" class="close" data-dismiss="alert">
             <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
         </button>
-        <span ng-bind="view.error.message"></span>
+        <span ng-bind="vm.error.message"></span>
+    </div>-->
+
+
+    <button class="btn btn-sm btn-success pull-right" ng-click="vm.addAlbum()"><i class="fa fa-plus"></i> Add Album</button>
+    <div class="page-header-text">
+        <i class="fa fa-list">
+        </i> Albums <span class="badge">{{vm.albums.length}}</span>
     </div>
 
-    <button class="btn btn-sm btn-success pull-right" ng-click="view.addAlbum()"><i class="fa fa-plus"></i> Add Album</button>
-    <div class="page-header-text"><i class="fa fa-list"></i> Albums <span class="badge">{{view.albums.length}}</span></div>
-
-    <hr style="margin-top: 6px;" />
-
-    <!-- use a custom $scope filter to search only artist and album name instead of filter: view.searchText -->
-    <div class="album" ng-repeat="album in view.albums | filter: view.albumsFilter:view.searchText" ng-click="view.albumClick(album)">
+    <div class="container" ng-show="vm.busy">
+        <i class="fa fa-circle-o-notch fa-spin fa-5x"
+           style="display: block; text-align: center; margin-top: 70px;"></i>
+    </div>
+    <!-- use a custom $scope filter to search only artist and album name instead of filter: vm.searchText -->
+    <div class="album" ng-repeat="album in vm.albums | filter: vm.albumsFilter:vm.searchText" ng-click="vm.albumClick(album)">
         <div class="album-overlay">
             <a href="#/album/edit/{{album.Id}}"><i class="fa fa-edit" title="Edit"></i></a> &nbsp;
-            <a ng-click="view.deleteAlbum(album)"><i class="fa fa-remove" title="Delete"></i></a>
+            <a ng-click="vm.deleteAlbum(album)"><i class="fa fa-remove" title="Delete"></i></a>
         </div>
         <div>
             <img ng-src="{{album.ImageUrl}}" class="album-image" />

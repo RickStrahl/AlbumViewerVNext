@@ -1,0 +1,35 @@
+{
+  "name": "wconnect",
+  "version": "6.0.0",
+  "authors": [
+    "Rick Strahl <rstrahl@west-wind.com>"
+  ],
+  "description": "West Wind Web Connection Samples",
+  "main": "default.htm",
+  "license": "MIT",
+  "homepage": "http://west-wind.com/webconnection/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.3",
+    "font-awesome": "~4.4.0",
+    "bootstrap": "~3.3.2",
+    "lodash": "~3.9.3",
+    "toastr": "~2.1.2",
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "angular-sanitize": "~1.4.7",
+    "angular-touch": "~1.4.7",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37",
+    "moment": "~2.10.6",
+    "fastclick": "~1.0.6",
+    "angular-aria": "~1.4.7",
+    "angular-animate": "~1.4.7"
+  },
+  "devDependencies": {}
+}

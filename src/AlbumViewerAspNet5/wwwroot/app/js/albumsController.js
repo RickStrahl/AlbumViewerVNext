@@ -4,19 +4,15 @@
     var app = angular
         .module('app')
         .controller('albumsController', albumsController);
-
-    var service = "albumService";
-    if (app.configuration.useLocalData)
-        service = "albumServiceLocal";
-
-    albumsController.$inject = ['$scope','$location','$timeout', service];
+    
+    albumsController.$inject = ['$scope', '$location', '$timeout', 'albumService'];
     
 
-    function albumsController($scope,  $location, $timeout, albumService) {
-        
-        var vm = this;
-        vm.albums = null;
+    function albumsController($scope,  $location, $timeout, albumService) {        
+        var vm = this;       // this is the Model!
 
+        vm.busy = false;
+        vm.albums = null;   
         vm.error = {
             message: null,
             icon: "warning",
@@ -33,17 +29,23 @@
             albumService.listScrollPos = $("#MainView").scrollTop();           
             $location.path( "/album/" + album.Id);
         };
-        vm.getAlbums = function() {
+        vm.getAlbums = function () {
+            vm.busy = true;
             albumService.getAlbums() 
-                .success(function (data) {
+                .success(function (data) {                   
                     if (albumService.listScrollPos)
+                        // delay is long to account for CSS animation
+                        // can't scroll while animation is going
                         $timeout(function () {
                             $("#MainView").scrollTop(albumService.listScrollPos);
-                        },900);
+                            albumService.listScrollPos = 0; //reset
+                        }, 900);
+                    vm.busy = false;
                     vm.albums = data;
                 })
-                .error(function(err) {
-                    alert('failed to get albums');
+                .error(function (err) {
+                    vm.busy = false;
+                    vm.error.message = "Failed to load albums. " + err.message;
                 });            
         }
         vm.addAlbum = function () {            

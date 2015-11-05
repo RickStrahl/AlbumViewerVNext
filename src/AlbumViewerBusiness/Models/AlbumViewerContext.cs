@@ -78,6 +78,7 @@ namespace AlbumViewerBusiness
         public DbSet<Album> Albums { get; set; }
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Track> Tracks { get; set; }
+        public DbSet<User> Users { get; set;  }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -107,7 +108,6 @@ namespace AlbumViewerBusiness
             builder.Entity<Album>(e =>
             {
                 e.ToTable("Albums");
-                e.HasKey(es => es.Id);
                 
             });
             builder.Entity<Artist>(e =>
@@ -118,6 +118,11 @@ namespace AlbumViewerBusiness
             builder.Entity<Track>(e =>
             {
                 e.ToTable("Tracks");
+            });
+
+            builder.Entity<User>(e =>
+            {
+                e.ToTable("Users");
             });
 
             base.OnModelCreating(builder);

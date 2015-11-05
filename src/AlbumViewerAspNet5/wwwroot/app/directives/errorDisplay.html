@@ -1,0 +1,16 @@
+<div ng-show="error.message"
+     class="alert alert-{{error.icon}} alert-dismissable">
+    <button ng-show="error.dismissable" type="button" class="close" data-dismiss="alert" aria-hidden="true">
+        <i class="fa fa-remove"></i> 
+    </button>   
+
+    <div ng-show="error.header" style="font-size: 1.5em; font-weight: bold">
+        <i class="fa fa-{{error.imageIcon}}" style="color: {{error.iconColor}}"></i>
+        {{error.header}}
+    </div>
+    <i ng-show="!error.header" 
+       class="fa fa-{{error.imageIcon}}" 
+       style="color: {{error.iconColor}}"></i>
+
+    <strong>{{error.message}}</strong>
+</div>

@@ -7,12 +7,16 @@
 
     artistService.$inject = ['$http','$q','$location'];
 
+
+
     function artistService($http,$q,$location) {
         var service = {
-            baseUrl: app.configuration.appBaseUrl,
+            baseUrl: app.configuration.baseUrl,
+            localArtistFile: "data/artists.js",
             artist: newArtist(),
             artists: [],
             albums: [],
+            listScrollPos: 0,
             getArtists: getArtists,
             getArtist: getArtist,
             // saves to server
@@ -39,9 +43,12 @@
             // if albums exist just return
             if (!noCache && service.artists && service.artists.length > 0)
                 return ww.angular.$httpPromiseFromValue($q, service.artists);
+            var url = service.baseUrl + "artists";
 
-            debugger;
-            return $http.get(service.baseUrl + "artists")
+            if (app.configuration.useLocalData)
+                url = "data/artists.js";
+
+            return $http.get(url)
                 .success(function (data) {
                     service.artists = data;
                 })
@@ -53,11 +60,11 @@
                 service.artist = service.newArtist();
                 return ww.angular.$httpPromiseFromValue($q, service.album);
             }
+            // -1 just returns the currently loaded artist
             else if (id === -1 || id === '-1' || !id)
                 return ww.angular.$httpPromiseFromValue($q, service.album);
 
-            // if the album is already loaded just return it
-            // and return the promise
+            // if the album is already loaded just return it            
             if (service.artist && useExisting && service.artist.id == id)
                 return ww.angular.$httpPromiseFromValue($q, service.artist);
 
@@ -69,12 +76,41 @@
                     return ww.angular.$httpPromiseFromValue($q, new Error("Couldn't find artist"), true);
             }
 
+            
+            // if we have a service just retrieve the record from the service
+            if (!app.configuration.useLocalData) {
+                return $http.get(service.baseUrl + "artist/" + id)
+                    .success(function(response) {
+                        service.artist = response.Artist;
+                        service.albums = response.Albums;
+                    });
+            }
 
-            return $http.get(service.baseUrl + "artist/" + id)
-                .success(function(response) {
-                    service.artist = response.Artist;
-                    service.albums = response.Albums;
-            });
+
+            // local data - load from the data list
+
+            // if albums exist find from index and return
+            if (service.artists && service.artists.length > 0) {
+                // just look up from cached list
+                var artist = findArtist(id);
+                if (!artist)
+                    return ww.angular.$httpPromiseFromValue($q, new Error("Couldn't find artist"), true);
+            }
+
+            // no albums - force loading albums first then 
+            var d = ww.angular.$httpDeferredExtender($q.defer());
+            service.getArtists()
+                .success(function (artists) {                    
+                    service.artist = findArtist(id);
+                    if (!service.artist)
+                        d.reject(new Error("Couldn't find artist"));
+                    else
+                        d.resolve(service.artist);
+                })
+                .error(function (err) {                    
+                    d.reject(new Error("Couldn't find artist"));
+                });
+            return d.promise;
         }
 
 
