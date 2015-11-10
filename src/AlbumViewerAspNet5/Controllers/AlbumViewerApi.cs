@@ -16,6 +16,7 @@ using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Internal;
 using Microsoft.AspNet.Mvc.Filters;
+using Microsoft.AspNet.Cors.Core;
 
 //using Westwind.Utilities;
 
@@ -25,6 +26,7 @@ using Microsoft.AspNet.Mvc.Filters;
 namespace AlbumViewerAspNet5
 {
     [ApiExceptionFilter]
+    [EnableCors("CorsPolicy")]
     public class AlbumViewerApiController : Controller
     {
         AlbumViewerContext context;

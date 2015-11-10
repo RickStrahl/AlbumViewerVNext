@@ -60,7 +60,11 @@ namespace AlbumViewerAspNet5
             {
                 options.AddPolicy("CorsPolicy", builder =>
                 {
-                    builder.WithOrigins("http://localhost");
+                   builder
+                      .WithOrigins("*")
+                      .AllowAnyMethod()
+                      .AllowAnyHeader()
+                      .AllowCredentials();
                 });
             });
 
