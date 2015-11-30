@@ -10,13 +10,9 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Collections;
 using System.Text;
+using Microsoft.AspNet.Cors;
 using Westwind.Utilities;
 using Microsoft.Data.Entity;
-using Microsoft.Framework.Configuration;
-using Microsoft.Framework.DependencyInjection;
-using Microsoft.Framework.Internal;
-using Microsoft.AspNet.Mvc.Filters;
-using Microsoft.AspNet.Cors.Core;
 
 //using Westwind.Utilities;
 

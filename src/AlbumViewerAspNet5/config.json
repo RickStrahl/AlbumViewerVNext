@@ -4,8 +4,8 @@
     },
     "Data": {
         "MusicStore": {
-            //"xConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=albumviewe.mdf;Trusted_Connection=True;"
-            "ConnectionString": "Data Source=.;database=albumviewer;integrated security=true;Connect Timeout=30;MultipleActiveResultSets=True"            
+            "ConnectionString": "Data Source=.;database=albumviewer;integrated security=true;Connect Timeout=30;MultipleActiveResultSets=True",         
+            "__ConnectionString": "Server=tcp:pi46lfhc7b.database.windows.net,1433;Database=albumviewer;User ID=albumviewer@pi46lfhc7b;Password=rockOn17;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
         }
     }
 }

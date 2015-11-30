@@ -18,11 +18,11 @@
     app.configuration = { 
         useLocalData: false,
         //baseUrl: "",
-        //baseUrl: "api/",
+        baseUrl: "api/",
         //baseUrl: "https://albumviewerswf.west-wind.com/api/",
         //baseUrl: "http://localhost/albumviewer/api/",
         //baseUrl: "http://dev.west-wind.com/albumviewer/api/",
-        baseUrl: "http://localhost:5000/api/",
+        //baseUrl: "http://localhost:5000/api/",
         user: {            
             _isAuthenticated: false,
             set isAuthenticated(val) {

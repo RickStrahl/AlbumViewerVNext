@@ -1,16 +1,15 @@
 ﻿using AlbumViewerBusiness;
 using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Cors.Core;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Hosting;
-using Microsoft.Framework.DependencyInjection;
-using Microsoft.Framework.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Data.Entity;
-using Microsoft.Framework.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Dnx.Runtime;
 using System.Linq;
-using System.Security.Claims;
-using Microsoft.AspNet.Authentication.Cookies;
+using Microsoft.AspNet.Cors.Infrastructure;
+using Microsoft.Extensions.PlatformAbstractions;
 
 namespace AlbumViewerAspNet5
 {
@@ -39,7 +38,7 @@ namespace AlbumViewerAspNet5
             services.AddMvc();
 
             // Add EF services to the services container
-            services.AddEntityFramework()
+            services.AddEntityFramework()                
                         .AddSqlServer()
                         .AddDbContext<AlbumViewerContext>(options =>
                         {
@@ -99,7 +98,7 @@ namespace AlbumViewerAspNet5
             // Enable Cookie Auth with automatic user policy
             app.UseCookieAuthentication(options =>
             {
-                options.AutomaticAuthentication = true;
+                options.AutomaticAuthenticate = true;
                 //options.AccessDeniedPath = "/api/Login";
                 options.LoginPath = "/api/login";
             });
@@ -149,6 +148,9 @@ namespace AlbumViewerAspNet5
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
         }
+
+        // Entry point for the application.
+        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 
     public class UserRole

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+﻿using Microsoft.AspNet.Razor.TagHelpers;
 
 namespace AlbumViewerAspNet5.Controllers.TagHelpers
 {
