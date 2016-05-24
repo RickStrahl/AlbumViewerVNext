@@ -9,13 +9,11 @@ namespace Westwind.BusinessObjects
         where TContext : DbContext
         where TEntity : class, new()
     {
-
         public EntityFrameworkRepository(TContext context)
         {
             Context = context;
         }
-
-
+        
         /// <summary>
         /// Instance of the DbContext. Must be passed or 
         /// injected.

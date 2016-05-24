@@ -2,7 +2,7 @@
   {
       "Id": 516,
       "ArtistId": 331,
-      "Title": "Ace of Spades (local)",
+      "Title": "Ace of Spades",
       "Description": "Motörhead are the founding fathers of speed and thrash metal. Without this band, there would be no Slayer or Sepultura, so you've at least got to give Lemmy and Co. props for being so influential. And \"Aces of Spades\" is an essential, legendary speed metal classic. It's full of fast, meaty riffs, great solos, toe-tapping drums, and catchy, gruff vocals. Almost every song on here (especially the title track, \"Love Me Like a Reptile,\" and \"We Are The Road Crew\") is very catchy. And the album opening title track, which has a speedy, groove-y main riff, is world renowned. Other highlights include the wah-wah solo and shout-along refrain on \"Fire, Fire,\" \"Jailbait,\" \"Dance\" (which has a pair of tasty guitar solos), the X-rated \"The Chase Is Better Than The Catch,\" and the famous, rhythmic, nearly dance-able \"Please Don't Touch.\" All in all, if you're looking for great, groove-y, contagious and exciting speed metal, Motorhead \"aces\" it.",
       "Year": 1978,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/618Zuqc4J5L._SL250_.jpg",
@@ -10,27 +10,27 @@
       "SpotifyUrl": "https://play.spotify.com/album/2La9yFPh8VZ1VsaVXtHazI",
       "Artist": {
           "Id": 331,
-          "ArtistName": "Motörhead",
+          "ArtistName": "Motörhead (Sql)",
           "Description": "Motörhead have never JUST been the best rock'n'roll band in the world. They've never JUST been the loudest. Or the hardest. Or the toughest. Or the bad-ass-est. No...Motörhead are also a lifestyle.",
           "ImageUrl": "http://alealerocknroll.com/wp-content/uploads/2014/07/motorhead.jpg",
           "AmazonUrl": "http://www.amazon.com/gp/product/B00005NHO2/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005NHO2&linkCode=as2&tag=westwindtechn-20"
       },
       "Tracks": [
         {
-            "Id": 7605,
+            "Id": 7600,
             "AlbumId": 516,
             "SongName": "Jailbait",
-            "Length": "4:21",
+            "Length": "3:12",
             "Bytes": 0,
             "UnitPrice": 0.0
         },
         {
             "Id": 5224,
             "AlbumId": 516,
-            "SongName": "Ace of Spades",
+            "SongName": "Ace of Spades (Sql)",
             "Length": "2:49",
             "Bytes": 0,
-            "UnitPrice": 0.0
+            "UnitPrice": 1.29
         },
         {
             "Id": 5225,
@@ -70,7 +70,7 @@
       "Id": 659,
       "ArtistId": 632,
       "Title": "Act III",
-      "Description": "Act III is the third studio album by the thrash metal band Death Angel, released in 1990 on Geffen Records. Regarded by many critics and fans as the band's finest effort, the album was produced by famed metal producer Max Norman (Ozzy Osbourne, Megadeth, Loudness), and marked the first (and only) major label release by Death Angel. The album spawned the singles \"Seemingly Endless Time\" and \"A Room with a View\", with both songs receiving music videos and airplay on MTV's Headbangers Ball. Songs like \"Discontinued\" incorporate elements of funk.\r\n\r\nOn tour in support of Act III in 1991, the band suffered a serious tour bus crash in which drummer Andy Galeon was critically injured. During his yearlong recovery, singer Mark Osegueda left the band, effectively ending Death Angel. In 2001, the band reunited for Testament singer Chuck Billy's Thrash of the Titans benefit concert (minus Gus Pepa) and went on to release The Art of Dying in 2004, followed by three more albums.",
+      "Description": "Act III  is the third studio album by the thrash metal band Death Angel, released in 1990 on Geffen Records. Regarded by many critics and fans as the band's finest effort, the album was produced by famed metal producer Max Norman (Ozzy Osbourne, Megadeth, Loudness), and marked the first (and only) major label release by Death Angel. The album spawned the singles \"Seemingly Endless Time\" and \"A Room with a View\", with both songs receiving music videos and airplay on MTV's Headbangers Ball. Songs like \"Discontinued\" incorporate elements of funk.\n\n@icon-warning On tour in support of Act III in 1991, the band suffered a serious tour **bus crash** in which drummer Andy Galeon was critically injured. During his yearlong recovery, singer Mark Osegueda left the band, effectively ending Death Angel. In 2001, the band reunited for Testament singer Chuck Billy's Thrash of the Titans benefit concert (minus Gus Pepa) and went on to release The Art of Dying in 2004, followed by three more albums.",
       "Year": 1990,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51xWXhuTiZL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B0085LGSD4/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0085LGSD4&linkCode=as2&tag=westwindtechn-20&linkId=FFHUXDGAYHSQRISL",
@@ -125,7 +125,7 @@
       "Year": 1996,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51RpKf9APDL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00000099Y/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00000099Y&linkCode=as2&tag=westwindtechn-20&linkId=333T3S6PUBB3SSZH",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 335,
           "ArtistName": "Tool",
@@ -227,7 +227,7 @@
       "Year": 1986,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/61iaOB91X6L._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B000024VGR/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000024VGR&linkCode=as2&tag=westwindtechn-20&linkId=BIWHDZDBGW7Z5M5R",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 362,
           "ArtistName": "Attitude Adjustment",
@@ -308,7 +308,7 @@
           "ArtistName": "Anthrax",
           "Description": "Anthrax is an American thrash metal band from New York, formed in 1981 by guitarist Scott Ian and bassist Dan Lilker. The group was considered one of the leaders of the thrash metal scene during the 1980s. When the genre's popularity increased, Anthrax was one of its \"big four\" with Metallica, Megadeth and Slayer. As of 2014 the band has released ten studio albums, a number of singles and an EP with American hip hop group Public Enemy. According to Nielsen SoundScan Anthrax sold 2.5 million records in the United States from 1991 to 2004, with worldwide sales of over 15 million.",
           "ImageUrl": "http://www.leatherrebel.com/anthrax2.jpg",
-          "AmazonUrl": null
+          "AmazonUrl": ""
       },
       "Tracks": [
         {
@@ -361,13 +361,13 @@
       "Year": 1979,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/41QzUbIXJUL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B003IBFP3K/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B003IBFP3K&linkCode=as2&tag=westwindtechn-20&linkId=ZPUTZUBTN5EVWPV6",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 1694,
           "ArtistName": "Angelwitch",
           "Description": "Angel Witch are a British heavy metal band which formed in London, England in 1977 as part of the New Wave of British Heavy Metal movement. Despite critical acclaim in the music press, their only UK chart action consisted of a single week at No.75 (the lowest position in the charts) in 1980.",
           "ImageUrl": "https://a3-images.myspacecdn.com/images03/1/b2134515aece415eb16302628981de87/300x300.jpg",
-          "AmazonUrl": null
+          "AmazonUrl": ""
       },
       "Tracks": [
         {
@@ -447,7 +447,7 @@
       "Year": 1990,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51XxSF5k7EL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B000008LTK/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000008LTK&linkCode=as2&tag=westwindtechn-20&linkId=PIM3OH7KV24TC7TI",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 348,
           "ArtistName": "Two Bit Thief",
@@ -661,7 +661,7 @@
       "Year": 2007,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51rXT6j%2BwRL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B001MFOULW/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B001MFOULW&linkCode=as2&tag=westwindtechn-20&linkId=X5KW75PMFHGVYVGA",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 340,
           "ArtistName": "Die Toten Hosen",
@@ -803,7 +803,7 @@
           "ArtistName": "Scorpions",
           "Description": "The Scorprions are good old fashioned German Hard Rock from the 80s and beyond.",
           "ImageUrl": null,
-          "AmazonUrl": null
+          "AmazonUrl": ""
       },
       "Tracks": [
         {
@@ -910,7 +910,7 @@
       "Year": 1985,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/517FBEA6X9L._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B000003C4K/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000003C4K&linkCode=as2&tag=westwindtechn-20&linkId=DBKRRNULEL4OIR5P",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 349,
           "ArtistName": "Exodus",
@@ -979,7 +979,7 @@
       "Year": 1982,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51fIOETov9L._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B0007ZBG1U/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0007ZBG1U&linkCode=as2&tag=westwindtechn-20&linkId=ZPNI5HMO3ZTBZQJ3",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "https://play.spotify.com/album/70lhKu95Wy760ZAZeUaZje",
       "Artist": {
           "Id": 2,
           "ArtistName": "Accept",
@@ -1077,11 +1077,46 @@
       "Artist": {
           "Id": 343,
           "ArtistName": "Machine Head",
-          "Description": "Machine Head is an American metal band from Oakland, California.[2][3] Formed on October 12, 1991,[4] the group was founded by vocalist and guitarist Robb Flynn and bassist Adam Duce. The current lineup of the band comprises Flynn, drummer Dave McClain, guitarist Phil Demmel, and bassist Jared MacEachern. Machine Head is one of the pioneering bands in the New Wave of American Heavy Metal.[5][6]\n\nMachine Head was formed by member Robb Flynn, previously part of the bands Forbidden and Vio-lence. Flynn felt musically unfulfilled with Vio-lence and requested to start a side project. When his request was denied, he left the band and formed Machine Head in 1991 with Adam Duce, Logan Mader and Tony Constanza. The band's first album Burn My Eyes, was a big success in Europe where it garnered attention on MTV's Headbangers Ball. In America (with HBB taken off the air during the grunge movement) Machine Head would not have success until later albums.\n\nThe band nearly disbanded in 2002 after negotiating off its label Roadrunner Records, when controversy surrounding Machine Head's fourth album Supercharger (released 3 weeks after September 11, 2001) resulted in their songs and music video for the song \"Crashing Around You\" (which featured burning buildings) being pulled from all media outlets. The band re-signed with Roadrunner soon after and has released four albums since, 2003's Through the Ashes of Empires, 2007's The Blackening (which earned Machine Head its first Grammy Award nomination) and 2011's Unto the Locust. Their most recent album, Bloodstone & Diamonds, was released in 2014. Machine Head have sold over 3 million records worldwide.[7]",
+          "Description": "Machine Head is an American metal band from Oakland, California.[2][3] Formed on October 12, 1991,[4] the group was founded by vocalist and guitarist Robb Flynn and bassist Adam Duce. The current lineup of the band comprises Flynn, drummer Dave McClain, guitarist Phil Demmel, and bassist Jared MacEachern. Machine Head is one of the pioneering bands in the New Wave of American Heavy Metal.[5][6]\r\n\r\nMachine Head was formed by member Robb Flynn, previously part of the bands Forbidden and Vio-lence. Flynn felt musically unfulfilled with Vio-lence and requested to start a side project. When his request was denied, he left the band and formed Machine Head in 1991 with Adam Duce, Logan Mader and Tony Constanza. The band's first album Burn My Eyes, was a big success in Europe where it garnered attention on MTV's Headbangers Ball. In America (with HBB taken off the air during the grunge movement) Machine Head would not have success until later albums.\r\n\r\nThe band nearly disbanded in 2002 after negotiating off its label Roadrunner Records, when controversy surrounding Machine Head's fourth album Supercharger (released 3 weeks after September 11, 2001) resulted in their songs and music video for the song \"Crashing Around You\" (which featured burning buildings) being pulled from all media outlets. The band re-signed with Roadrunner soon after and has released four albums since, 2003's Through the Ashes of Empires, 2007's The Blackening (which earned Machine Head its first Grammy Award nomination) and 2011's Unto the Locust. Their most recent album, Bloodstone & Diamonds, was released in 2014. Machine Head have sold over 3 million records worldwide.[7]",
           "ImageUrl": "http://fc09.deviantart.net/fs71/f/2011/158/0/9/machine_head_4_by_givethemhorns-d3iaaoz.jpg",
           "AmazonUrl": "http://wac.450f.edgecastcdn.net/80450F/noisecreep.com/files/2013/07/MAYHEMmachine1.jpg"
       },
       "Tracks": []
+  },
+  {
+      "Id": 1736,
+      "ArtistId": 1710,
+      "Title": "Chemistry of Conciousness",
+      "Description": "This album hurts. Crushed underneath and Anvil doesn't even start to describe it. Raw, mean, angry it tears and rips. The raunchy but catchy riffs, the rasping voice, it all just works to create the sound of rage.This is what old school Crossover Hardcore is supposed to be about .",
+      "Year": 2015,
+      "ImageUrl": "https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00G2SO3AW&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=westwindtechn-20",
+      "AmazonUrl": "http://amzn.to/1syvTSy",
+      "SpotifyUrl": "https://play.spotify.com/album/0jwJZDxGMm3SSm6LULhxgv",
+      "Artist": {
+          "Id": 1710,
+          "ArtistName": "Toxic Holocaust",
+          "Description": "Joel Grind founded Toxic Holocaust in 1999. He originally wrote and recorded all of the band's music himself, and after a couple of demo releases (Radiation Sickness, 1999; Critical Mass, 2002), he made his official full-length album debut as Toxic Holocaust with Evil Never Dies (2003). Two years later, after some touring with a hired backing band, Grind released the second Toxic Holocaust album, Hell on Earth (2005), which once again he wrote and recorded by himself. The album notably features cover art by Ed Repka, known for having created iconic covers for albums by Megadeth, Death and others. Extensive touring followed, along with a recording contract with Relapse Records. In addition to releasing the third Toxic Holocaust album, An Overdose of Death... (2008), Relapse reissued Evil Never Dies and Hell on Earth. Toxic Holocaust also recorded and released a number of other recordings: Gravelord (2009, EP), Conjure and Command (2011), and Chemistry of Consciousness (2013).",
+          "ImageUrl": "http://www.terrorizer.com/terrorizerwordpress/wp-content/uploads/2013/10/tox.jpg",
+          "AmazonUrl": "http://amzn.to/27R10JN"
+      },
+      "Tracks": [
+        {
+            "Id": 8647,
+            "AlbumId": 1736,
+            "SongName": "Awaken the Serpent",
+            "Length": "1:34",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8648,
+            "AlbumId": 1736,
+            "SongName": "Rat Eater",
+            "Length": "1.55",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        }
+      ]
   },
   {
       "Id": 605,
@@ -1473,7 +1508,7 @@
       "Year": 1976,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/61kTaH-uZBL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00008BXJ4/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00008BXJ4&linkCode=as2&tag=westwindtechn-20&linkId=OVEKRHYO5Z34VVMQ",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 1,
           "ArtistName": "AC/DC",
@@ -1849,7 +1884,7 @@
       "Year": 1990,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51kunRuJf1L._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B000001IRR/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000001IRR&linkCode=as2&tag=westwindtechn-20&linkId=HS5XUDDQ5JYHRR6E",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 356,
           "ArtistName": "Poison Idea",
@@ -1884,7 +1919,7 @@
       "Year": 1981,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/41LILmwtooL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00008WT5G/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00008WT5G&linkCode=as2&tag=westwindtechn-20&linkId=SWZZPGAYVCI47LYK",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 1,
           "ArtistName": "AC/DC",
@@ -2083,6 +2118,89 @@
       ]
   },
   {
+      "Id": 1732,
+      "ArtistId": 1708,
+      "Title": "Guilty",
+      "Description": "Old school hardcore with mixed in metal roots, kicked out in good old garage style. Garage recorded by ex-Attitude Adjustment members Rick Strahl and Chris Kontos this short EP features toe tapping rythms and catchy choruses with high intensity, in-your-face punk rock that brings back memories of the mid-80's punk and cross over scene.",
+      "Year": 2003,
+      "ImageUrl": "http://americanparanoia.com/guilty_big.gif",
+      "AmazonUrl": null,
+      "SpotifyUrl": "http://americanparanoia.com",
+      "Artist": {
+          "Id": 1708,
+          "ArtistName": "Anti-Trust",
+          "Description": "Anti-Trust is a side project by ex-Attitude Adjustment members Chris Kontos and Rick Strahl. This collaboration produced a handful of songs that were garage recorded in Oakland, CA and Maui, HI in 2001 and 2002. The music features old school hardcore and metal cross over, driven by catchy guitar driven rythms and catchy choruses with an overall edgy sound.",
+          "ImageUrl": "http://americanparanoia.com/rockon2.jpg",
+          "AmazonUrl": "http://americanparanoia.com"
+      },
+      "Tracks": [
+        {
+            "Id": 8625,
+            "AlbumId": 1732,
+            "SongName": "Anti-social",
+            "Length": "2:25",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8626,
+            "AlbumId": 1732,
+            "SongName": "Misery",
+            "Length": "0:49",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8627,
+            "AlbumId": 1732,
+            "SongName": "I am you",
+            "Length": "2:37",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8628,
+            "AlbumId": 1732,
+            "SongName": "No Privacy",
+            "Length": "2:22",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8629,
+            "AlbumId": 1732,
+            "SongName": "Lost",
+            "Length": "1:24",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8630,
+            "AlbumId": 1732,
+            "SongName": "Sick Inside",
+            "Length": "1:44",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8631,
+            "AlbumId": 1732,
+            "SongName": "Day By Day",
+            "Length": "3:08",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8632,
+            "AlbumId": 1732,
+            "SongName": "Guilty As Charged",
+            "Length": "2:06",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        }
+      ]
+  },
+  {
       "Id": 1719,
       "ArtistId": 1,
       "Title": "Highway to Hell",
@@ -2090,7 +2208,7 @@
       "Year": 1979,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/61UVfrLJq2L._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00O6L3AFQ/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00O6L3AFQ&linkCode=as2&tag=westwindtechn-20&linkId=7NVM4HZJO5LTJNST",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 1,
           "ArtistName": "AC/DC",
@@ -2125,7 +2243,7 @@
       "Year": 2008,
       "ImageUrl": "http://cps-static.rovicorp.com/3/JPG_400/MI0001/781/MI0001781202.jpg?partner=allrovi.com",
       "AmazonUrl": "http://www.amazon.com/gp/product/B001MEZK5I/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B001MEZK5I&linkCode=as2&tag=westwindtechn-20&linkId=EBGFDC4NVI2JYQVL",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 340,
           "ArtistName": "Die Toten Hosen",
@@ -2231,14 +2349,14 @@
       "Id": 1717,
       "ArtistId": 331,
       "Title": "Iron Fist",
-      "Description": "As with previous albums, recording commenced with producer Vic Maile at his Jackson's Studio in Rickmansworth in 1981. A break in recording for the band to play some November and December dates with Tank was followed by Clarke producing Tank's debut album with help from Will Reid Dick. Clarke was unhappy with the Maile produced sessions and decided that the album should be recorded themselves, although Lemmy lamented at the time that \"it's a shame to have lost Vic in a way because I thought it was successful\".\n\nThe album was recorded during the best part of late January and February 1982 at Morgan Studios and Ramport Studios in London, with Clarke producing and Dick engineering. The band retrospectively acknowledge that this was a bad move, with Lemmy claiming in 2000 that the album was \"bad, inferior to anything else we've ever done. Having Eddie produce it was a mistake that even he would now probably admit to\".[7]\n\nThe writing of lyrics and recording of vocals are tasks that Lemmy performs once the recording of the music has been completed. Struggling to think of a name for the title track for the album, he remembered the time the band had performed live under the name Iron Fist and the Hordes from Hell for contractual reasons (a subsequent album What's Words Worth? was released of that event), and decided this was an apt name for this project. The name was eventually shortened to simply Iron Fist.",
+      "Description": "As with previous albums, recording commenced with producer Vic Maile at his Jackson's Studio in Rickmansworth in 1981. A break in recording for the band to play some November and December dates with Tank was followed by Clarke producing Tank's debut album with help from Will Reid Dick. Clarke was unhappy with the Maile produced sessions and decided that the album should be recorded themselves, although Lemmy lamented at the time that \"it's a shame to have lost Vic in a way because I thought it was successful\".\r\n\r\nThe album was recorded during the best part of late January and February 1982 at Morgan Studios and Ramport Studios in London, with Clarke producing and Dick engineering. The band retrospectively acknowledge that this was a bad move, with Lemmy claiming in 2000 that the album was \"bad, inferior to anything else we've ever done. Having Eddie produce it was a mistake that even he would now probably admit to\".[7]\r\n\r\nThe writing of lyrics and recording of vocals are tasks that Lemmy performs once the recording of the music has been completed. Struggling to think of a name for the title track for the album, he remembered the time the band had performed live under the name Iron Fist and the Hordes from Hell for contractual reasons (a subsequent album What's Words Worth? was released of that event), and decided this was an apt name for this project. The name was eventually shortened to simply Iron Fist.",
       "Year": 1982,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/41AZHMXJEJL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00005NQIF/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005NQIF&linkCode=as2&tag=westwindtechn-20&linkId=I3YRQODVGFZ5JE4H",
       "SpotifyUrl": "https://play.spotify.com/album/2TMefJ7gbZBQcOo0e0Lu8P",
       "Artist": {
           "Id": 331,
-          "ArtistName": "Motörhead",
+          "ArtistName": "Motörhead (Sql)",
           "Description": "Motörhead have never JUST been the best rock'n'roll band in the world. They've never JUST been the loudest. Or the hardest. Or the toughest. Or the bad-ass-est. No...Motörhead are also a lifestyle.",
           "ImageUrl": "http://alealerocknroll.com/wp-content/uploads/2014/07/motorhead.jpg",
           "AmazonUrl": "http://www.amazon.com/gp/product/B00005NHO2/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005NHO2&linkCode=as2&tag=westwindtechn-20"
@@ -2278,11 +2396,11 @@
       "Year": 1987,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/410ZYYAEVWL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00000ATMY/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00000ATMY&linkCode=as2&tag=westwindtechn-20&linkId=2WMJWSKVQCCJWDIT",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 7,
           "ArtistName": "Attitude",
-          "Description": "Attitude was founded by members from Attitude Adjustment including Andy Anderson, Chris Scapparo and Rick Strahl and joined by Keith Chattam of Condemned after a short stint as Condemned Attitude. Attitude played heavy cross-over punk/metal that was a favorite in the San Francisco Bay area, but sadly never reached much visibility outside of it due to a lack of touring. \r\n\r\nThe band produced three EPs that were well received by critics, but didn't manage to ignite a more mainstream following. The band's heavy cross over style and energetic stage show made for exciting shows around the Bay Area as well as on their one and only European tour. The band didn't last very long and in 1988 dissolved to form a new band Two Bit Thief which had a much less edgy and more rock'n roll leaning sound.",
+          "Description": "Attitude was founded by members from Attitude Adjustment including Andy Anderson, Chris Scapparo and Rick Strahl and joined by Keith Chattam of Condemned after a short stint as Condemned Attitude. Attitude play heavy cross-over punk/metal that was a favorite in the San Francisco Bay area but sadly never reach much visibility outside of it due to a lack of touring. \n\nThe band produced three EPs that were well received by critics but didn't manage to ignite a more mainstream following. The band's heavy cross over style and energetic stage show made for exciting shows around the Bay Area as well as on their one and only European tour. The band didn't last very long and in 1988 dissolved to form a new band Two Bit Thief which had a more rock'n roll leaning sound.",
           "ImageUrl": "http://west-wind.com/rick/photoalbum/band/ruthiesjumpwithandy.jpg",
           "AmazonUrl": ""
       },
@@ -2629,7 +2747,7 @@
       "Year": 1981,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/41WpJeCeI4L._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00000APUA/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00000APUA&linkCode=as2&tag=westwindtechn-20&linkId=BMQ4N5TMLO3CBKRT",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 361,
           "ArtistName": "Einstürzende Neubauten",
@@ -2680,7 +2798,7 @@
       "Year": 2001,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/41fos%2BEksdL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00005B36H/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005B36H&linkCode=as2&tag=westwindtechn-20&linkId=YXBBGETMZWRWWQ63",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 335,
           "ArtistName": "Tool",
@@ -2739,7 +2857,7 @@
       "Year": 1977,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51ndkC4IocL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00008WT5C/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00008WT5C&linkCode=as2&tag=westwindtechn-20&linkId=UUOA6PIXN72MNU6E",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 1,
           "ArtistName": "AC/DC",
@@ -2826,7 +2944,7 @@
       "Id": 1724,
       "ArtistId": 599,
       "Title": "Love Drive",
-      "Description": "The 1979 album \"Lovedrive\" by Scorpions is a tremendous effort, seemingly fueled by conflict, chaos, desperation, and fraternity, that rises to a level just short of perfection.\n\nIn 1978 Scorpions were in a rebuilding year, having just issued a pink slip to lead guitarist Ulrich Roth. The decision to jettison Roth (and all the Hendrix-ian baggage that came with him) was the first of many smart moves made by the band. Before \"Lovedrive\" was completed, the band would hire, record with, fire, then rehire Matthias Jabs. The band would also briefly rejoin with Michael Schenker(another great move), in what many fans have called the dream line up for Scorpions. Sadly, this line up only lasted a few months. Michael collapsed onstage during a performance with Scorpions in Europe, and chose to step down and go on sabbatical, but not before positively influencing the group as shown here.\nGiven the tumultuous circumstances under which the album was recorded, its' a minor miracle the album is any good at all. \"Lovedrive\" however is a four star effort and I believe the best album ever made by Scorpions. Song writing, both musical and lyrical, are prime, and the group emotes all over this album without sounding ridiculous or tired.\nThe frantically paced classic \"Another Piece of Meat\"(boy meets girl, love goes wrong at Tokyo kick boxing match), the title song \"Lovedrive\"(girl-loves-guy/guy-loves-Porsche), and the fantastic \"I Can't Get Enough\" (or \"How I Learned to Stop Worrying and Love Hard Rock\") are the three stand out numbers that efficiently showcase the strengths of Scorpions, effectively translating their live vibe onto",
+      "Description": "The 1979 album \"Lovedrive\" by Scorpions is a tremendous effort, seemingly fueled by conflict, chaos, desperation, and fraternity, that rises to a level just short of perfection.\r\n\r\nIn 1978 Scorpions were in a rebuilding year, having just issued a pink slip to lead guitarist Ulrich Roth. The decision to jettison Roth (and all the Hendrix-ian baggage that came with him) was the first of many smart moves made by the band. Before \"Lovedrive\" was completed, the band would hire, record with, fire, then rehire Matthias Jabs. The band would also briefly rejoin with Michael Schenker(another great move), in what many fans have called the dream line up for Scorpions. Sadly, this line up only lasted a few months. Michael collapsed onstage during a performance with Scorpions in Europe, and chose to step down and go on sabbatical, but not before positively influencing the group as shown here.\r\nGiven the tumultuous circumstances under which the album was recorded, its' a minor miracle the album is any good at all. \"Lovedrive\" however is a four star effort and I believe the best album ever made by Scorpions. Song writing, both musical and lyrical, are prime, and the group emotes all over this album without sounding ridiculous or tired.\r\nThe frantically paced classic \"Another Piece of Meat\"(boy meets girl, love goes wrong at Tokyo kick boxing match), the title song \"Lovedrive\"(girl-loves-guy/guy-loves-Porsche), and the fantastic \"I Can't Get Enough\" (or \"How I Learned to Stop Worrying and Love Hard Rock\") are the three stand out numbers that efficiently showcase the strengths of Scorpions, effectively translating their live vibe onto",
       "Year": 1979,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51Z6qS-HQwL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B000001EUL/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000001EUL&linkCode=as2&tag=westwindtechn-20&linkId=GJHBWLEWMEBI6CND",
@@ -2836,7 +2954,7 @@
           "ArtistName": "Scorpions",
           "Description": "The Scorprions are good old fashioned German Hard Rock from the 80s and beyond.",
           "ImageUrl": null,
-          "AmazonUrl": null
+          "AmazonUrl": ""
       },
       "Tracks": [
         {
@@ -2960,6 +3078,60 @@
       ]
   },
   {
+      "Id": 1729,
+      "ArtistId": 631,
+      "Title": "Melissa",
+      "Description": "Technically, Mercyful Fate's debut LP is slightly patchy and derivative, particularly of early Black Sabbath and Judas Priest, although in parts it is more ambitious than those bands' major works, in a `proggy' kind of way. It also sounds a bit dated in parts. In terms of originality, craftsmanship, instrumental prowess, and King Diamond's application of his unique and controversial voice and vocal range, it was comprehensively surpassed by Diamond's later solo classics (particularly Them, Conspiracy, and The Eye), and even by Mercyful Fate's 1993 reunion album, In The Shadows (although I prefer the more dynamic rhythm section on Melissa than those on The Eye or In The Shadows).\r\nWhat puts this album in a supreme league of its own is a wickedly powerful aura that builds up throughout the album, which is something that no amount of musica training can achieve, and no review can adequately reflect. Reviewer 'stevex3' gives us a taste when he says 'I'm sure that this CD gets played at every gathering of demons, but you really cannot have any idea what that means unless you experience this album for yourself (preferably played loud in the dark), as different people will experience it differently, and will undoubtedly have a hard time explaining their experience.",
+      "Year": 1982,
+      "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/415gmX9ujaL._SL250_.jpg",
+      "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=GHOXSGQGTIORXIBC",
+      "SpotifyUrl": "",
+      "Artist": {
+          "Id": 631,
+          "ArtistName": "Merciful Fate",
+          "Description": "Arguably the most original and critically acclaimed group to come from Denmark was Mercyful Fate. Mercyful Fate's nucleus comprised of the multi-octave vocals of King Diamond aka Kim Bendix Petersen, and the twin lead guitar attack of Hank Sherman aka Rene Krolmark and Michael Denner. 'Melissa' was the group's first formal recording and was a featured LP for Road Runner Records. Although 'Melissa' was originally released in 1983, and re-released in 1997, Roadrunner Records has remastered the songs and released this classic for your listening enjoyment. It includes the highly sought after early 1980's BBC sessions, two extra demo tracks of 'Black Funeral', and 'Curse of the Pharaohs' and a three track DVD featuring live footage of the band during early 1983. A commentary by King Diamond himself narrates the performance and the story of the group during that time frame. Mercyful Fate pioneered a sub genre of ultra heavy and complex music renown for its macabre lyrics, and Satanic/occultism driven imagery and attitude called Black Metal.",
+          "ImageUrl": "http://www.metalinjection.net/wp-content/uploads/2014/07/mercyful-fate_photo03.jpg",
+          "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=VAIRVQFRSELFJ7V2"
+      },
+      "Tracks": [
+        {
+            "Id": 8622,
+            "AlbumId": 1729,
+            "SongName": "Curse of the Pharaohs",
+            "Length": "3:10",
+            "Bytes": 3990994,
+            "UnitPrice": 0.99
+        }
+      ]
+  },
+  {
+      "Id": 1730,
+      "ArtistId": 631,
+      "Title": "Melissa",
+      "Description": "Technically, Mercyful Fate's debut LP is slightly patchy and derivative, particularly of early Black Sabbath and Judas Priest, although in parts it is more ambitious than those bands' major works, in a `proggy' kind of way. It also sounds a bit dated in parts. In terms of originality, craftsmanship, instrumental prowess, and King Diamond's application of his unique and controversial voice and vocal range, it was comprehensively surpassed by Diamond's later solo classics (particularly Them, Conspiracy, and The Eye), and even by Mercyful Fate's 1993 reunion album, In The Shadows (although I prefer the more dynamic rhythm section on Melissa than those on The Eye or In The Shadows).\r\nWhat puts this album in a supreme league of its own is a wickedly powerful aura that builds up throughout the album, which is something that no amount of musica training can achieve, and no review can adequately reflect. Reviewer 'stevex3' gives us a taste when he says 'I'm sure that this CD gets played at every gathering of demons, but you really cannot have any idea what that means unless you experience this album for yourself (preferably played loud in the dark), as different people will experience it differently, and will undoubtedly have a hard time explaining their experience.",
+      "Year": 1982,
+      "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/415gmX9ujaL._SL250_.jpg",
+      "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=GHOXSGQGTIORXIBC",
+      "SpotifyUrl": "",
+      "Artist": {
+          "Id": 631,
+          "ArtistName": "Merciful Fate",
+          "Description": "Arguably the most original and critically acclaimed group to come from Denmark was Mercyful Fate. Mercyful Fate's nucleus comprised of the multi-octave vocals of King Diamond aka Kim Bendix Petersen, and the twin lead guitar attack of Hank Sherman aka Rene Krolmark and Michael Denner. 'Melissa' was the group's first formal recording and was a featured LP for Road Runner Records. Although 'Melissa' was originally released in 1983, and re-released in 1997, Roadrunner Records has remastered the songs and released this classic for your listening enjoyment. It includes the highly sought after early 1980's BBC sessions, two extra demo tracks of 'Black Funeral', and 'Curse of the Pharaohs' and a three track DVD featuring live footage of the band during early 1983. A commentary by King Diamond himself narrates the performance and the story of the group during that time frame. Mercyful Fate pioneered a sub genre of ultra heavy and complex music renown for its macabre lyrics, and Satanic/occultism driven imagery and attitude called Black Metal.",
+          "ImageUrl": "http://www.metalinjection.net/wp-content/uploads/2014/07/mercyful-fate_photo03.jpg",
+          "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=VAIRVQFRSELFJ7V2"
+      },
+      "Tracks": [
+        {
+            "Id": 8624,
+            "AlbumId": 1730,
+            "SongName": "Curse of the Pharaohs",
+            "Length": "3:10",
+            "Bytes": 3990994,
+            "UnitPrice": 0.99
+        }
+      ]
+  },
+  {
       "Id": 604,
       "ArtistId": 357,
       "Title": "Never Again",
@@ -3037,20 +3209,12 @@
       "SpotifyUrl": "https://play.spotify.com/album/6wx6UUBEUt8SFNzh6Nc3k3",
       "Artist": {
           "Id": 331,
-          "ArtistName": "Motörhead",
+          "ArtistName": "Motörhead (Sql)",
           "Description": "Motörhead have never JUST been the best rock'n'roll band in the world. They've never JUST been the loudest. Or the hardest. Or the toughest. Or the bad-ass-est. No...Motörhead are also a lifestyle.",
           "ImageUrl": "http://alealerocknroll.com/wp-content/uploads/2014/07/motorhead.jpg",
           "AmazonUrl": "http://www.amazon.com/gp/product/B00005NHO2/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005NHO2&linkCode=as2&tag=westwindtechn-20"
       },
       "Tracks": [
-        {
-            "Id": 5207,
-            "AlbumId": 615,
-            "SongName": "Ace of Spades",
-            "Length": "3:01",
-            "Bytes": 0,
-            "UnitPrice": 0.0
-        },
         {
             "Id": 5208,
             "AlbumId": 615,
@@ -3271,11 +3435,11 @@
       "Id": 1720,
       "ArtistId": 1,
       "Title": "Power Age",
-      "Description": "Powerage is the best rock 'n roll of album of all time. Not the most important or most influential; not with the widest variety nor highest reach(although this IS AC/DC's widest & highest album); not the most seductive or inspiring; but the best.\n\nAn amazingly raw, blistering sound, but at the same time incredibly tight grooves. Hard rock you can headbang AND dance to, indeed. Like someone once said, AC/DC does what no one else can do, better than anyone else.\n\nThis was the first album w/Cliff Williams and he kicked the band up to a whole new level. Fantastic production by Vanda/Young, the last one they did before Mutt Lange took over. The remastering is indescribably brilliant, showcasing the equally brilliant interplay between Angus & Malcolm. The lead & rhythm guitars are distinct, loud, and powerful. No way you'd believe this album was released in 1978 if you didn't already know.\n\nAnd what rhythms and leads they are. Nine incredible riffs, instantly memorable. Easy to play(the riffs NOT the solos, of course), perhaps, but almost impossible to write. And the seven solos are among Angus' best, especially on Gone Shootin'. Fast solos, medium solos, slow solos, and on Damnation & Bullet no solo at all.",
+      "Description": "Powerage is the best rock 'n roll of album of all time. Not the most important or most influential; not with the widest variety nor highest reach(although this IS AC/DC's widest & highest album); not the most seductive or inspiring; but the best.\r\n\r\nAn amazingly raw, blistering sound, but at the same time incredibly tight grooves. Hard rock you can headbang AND dance to, indeed. Like someone once said, AC/DC does what no one else can do, better than anyone else.\r\n\r\nThis was the first album w/Cliff Williams and he kicked the band up to a whole new level. Fantastic production by Vanda/Young, the last one they did before Mutt Lange took over. The remastering is indescribably brilliant, showcasing the equally brilliant interplay between Angus & Malcolm. The lead & rhythm guitars are distinct, loud, and powerful. No way you'd believe this album was released in 1978 if you didn't already know.\r\n\r\nAnd what rhythms and leads they are. Nine incredible riffs, instantly memorable. Easy to play(the riffs NOT the solos, of course), perhaps, but almost impossible to write. And the seven solos are among Angus' best, especially on Gone Shootin'. Fast solos, medium solos, slow solos, and on Damnation & Bullet no solo at all.",
       "Year": 1978,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51kfuKwtSgL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00O75S240/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00O75S240&linkCode=as2&tag=westwindtechn-20&linkId=YLC4XQ4SNDDC5YVW",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 1,
           "ArtistName": "AC/DC",
@@ -3372,6 +3536,65 @@
             "AlbumId": 13,
             "SongName": "Ride On",
             "Length": "6:45",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        }
+      ]
+  },
+  {
+      "Id": 1735,
+      "ArtistId": 1709,
+      "Title": "Probot",
+      "Description": "Probot is Dave Grohl's project to work with some of Metal's most notorious artists from the 1980's Metal and Punk scene into a compilation album. Bringing characters like Chronos, Lemmy, Tom Warrior, Mike Dean, Snake and Kurt Brecht reads like a list of the music I was listening to in those days myself. The result album that brings these old school artists and combines it with Dave Grohl's unique sound is perhaps different than you might expect, but it's very eclectic and very varying in sound and style. There's some truly awesome stuff in there but it is not the kind of stuff you toe tap your way through especially not on the first few listens. Enjoy the history and the complexity exhibited here.",
+      "Year": 2004,
+      "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/61aGa9FvJYL._SL250_.jpg",
+      "AmazonUrl": "http://www.amazon.com/gp/product/B014UDT9PY/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B014UDT9PY&linkCode=as2&tag=westwindtechn-20&linkId=3AR5RVPTI766PNFM",
+      "SpotifyUrl": "https://play.spotify.com/artist/3up7wqUGMUTm0184V57RTH",
+      "Artist": {
+          "Id": 1709,
+          "ArtistName": "Probot",
+          "Description": null,
+          "ImageUrl": null,
+          "AmazonUrl": null
+      },
+      "Tracks": [
+        {
+            "Id": 8642,
+            "AlbumId": 1735,
+            "SongName": "Dictatosaurus",
+            "Length": "3:52",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8643,
+            "AlbumId": 1735,
+            "SongName": "Centuries of Sin",
+            "Length": "4:09",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8644,
+            "AlbumId": 1735,
+            "SongName": "Red War",
+            "Length": "3:30",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8645,
+            "AlbumId": 1735,
+            "SongName": "Shake your Blood",
+            "Length": "2:59",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8646,
+            "AlbumId": 1735,
+            "SongName": "Access Babylon",
+            "Length": "1:24",
             "Bytes": 0,
             "UnitPrice": 0.0
         }
@@ -3637,7 +3860,7 @@
       "Year": 1982,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51aInWlHfgL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B00138KM1U/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00138KM1U&linkCode=as2&tag=westwindtechn-20&linkId=AQAYEWNVF5Z36AZB",
-      "SpotifyUrl": "https://play.spotify.com/album/4emlRaABerQCQbOCE1W490",
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 2,
           "ArtistName": "Accept",
@@ -3663,7 +3886,7 @@
             "UnitPrice": 0.99
         },
         {
-            "Id": 7531,
+            "Id": 8623,
             "AlbumId": 3,
             "SongName": "New One",
             "Length": "6:15",
@@ -3957,9 +4180,9 @@
       "Artist": {
           "Id": 3,
           "ArtistName": "Aerosmith",
-          "Description": "Aerosmith is an American rock band, sometimes referred to as \"the Bad Boys from Boston\" and \"America's Greatest Rock and Roll Band.\" Their style, which is rooted in blues-based hard rock, has come to also incorporate elements of pop, heavy metal, and rhythm and blues,and has inspired many subsequent rock artists. The band was formed in Boston, Massachusetts in 1970. Guitarist Joe Perry and bassist Tom Hamilton, originally in a band together called the Jam Band, met up with vocalist/harmonica player Steven Tyler, drummer Joey Kramer, and guitarist Ray Tabano, and formed Aerosmith. In 1971, Tabano was replaced by Brad Whitford, and the band began developing a following in Boston.\n\nThey were signed to Columbia Records in 1972, and released a string of gold and platinum albums, beginning with their 1973 eponymous debut album, followed by their 1974 album Get Your Wings. In 1975, the band broke into the mainstream with the album Toys in the Attic, and their 1976 follow-up Rocks cemented their status as hard rock superstars. Two additional albums followed in 1977 and 1979. The band's first five albums have since attained multi-platinum status. Throughout the 1970s, the band toured extensively and charted a dozen Hot 100 singles. By the end of the decade, they were among the most popular hard rock bands in the world and developed a loyal following of fans, often referred to as the \"Blue Army\". However, drug addiction and internal conflict took their toll on the band, which resulted in the departures of Perry and Whitford in 1979 and 1981, respectively; they were replaced by Jimmy Crespo and Rick Dufay. The band did not fare well between 1980 and 1984, releasing the album Rock in a Hard Place, which went gold but failed to match their previous successes.\n\nPerry and Whitford returned in 1984 and the band signed a new deal with Geffen Records. After a comeback tour, the band recorded Done with Mirrors (1985), which won some critical praise but failed to come close to commercial expectations. It was not until the band's collaboration with rap group Run–D.M.C. in 1986, and the 1987 multi-platinum release Permanent Vacation, that they regained the level of popularity they had experienced in the 1970s. In the late 1980s and 1990s, the band scored several hits and won numerous awards for music from the multi-platinum albums Pump (1989), Get a Grip (1993), and Nine Lives (1997), and embarked on their most extensive concert tours to date. The band also became a pop culture phenomenon with popular music videos and notable appearances in television, film, and video games. Their comeback has been described as one of the most remarkable and spectacular in rock 'n' roll history. Additional albums followed in 2001, 2004, and 2012. Since 2001, the band has toured every year except 2008. After 44 years of performing, the band continues to tour and record music.\n\nAerosmith is the best-selling American rock band of all time, having sold more than 150 million records worldwide, including over 70 million albums in the United States alone. With 25 gold albums, 18 platinum albums, and 12 multi-platinum albums, they hold the record for the most gold albums by an American group, the most total certifications by an American group, and are tied for the most multi-platinum albums by an American group. The band has scored 21 Top 40 hits on the Billboard Hot 100, nine number-one Mainstream Rock hits, four Grammy Awards, six American Music Awards, and ten MTV Video Music Awards. They were inducted into the Rock and Roll Hall of Fame in 2001, and were included among both Rolling Stone's and VH1's lists of the 100 Greatest Artists of All Time. In 2013, the band's principal songwriters, Tyler and Perry, were inducted into the Songwriters Hall of Fame.",
+          "Description": "Aerosmith is an American rock band, sometimes referred to as \"the Bad Boys from Boston\" and \"America's Greatest Rock and Roll Band.\" Their style, which is rooted in blues-based hard rock, has come to also incorporate elements of pop, heavy metal, and rhythm and blues,and has inspired many subsequent rock artists. The band was formed in Boston, Massachusetts in 1970. Guitarist Joe Perry and bassist Tom Hamilton, originally in a band together called the Jam Band, met up with vocalist/harmonica player Steven Tyler, drummer Joey Kramer, and guitarist Ray Tabano, and formed Aerosmith. In 1971, Tabano was replaced by Brad Whitford, and the band began developing a following in Boston.\r\n\r\nThey were signed to Columbia Records in 1972, and released a string of gold and platinum albums, beginning with their 1973 eponymous debut album, followed by their 1974 album Get Your Wings. In 1975, the band broke into the mainstream with the album Toys in the Attic, and their 1976 follow-up Rocks cemented their status as hard rock superstars. Two additional albums followed in 1977 and 1979. The band's first five albums have since attained multi-platinum status. Throughout the 1970s, the band toured extensively and charted a dozen Hot 100 singles. By the end of the decade, they were among the most popular hard rock bands in the world and developed a loyal following of fans, often referred to as the \"Blue Army\". However, drug addiction and internal conflict took their toll on the band, which resulted in the departures of Perry and Whitford in 1979 and 1981, respectively; they were replaced by Jimmy Crespo and Rick Dufay. The band did not fare well between 1980 and 1984, releasing the album Rock in a Hard Place, which went gold but failed to match their previous successes.\r\n\r\nPerry and Whitford returned in 1984 and the band signed a new deal with Geffen Records. After a comeback tour, the band recorded Done with Mirrors (1985), which won some critical praise but failed to come close to commercial expectations. It was not until the band's collaboration with rap group Run–D.M.C. in 1986, and the 1987 multi-platinum release Permanent Vacation, that they regained the level of popularity they had experienced in the 1970s. In the late 1980s and 1990s, the band scored several hits and won numerous awards for music from the multi-platinum albums Pump (1989), Get a Grip (1993), and Nine Lives (1997), and embarked on their most extensive concert tours to date. The band also became a pop culture phenomenon with popular music videos and notable appearances in television, film, and video games. Their comeback has been described as one of the most remarkable and spectacular in rock 'n' roll history. Additional albums followed in 2001, 2004, and 2012. Since 2001, the band has toured every year except 2008. After 44 years of performing, the band continues to tour and record music.\r\n\r\nAerosmith is the best-selling American rock band of all time, having sold more than 150 million records worldwide, including over 70 million albums in the United States alone. With 25 gold albums, 18 platinum albums, and 12 multi-platinum albums, they hold the record for the most gold albums by an American group, the most total certifications by an American group, and are tied for the most multi-platinum albums by an American group. The band has scored 21 Top 40 hits on the Billboard Hot 100, nine number-one Mainstream Rock hits, four Grammy Awards, six American Music Awards, and ten MTV Video Music Awards. They were inducted into the Rock and Roll Hall of Fame in 2001, and were included among both Rolling Stone's and VH1's lists of the 100 Greatest Artists of All Time. In 2013, the band's principal songwriters, Tyler and Perry, were inducted into the Songwriters Hall of Fame.",
           "ImageUrl": "http://images6.fanpop.com/image/photos/33400000/Aero-wallpaper-aerosmith-33404894-1600-1200.jpg",
-          "AmazonUrl": null
+          "AmazonUrl": ""
       },
       "Tracks": [
         {
@@ -3991,6 +4214,124 @@
             "AlbumId": 1721,
             "SongName": "Combination",
             "Length": "3:39",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        }
+      ]
+  },
+  {
+      "Id": 1733,
+      "ArtistId": 329,
+      "Title": "Saint Cecilia EP",
+      "Description": "Released as a free EP, this record provides a nice 5 song cross-section of the typical styles that the Foo Fighters are great at. 5 songs that nail the mark in their particular Foo genres.",
+      "Year": 2015,
+      "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/41ui4EZlPRL._SL250_.jpg",
+      "AmazonUrl": "http://www.amazon.com/gp/product/B0186SDOP0/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0186SDOP0&linkCode=as2&tag=westwindtechn-20&linkId=J63NS2LRBDCQUUEQ",
+      "SpotifyUrl": "https://play.spotify.com/album/6wGcuJq8QjSeoYMJWgW7Wo",
+      "Artist": {
+          "Id": 329,
+          "ArtistName": "Foo Fighters",
+          "Description": "The Foo Fighters is an American rock band, formed in Seattle in 1994. It was founded by Nirvana drummer Dave Grohl as a one-man project following the death of Kurt Cobain and the resulting dissolution of his previous band. The group got its name from the UFOs and various aerial phenomena that were reported by Allied aircraft pilots in World War II, which were known collectively as foo fighters. Prior to the release of Foo Fighters' 1995 debut album Foo Fighters, which featured Grohl as the only official member, Grohl recruited bassist Nate Mendel and drummer William Goldsmith, both formerly of Sunny Day Real Estate, as well as fellow Nirvana touring bandmate Pat Smear as guitarist to complete the lineup. The band began with performances in Portland, Oregon. Goldsmith quit during the recording of the group's second album, The Colour and the Shape (1997) when most of the drum parts were re-recorded by Grohl himself. Smear's departure followed soon afterward.\r\n\r\nThey were replaced by Taylor Hawkins and Franz Stahl, respectively, although Stahl was fired before the recording of the group's third album, There Is Nothing Left to Lose (1999). The band briefly continued as a trio until Chris Shiflett joined as the band's lead guitarist after the completion of There Is Nothing Left to Lose. The band released its fourth album, One by One, in 2002. The group followed that release with the two-disc In Your Honor (2005), which was split between acoustic songs and heavier material. Foo Fighters released its sixth album, Echoes, Silence, Patience & Grace, in 2007. In 2010, it was confirmed that Smear had officially rejoined the band after touring with Foo Fighters as an unofficial member between 2006 and 2009. Over the course of the band's career, four of its albums have won Grammy Awards for Best Rock Album. The band's seventh studio album, Wasting Light, produced by Butch Vig was released in 2011. The band's eight studio album, Sonic Highways, and their second recorded with Butch Vig, will be released in November 2014.[5] As of May 2014, the band's seven albums have sold a combined 11.1 million copies, according to Nielsen SoundScan.[6]",
+          "ImageUrl": "http://media.tumblr.com/tumblr_mb76f02FkJ1qfo293.jpg",
+          "AmazonUrl": ""
+      },
+      "Tracks": [
+        {
+            "Id": 8633,
+            "AlbumId": 1733,
+            "SongName": "Saint Cecilia",
+            "Length": "3:41",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8634,
+            "AlbumId": 1733,
+            "SongName": "Sean",
+            "Length": "2:11",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8635,
+            "AlbumId": 1733,
+            "SongName": "Savior Breath",
+            "Length": "3:11",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8636,
+            "AlbumId": 1733,
+            "SongName": "Iron Rooster",
+            "Length": "4:11",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8637,
+            "AlbumId": 1733,
+            "SongName": "The NeverEnding Sigh",
+            "Length": "4:45",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        }
+      ]
+  },
+  {
+      "Id": 1727,
+      "ArtistId": 1706,
+      "Title": "Siren Song of the Counter Culture",
+      "Description": "Chicago's Rise Against might be seen as an outcast amongst its peers. Armed with The fury of classic punk acts such as Minor Threat & Bad Brains, they blend Intelligent vocals with a serious commitment to providing a positive alternative to the oft-dreary & disenchanted aura that engulfs most punk bands. \"There are so many bands that sing about negative things, & we kind of wanted to show people it's OK to voice your opinions & stay positive. We just wanted to be more productive, lyrically.\"",
+      "Year": 2004,
+      "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/61K13NII61L._SL250_.jpg",
+      "AmazonUrl": "http://www.amazon.com/gp/product/B0002KQOGW/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0002KQOGW&linkCode=as2&tag=westwindtechn-20&linkId=ZNRQUX2EJFDMEB2A",
+      "SpotifyUrl": "https://play.spotify.com/album/1vHYkIhnwbpzrC3hGguDN6",
+      "Artist": {
+          "Id": 1706,
+          "ArtistName": "Rise Against",
+          "Description": "Rise Against is an American melodic hardcore band from Chicago, Illinois, formed in 1999. The band's current line-up comprises vocalist/rhythm guitarist Tim McIlrath, lead guitarist Zach Blair, bassist Joe Principe and drummer Brandon Barnes. Former members are guitarists Dan Wlekinski, Kevin White, Todd Mohney and Chris Chasse, and drummers Toni Tintari and Dan Lumley.\r\n\r\nThe band spent its first four years signed to the independent record label Fat Wreck Chords, on which it released two studio albums, The Unraveling (2001) and Revolutions per Minute (2003). Both the albums met with considerable underground success, and in 2003 the band signed with the major label Geffen. Their major label debut Siren Song of the Counter Culture (2004) brought the band mainstream success, producing several successful singles. Their next two albums, The Sufferer & the Witness (2006) and Appeal to Reason (2008), were also successful and peaked at number ten and number three on the Billboard 200 chart, respectively. Appeal to Reason was followed three years later by Endgame (2011).[1] All four albums released via Geffen were certified platinum in Canada, while three of these albums were certified gold in the United States.\r\n\r\nRise Against is also known for their advocacy of progressivism, supporting organisations such as Amnesty International and the It Gets Better Project. The band actively promotes animal rights and most of the members are straight edge (excluding Barnes), PETA supporters and vegetarians.",
+          "ImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Rise_Against_at_RAMFest_2013_in_Johannesburg%2C_South_Africa.jpg",
+          "AmazonUrl": "http://amzn.to/1f4tMyQ"
+      },
+      "Tracks": [
+        {
+            "Id": 8605,
+            "AlbumId": 1727,
+            "SongName": "State of the Union",
+            "Length": "2:19",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8606,
+            "AlbumId": 1727,
+            "SongName": "The First Drop",
+            "Length": "2:39",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8607,
+            "AlbumId": 1727,
+            "SongName": "Life Less Frightening",
+            "Length": "3:44",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8608,
+            "AlbumId": 1727,
+            "SongName": "Paper Wings",
+            "Length": "3:43",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8609,
+            "AlbumId": 1727,
+            "SongName": "Blood to Bleed",
+            "Length": "3:49",
             "Bytes": 0,
             "UnitPrice": 0.0
         }
@@ -4081,13 +4422,13 @@
       "Year": 1993,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51ewpwUVQZL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B0018C2W7S/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0018C2W7S&linkCode=as2&tag=westwindtechn-20&linkId=KGLFNCPFU4F2ZAJG",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 1687,
           "ArtistName": "Anthrax",
           "Description": "Anthrax is an American thrash metal band from New York, formed in 1981 by guitarist Scott Ian and bassist Dan Lilker. The group was considered one of the leaders of the thrash metal scene during the 1980s. When the genre's popularity increased, Anthrax was one of its \"big four\" with Metallica, Megadeth and Slayer. As of 2014 the band has released ten studio albums, a number of singles and an EP with American hip hop group Public Enemy. According to Nielsen SoundScan Anthrax sold 2.5 million records in the United States from 1991 to 2004, with worldwide sales of over 15 million.",
           "ImageUrl": "http://www.leatherrebel.com/anthrax2.jpg",
-          "AmazonUrl": null
+          "AmazonUrl": ""
       },
       "Tracks": [
         {
@@ -4327,11 +4668,11 @@
       "Year": 1987,
       "ImageUrl": "http://www.metal-archives.com/images/2/7/4/9/274914.jpg?0427",
       "AmazonUrl": "n/a",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 7,
           "ArtistName": "Attitude",
-          "Description": "Attitude was founded by members from Attitude Adjustment including Andy Anderson, Chris Scapparo and Rick Strahl and joined by Keith Chattam of Condemned after a short stint as Condemned Attitude. Attitude played heavy cross-over punk/metal that was a favorite in the San Francisco Bay area, but sadly never reached much visibility outside of it due to a lack of touring. \r\n\r\nThe band produced three EPs that were well received by critics, but didn't manage to ignite a more mainstream following. The band's heavy cross over style and energetic stage show made for exciting shows around the Bay Area as well as on their one and only European tour. The band didn't last very long and in 1988 dissolved to form a new band Two Bit Thief which had a much less edgy and more rock'n roll leaning sound.",
+          "Description": "Attitude was founded by members from Attitude Adjustment including Andy Anderson, Chris Scapparo and Rick Strahl and joined by Keith Chattam of Condemned after a short stint as Condemned Attitude. Attitude play heavy cross-over punk/metal that was a favorite in the San Francisco Bay area but sadly never reach much visibility outside of it due to a lack of touring. \n\nThe band produced three EPs that were well received by critics but didn't manage to ignite a more mainstream following. The band's heavy cross over style and energetic stage show made for exciting shows around the Bay Area as well as on their one and only European tour. The band didn't last very long and in 1988 dissolved to form a new band Two Bit Thief which had a more rock'n roll leaning sound.",
           "ImageUrl": "http://west-wind.com/rick/photoalbum/band/ruthiesjumpwithandy.jpg",
           "AmazonUrl": ""
       },
@@ -4599,6 +4940,73 @@
       ]
   },
   {
+      "Id": 1728,
+      "ArtistId": 1706,
+      "Title": "The Unraveling",
+      "Description": "Melodic punkers Rise Against have come a long way in a short time. In only five years they have released three albums, their latest for major label Geffen. In the wake of their commercial success the band went back and remastered their first full-length, The Unraveling. Originally released in 2000, this is the Chicago four-piece at their hardest. With breakneck drum beats, shredding guitars and a penchant for singing-into-screeching vocals, it's no wonder that Rise Against's fanbase is as diverse as it is. With a foundation of punk and elements of metal, hardcore and the occasional touch of emo, there is no doubt that this band has a little something to offer everyone. That is, as long as the person wants to rock.",
+      "Year": 2004,
+      "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51Pcubi7-ZL._SL250_.jpg",
+      "AmazonUrl": "http://www.amazon.com/gp/product/B00005B8O2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005B8O2&linkCode=as2&tag=westwindtechn-20&linkId=N4TOMIS3YGBZP5ON",
+      "SpotifyUrl": "https://play.spotify.com/album/1ifZw7Hhx71MUPqXBfM9A9",
+      "Artist": {
+          "Id": 1706,
+          "ArtistName": "Rise Against",
+          "Description": "Rise Against is an American melodic hardcore band from Chicago, Illinois, formed in 1999. The band's current line-up comprises vocalist/rhythm guitarist Tim McIlrath, lead guitarist Zach Blair, bassist Joe Principe and drummer Brandon Barnes. Former members are guitarists Dan Wlekinski, Kevin White, Todd Mohney and Chris Chasse, and drummers Toni Tintari and Dan Lumley.\r\n\r\nThe band spent its first four years signed to the independent record label Fat Wreck Chords, on which it released two studio albums, The Unraveling (2001) and Revolutions per Minute (2003). Both the albums met with considerable underground success, and in 2003 the band signed with the major label Geffen. Their major label debut Siren Song of the Counter Culture (2004) brought the band mainstream success, producing several successful singles. Their next two albums, The Sufferer & the Witness (2006) and Appeal to Reason (2008), were also successful and peaked at number ten and number three on the Billboard 200 chart, respectively. Appeal to Reason was followed three years later by Endgame (2011).[1] All four albums released via Geffen were certified platinum in Canada, while three of these albums were certified gold in the United States.\r\n\r\nRise Against is also known for their advocacy of progressivism, supporting organisations such as Amnesty International and the It Gets Better Project. The band actively promotes animal rights and most of the members are straight edge (excluding Barnes), PETA supporters and vegetarians.",
+          "ImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Rise_Against_at_RAMFest_2013_in_Johannesburg%2C_South_Africa.jpg",
+          "AmazonUrl": "http://amzn.to/1f4tMyQ"
+      },
+      "Tracks": [
+        {
+            "Id": 8610,
+            "AlbumId": 1728,
+            "SongName": "Alive and Well",
+            "Length": "2:06",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8611,
+            "AlbumId": 1728,
+            "SongName": "My Life Inside of Your Heart",
+            "Length": "3:02",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8612,
+            "AlbumId": 1728,
+            "SongName": "Great Awakening",
+            "Length": "1:35",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8613,
+            "AlbumId": 1728,
+            "SongName": "Six ways 'Til Sunday",
+            "Length": "2:36",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8614,
+            "AlbumId": 1728,
+            "SongName": "401kill",
+            "Length": "3:19",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8615,
+            "AlbumId": 1728,
+            "SongName": "The Unraveling",
+            "Length": "3:12",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        }
+      ]
+  },
+  {
       "Id": 520,
       "ArtistId": 335,
       "Title": "Undertow",
@@ -4606,7 +5014,7 @@
       "Year": 1993,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/41mJt4IVkhL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B000000993/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000000993&linkCode=as2&tag=westwindtechn-20",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 335,
           "ArtistName": "Tool",
@@ -4689,7 +5097,7 @@
           "ArtistName": "Van Halen",
           "Description": "LA Rock Legends of the third kind!",
           "ImageUrl": null,
-          "AmazonUrl": null
+          "AmazonUrl": ""
       },
       "Tracks": [
         {
@@ -4721,6 +5129,57 @@
             "AlbumId": 598,
             "SongName": "Ain't talking about Love",
             "Length": "3:49",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        }
+      ]
+  },
+  {
+      "Id": 1734,
+      "ArtistId": 329,
+      "Title": "Wasting Light",
+      "Description": "Hard to say that this is \"the best\" Foo Fighters album because, after so many years, bands should really be defined by eras. I would consider the Foos first era ending, and second era beginning, with their double album, In Your Honor. Their \"classic\" album from that first era is The Colour and The Shape. It is considered, and will continue to be considered, a classic album in the rock genre.\n\nWasting Light is the best album of the Foos second era and, like TCATS, it will be considered a classic album in the rock genre. There is no track that is unlikeable, just a few that aren't as great as the others.\n\nHighlights of the album are the first two tracks, \"Bridge Burning\" and \"Rope\", are the best two songs I've heard to open an album since way back to the first tracks of \"Vs.\" by Pearl Jam, \"Go\" and \"Animal.\" \"Dear Rosemary\" is solid, the guitar work sounding a bit like \"Steady As She Goes\" by the Racounteurs, and a chorus that is all Dave Grohl, even with help from Bob Mould.\n\nThrashy and well-placed \"White Limo\" is juxtaposed with the ridiculously catchy \"Arlandria\" (\"you and what army? Arlandria!\"). \"These Days\" is such a great, soaring rock song that it is easy to forget that the lyrics are painfully honest and relate-able on a number of levels. \"Back and Forth\" is cheesy, but in a catchy, good way, and sounds like something of a homage to any number of late-80's rock tracks with it's chug-chug-chug guitar sound (listen to it, you'll get it).",
+      "Year": 2011,
+      "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51GNI3gwqDL._SL250_.jpg",
+      "AmazonUrl": "http://www.amazon.com/gp/product/B004UXXVQS/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B004UXXVQS&linkCode=as2&tag=westwindtechn-20&linkId=QBDUHMATLFROQPZQ",
+      "SpotifyUrl": "https://play.spotify.com/album/5lnQLEUiVDkLbFJHXHQu9m",
+      "Artist": {
+          "Id": 329,
+          "ArtistName": "Foo Fighters",
+          "Description": "The Foo Fighters is an American rock band, formed in Seattle in 1994. It was founded by Nirvana drummer Dave Grohl as a one-man project following the death of Kurt Cobain and the resulting dissolution of his previous band. The group got its name from the UFOs and various aerial phenomena that were reported by Allied aircraft pilots in World War II, which were known collectively as foo fighters. Prior to the release of Foo Fighters' 1995 debut album Foo Fighters, which featured Grohl as the only official member, Grohl recruited bassist Nate Mendel and drummer William Goldsmith, both formerly of Sunny Day Real Estate, as well as fellow Nirvana touring bandmate Pat Smear as guitarist to complete the lineup. The band began with performances in Portland, Oregon. Goldsmith quit during the recording of the group's second album, The Colour and the Shape (1997) when most of the drum parts were re-recorded by Grohl himself. Smear's departure followed soon afterward.\r\n\r\nThey were replaced by Taylor Hawkins and Franz Stahl, respectively, although Stahl was fired before the recording of the group's third album, There Is Nothing Left to Lose (1999). The band briefly continued as a trio until Chris Shiflett joined as the band's lead guitarist after the completion of There Is Nothing Left to Lose. The band released its fourth album, One by One, in 2002. The group followed that release with the two-disc In Your Honor (2005), which was split between acoustic songs and heavier material. Foo Fighters released its sixth album, Echoes, Silence, Patience & Grace, in 2007. In 2010, it was confirmed that Smear had officially rejoined the band after touring with Foo Fighters as an unofficial member between 2006 and 2009. Over the course of the band's career, four of its albums have won Grammy Awards for Best Rock Album. The band's seventh studio album, Wasting Light, produced by Butch Vig was released in 2011. The band's eight studio album, Sonic Highways, and their second recorded with Butch Vig, will be released in November 2014.[5] As of May 2014, the band's seven albums have sold a combined 11.1 million copies, according to Nielsen SoundScan.[6]",
+          "ImageUrl": "http://media.tumblr.com/tumblr_mb76f02FkJ1qfo293.jpg",
+          "AmazonUrl": ""
+      },
+      "Tracks": [
+        {
+            "Id": 8638,
+            "AlbumId": 1734,
+            "SongName": "Bridge Burning",
+            "Length": "4:46",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8639,
+            "AlbumId": 1734,
+            "SongName": "Rope",
+            "Length": "4:19",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8640,
+            "AlbumId": 1734,
+            "SongName": "Dear Rosemary",
+            "Length": "4:26",
+            "Bytes": 0,
+            "UnitPrice": 0.0
+        },
+        {
+            "Id": 8641,
+            "AlbumId": 1734,
+            "SongName": "Arlandria",
+            "Length": "4:27",
             "Bytes": 0,
             "UnitPrice": 0.0
         }
@@ -4854,7 +5313,7 @@
       "Year": 2004,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51xkUx4Kt0L._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B001MFH9T2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B001MFH9T2&linkCode=as2&tag=westwindtechn-20&linkId=U4D57VKO3JS4WBJI",
-      "SpotifyUrl": null,
+      "SpotifyUrl": "",
       "Artist": {
           "Id": 340,
           "ArtistName": "Die Toten Hosen",

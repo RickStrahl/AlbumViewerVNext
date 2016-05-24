@@ -42,3 +42,7 @@ thumbs.db
 .vs
 /AlbumViewerVnext.azurewebsites.net.PublishSettings
 src/AlbumViewerAspNet5/project.lock.json
+publishprofile.xml
+.vs
+.vs/config/applicationhost.config
+AlbumViewer.publishsettings
