@@ -31,6 +31,8 @@
 */
 #endregion
 
+#define DNXCORE50 
+
 using System;
 using System.Reflection;
 using System.Collections;
@@ -815,9 +817,7 @@ namespace Westwind.Utilities
         }
 
 #if !DNXCORE50
-#region COM Reflection Routines
-
-
+        #region COM Reflection Routines
 
         /// <summary>
         /// Creates a COM instance from a ProgID. Loads either
@@ -866,7 +866,7 @@ namespace Westwind.Utilities
                     return parent;
 
                 // Get the member
-                return parent.GetType().InvokeMember(property, ReflectionUtils.MemberAccess | BindingFlags.GetProperty | BindingFlags.GetField, null,
+                return parent.GetType().GetTypeInfo().InvokeMember(property, ReflectionUtils.MemberAccess | BindingFlags.GetProperty | BindingFlags.GetField, null,
                     parent, null);
             }
 

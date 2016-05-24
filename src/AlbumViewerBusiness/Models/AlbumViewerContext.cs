@@ -1,12 +1,21 @@
-﻿using Microsoft.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
+using Microsoft.Extensions.Configuration;
 
 namespace AlbumViewerBusiness
 {
     public class AlbumViewerContext : DbContext
     {
+        IConfiguration Config { get; set; }
+
+        public AlbumViewerContext(IConfiguration config)
+        {
+            Config = config;
+        }
+
 
         public string ConnectionString { get; set; }
+
         //public static IConfiguration Configuration { get; set; }
         protected static IServiceProvider ServiceProvider { get; set; }
 
@@ -15,12 +24,12 @@ namespace AlbumViewerBusiness
         /// The default constructor that provides for Dependency Injection
         /// </summary>
         /// <param name="serviceProvider"></param>
-        public AlbumViewerContext(IServiceProvider serviceProvider)
-            : base(serviceProvider)
-        {
-            if (ServiceProvider == null)
-                ServiceProvider = serviceProvider;
-        }
+        //public AlbumViewerContext(IServiceProvider serviceProvider) : 
+        //    : base(serviceProvider)
+        //{
+        //    if (ServiceProvider == null)
+        //        ServiceProvider = serviceProvider;
+        //}
 
 
         ///// <summary>
@@ -87,45 +96,37 @@ namespace AlbumViewerBusiness
             if (optionsBuilder.IsConfigured)
                 return;
 
-            //throw new InvalidOperationException(
-            //    "MusicStoreContext not configured. Please use either DI or one of the parametered constructors to provide configuration information");
-
-            //var builder = new ConfigurationBuilder();  // this is the problem: needs basepath
-            //builder.AddJsonFile("config.json");
-            //var configuration = builder.Build();
-            //string connectionString = configuration.Get("Data:MusicStore:ConnectionString");
-
-            //optionsBuilder.UseSqlServer(connectionString);
-
+            ConnectionString = Config.GetValue<string>("Data:AlbumViewer:ConnectionString");
+            optionsBuilder.UseSqlServer(ConnectionString);
         }
 
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            //builder.ForSqlServer().UseIdentity();
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    builder.ForSqlServer().UseIdentity();
 
-            // Pluralization and key discovery not working based on conventions
-            builder.Entity<Album>(e =>
-            {
-                e.ToTable("Albums");
-                
-            });
-            builder.Entity<Artist>(e =>
-            {
-                e.ToTable("Artists");
-            });
+        //    Pluralization and key discovery not working based on conventions
+        //    builder.Entity<Album>(e =>
+        //    {
+        //        e.ToTable("Albums");
 
-            builder.Entity<Track>(e =>
-            {
-                e.ToTable("Tracks");
-            });
+        //    });
+        //    builder.Entity<Artist>(e =>
+        //    {
+        //        e.ToTable("Artists");
+        //    });
 
-            builder.Entity<User>(e =>
-            {
-                e.ToTable("Users");
-            });
+        //    builder.Entity<Track>(e =>
+        //    {
+        //        e.ToTable("Tracks");
+        //    });
 
-            base.OnModelCreating(builder);
-        }
+        //    builder.Entity<User>(e =>
+        //    {
+        //        e.ToTable("Users");
+        //    });
+
+        //    base.OnModelCreating(builder);
+        //}
     }
 }

@@ -1,31 +1,26 @@
-﻿{
+{
   "version": "1.0.0-*",
 
-  "description": "",
-  "authors": [ "" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
   "dependencies": {
-    "EntityFramework.Relational": "7.0.0-rc1-final",
-    "EntityFramework.Commands": "7.0.0-rc1-final",
-    "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-    "Westwind.Utilities": "",
-    "Microsoft.CSharp": "4.0.1-beta-*"
-  },
-  "frameworks": {
-    "dnx451": {
-      "dependencies": {
-        "EntityFramework.Core": "7.0.0-rc1-final"
-      }
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Configuration.Binder": "1.0.0-rc2-final",
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0-rc2-3002702",
+      "type": "platform"
     },
-    "dnxcore50": {
-        "System.Runtime": "4.0.20-beta",
-        "System.Runtime.Extensions": "4.0.10-beta"
+    "Westwind.Utilitities": "1.0.0-*"
+  },  
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50",
+        "portable-net45+win8"
+      ]
     }
-  }
-
+  },
+  "netstandard1.5": {
+      "imports": "dnxcore50"
+ }
 }

@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using Westwind.BusinessObjects;
 using Westwind.Utilities;
 
