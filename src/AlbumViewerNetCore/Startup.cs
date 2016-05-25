@@ -11,13 +11,19 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using AlbumViewerBusiness;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting.Internal;
+using System.IO;
 
 namespace AlbumViewerNetCore
 {
     public class Startup
     {
+        IHostingEnvironment HostingEnvironment;
+
         public Startup(IHostingEnvironment env)
         {
+            HostingEnvironment = env;
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -34,11 +40,24 @@ namespace AlbumViewerNetCore
             // Add framework services.
             services.AddMvc();
 
+            
+
             services.AddDbContext<AlbumViewerContext>(builder =>
             {
-                // BUG: this is not firing
-                var connStr = Configuration["Data:MusicStore:ConnectionString"];
-                builder.UseSqlServer(connStr);
+                string useSqLite = Configuration["Data:AlbumViewer:useSqLite"];
+                if (useSqLite != "true")
+                {
+                    // NOTE: This requires a Constructor that has a DbContextOptions parameter
+                    var connStr = Configuration["Data:AlbumViewer:SqlServerConnectionString"];
+                    builder.UseSqlServer(connStr);
+                }
+                else
+                {
+                    // Note this path has to have full  access for the Web user in order 
+                    // to create the DB and write to it.
+                    var connStr = "Data Source=" + Path.Combine(HostingEnvironment.ContentRootPath, "AlbumViewerData.sqlite");
+                    builder.UseSqlite(connStr);
+                }
             });
 
 
@@ -59,10 +78,12 @@ namespace AlbumViewerNetCore
             // Make configuration available for EF configuration
             services.AddSingleton<IConfigurationRoot>(Configuration);
             services.AddSingleton<IConfiguration>(Configuration);
+
+            services.AddTransient<AlbumRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, AlbumViewerContext albumContext)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -76,7 +97,7 @@ namespace AlbumViewerNetCore
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            
             // Enable Cookie Auth with automatic user policy
             app.UseCookieAuthentication(new CookieAuthenticationOptions()
             {
@@ -95,6 +116,12 @@ namespace AlbumViewerNetCore
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
+            bool result = AlbumViewerDataImporter.EnsureAlbumData(albumContext,
+                           Path.Combine(env.WebRootPath, "data//albums.js"));
+
+
         }
     }
 }

@@ -46,3 +46,4 @@ publishprofile.xml
 .vs
 .vs/config/applicationhost.config
 AlbumViewer.publishsettings
+*.sqlite

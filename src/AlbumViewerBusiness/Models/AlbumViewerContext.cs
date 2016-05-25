@@ -10,7 +10,7 @@ namespace AlbumViewerBusiness
 
         public string ConnectionString { get; set; }
 
-        public AlbumViewerContext(IConfiguration config)
+        public AlbumViewerContext(DbContextOptions options, IConfiguration config) : base(options)
         {
             Configuration = config;
         }
@@ -20,17 +20,17 @@ namespace AlbumViewerBusiness
         public DbSet<Track> Tracks { get; set; }
         public DbSet<User> Users { get; set;  }
 
-        
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
 
-            if (optionsBuilder.IsConfigured)
-                return;
-            
-            ConnectionString = Configuration.GetValue<string>("Data:AlbumViewer:ConnectionString");
-            optionsBuilder.UseSqlServer(ConnectionString);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+
+        //    if (optionsBuilder.IsConfigured)
+        //        return;
+
+        //    ConnectionString = Configuration.GetValue<string>("Data:AlbumViewer:ConnectionString");
+        //    optionsBuilder.UseSqlServer(ConnectionString);
+        //}
 
 
         protected override void OnModelCreating(ModelBuilder builder)

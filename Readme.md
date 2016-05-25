@@ -1,11 +1,11 @@
-# West Wind Album Viewer ASP.NET 5 Sample
+# West Wind Album Viewer ASP.NET Core Sample
 **Sample SPA application demonstrating ASP.NET Core features**
 
 This is the sample code for the Album Viewer sample application from the 
 CoDe Magazine Article *A First Look at ASP.NET vNext* and various ASP.NET Core blog
 posts from Rick Strahl's Web Log.
 
-This sample is a Mobile Web enabled album viewer that allows you to browse, add and music albums and artists that demonstrates using a client side AngularJs application talking to a ASP.NET 5 API backend using Entity Framework and a simple layer to handle data access. 
+This sample is a Mobile Web enabled album viewer that allows you to browse, add and music albums and artists that demonstrates using a client side AngularJs application talking to a ASP.NET Core API backend using Entity Framework and a simple layer to handle data access. 
 
 > Current Supported Version: RC2 (use tags for others)
 
@@ -56,7 +56,7 @@ Once the runtime is installed:
 
 **Requirements:**
 * .NET 4.5.1 or later
-* dnx Runtime Installation  (see supported version in tags)
+* .NET CORE SDK Installation  (see supported version in tags)
 
 **License:**
 This sample is licensed under MIT license. Use, play with integrate code from

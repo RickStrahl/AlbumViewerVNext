@@ -1,62 +1,48 @@
 # West Wind Album Viewer ASP.NET 5 Sample
 **Sample SPA application demonstrating ASP.NET Core features**
 
+
 This is the sample code for the Album Viewer sample application from the 
 CoDe Magazine Article *A First Look at ASP.NET vNext* and various ASP.NET Core blog
-posts from Rick Strahl's Web Log.
+posts from Rick Strahl's Web Log. Actually this code has changed drastically since the article was published.
 
-This sample is a Mobile Web enabled album viewer that allows you to browse, add and music albums and artists that demonstrates using a client side AngularJs application talking to a ASP.NET 5 API backend using Entity Framework and a simple layer to handle data access. 
+This sample currently supports:  
+**ASP.NET Core RC2**
 
-> Current Supported Version: RC2 (use tags for others)
 
-* [A First Look at ASP.NET VNext](http://www.codemag.com/Article/1501081)
-* [ASP.NET VNext: The Next Generation](http://www.codemag.com/Article/1501061)
-* [Online Sample](http://samples.west-wind.com/albumviewer/index.html)
+This sample is a Mobile Web enabled album viewer that allows you to browse, add and music albums and artists that demonstrates using a client side AngularJs (1.x) application talking to a ASP.NET 5 API backend using Entity Framework and a simple layer to handle data access.  Yes I know - porting to Angular 2 is one of the next things to do.
 
+
+### Related Links
+> links to the out of date articles have been removed.
+
+### Screen Shot
 ![](AlbumViewer.png)
 
+
 ### Getting Started ###
-The sample uses SQL Server sample data which you can import from a SQL script.
+If you're running the application locally through IIS or Kestrel, the application should just work as is. By default it uses a SqLite data base that is create in the Web app's content (not Web) root. The sample also works with SQL Server. To determine which is used the Appsettings.json file is used:
 
-To use it:
+```json
+  "Data": {
+    "AlbumViewer": {
+      "useSqLite": "true",
+      "SqlServerConnectionString": "server=.;database=AlbumViewer;integrated security=true;",
+    } 
+  },
+  //... other settings omitted
+}
+```  
 
-* Open the Sql Data Tools or Sql Server Management Studio
-* Create a database named AlbumViewer (or whatever)
-* Select the database
-* Run the AlbumViewer.sql script from the AlbumViewerAspNet5\App_Data folder
+##### Using SqLite
+SqLite will autmoatically create the database file in the content root. For this to work make sure that the account the Web application is running under has rights to create a new file and read/write to that file.
 
-The script creates the tables and sample data in order for the application to run.
+##### Using Sql Server
+To use Sql Server create a new database and then point the connection string at the new database. Make sure the account the Web server is running under has rights to create tables,read/write data.
 
-### Running the Application ###
-You can run the application in a number of different ways. The easiest is probably
-using Visual Studio and simply opening the project and View in Web Browser or Run
-the application. Alternately you can run the sample from the command line.
+#### Platforms 
+Currently the app has been tested only to run under Windows. But using SqLite should also work on other platforms. Officially tested version coming soon.
 
-**From Visual Studio**
-* Open Visual Studio
-* Open the AlbumViewerAspNet5 Solution
-* Run the AlbumViewerAspNet5 Project
-* Or: Select Index.html in /wwwroot/ and View in Web Browser
-
-**From the command line:**
-
-If you don't have the DNX Runtime installed:
-
-* Go to: https://github.com/aspnet/Home#getting-started
-* Follow the DNX Runtime install directions
-* Install with PowerShell
-* Run dnvm upgrade -runtime CoreClr 
-* Run dnvm upgrade -runtime Clr
-
-Once the runtime is installed:
-
-* Change to <install>\src\albumviewervaspnet5 folder
-* Run `dnx . web`
-* Navigate to http://localhost:5000/ in your browser
-
-**Requirements:**
-* .NET 4.5.1 or later
-* dnx Runtime Installation  (see supported version in tags)
 
 **License:**
 This sample is licensed under MIT license. Use, play with integrate code from

@@ -9,6 +9,7 @@
       "version": "1.0.0-rc2-3002702",
       "type": "platform"
     },
+    "Newtonsoft.Json": "8.0.3",
     "Westwind.Utilitities": "1.0.0-*"
   },  
   "frameworks": {
