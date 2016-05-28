@@ -27,6 +27,12 @@ namespace AlbumViewerAspNet5
             return View();
         }
 
+        public string ThrowError()
+        {
+            string name = null;
+            return name.ToLower();
+        }
+
         public IActionResult Error()
         {
             return View("~/Views/Shared/Error.cshtml");

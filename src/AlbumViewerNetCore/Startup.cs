@@ -91,11 +91,12 @@ namespace AlbumViewerNetCore
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                //app.UseBrowserLink();
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/");
+                //app.UseExceptionHandler("/Home/Error");
             }
             
             // Enable Cookie Auth with automatic user policy
@@ -107,6 +108,7 @@ namespace AlbumViewerNetCore
             }); 
 
             app.UseDatabaseErrorPage();
+            app.UseStatusCodePages();
 
             app.UseDefaultFiles(); // so index.html is not required
             app.UseStaticFiles();
