@@ -18,7 +18,7 @@ namespace AlbumViewerNetCore
 {
     public class Startup
     {
-        IHostingEnvironment HostingEnvironment;
+        readonly IHostingEnvironment HostingEnvironment;
 
         public Startup(IHostingEnvironment env)
         {
@@ -29,6 +29,8 @@ namespace AlbumViewerNetCore
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+            
+
             Configuration = builder.Build();
         }
 
@@ -39,9 +41,7 @@ namespace AlbumViewerNetCore
         {
             // Add framework services.
             services.AddMvc();
-
             
-
             services.AddDbContext<AlbumViewerContext>(builder =>
             {
                 string useSqLite = Configuration["Data:AlbumViewer:useSqLite"];
@@ -108,7 +108,9 @@ namespace AlbumViewerNetCore
 
             app.UseDatabaseErrorPage();
 
-            app.UseStaticFiles();            
+            app.UseDefaultFiles(); // so index.html is not required
+            app.UseStaticFiles();
+            
 
             app.UseMvc(routes =>
             {

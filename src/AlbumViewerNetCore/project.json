@@ -19,14 +19,13 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-final",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-final",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-final",
-
     "Microsoft.EntityFrameworkCore": "1.0.0-rc2-final",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-rc2-final",
     "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0-rc2-final",
-
     "AlbumViewerBusiness": "1.0.0-*",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0-rc2-final"
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0-rc2-final",
+    "Microsoft.Extensions.Configuration.CommandLine": "1.0.0-rc2-final"
   },
 
   "tools": {
@@ -49,14 +48,16 @@
       ]
     }
   },
-
+  "commands": {
+    "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://0.0.0.0:5001"
+  },
   "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
 
   "runtimeOptions": {
-    "gcServer": true
+     "System.GC.Server": true
   },
 
   "publishOptions": {

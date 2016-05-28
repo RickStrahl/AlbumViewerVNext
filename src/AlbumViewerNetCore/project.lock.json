@@ -1137,6 +1137,18 @@
           "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration.CommandLine/1.0.0-rc2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0-rc2-final"
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.CommandLine.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.Extensions.Configuration.CommandLine.dll": {}
+        }
+      },
       "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0-rc2-final": {
         "type": "package",
         "dependencies": {
@@ -4735,6 +4747,16 @@
         "Microsoft.Extensions.Configuration.Binder.nuspec",
         "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll",
         "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.xml"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.CommandLine/1.0.0-rc2-final": {
+      "sha512": "EZVw8Dgm6U9UL1BrBmw/5WGEy25VjtswkUnWM0wkdX2TNGNYec5mFuStQmt+FV7XRa6AG28yAFRLilA2whqFcw==",
+      "type": "package",
+      "files": [
+        "Microsoft.Extensions.Configuration.CommandLine.1.0.0-rc2-final.nupkg.sha512",
+        "Microsoft.Extensions.Configuration.CommandLine.nuspec",
+        "lib/netstandard1.1/Microsoft.Extensions.Configuration.CommandLine.dll",
+        "lib/netstandard1.1/Microsoft.Extensions.Configuration.CommandLine.xml"
       ]
     },
     "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.0-rc2-final": {
@@ -9999,6 +10021,7 @@
       "Microsoft.EntityFrameworkCore >= 1.0.0-rc2-final",
       "Microsoft.EntityFrameworkCore.SqlServer >= 1.0.0-rc2-final",
       "Microsoft.EntityFrameworkCore.Sqlite >= 1.0.0-rc2-final",
+      "Microsoft.Extensions.Configuration.CommandLine >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Configuration.EnvironmentVariables >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Configuration.Json >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Logging >= 1.0.0-rc2-final",
