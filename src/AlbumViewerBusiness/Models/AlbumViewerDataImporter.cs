@@ -85,6 +85,15 @@ namespace AlbumViewerBusiness
                 }
             }
 
+            var user = new User()
+            {
+                Username = "test",
+                Password = "test",
+                Fullname = "Test User",                               
+            };
+            context.Users.Add(user);
+            context.SaveChanges();
+
             return 1;
         }
     }
