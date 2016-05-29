@@ -57,7 +57,7 @@
   },
 
   "runtimeOptions": {
-     "System.GC.Server": true
+     "System.GC.Server": false
   },
 
   "publishOptions": {

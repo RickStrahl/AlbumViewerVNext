@@ -31,14 +31,15 @@ namespace AlbumViewerAspNet5
             context = ctx;
             serviceProvider = svcProvider;
         }
-
         [HttpGet]
-        [Route("api/HelloWorld")]
+        [Route("api/helloworld")]
         public object HelloWorld(string name = null)
         {
+            //return "Hello " + name + ". Time is: " + DateTime.Now;
             if (string.IsNullOrEmpty(name))
                 name = "Johnny Doe";
-            return new { helloMessage = "Hello " + name + ". Time is: " + DateTime.Now };
+
+            return new { helloMessage = "Hello!  " + name + ". Time is: " + DateTime.Now };
         }
 
         [HttpGet]
