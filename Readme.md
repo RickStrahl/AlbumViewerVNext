@@ -8,9 +8,7 @@ posts from Rick Strahl's Web Log. Actually this code has changed drastically sin
 This sample currently supports:  
 **ASP.NET Core RC2**
 
-
-This sample is a Mobile Web enabled album viewer that allows you to browse, add and music albums and artists that demonstrates using a client side AngularJs (1.x) application talking to a ASP.NET 5 API backend using Entity Framework and a simple layer to handle data access.  Yes I know - porting to Angular 2 is one of the next things to do.
-
+This sample is a Mobile Web enabled album viewer that allows you to browse, add and music albums and artists that demonstrates using a client side AngularJs (1.x) application talking to a ASP.NET 5 API back end using Entity Framework and a simple layer to handle data access.  Yes I know - porting to Angular 2 is one of the next things to do.
 
 ### Related Links
 > links to the out of date articles have been removed.
@@ -18,9 +16,20 @@ This sample is a Mobile Web enabled album viewer that allows you to browse, add 
 ### Screen Shot
 ![](AlbumViewer.png)
 
-
 ### Getting Started ###
-If you're running the application locally through IIS or Kestrel, the application should just work as is. By default it uses a SqLite data base that is create in the Web app's content (not Web) root. The sample also works with SQL Server. To determine which is used the Appsettings.json file is used:
+You should just be able to clone this repo as is on either Windows or a Mac and do:
+
+```
+dotnet run
+```
+
+in the `./src/albumviewercore` folder.
+
+Then navigate to [http://localhost:5000](http://localhost:5000) to start the application. First launch might fail due a timeout due to the initial DB creation, but subsequent requests should work.
+
+If you're running the application locally through IIS or Kestrel, the application should just work as is. By default it uses a SqLite data base that is create in the Web app's content (not Web) root. The sample also works with SQL Server but you have to create the database for that to work and set the connection string in `appsettings.json`. 
+
+To switch between SqLite and Sql Server use these settings:
 
 ```json
   "Data": {
@@ -34,13 +43,13 @@ If you're running the application locally through IIS or Kestrel, the applicatio
 ```  
 
 ##### Using SqLite
-SqLite will autmoatically create the database file in the content root. For this to work make sure that the account the Web application is running under has rights to create a new file and read/write to that file.
+SqLite will automatically create the database file in the content root. For this to work make sure that the account the Web application is running under has rights to create a new file and read/write to that file.
 
 ##### Using Sql Server
 To use Sql Server create a new database and then point the connection string at the new database. Make sure the account the Web server is running under has rights to create tables,read/write data.
 
 #### Platforms 
-Currently the app has been tested only to run under Windows. But using SqLite should also work on other platforms. Officially tested version coming soon.
+Currently the app has been tested to run under Windows and Mac, but it should also work under Linux.
 
 
 **License:**
