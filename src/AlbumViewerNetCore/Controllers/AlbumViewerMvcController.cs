@@ -24,11 +24,13 @@ namespace MusicStoreVNext
             //this.environment = environment;
         }
 
+        
         public async Task<ActionResult> Index()
         {
             return await Albums();
         }
 
+        [Route("albums")]
         public async Task<ActionResult> Albums()
         {
             

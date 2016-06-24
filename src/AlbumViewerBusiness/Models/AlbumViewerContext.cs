@@ -21,16 +21,16 @@ namespace AlbumViewerBusiness
         public DbSet<User> Users { get; set;  }
 
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    base.OnConfiguring(optionsBuilder);
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
 
-        //    if (optionsBuilder.IsConfigured)
-        //        return;
+            if (optionsBuilder.IsConfigured)
+                return;
 
-        //    ConnectionString = Configuration.GetValue<string>("Data:AlbumViewer:ConnectionString");
-        //    optionsBuilder.UseSqlServer(ConnectionString);
-        //}
+            ConnectionString = Configuration.GetValue<string>("Data:AlbumViewer:ConnectionString");
+            optionsBuilder.UseSqlServer(ConnectionString);
+        }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

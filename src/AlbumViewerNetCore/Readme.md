@@ -8,12 +8,12 @@ posts from Rick Strahl's Web Log. Actually this code has changed drastically sin
 This sample currently supports:  
 **ASP.NET Core RC2**
 
-
 This sample is a Mobile Web enabled album viewer that allows you to browse, add and music albums and artists that demonstrates using a client side AngularJs (1.x) application talking to a ASP.NET 5 API backend using Entity Framework and a simple layer to handle data access.  Yes I know - porting to Angular 2 is one of the next things to do.
 
 
 ### Related Links
-> links to the out of date articles have been removed.
+* [AlbumViewer Online Sample](http://samples.west-wind.com/AlbumViewerCore/#/albums)
+
 
 ### Screen Shot
 ![](AlbumViewer.png)
@@ -23,14 +23,13 @@ This sample is a Mobile Web enabled album viewer that allows you to browse, add 
 If you're running the application locally through IIS or Kestrel, the application should just work as is. By default it uses a SqLite data base that is create in the Web app's content (not Web) root. The sample also works with SQL Server. To determine which is used the Appsettings.json file is used:
 
 ```json
-  "Data": {
+"Data": {
     "AlbumViewer": {
       "useSqLite": "true",
       "SqlServerConnectionString": "server=.;database=AlbumViewer;integrated security=true;",
     } 
-  },
-  //... other settings omitted
-}
+},
+//... other settings omitted
 ```  
 
 ##### Using SqLite

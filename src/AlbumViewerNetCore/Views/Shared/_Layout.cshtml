@@ -1,21 +1,17 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Web Connection Albumviewer Sample Application">
 
-    <!-- WEB FONTS -->
-    <!--<link href="//fonts.googleapis.com/css?family=Raleway:300,400,700,800" rel="stylesheet" type="text/css" />
-    <link href="//fonts.googleapis.com/css?family=Montserrat:700,800" rel="stylesheet" type="text/css" />-->
-
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="apple-touch-icon" href="touch-icon.png" />
+    <link rel="apple-touch-icon" href="~/touch-icon.png" />
 
-    <link rel="icon" href="touch-icon.png" />
+    <link rel="icon" href="~/touch-icon.png" />
     <meta name="msapplication-TileImage" content="touch-icon.png">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -24,19 +20,14 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
      <![endif]-->
 
-    <title>Album Viewer MVC</title>
+    <title>West Wind Album Viewer (ASP.NET Core Version)</title>
+    <!--<link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>-->
+    <link href="~/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
-    <!-- combined CSS file - build with gulp -->
-    <!--<link href="build/app.min.css" rel="stylesheet" />-->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />-->
-
-
-    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
-
-    <link href="../css/musicstore.css" rel="stylesheet" />
+    <link href="css/albumviewer.css" rel="stylesheet" />
 </head>
 <body ng-app="app">
 
@@ -79,7 +70,7 @@
         </div>
     </div>
 
-    <div  style="margin-top: 60px;padding: 10px;">
+    <div style="margin-top: 60px;padding: 10px;">
         <div id="MainView" autoscroll=""
              ng-view>
             @RenderBody()

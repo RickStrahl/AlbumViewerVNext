@@ -22,9 +22,9 @@ namespace AlbumViewerAspNet5
 
         public IActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your contact page...";
 
-            return View();
+            return View("~/views/home/contact.cshtml");
         }
 
         public string ThrowError()
