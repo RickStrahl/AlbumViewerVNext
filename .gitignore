@@ -47,3 +47,6 @@ publishprofile.xml
 .vs/config/applicationhost.config
 AlbumViewer.publishsettings
 *.sqlite
+src/AlbumViewerBusiness/project.lock.json
+src/AlbumViewerNetCore/project.lock.json
+src/Westwind.Utilitities/project.lock.json

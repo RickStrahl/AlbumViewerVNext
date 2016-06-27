@@ -16,6 +16,7 @@ using System.IO;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json.Serialization;
 
 namespace AlbumViewerNetCore
 {
@@ -45,7 +46,15 @@ namespace AlbumViewerNetCore
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(opt =>
+            {
+                var resolver = opt.SerializerSettings.ContractResolver;
+                if (resolver != null)
+                {
+                    var res = resolver as DefaultContractResolver;
+                    res.NamingStrategy = null;
+                }
+            });
             
             services.AddDbContext<AlbumViewerContext>(builder =>
             {
