@@ -37,6 +37,7 @@ node_modules
 */*.Spa/wwwroot/*
 *.ng.ts
 *.sln.ide
+__*.htm
 src/AlbumViewerVNext/wwwroot/web.config__X
 thumbs.db
 .vs
