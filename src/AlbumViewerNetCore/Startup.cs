@@ -99,18 +99,18 @@ namespace AlbumViewerNetCore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, AlbumViewerContext albumContext)
         {
-            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            //loggerFactory.AddDebug();
-
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseBrowserLink();
+                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+                loggerFactory.AddDebug();
             }
             else
             {                
                 app.UseExceptionHandler(errorApp =>
 
+                    // Application level exception handler here - this is just a place holder
                     errorApp.Run(async (context) =>
                     {
                         context.Response.StatusCode = 500;

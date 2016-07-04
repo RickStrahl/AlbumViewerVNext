@@ -58,7 +58,8 @@ namespace AlbumViewerAspNet5
                                 .Take(pageSize);
             }   
 
-            return await enumResult.ToListAsync();            
+            return await enumResult.ToListAsync();
+            //return enumResult;      
         }
 
         [HttpGet("api/album/{id:int}")]
@@ -106,29 +107,21 @@ namespace AlbumViewerAspNet5
             // of contexts you may also need to manually instantiate. 
             //using (var ctxt = new AlbumViewerContext(serviceProvider))
             //{
-                var artists = await context.Artists
-                    .OrderBy(art => art.ArtistName)
-                    .Select(art => new ArtistWithAlbum()
-                    {
-                        ArtistName =  art.ArtistName,
-                        Description = art.Description,
-                        ImageUrl = art.ImageUrl,
-                        Id = art.Id,
-                        AmazonUrl = art.AmazonUrl,
-
-                        // THIS CODE BOMBS
-                        //AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
-                    })
-                    .ToAsyncEnumerable().ToList();
-
-                            // workaround for the AlbumCount var issue - REMOVE ASAP
-                foreach (var artist in artists)
+            var artists = context.Artists
+                .OrderBy(art => art.ArtistName)
+                .Select(art => new ArtistWithAlbum()
                 {
-                    artist.AlbumCount = context.Albums.Count(alb => alb.ArtistId == artist.Id);
-                }
+                    ArtistName = art.ArtistName,
+                    Description = art.Description,
+                    ImageUrl = art.ImageUrl,
+                    Id = art.Id,
+                    AmazonUrl = art.AmazonUrl,
+                    AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
+                });
+            //        .ToAsyncEnumerable()
+            //        .ToList();
 
             return artists;
-            //}
         }
 
         [HttpGet("api/artist/{id:int}")]

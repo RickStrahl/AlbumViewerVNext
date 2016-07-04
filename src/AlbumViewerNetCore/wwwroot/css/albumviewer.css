@@ -288,57 +288,20 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
     padding: 10px 20px 5px 20px;
 }
 
-@-webkit-keyframes slideOutLeft {    
-     from {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-     to {
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%);
-    }	
+.slide-animation {
+    left: 0;           
+    -webkit-transition: left 1s ease;    
+    transition: all 0.5s ease;
 }
-@keyframes slideOutLeft {
-    from {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-    to {
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%);
-    }
+.slide-animation.ng-leave-active  {
+    left: -100% !important;
+    overflow: hidden !important;
 }
-@-webkit-keyframes slideInRight {
-    from {
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%);
-    }
-    to {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
-@keyframes slideInRight {
-    from {
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%);
-    }
-    to {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
-
-.slide-animation.ng-enter {
-    -webkit-animation: slideInRight 0.50s both ease-in;
-    animation: slideInRight 0.50s both ease-in;
-    z-index: 9999;        
-}
-
-.slide-animation.ng-leave {
-   -webkit-animation: slideOutLeft 0.50s both ease-in;
-    animation: slideOutLeft 0.50s both ease-in;
-    z-index: 8888;
+.slide-animation.ng-enter  {
+    left: 100% !important;
+    -webkit-transition: none;
+    transition: none;
+    overflow: hidden !important;        
 }
 
 
