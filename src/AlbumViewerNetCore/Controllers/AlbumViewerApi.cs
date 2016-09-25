@@ -56,21 +56,25 @@ namespace AlbumViewerAspNet5
                 enumResult = enumResult
                                 .Skip( (page - 1)  * pageSize)
                                 .Take(pageSize);
-            }   
+            }
 
-            return await enumResult.ToListAsync();
-            //return enumResult;      
+            //return await enumResult.ToListAsync();
+
+            // faster RTM
+            return enumResult;      
         }
 
         [HttpGet("api/album/{id:int}")]
         public async Task<Album> Album(int id)
         {
             // var contextAlbums = new AlbumViewerContext(serviceProvider);
-            var album = await context.Albums
+            var albums = context.Albums
                                 .Include(ctx => ctx.Artist)
                                 .Include(ctx => ctx.Tracks)
-                                .FirstOrDefaultAsync(alb => alb.Id == id);
-            return album;
+                                .Where(alb => alb.Id == id);
+
+            return albums.FirstOrDefault();
+            //return await albums.FirstOrDefaultAsync();
         }
 
         [HttpPost("api/album")]
@@ -91,23 +95,7 @@ namespace AlbumViewerAspNet5
         [Route("api/artists")]
         public async Task<IEnumerable> Artists()
         {
-            // For demonstration use a manually instantiated instance of
-            // the dbContext.
-            //
-            // Note the need to pass in serviceProvider or *something*
-            // that gives access to the Configuration so the connection
-            // string from config can be found.
-            // 
-            // This overload is what EF uses internally to create a
-            // to create a configured instance of a context.
-            //
-            // Scoped instances of Context can be problematic in some
-            // controllers - you're incurring overhead for each hit even
-            // if context is isn't used in an action. If you need multiple instances
-            // of contexts you may also need to manually instantiate. 
-            //using (var ctxt = new AlbumViewerContext(serviceProvider))
-            //{
-            var artists = context.Artists
+            var artists = await context.Artists
                 .OrderBy(art => art.ArtistName)
                 .Select(art => new ArtistWithAlbum()
                 {
@@ -117,9 +105,9 @@ namespace AlbumViewerAspNet5
                     Id = art.Id,
                     AmazonUrl = art.AmazonUrl,
                     AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
-                });
-            //        .ToAsyncEnumerable()
-            //        .ToList();
+                })
+                .ToAsyncEnumerable()
+                .ToList();
 
             return artists;
         }
