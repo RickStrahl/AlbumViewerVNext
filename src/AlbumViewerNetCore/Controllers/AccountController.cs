@@ -11,10 +11,13 @@ using Newtonsoft.Json;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Cors;
 
 namespace AlbumViewerAspNet5
 {
+    
     [ApiExceptionFilter]
+    [EnableCors("CorsPolicy")]
     public class AccountController : Controller
     {
         AlbumViewerContext context;
@@ -87,6 +90,14 @@ namespace AlbumViewerAspNet5
             await HttpContext.Authentication.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             //await signinManager.SignOutAsync();
             return true;
+        }
+
+        [HttpGet]
+        [Route("api/isAuthenticated")]
+        public async Task<bool> IsAuthenthenticated()
+        {
+            //throw new ApiException("User is not validated.",401);
+            return this.User.Identity.IsAuthenticated;
         }
 
     }

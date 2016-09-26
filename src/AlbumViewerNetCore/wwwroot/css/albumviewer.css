@@ -1,3 +1,5 @@
+html, body {
+}
 body {
     overflow-x: hidden;
     letter-spacing:0.6px;
@@ -8,24 +10,65 @@ body {
     color: steelblue;
 }
 h2,h3 {
-    font-family: Trebuchet,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
+    font-family: Trebuchet,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
 }
 h3 {
     color: steelblue;
 }
+
+.line-breaks {
+  white-space: pre-wrap;
+}
+@media(max-width: 768px) {
+  .hidden-small {
+    display: none;
+  }
+}
+@media(max-width: 768px) {
+  .hidden-xs {
+    display: none;
+  }
+}
+
+#Loader-Block {
+  position: absolute;
+  width: 270px;
+  margin-left: -135px;
+  top: 30%;
+  left: 50%;
+  background: #444;
+  color: white;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 4px 4px 6px #535353;
+}
+.statusbar-push{
+  /* add 15px for iPhone status bar */
+  padding-top: 15px;
+}
 #TitleBar {
     position: absolute;
-    top: 5px;
+    top: 0px;
     left: 8px;
     z-index: 11;
 }
 #Toolbar {
-    display: none;   
+    display: none;
 }
-#Toolbar-Top {    
+#Toolbar-Top {
 }
 #TopMenu {
+}
+#SearchBox {
+  background-color: #FFFFFF;
+  background-image: url(../images/search_box.png);
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
+  vertical-align: center;
+  padding-left: 27px !important;
 }
 .page-header-text {
     font-size: 1.5em;
@@ -49,7 +92,7 @@ h3 {
     #MainView {
         position: absolute;
         left: 0;
-        top: 48px;
+        top: 65px;
         bottom: 0;
         padding-top: 10px;
         width:100%;
@@ -57,21 +100,23 @@ h3 {
         overflow-x: hidden;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        padding-top: 10px; 
+        padding-top: 10px;
         background: white;
         overflow-x: hidden;
     }
+
 .banner {
+
     background: #535353;
     color: #e1e1e1;
     border-bottom: solid 1px black;
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 5px;
-    height: 48px;
+
+    height: 57px;
     width: 100%;
-    z-index: 10;   
+    z-index: 10;
 }
     .banner.active {
         color: white;
@@ -80,9 +125,9 @@ h3 {
 
 
 .banner nav {
-    display: inline-block;    
+    display: inline-block;
     margin-right: 3px;
-    padding: 4px;    
+    padding: 4px;
 }
     .banner nav a, .banner nav input {
         display: inline-block;
@@ -91,7 +136,7 @@ h3 {
         text-decoration: none;
     }
      .banner nav a img {
-        height: 23px; 
+        height: 23px;
         vertical-align: top;
     }
 
@@ -104,9 +149,9 @@ h3 {
         border-radius: 2px;
     }
 
-    .banner nav a.active, .banner nav a.selected   
+    .banner nav a.active, .banner nav a.selected
      {
-        color: white;        
+        color: white;
         font-weight: bold;
         border-bottom: solid 4px orange;
         border-radius: 2px;
@@ -116,12 +161,13 @@ h3 {
     bottom: 0;
     top: auto;
     text-align: center;
-    padding-top: inherit;      
+    padding-top: inherit;
     height: 43px;
+
     display: none;
 }
   .banner-bottom a {
-        margin: 0 20px;      
+        margin: 0 20px;
     }
 
     @media(max-width: 640px) {
@@ -129,7 +175,7 @@ h3 {
             display: none;
         }
     }
-    
+
     .album {
         float: left;
         position: relative;
@@ -151,7 +197,7 @@ h3 {
     .album:hover {
         background: steelblue;
         color: white !important;
-        cursor: pointer;        
+        cursor: pointer;
     }
     .album:hover .album-overlay {
         display: block;
@@ -160,8 +206,8 @@ h3 {
         position: relative;
         float: right;
         background: #034e8d;
-        color: whitesmoke;        
-        padding: 5px;        
+        color: whitesmoke;
+        padding: 5px;
         min-width: 40px;
         display: none;
         margin-top: -10px;
@@ -178,7 +224,7 @@ h3 {
         color: beige;
         text-decoration: none;
     }
-    .album-overlay a:hover {        
+    .album-overlay a:hover {
         color: white;
     }
 
@@ -192,8 +238,9 @@ h3 {
 }
 
 .album-descript {
-    font-size: 0.85em;          
-    overflow: hidden;
+  font-size: 0.85em;
+  overflow: hidden;
+  max-height: 83px;
 }
 
 .album-artist {
@@ -234,7 +281,7 @@ h3 {
     }
 }
 
-.song { 
+.song {
     font-size: .85em;
     padding: 5px;
     border-bottom: 1px dashed silver;
@@ -246,16 +293,17 @@ h3 {
     height: 1px;
 }
 
-input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
-    background: pink;
+form input:not([type=submit]):not([type=checkbox]):not([type=radio]):not([type=file]):not(.ng-pristine):not(.ng-untouched).ng-invalid,
+select:not(ng-pristine).ng-invalid, textarea:not(.ng-pristine).ng-invalid {
+  background: lightpink;
+  border-left: 5px solid red;
 }
 
-
-@media (max-width: 690px) {
+@media (max-width: 640px) {
     .album {
         max-width: 100% !important;
         min-height: 100px;
-    }    
+    }
     .album-image {
         width: 70px;
     }
@@ -272,14 +320,13 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
         bottom: 43px;
     }
 }
-
-.modal {
-    position: absolute;
-    top: 0;
-    z-index: 1040;        
+.modal-backdrop {
+    /* bug fix - no overlay */
+    display: none;
 }
 .modal-dialog {
-    margin: 2px auto;   
+    margin: 10px auto;
+    z-index: 1100 !important;
 }
 .modal-header {
     padding: 15px 15px 5px;
@@ -288,25 +335,63 @@ input.ng-invalid,textarea.ng-invalid,select.ng-invalid {
     padding: 10px 20px 5px 20px;
 }
 
-.slide-animation {
-    left: 0;           
-    -webkit-transition: left 1s ease;    
-    transition: all 0.5s ease;
+@-webkit-keyframes slideOutLeft {
+     from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+     to {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
 }
-.slide-animation.ng-leave-active  {
-    left: -100% !important;
-    overflow: hidden !important;
+@keyframes slideOutLeft {
+    from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
 }
-.slide-animation.ng-enter  {
-    left: 100% !important;
-    -webkit-transition: none;
-    transition: none;
-    overflow: hidden !important;        
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    to {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    to {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
 }
 
+.slide-animation.ng-enter {
+    -webkit-animation: slideInRight 0.50s both ease-in;
+    animation: slideInRight 0.50s both ease-in;
+    z-index: 9999;
+}
 
+.slide-animation.ng-leave {
+   -webkit-animation: slideOutLeft 0.50s both ease-in;
+    animation: slideOutLeft 0.50s both ease-in;
+    z-index: 8888;
+}
 
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
+
+
+

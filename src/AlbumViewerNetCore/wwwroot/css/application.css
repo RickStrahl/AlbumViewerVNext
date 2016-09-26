@@ -1,10 +1,10 @@
 ﻿html, body {
     overflow-x: hidden;
-    height: 100%;    
+    height: 100%;
 }
 h1, h2, h3, h4,h5,h6,.page-header-text {
     font-family: Trebuchet, 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: bold;    
+    font-weight: bold;
 }
 
 h3 {
@@ -44,6 +44,9 @@ footer {
     background: #636363;
     color: white;
 }
+.hidden {
+  display: none;
+}
 
 /* BootStrap overrides */
 
@@ -53,7 +56,7 @@ footer {
 
 /* Common CSS */
 
-.right{ 
+.right{
     text-align: right;
 }
 
@@ -65,7 +68,7 @@ footer {
 }
 .error-inline {
     color: firebrick;
-    display: inline;    
+    display: inline;
 }
 .binding-error {
     padding: 5px 0;
@@ -82,14 +85,14 @@ footer {
     left: 5px;
 }
 .title-bar-icon {
-    height: 45px; 
+    height: 45px;
     float: left
 }
 
 
 .banner {
     background: #535353;
-    color: #e1e1e1;    
+    color: #e1e1e1;
     position: fixed;
     opacity: .95;
     top: 0;
@@ -113,7 +116,7 @@ footer {
 .banner nav a, .banner nav input {
     display: inline-block;
     padding: 11px 6px 6px;
-    color: #eee;    
+    color: #eee;
     text-decoration: none;
 }
 
@@ -150,30 +153,30 @@ footer {
     .banner-bottom a {
         margin: 0 20px;
     }
-    
-.slide-menu {    
-    position: absolute;        
+
+.slide-menu {
+    position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 0;    
+    width: 0;
     background: #535353 ;
     background-image: linear-gradient(to bottom,  #535353 0, #707070 100%);
     transition: width 0.50s ease-out;
     white-space: nowrap;
     overflow-x:auto;
     overflow-y: hidden;
-    z-index: 2000;    
+    z-index: 2000;
 }
-.slide-menu.active {       
-    width: 300px;   
+.slide-menu.active {
+    width: 300px;
     border: 1px #868686 solid;
-    box-shadow: 2px 2px 4px #535353;    
+    box-shadow: 2px 2px 4px #535353;
 }
 .slide-menu a, .slide-menu a:visited, .slide-menu a:hover {
     text-decoration: none;
     color: white;
-    display: block;    
+    display: block;
     padding: 10px;
     overflow-x: hidden;
     border-bottom: 1px solid silver;
@@ -186,7 +189,7 @@ footer {
     color: #535353;
 }
 .slide-menu a.disabled {
-    background: transparent;    
+    background: transparent;
     color: #ccc;
 }
 a.slide-menu-toggle-close, a.slide-menu-toggle-close:hover {
@@ -194,7 +197,7 @@ a.slide-menu-toggle-close, a.slide-menu-toggle-close:hover {
     color: white;
     width: 40px;
     font-size: 1.2em;
-    padding: 3px;   
+    padding: 3px;
     margin-bottom: 15px;
     margin-left: 5px;
     margin-top: 7px;
@@ -205,10 +208,10 @@ a.slide-menu-toggle-open, a.slide-menu-toggle-open:hover {
     text-decoration: none;
     top: 20px;
     left: 10px;
-    font-size: 1.2em;     
+    font-size: 1.2em;
     color: white;
     margin-bottom: 10px;
-    border-bottom: none;    
+    border-bottom: none;
 }
 .slide-menu-toggle-open.no-slide-menu {
     display: none;
@@ -218,7 +221,7 @@ a.slide-menu-toggle-open, a.slide-menu-toggle-open:hover {
 
 #MainView {
     margin-top: 70px;
-    width: 100%;       
+    width: 100%;
 }
 #MainView.fixed {
     position: absolute;
@@ -227,7 +230,7 @@ a.slide-menu-toggle-open, a.slide-menu-toggle-open:hover {
     bottom: 0;
     padding-top: 10px;
     width: 100%;
-    z-index: 11;    
+    z-index: 11;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -260,7 +263,7 @@ a.slide-menu-toggle-open, a.slide-menu-toggle-open:hover {
     padding: 8px 12px;
     margin-right: 0;
     margin-left: 0;
-}   
+}
     .record-container>.row.alternate {
         background: white;
     }

@@ -17,8 +17,8 @@
   ],
   "dependencies": {
     "jquery": "~1.11.3",
-    "font-awesome": "~4.4.0",
-    "bootstrap": "~3.3.2",
+    "font-awesome": "~4.5.0",
+    "bootstrap": "~3.3.4",
     "lodash": "~3.9.3",
     "toastr": "~2.1.2",
     "angular": "~1.4.7",
@@ -26,10 +26,6 @@
     "angular-sanitize": "~1.4.7",
     "angular-touch": "~1.4.7",
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
-    "moment": "~2.10.6",
-    "fastclick": "~1.0.6",
-    "angular-aria": "~1.4.7",
-    "angular-animate": "~1.4.7"
-  },
-  "devDependencies": {}
+    "moment": "~2.10.6"
+  }
 }

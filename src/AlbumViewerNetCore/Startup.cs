@@ -45,17 +45,6 @@ namespace AlbumViewerNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            services.AddMvc().AddJsonOptions(opt =>
-            {
-                var resolver = opt.SerializerSettings.ContractResolver;
-                if (resolver != null)
-                {
-                    var res = resolver as DefaultContractResolver;
-                    res.NamingStrategy = null;
-                }
-            });
-            
             services.AddDbContext<AlbumViewerContext>(builder =>
             {
                 string useSqLite = Configuration["Data:AlbumViewer:useSqLite"];
@@ -76,17 +65,14 @@ namespace AlbumViewerNetCore
 
 
             services.AddAuthentication();
-
-            services.Configure<CorsOptions>(options =>
+            
+            services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy", builder =>
-                {
-                    builder
-                       .WithOrigins("*")
-                       .AllowAnyMethod()
-                       .AllowAnyHeader()
-                       .AllowCredentials();
-                });
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials() );
             });
 
             // Make configuration available for EF configuration
@@ -94,6 +80,17 @@ namespace AlbumViewerNetCore
             services.AddSingleton<IConfiguration>(Configuration);
 
             services.AddTransient<AlbumRepository>();
+
+            // Add framework services.
+            services.AddMvc().AddJsonOptions(opt =>
+            {
+                var resolver = opt.SerializerSettings.ContractResolver;
+                if (resolver != null)
+                {
+                    var res = resolver as DefaultContractResolver;
+                    res.NamingStrategy = null;
+                }
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -107,7 +104,7 @@ namespace AlbumViewerNetCore
                 loggerFactory.AddDebug();
             }
             else
-            {                
+            {                 
                 app.UseExceptionHandler(errorApp =>
 
                     // Application level exception handler here - this is just a place holder
@@ -138,6 +135,8 @@ namespace AlbumViewerNetCore
                 //app.UseExceptionHandler("/");
                 //app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseCors("CorsPolicy");
             
             // Enable Cookie Auth with automatic user policy
             app.UseCookieAuthentication(new CookieAuthenticationOptions()
@@ -145,7 +144,7 @@ namespace AlbumViewerNetCore
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true,
                 LoginPath = "/api/login"
-            }); 
+            });
 
             app.UseDatabaseErrorPage();
             app.UseStatusCodePages();
@@ -153,7 +152,7 @@ namespace AlbumViewerNetCore
             app.UseDefaultFiles(); // so index.html is not required
             app.UseStaticFiles();
             
-
+            // put last so header configs like CORS or Cookies etc can fire
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

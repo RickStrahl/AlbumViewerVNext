@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<html>
+  <head>
+    <base href="./" >
     <meta charset="utf-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Web Connection Albumviewer Sample Application">    
+    <meta name="description" content="Web Connection Albumviewer Sample Application">
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -16,11 +18,12 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
+
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
      <![endif]-->
 
-    <title>West Wind Album Viewer (ASP.NET Core Version)</title>
+    <title>West Wind Album Viewer</title>
     <!--<link href="css/bootstrap.css" rel="stylesheet"/>
     <link href="css/bootstrap-theme.css" rel="stylesheet"/>-->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -28,141 +31,33 @@
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
     <link href="css/albumviewer.css" rel="stylesheet" />
-</head>
-<body ng-app="app">
+  </head>
+  <body>
 
-    <div id="TitleBar">
-        <a href="#/albums">
-            <img src="images/headphone-head.png"
-                 style="height: 35px; float: left" />
-            <div style="float: left; margin-left: 5px; line-height: 1.2">
-                <i style="color: steelblue; font-size: 0.8em; font-weight: bold;">West Wind</i><br />
-                <i style="color: whitesmoke; font-size: 1.25em; font-weight: bold;">AlbumViewer</i>
-            </div>
-        </a>
-    </div>
+    <app>
+        <div id="Loader-Block" class="center-block">
 
-    <div ng-controller="headerController" ng-cloak
-         style="margin: 0; padding: 0; border: none;">
-        <div class="banner">
-            <nav id="Toolbar-Top" class="pull-right">
-                <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
-                    <img src="images/record.png" title="Albums" /> <span>Albums</span>
-                </a>
-                <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
-                    <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
-                </a>
-                <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
-                    <img src="images/gear.png" title="Options" /> <span>Options</span>
-                </a>
-            </nav>
-            <nav id="TopMenu" class="pull-right">
-                <form style="float: left; width: 140px; padding-top: 2px;">
-                    <input id="SearchBox" type="text"
-                           class="form-control" placeholder="Search..."
-                           ng-model="searchText"
-                           ng-keyup="onKey()"
-                           ng-blur="searchBlur()"
-                           ng-hide="!searchAllowed || !searchVisible">
-                </form>
-                <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed">
-                    <img src="images/search.png" /> <span>Search</span>
-                </a>
-            </nav>
+            <img src="touch-icon.png" style="height: 65px" class="pull-left"/>
+            <i class="fa fa-circle-o-notch fa-5x fa-spin"></i>
+
+            <p style="clear: both;font-size: 1.5em; margin-top: 20px;">Getting things ready...</p>
         </div>
-
-        <div ng-cloak style="margin-top: 72px; padding: 1px;">
-
-            <div id="MainView" autoscroll="true" ng-view class="slide-animation">
-            </div>
-
-            <div class="banner banner-bottom">
-                <nav id="Toolbar">
-                    <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
-                        <img src="images/record.png" title="Albums" /> <span>Albums</span>
-                    </a>
-                    <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
-                        <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
-                    </a>
-                    <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
-                        <img src="images/gear.png" title="Options" /> <span>Options</span>
-                    </a>
-                </nav>
-            </div>
-
-        </div>
-
-    </div>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="scripts/ww.jquery.min.js"></script>
-    <script src="scripts/ww.angular.js"></script>
-    <script src="bower_components/lodash/lodash.min.js"></script>
-    <script src="bower_components/fastclick/lib/fastclick.js"></script>
-    <script>
-        // hook up fast click for mobile devices - avoid 300ms delay
-        window.addEventListener('load', function () {
-            // only use FastClick for iOS
-            if (navigator.userAgent.indexOf('iPhone') ||
-                navigator.userAgent.indexOf('iPad'))
-                FastClick.attach(document.body);
-        }, false);
-
-        // enable animations on all screens for small screen sizes
-        var width = $(window).width();
-        if (width < 769)
-            // make every animation a slide animation
-            // otherwise only view/edit are
-            $("#MainView").addClass("slide-animation");
-
-        // close menu after click
-        $(".navbar-nav li a").on('click', function () {
-            if ($(window).width() < 769)
-                $(".navbar-collapse").collapse('hide');
-        });
-        $("#SearchBox").on("keydown", function (e) {
-            if ($(window).width() > 768)
-                return;
-
-            if (e.keyCode == 13 || e.keyCode == 27 || e.keyCode == 9)
-                $(".navbar-collapse").collapse('hide');
-        });
-    </script>
+    </app>
 
 
-    <!--<script src="js/angular-concat.min.js"></script>-->
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.min.js"></script>
+    <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
+   <!--<script src="bower_components/toastr/toastr.min.js"></script>-->
 
-    <!--<script src="../scripts/ww.angular.min.js"></script>-->
+    <script src="scripts/web-animations.min.js"></script>
 
-    <!--<script src="css/bootstrap.min.js"></script>-->
+    <script src="polyfills.bundle.js"></script>
+    <script src="vendor.bundle.js"></script>
+    <script src="main.bundle.js"></script>
 
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/bootstrap3-typeahead/bootstrap3-typeahead.min.js"></script>
+    <link href="bower_components/toastr/toastr.min.css" rel="stylesheet" />
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- combined app scripts - build with gulp -->
-    <!--<script src="js/app.min.js"></script>-->
 
-    <!-- Reference this first - Angular Initialization for this app -->
-    <script src="app/js/app.js"></script>
-
-    <!-- Controllers, Services, Directives etc.  (any order - angular loads these)-->
-    <script src="app/js/albumService.js"></script>
-    <script src="app/js/artistsController.js"></script>
-    <script src="app/js/artistService.js"></script>    
-    <script src="app/js/headerController.js"></script>    
-    <script src="app/js/albumsController.js"></script>
-    <script src="app/js/albumController.js"></script>
-    <script src="app/js/artistController.js"></script>
-    <script src="app/js/optionsController.js"></script>
-    <script src="app/js/loginController.js"></script>
-    
-    <script src="app/directives/errorDisplay.js"></script>   
-    <script src="app/directives/wwrtl.js"></script>     
-</body>
-
+  </body>
 </html>

@@ -13,6 +13,7 @@
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0",
+    "Microsoft.AspNetCore.Cors":  "1.0.0", 
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
     "Microsoft.Extensions.Logging": "1.0.0",
@@ -47,7 +48,10 @@
   },
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+    "compile": {
+      "exclude": [ "node_modules", "bower_components" ]
+    }
   },
 
   "runtimeOptions": {
@@ -61,7 +65,12 @@
       "Areas/**/Views",
       "appsettings.json",
       "web.config"
-    ]
+    ],
+    "exclude": [
+      "wwwroot/**.ts",
+      "node_modules"
+    ] 
+       
   },
 
   "scripts": {
