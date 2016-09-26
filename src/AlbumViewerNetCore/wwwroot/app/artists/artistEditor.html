@@ -1,0 +1,61 @@
+<div class="modal fade" id="EditModal"
+     tabindex="-1" role="dialog">
+
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel">Artist Info</h3>
+      </div>
+
+      <form name="form1"
+            action="javascript:{}" novalidate
+            #form1="ngForm"  >
+
+      <div class="modal-body">
+         <div class="form-group">
+            <label for="ArtistName">Artist Name:</label>
+            <input name="ArtistName" id="ArtistName" type="text"
+                   class="form-control input-sm"
+                   placeholder="Artist Name" required
+                   [(ngModel)]="artist.ArtistName" />
+          </div>
+
+          <div class="form-group">
+            <label for="Description">Bio:</label>
+            <textarea type="text" class="form-control input-sm"
+                      name="Description" id="Description"
+                      required
+                      style="height: 80px;"
+                      minlength="20"
+                      placeholder="Band Bio" [(ngModel)]="artist.Description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="ImageUrl">Image Url:</label>
+            <input type="text" class="form-control input-sm"
+                   id="ImageUrl" name="ImageUrl"
+                   placeholder="Image Url" [(ngModel)]="artist.ImageUrl" />
+          </div>
+          <div class="form-group">
+            <label for="AmazonUrl">Amazon Url:</label>
+            <input type="text" class="form-control input-sm"
+                   name="AmazonUrl" id="AmazonUrl"
+                   placeholder="Link to Artist Amazon Page" [(ngModel)]="artist.AmazonUrl" />
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <i class="fa fa-remove"></i> Cancel</button>
+        <button type="button" class="btn btn-primary"
+                [disabled]="form1.pristine || form1.invalid" accesskey="S"
+                (click)="saveArtist(artist)">
+          <i class="fa fa-check"></i>
+          Save changes
+        </button>
+      </div>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -11,12 +11,13 @@ using Newtonsoft.Json;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 
 namespace AlbumViewerAspNet5
 {
     
-    [ApiExceptionFilter]
+    [ApiExceptionFilter]    
     [EnableCors("CorsPolicy")]
     public class AccountController : Controller
     {
@@ -58,8 +59,8 @@ namespace AlbumViewerAspNet5
         //    }
         //}
 
-
-
+            
+        [AllowAnonymous]                    
         [HttpPost]
         [Route("api/login")]
         public async Task<bool> Login([FromBody]  User loginUser)
@@ -68,7 +69,7 @@ namespace AlbumViewerAspNet5
             var user = await accountBus.AuthenticateAndLoadUser(loginUser.Username, loginUser.Password);
 
             if (user == null)
-                throw new ApiException("Invalid Login Credential", 401);
+                throw new ApiException("Invalid Login Credentials", 401);
 
 
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
@@ -81,8 +82,9 @@ namespace AlbumViewerAspNet5
             await HttpContext.Authentication.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
 
             return true;
-        } 
+        }
 
+        [AllowAnonymous]
         [HttpGet]
         [Route("api/logout")]
         public async Task<bool> Logout()

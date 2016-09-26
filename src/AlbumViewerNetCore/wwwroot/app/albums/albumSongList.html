@@ -1,0 +1,51 @@
+<div *ngIf="allowEditing">
+  <button (click)="addTrack(track)" accesskey="a"
+          *ngIf="!isSongVisible" title="Add Song (alt-a)"
+          class="btn btn-info btn-xs" style="margin-bottom: 10px;">
+    <i class="fa fa-plus-circle"></i> Add Song
+  </button>
+
+  <div *ngIf="isSongVisible" class="well well-sm">
+
+    <div class="row">
+      <div class=" col-sm-9">
+        <input class="form-control input-sm" id="songSongName"
+               placeholder="Name of the song"
+               name="songSongName"
+               [(ngModel)]="track.SongName"/>
+
+      </div>
+      <div class="col-sm-3">
+        <input class="form-control input-sm" id="Length"
+               name="Length"
+               [(ngModel)]="track.Length"
+               placeholder="0:00"/>
+      </div>
+    </div>
+
+    <button class="btn btn-success btn-xs"
+            (click)="saveTrack(track)"
+            [disabled]="!track.SongName"
+            style="margin-top: 8px;" accesskey="">
+      <i class="fa fa-plus-circle"></i> Save Track
+    </button>
+    <button class="btn btn-default btn-xs"
+            (click)="cancelSong()"
+            style="margin-top: 8px;">
+      <i class="fa fa-times"></i> Cancel
+    </button>
+  </div>
+</div>
+
+<table class=" table table-striped small">
+  <tr *ngFor="let track of tracks">
+    <td>{{track.SongName}}</td>
+    <td>{{track.Length}}</td>
+    <td>
+      <button *ngIf="allowEditing" (click)="removeTrack(track)"
+              class="btn btn-xs btn-danger">
+        <i class="fa fa-remove"></i> Remove
+      </button>
+    </td>
+  </tr>
+</table>

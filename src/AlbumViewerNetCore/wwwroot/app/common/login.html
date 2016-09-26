@@ -1,0 +1,74 @@
+<div class="container">
+
+  <div class="page-header-text">
+    AlbumViewer Login
+  </div>
+
+  <error-display [error]="error"></error-display>
+
+  <div id="WebLogin" class="panel panel-primary">
+    <div class="panel-heading">
+      Please sign in
+    </div>
+
+
+    <form class="panel-body" name="form1" #form1="ngForm">
+      <div class="form-group">
+          <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-fw fa-user"></i>
+              </div>
+              <input type="text" name="WebLogin_txtUsername"
+                   id="WebLogin_txtUsername"
+                   class="form-control"
+                   placeholder="Enter your user name"
+                   [(ngModel)]="username"
+                   autocapitalize="off"
+                   autocomplete="off"
+                   spellcheck="false"
+                   autocorrect="off" required />
+          </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-fw fa-unlock-alt"></i>
+          </div>
+          <input type="password" name="password"
+                 id="password"
+                 class="form-control"
+                 placeholder="Enter your password"
+                 [(ngModel)]="password"
+                 autocapitalize="off"
+                 autocomplete="off"
+                 spellcheck="false"
+                 autocorrect="off"
+                 required />
+        </div>
+      </div>
+      <div class="small " >You can use: uid: test / pwd: test</div>
+      <hr />
+
+      <button class="btn btn-primary"
+              type="button"
+              (click)="login()"
+              [disabled]="form1.invalid || form1.pristine" >
+        <i class="fa fa-unlock-alt"></i>
+        Login
+      </button>
+
+      <div class="pull-right">
+        <button class="btn btn-default btn-sm pull-right" style="display:block"
+                type="button"
+                (click)="logout()" [disabled]="!user.isAuthenticated">
+          <i class="fa fa-unlock-alt"></i>
+          Logout
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

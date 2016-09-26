@@ -1,0 +1,69 @@
+<div  class="container" [@slideIn]="'in'">
+
+  <div class="btn-group" style="margin-bottom: 10px;">
+    <a href="#/artists" class="btn btn-sm btn-default">
+      <i class="fa fa-list"></i>
+      Artists</a>
+    <a (click)="editArtist()"
+       class="btn btn-sm btn-default">
+      <i class="fa fa-edit"></i>
+      Edit
+    </a>
+
+    <button (click)="deleteArtist(artist)"
+            class="btn btn-sm btn-default">
+      <i class="fa fa-remove"></i>
+      Delete
+    </button>
+  </div>
+
+  <error-display [error]="error"></error-display>
+
+
+  <h2>{{artist.ArtistName}}</h2>
+
+  <div class="separator"></div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <img [src]="artist.ImageUrl"
+           style="width: 97%; margin-bottom: 8px; border-radius: 4px; box-shadow: 2px 2px 4px #535353" />
+    </div>
+    <div class="col-sm-8 line-breaks">{{artist.Description }}</div>
+  </div>
+
+  <h3>Albums</h3>
+  <div class="separator"></div>
+
+  <div class="album" *ngFor="let album of artist.Albums" style="text-decorataion: none;"
+       (click)="albumClick(album)">
+    <div class="album-overlay">
+      <a href="#/album/edit/{{album.Id}}">
+        <i class="fa fa-edit" title="Edit"></i></a> &nbsp;
+      <a (click)="deleteAlbum(album)">
+        <i class="fa fa-remove" title="Delete"></i></a>
+    </div>
+
+    <div>
+      <img [src]="album.ImageUrl"  class="album-image" *ngIf="album.ImageUrl"  />
+      <div style="padding-left: 80px;">
+        <div class="album-title">{{album.Title}}</div>
+        <div class="album-artist">
+          {{(album.Year ? 'in ' + album.Year : '')}}
+        </div>
+        <div class="album-descript">{{album.Description}}</div>
+      </div>
+    </div>
+  </div>
+
+  <a class="btn btn-sm btn-success" href="#/album/edit/0">
+    <i class="fa fa-plus"></i>
+    Add Album
+  </a>
+
+
+
+</div>
+
+<!-- modal edit dialog -->
+<artist-editor [artist]="artist"></artist-editor>

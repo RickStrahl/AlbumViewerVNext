@@ -1,0 +1,40 @@
+<div class="container container-fluid slide-animation" [@slideIn]="'in'">
+
+    <error-display [error]="error"></error-display>
+
+    <a href="#/album/edit/0" class="btn btn-sm btn-success pull-right" (sclick)="addAlbum()"><i class="fa fa-plus"></i> Add Album</a>
+    <div class="page-header-text">
+        <i class="fa fa-list">
+        </i> Albums <span class="badge">{{filteredAlbumList.length}}</span>
+    </div>
+
+    <div class="container" *ngIf="busy">
+        <i class="fa fa-circle-o-notch fa-spin fa-5x"
+           style="display: block; text-align: center; margin-top: 70px;"></i>
+    </div>
+
+
+    <a class="album" role="button" style="text-decoration: none; color: inherit"
+         *ngFor="let album of filteredAlbumList"
+         (click)="albumClick(album)" >
+
+        <div class="album-overlay">
+            <a href="#/album/edit/{{album.Id}}">
+              <i class="fa fa-edit" title="Edit"></i>
+            </a>
+            &nbsp;
+            <a ng-click="deleteAlbum(album)">
+              <i class="fa fa-remove" title="Delete"></i>
+            </a>
+        </div>
+
+        <div>
+            <img [src]="album.ImageUrl" class="album-image" />
+            <div style="padding-left: 80px;">
+                <div class="album-title">{{album.Title}}</div>
+                <div class="album-artist">by {{album.Artist.ArtistName}} {{(album.Year ? 'in ' + album.Year : '')}}</div>
+                <div class="album-descript">{{album.Description}}</div>
+            </div>
+        </div>
+    </a>
+</div>

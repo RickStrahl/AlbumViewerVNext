@@ -142,7 +142,7 @@ namespace AlbumViewerNetCore
             app.UseCookieAuthentication(new CookieAuthenticationOptions()
             {
                 AutomaticAuthenticate = true,
-                AutomaticChallenge = true,
+                AutomaticChallenge = false,
                 LoginPath = "/api/login"
             });
 

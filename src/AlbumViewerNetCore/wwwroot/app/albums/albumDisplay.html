@@ -1,0 +1,57 @@
+<div  class="container" >
+
+  <div class="btn-group" style="margin-bottom: 10px;">
+    <a href="#/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i> Albums</a>
+    <a href="#/album/edit/{{album.Id}}" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
+    <a [href]="album.AmazonUrl" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
+
+    <a [href]="album.SpotifyUrl" class="btn btn-sm btn-default"><i class="fa fa-volume-up"></i> Listen</a>
+    <button (click)="deleteAlbum(album)" class="btn btn-sm btn-default"><i class="fa fa-remove"></i> Delete</button>
+  </div>
+
+  <div class="separator"></div>
+
+  <error-display [error]="error"></error-display>
+
+  <div class="row" [@slideIn]="'in'">
+    <div class="col-sm-3">
+      <img [src]="album.ImageUrl" *ngIf="album.ImageUrl" class="album-image-big" />
+    </div>
+    <div class="col-sm-9">
+      <h2 class="album-title-big">
+        {{album.Title}}
+      </h2>
+
+      <div class="album-artist">
+
+        by <a href="#/artist/{{album.ArtistId}}">{{album.Artist.ArtistName}}</a>
+        {{(album.Year ? 'in ' + album.Year : '')}}
+      </div>
+      <div [innerHTML]="album.Description" class="line-breaks"></div>
+
+      <div style="margin: 10px 0" class="pull-right">
+        &nbsp;
+        <a *ngIf="album.AmazonUrl" [href]="album.AmazonUrl" class="btn btn-link btn-sm" target="_amazon"><i class="fa fa-dollar"></i> Buy</a> &nbsp;&nbsp;
+        <a *ngIf="album.SpotifyUrl" [href]="album.SpotifyUrl" class="btn btn-link btn-sm" target="_spotify"><i class="fa fa-volume-up"></i> Play</a>
+      </div>
+
+
+      <album-songlist [tracks]="album.Tracks"></album-songlist>
+
+      <!--<table class=" table table-striped small">-->
+        <!--<tr *ngFor="let song of album.Tracks">-->
+          <!--<td>{{song.SongName}}</td>-->
+          <!--<td>{{song.Length}}</td>-->
+        <!--</tr>-->
+      <!--</table>-->
+
+      <hr />
+      More from
+      <a href="#/artist/{{album.ArtistId}}">
+        {{album.Artist.ArtistName}}<br />
+        <img *ngIf="album.Artist.ImageUrl" [src]="album.Artist.ImageUrl"
+             style="height: 100px; border-radius: 5px;box-shadow: 2px 2px 3px #535353" />
+      </a>
+    </div>
+  </div>
+</div>

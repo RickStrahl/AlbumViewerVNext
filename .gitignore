@@ -41,9 +41,11 @@ __*.htm
 src/AlbumViewerVNext/wwwroot/web.config__X
 thumbs.db
 .vs
+dist
 /AlbumViewerVnext.azurewebsites.net.PublishSettings
 src/AlbumViewerAspNet5/project.lock.json
 publishprofile.xml
+.idea
 .vs
 .vs/config/applicationhost.config
 AlbumViewer.publishsettings
