@@ -228,7 +228,7 @@ Websurge-Request-Name: Logout
   "ReplaceCookieValue": null,
   "ReplaceAuthorization": null,
   "ReplaceQueryStringValuePairs": null,
-  "ReplaceDomain": "localhost/albumviewerCore",
+  "ReplaceDomain": "localhost:5000",
   "Username": null,
   "Password": "",
   "RandomizeRequests": false,

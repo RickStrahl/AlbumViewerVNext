@@ -46,35 +46,15 @@ namespace AlbumViewerAspNet5
         [Route("api/albums")]
         public async Task<IEnumerable<Album>> Albums(int page = -1, int pageSize = 15)
         {
-            IQueryable<Album> enumResult = context.Albums
-                .Include(ctx => ctx.Tracks)
-                .Include(ctx => ctx.Artist)
-                .OrderBy(alb => alb.Title);
-
-            if (page > 0)
-            {
-                enumResult = enumResult
-                                .Skip( (page - 1)  * pageSize)
-                                .Take(pageSize);
-            }
-
-            //return await enumResult.ToListAsync();
-
-            // faster RTM
-            return enumResult;      
+            var repo = new AlbumRepository(context);
+            return await repo.GetAllAlbums(page, pageSize);
         }
 
         [HttpGet("api/album/{id:int}")]
         public async Task<Album> Album(int id)
         {
-            // var contextAlbums = new AlbumViewerContext(serviceProvider);
-            var albums = context.Albums
-                                .Include(ctx => ctx.Artist)
-                                .Include(ctx => ctx.Tracks)
-                                .Where(alb => alb.Id == id);
-
-            return albums.FirstOrDefault();
-            //return await albums.FirstOrDefaultAsync();
+            var repo = new AlbumRepository(context);
+            return await repo.Load(id);
         }
 
         [HttpPost("api/album")]
@@ -95,35 +75,21 @@ namespace AlbumViewerAspNet5
         [Route("api/artists")]
         public async Task<IEnumerable> Artists()
         {
-            var artists = await context.Artists
-                .OrderBy(art => art.ArtistName)
-                .Select(art => new ArtistWithAlbum()
-                {
-                    ArtistName = art.ArtistName,
-                    Description = art.Description,
-                    ImageUrl = art.ImageUrl,
-                    Id = art.Id,
-                    AmazonUrl = art.AmazonUrl,
-                    AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
-                })
-                .ToAsyncEnumerable()
-                .ToList();
-
-            return artists;
+            var repo = new ArtistRepository(context);
+            return  await repo.GetAllArtists();
         }
 
         [HttpGet("api/artist/{id:int}")]
         public async Task<object> Artist(int id)
         {
-            var artist = context.Artists
-                .FirstOrDefault(art => art.Id == id);
+            var repo = new ArtistRepository(context);
+
+            var artist = await repo.Load(id);
 
             if (artist == null)
                 throw new ApiException("Invalid artist id.", 404);
 
-            var albums = await context.Albums
-                            .Where(alb => alb.ArtistId == id)
-                            .ToAsyncEnumerable().ToList();
+            var albums = await repo.GetAlbumsForArtist(id);
 
             return new ArtistResponse()
             {
@@ -138,8 +104,9 @@ namespace AlbumViewerAspNet5
             if (!HttpContext.User.Identity.IsAuthenticated)
                 throw new ApiException("You have to be logged in to modify data",401);
 
-            var db = new AlbumRepository(context);
-            var artist = await db.SaveArtist(postedArtist);
+            var artistRepo = new ArtistRepository(context);            
+
+            var artist = await artistRepo.SaveArtist(postedArtist);
 
             if (artist == null)
                 throw new ApiException("Unable to save artist.");
@@ -147,10 +114,7 @@ namespace AlbumViewerAspNet5
             return new ArtistResponse()
             {
                 Artist = artist,
-                Albums = await db.Context.Albums
-                    .Include(a=> a.Tracks)
-                    .Include(a=> a.Artist)            
-                    .Where(a => a.ArtistId == artist.Id).ToListAsync()
+                Albums = await artistRepo.GetAlbumsForArtist(artist.Id)
             };
         }
 
@@ -160,19 +124,9 @@ namespace AlbumViewerAspNet5
             if (string.IsNullOrEmpty(search))
                 return new List<object>();
             
-            var db = new AlbumRepository(context);
-
+            var repo = new ArtistRepository(context);
             var term = search.ToLower();
-            var artists = await db.Context.Artists
-                                  .Where(a => a.ArtistName.ToLower().StartsWith(term))
-                                  .Select(a => new
-                                  {
-                                      name = a.ArtistName,
-                                      id = a.ArtistName
-                                  })
-                                  .ToAsyncEnumerable().ToList();
-
-            return artists;
+            return await repo.ArtistLookup(term);            
         }
 
 
@@ -196,8 +150,8 @@ namespace AlbumViewerAspNet5
                 throw new ApiException("You have to be logged in to modify data", 401);
 
 
-            var db = new AlbumRepository(context);
-            return await db.DeleteArtist(id);
+            var repo = new ArtistRepository(context);
+            return await repo.DeleteArtist(id);
         }
 
 
@@ -231,10 +185,7 @@ namespace AlbumViewerAspNet5
         public List<Album> Albums { get; set; }
     }
 
-    public class ArtistWithAlbum : Artist
-    {
-        public int AlbumCount { get; set; }
-    }
+
     #endregion
 }
 

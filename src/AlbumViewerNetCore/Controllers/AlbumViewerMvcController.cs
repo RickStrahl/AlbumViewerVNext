@@ -5,6 +5,7 @@ using System.Linq;
 
 using System.Reflection;
 using System.Threading.Tasks;
+using AlbumViewerAspNet5;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -43,16 +44,37 @@ namespace MusicStoreVNext
             return View("Albums", result);
         }
 
-        [HttpGet]
+
+        [Route("album/{id:int}")]
         public async Task<ActionResult> Album(int id)
         {
-            var album = await context.Albums
-                .Include(a => a.Tracks)
-                .Include(a => a.Artist)
-                .FirstOrDefaultAsync(alb => alb.Id == id);
+            var albumRepo = new AlbumRepository(context);
+            var album = albumRepo.Load(id);
 
-            return View(album);
+            return View("Album", album);
         }
+
+        [Route("artists")]
+        public async Task<ActionResult> Artists()
+        {
+            var artists = await context.Artists
+               .OrderBy(art => art.ArtistName)
+               .Select(art => new ArtistWithAlbum()
+               {
+                   ArtistName = art.ArtistName,
+                   Description = art.Description,
+                   ImageUrl = art.ImageUrl,
+                   Id = art.Id,
+                   AmazonUrl = art.AmazonUrl,
+                   AlbumCount = context.Albums.Count(alb => alb.ArtistId == art.Id)
+               })
+               .ToAsyncEnumerable()
+               .ToList();
+
+            return View("Artists", artists);
+        }
+
+ 
 
         [HttpGet,HttpPost]
         public ActionResult TagHelpers(Album album = null)

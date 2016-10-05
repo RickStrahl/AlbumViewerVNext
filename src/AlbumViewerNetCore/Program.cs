@@ -17,12 +17,19 @@ namespace AlbumViewerNetCore
                 .AddCommandLine(args)
                 .Build();
 
+
+            var hostUrl = configuration["hosturl"];
+            if (string.IsNullOrEmpty(hostUrl))
+                hostUrl = "http://0.0.0.0:5000";
+
+
             var host = new WebHostBuilder()
-                .UseKestrel()
+                .UseConfiguration(configuration)
+                .UseUrls(hostUrl)
                 .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseKestrel()
                 .UseIISIntegration()
                 .UseStartup<Startup>()
-                .UseConfiguration(configuration)
                 .Build();
 
             host.Run();

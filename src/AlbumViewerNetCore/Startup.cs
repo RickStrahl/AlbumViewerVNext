@@ -65,14 +65,16 @@ namespace AlbumViewerNetCore
 
 
             services.AddAuthentication();
-            
+
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
+                    builder => builder
+                    .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
-                    .AllowCredentials() );
+                    .AllowCredentials());
             });
 
             // Make configuration available for EF configuration
@@ -91,6 +93,7 @@ namespace AlbumViewerNetCore
                     res.NamingStrategy = null;
                 }
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -136,7 +139,7 @@ namespace AlbumViewerNetCore
                 //app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseCors("CorsPolicy");
+            //app.UseCors("CorsPolicy");
             
             // Enable Cookie Auth with automatic user policy
             app.UseCookieAuthentication(new CookieAuthenticationOptions()
@@ -145,6 +148,9 @@ namespace AlbumViewerNetCore
                 AutomaticChallenge = false,
                 LoginPath = "/api/login"
             });
+
+            // global policy - assign here or on each controller
+            app.UseCors("CorsPolicy");
 
             app.UseDatabaseErrorPage();
             app.UseStatusCodePages();
@@ -160,10 +166,10 @@ namespace AlbumViewerNetCore
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            
 
             bool result = AlbumViewerDataImporter.EnsureAlbumData(albumContext,
-                           Path.Combine(env.WebRootPath, "data//albums.js"));
-
+                           Path.Combine(env.WebRootPath, "App_Data/albums.js"));
 
         }
     }

@@ -163,8 +163,6 @@ export class ErrorInfo {
   }
 
   parseObservableResponseError(response):Observable<any> {
-
-    debugger;
     if (response.hasOwnProperty("message"))
       return Observable.throw(response);
     if (response.hasOwnProperty("Message")) {
@@ -182,6 +180,9 @@ export class ErrorInfo {
         err.message = data.message;
     }
     catch(ex) { }
+
+    if (!err.message)
+      err.message = "Unknown server failure.";
 
     return Observable.throw(err);
   }

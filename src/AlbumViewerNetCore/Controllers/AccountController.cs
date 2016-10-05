@@ -33,11 +33,6 @@ namespace AlbumViewerAspNet5
      
         }
 
-        //public override void OnActionExecuting(ActionExecutingContext context)
-        //{
-        //    Response.Headers.Add("Access-Control-Allow-Origin", new string[] { "*" });
-        //    base.OnActionExecuting(context);
-        //}
 
 
         //public override void OnActionExecuted(ActionExecutedContext context)

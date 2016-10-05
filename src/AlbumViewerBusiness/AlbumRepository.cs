@@ -1,6 +1,8 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Westwind.BusinessObjects;
@@ -13,7 +15,58 @@ namespace AlbumViewerBusiness
         public AlbumRepository(AlbumViewerContext context)
             : base(context)
         { }
-        
+
+
+        /// <summary>
+        /// Loads and individual album
+        /// </summary>
+        /// <param name="objId"></param>
+        /// <returns></returns>
+        public override async Task<Album> Load(object objId)
+        {            
+            Album album = null;
+            try
+            {
+                int id = (int) objId;
+                album = await Context.Albums
+                    .Include(ctx => ctx.Tracks)
+                    .Include(ctx => ctx.Artist)
+                    .FirstOrDefaultAsync(alb => alb.Id == id);
+            }
+            catch (InvalidOperationException)
+            {
+                // Handles errors where an invalid Id was passed, but SQL is valid                
+                SetError("Couldn't load entity...");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                // handles Sql errors                                
+                SetError(ex);
+            }
+
+            return album;
+        }
+
+
+
+        public async Task<List<Album>> GetAllAlbums(int page, int pageSize = 15)
+        {
+            IQueryable<Album> enumResult = Context.Albums
+                .Include(ctx => ctx.Tracks)
+                .Include(ctx => ctx.Artist)
+                .OrderBy(alb => alb.Title);
+
+            if (page > 0)
+            {
+                enumResult = enumResult
+                                .Skip((page - 1) * pageSize)
+                                .Take(pageSize);
+            }
+
+            return await enumResult.ToListAsync();
+        }
+
         public async Task<Album> SaveAlbum(Album postedAlbum)
         {
             int id = postedAlbum.Id;            
@@ -129,59 +182,6 @@ namespace AlbumViewerBusiness
             var result = await SaveAsync();
 
             return result;
-        }
-
-        /// <summary>
-        /// Pass in an external instance of an artist and either
-        /// update or create that artist as an instance
-        /// </summary>
-        /// <param name="postedArtist"></param>
-        /// <returns></returns>
-        public async Task<Artist> SaveArtist(Artist postedArtist)
-        {
-            int id = postedArtist.Id;
-
-            Artist artist;
-            if (id < 1)
-                artist = Create<Artist>();
-            else
-            {
-                artist = Context.Artists.FirstOrDefault(a => a.Id == id);
-                if (artist == null)
-                    artist = Create<Artist>();
-            }
-
-            DataUtils.CopyObjectData(postedArtist, artist, "Id");
-
-            if (!await SaveAsync())
-                return null;
-
-            return artist;
-        }
-
-        public async Task<bool> DeleteArtist(int id)
-        {
-            var artist = await Context.Artists.FirstOrDefaultAsync(art => art.Id == id);
-
-            // already gone
-            if (artist == null)
-                return true;
-
-            var albumIds = await Context.Albums.Where(alb => alb.ArtistId == id).Select(alb => alb.Id).ToListAsync();
-            
-
-            foreach (var albumId in albumIds)
-            {
-                // don't run async or we get p
-                bool result = await DeleteAlbum(albumId);
-                if (!result)
-                    return false;
-            }
-
-            Context.Artists.Remove(artist);
-
-            return await this.SaveAsync();
-            
         }
 
     }

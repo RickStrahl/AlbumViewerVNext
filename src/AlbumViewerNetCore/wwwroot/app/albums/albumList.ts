@@ -66,7 +66,6 @@ export class AlbumList implements OnInit {
         setTimeout(()=> $("#MainView").scrollTop(this.albumService.listScrollPos) , 100);
       },
         (err) => {
-          debugger;
           this.error.error(err);
           this.busy = false;});
   }

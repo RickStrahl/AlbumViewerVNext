@@ -62,7 +62,11 @@ namespace AlbumViewerBusiness
         //public List<Album> Albums { get; set; }
     }
 
-    
+    public class ArtistWithAlbum : Artist
+    {
+        public int AlbumCount { get; set; }
+    }
+
     public class Track
     {
         public int Id { get; set; }

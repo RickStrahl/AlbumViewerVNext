@@ -20,9 +20,9 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-    "Microsoft.EntityFrameworkCore": "1.0.0",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
-    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0",
+    "Microsoft.EntityFrameworkCore": "1.0.1",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
+    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.1",
     "AlbumViewerBusiness": "1.0.0-*",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0",
@@ -44,7 +44,7 @@
     }
   },
   "commands": {
-    "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://0.0.0.0:5001"
+    "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://0.0.0.0:5000"
   },
   "buildOptions": {
     "emitEntryPoint": true,
