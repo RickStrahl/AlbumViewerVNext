@@ -59,7 +59,7 @@ namespace MusicStoreVNext
         {
             var artists = await context.Artists
                .OrderBy(art => art.ArtistName)
-               .Select(art => new ArtistWithAlbum()
+               .Select(art => new ArtistWithAlbumCount()
                {
                    ArtistName = art.ArtistName,
                    Description = art.Description,

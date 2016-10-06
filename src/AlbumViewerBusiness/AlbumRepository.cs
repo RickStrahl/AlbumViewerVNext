@@ -25,32 +25,31 @@ namespace AlbumViewerBusiness
         /// </summary>
         /// <param name="objId">Album Id</param>
         /// <returns></returns>
-        public override async Task<Album> Load(object albumId)
-        {            
-            
-            Album album = null;
-            try
-            {
-                int id = (int) albumId;
-                album = await Context.Albums
-                    .Include(ctx => ctx.Tracks)
-                    .Include(ctx => ctx.Artist)
-                    .FirstOrDefaultAsync(alb => alb.Id == id);
-            }
-            catch (InvalidOperationException)
-            {
-                // Handles errors where an invalid Id was passed, but SQL is valid                
-                SetError("Couldn't load entity...");
-                return null;
-            }
-            catch (Exception ex)
-            {
-                // handles Sql errors                                
-                SetError(ex);
-            }
+public override async Task<Album> Load(object albumId)
+{                        
+    Album album = null;
+    try
+    {
+        int id = (int) albumId;
+        album = await Context.Albums
+            .Include(ctx => ctx.Tracks)
+            .Include(ctx => ctx.Artist)
+            .FirstOrDefaultAsync(alb => alb.Id == id);
+    }
+    catch (InvalidOperationException)
+    {
+        // Handles errors where an invalid Id was passed, but SQL is valid                
+        SetError("Couldn't load album - invalid album id specified.");
+        return null;
+    }
+    catch (Exception ex)
+    {
+        // handles Sql errors                                
+        SetError(ex);
+    }
 
-            return album;
-        }
+    return album;
+}
 
 
 

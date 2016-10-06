@@ -27,7 +27,7 @@ namespace AlbumViewerAspNet5
         IServiceProvider serviceProvider;
 
         ArtistRepository ArtistRepo;
-        private AlbumRepository AlbumRepo;
+        AlbumRepository AlbumRepo;
         
         public AlbumViewerApiController(AlbumViewerContext ctx, IServiceProvider svcProvider,
             ArtistRepository artistRepo, AlbumRepository albumRepo)
@@ -58,11 +58,11 @@ namespace AlbumViewerAspNet5
             return await AlbumRepo.GetAllAlbums(page, pageSize);
         }
 
-        [HttpGet("api/album/{id:int}")]
-        public async Task<Album> GetAlbum(int id)
-        {            
-            return await AlbumRepo.Load(id);
-        }
+[HttpGet("api/album/{id:int}")]
+public async Task<Album> GetAlbum(int id)
+{            
+    return await AlbumRepo.Load(id);
+}
 
         [HttpPost("api/album")]
         public async Task<Album> PostAlbum([FromBody] Album postedAlbum)

@@ -403,6 +403,8 @@ namespace Westwind.BusinessObjects
         /// <returns></returns>
         public virtual bool Validate(TEntity entity)
         {
+            ValidationErrors.Clear();
+
             bool isValid = OnValidate(entity);
             if (!isValid)
                 SetError(ValidationErrors.ToString());
@@ -491,8 +493,8 @@ namespace Westwind.BusinessObjects
             // if (validationRuleFailed)
             //    ValidationErrors.Add("Error Message","object id");
             // return ValidationErrors.Count < 1;  // true - validate succeeds
-        
-            return true;
+
+            return ValidationErrors.Count < 1;
         }
         #endregion
 

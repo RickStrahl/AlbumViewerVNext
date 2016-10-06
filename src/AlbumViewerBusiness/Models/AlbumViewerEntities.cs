@@ -38,7 +38,7 @@ public class Artist
     //public List<Album> Albums { get; set; }
 }
 
-public class ArtistWithAlbum : Artist
+public class ArtistWithAlbumCount : Artist
 {
     public int AlbumCount { get; set; }
 }
