@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
+using Westwind.Utilities;
 
 namespace AlbumViewerAspNet5
 {
@@ -17,7 +18,8 @@ namespace AlbumViewerAspNet5
                 var ex = context.Exception as ApiException;
                 context.Exception = null;
                 var apiError = new ApiError(ex.Message);
-
+                apiError.errors = ex.Errors;
+                
                 context.HttpContext.Response.StatusCode = ex.StatusCode;
                 context.Result = new JsonResult(apiError);
             }

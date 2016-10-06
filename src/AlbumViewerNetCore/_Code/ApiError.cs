@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Westwind.Utilities;
 
 namespace AlbumViewerAspNet5
 {
@@ -11,7 +12,7 @@ namespace AlbumViewerAspNet5
         public bool isError { get; set; }
         public string message { get; set; }
         public string detail { get; set; }
-        public Dictionary<string, string> errors { get; set; }
+        public ValidationErrorCollection errors { get; set; }
 
 		public ApiError(string message)
         {
