@@ -36,7 +36,6 @@ namespace AlbumViewerNetCore
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             
-
             Configuration = builder.Build();
         }
 
@@ -49,8 +48,7 @@ namespace AlbumViewerNetCore
             {
                 string useSqLite = Configuration["Data:AlbumViewer:useSqLite"];
                 if (useSqLite != "true")
-                {
-                    // NOTE: This requires a Constructor that has a DbContextOptions parameter
+                {                    
                     var connStr = Configuration["Data:AlbumViewer:SqlServerConnectionString"];
                     builder.UseSqlServer(connStr);
                 }
@@ -82,6 +80,9 @@ namespace AlbumViewerNetCore
             services.AddSingleton<IConfiguration>(Configuration);
 
             services.AddTransient<AlbumRepository>();
+            services.AddTransient<ArtistRepository>();
+            services.AddTransient<AccountRepository>();
+
 
             // Add framework services.
             services.AddMvc().AddJsonOptions(opt =>
@@ -168,8 +169,8 @@ namespace AlbumViewerNetCore
 
             
 
-            bool result = AlbumViewerDataImporter.EnsureAlbumData(albumContext,
-                           Path.Combine(env.WebRootPath, "App_Data/albums.js"));
+            AlbumViewerDataImporter.EnsureAlbumData(albumContext,
+                Path.Combine(env.WebRootPath, "App_Data/albums.js"));
 
         }
     }

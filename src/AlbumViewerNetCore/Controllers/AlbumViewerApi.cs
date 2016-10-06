@@ -25,12 +25,20 @@ namespace AlbumViewerAspNet5
     {
         AlbumViewerContext context;
         IServiceProvider serviceProvider;
-       
-        public AlbumViewerApiController(AlbumViewerContext ctx, IServiceProvider svcProvider)
+
+        ArtistRepository ArtistRepo;
+        private AlbumRepository AlbumRepo;
+        
+        public AlbumViewerApiController(AlbumViewerContext ctx, IServiceProvider svcProvider,
+            ArtistRepository artistRepo, AlbumRepository albumRepo)
         {
             context = ctx;
             serviceProvider = svcProvider;
+
+            AlbumRepo = albumRepo;
+            ArtistRepo = artistRepo;
         }
+
         [HttpGet]
         [Route("api/helloworld")]
         public object HelloWorld(string name = null)
@@ -44,52 +52,54 @@ namespace AlbumViewerAspNet5
 
         [HttpGet]
         [Route("api/albums")]
-        public async Task<IEnumerable<Album>> Albums(int page = -1, int pageSize = 15)
+        public async Task<IEnumerable<Album>> GetAlbums(int page = -1, int pageSize = 15)
         {
-            var repo = new AlbumRepository(context);
-            return await repo.GetAllAlbums(page, pageSize);
+            //var repo = new AlbumRepository(context);
+            return await AlbumRepo.GetAllAlbums(page, pageSize);
         }
 
         [HttpGet("api/album/{id:int}")]
-        public async Task<Album> Album(int id)
-        {
-            var repo = new AlbumRepository(context);
-            return await repo.Load(id);
+        public async Task<Album> GetAlbum(int id)
+        {            
+            return await AlbumRepo.Load(id);
         }
 
         [HttpPost("api/album")]
-        public async Task<Album> Album([FromBody] Album postedAlbum)
+        public async Task<Album> PostAlbum([FromBody] Album postedAlbum)
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
                 throw new ApiException("You have to be logged in to modify data", 401);
 
             if (!ModelState.IsValid)            
-                throw new ApiException("Model binding failed.",500);
+                throw new ApiException("Model binding failed.",500);           
 
-            var albumRepo = new AlbumRepository(context);
-            return await albumRepo.SaveAlbum(postedAlbum);
+            if (!AlbumRepo.Validate(postedAlbum))
+                throw new ApiException(AlbumRepo.ErrorMessage,500,AlbumRepo.ValidationErrors);
+            
+            var album = await AlbumRepo.SaveAlbum(postedAlbum);
+            if (album == null)
+                throw new  ApiException(AlbumRepo.ErrorMessage,500);
+
+            return album;
         }
 
 
         [HttpGet]
         [Route("api/artists")]
-        public async Task<IEnumerable> Artists()
-        {
-            var repo = new ArtistRepository(context);
-            return  await repo.GetAllArtists();
+        public async Task<IEnumerable> GetArtists()
+        {            
+            return  await ArtistRepo.GetAllArtists();
         }
 
         [HttpGet("api/artist/{id:int}")]
         public async Task<object> Artist(int id)
         {
-            var repo = new ArtistRepository(context);
-
-            var artist = await repo.Load(id);
+            var artist = await ArtistRepo.Load(id);
 
             if (artist == null)
                 throw new ApiException("Invalid artist id.", 404);
 
-            var albums = await repo.GetAlbumsForArtist(id);
+            var albums = await ArtistRepo.GetAlbumsForArtist(id);
 
             return new ArtistResponse()
             {
@@ -104,9 +114,8 @@ namespace AlbumViewerAspNet5
             if (!HttpContext.User.Identity.IsAuthenticated)
                 throw new ApiException("You have to be logged in to modify data",401);
 
-            var artistRepo = new ArtistRepository(context);            
-
-            var artist = await artistRepo.SaveArtist(postedArtist);
+            
+            var artist = await ArtistRepo.SaveArtist(postedArtist);
 
             if (artist == null)
                 throw new ApiException("Unable to save artist.");
@@ -114,7 +123,7 @@ namespace AlbumViewerAspNet5
             return new ArtistResponse()
             {
                 Artist = artist,
-                Albums = await artistRepo.GetAlbumsForArtist(artist.Id)
+                Albums = await ArtistRepo.GetAlbumsForArtist(artist.Id)
             };
         }
 
@@ -135,10 +144,8 @@ namespace AlbumViewerAspNet5
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
                 throw new ApiException("You have to be logged in to modify data", 401);
-
-
-            var db = new AlbumRepository(context);
-            return await db.DeleteAlbum(id);
+            
+            return await AlbumRepo.DeleteAlbum(id);
         }
 
 
@@ -149,9 +156,7 @@ namespace AlbumViewerAspNet5
             if (!HttpContext.User.Identity.IsAuthenticated)
                 throw new ApiException("You have to be logged in to modify data", 401);
 
-
-            var repo = new ArtistRepository(context);
-            return await repo.DeleteArtist(id);
+            return await ArtistRepo.DeleteArtist(id);
         }
 
 
@@ -160,17 +165,15 @@ namespace AlbumViewerAspNet5
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
                 throw new ApiException("You have to be logged in to modify data", 401);
-
-            var repo = new AlbumRepository(context);
-
+            
             var pks = await context.Albums.Where(alb => alb.Title == name).Select(alb => alb.Id).ToAsyncEnumerable().ToList();
 
             StringBuilder sb = new StringBuilder();
             foreach (int pk in pks)
             {
-                bool result = await repo.DeleteAlbum(pk);
+                bool result = await AlbumRepo.DeleteAlbum(pk);
                 if (!result)
-                    sb.AppendLine(repo.ErrorMessage);
+                    sb.AppendLine(AlbumRepo.ErrorMessage);
             }
 
             return sb.ToString();
@@ -183,9 +186,7 @@ namespace AlbumViewerAspNet5
         public Artist Artist { get; set; }
 
         public List<Album> Albums { get; set; }
-    }
-
-
+    }    
     #endregion
 }
 

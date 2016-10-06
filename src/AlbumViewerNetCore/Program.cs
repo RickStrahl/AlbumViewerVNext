@@ -22,10 +22,11 @@ namespace AlbumViewerNetCore
             if (string.IsNullOrEmpty(hostUrl))
                 hostUrl = "http://0.0.0.0:5000";
 
+            
 
             var host = new WebHostBuilder()
                 .UseConfiguration(configuration)
-                .UseUrls(hostUrl)
+                //.UseUrls(hostUrl)
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseKestrel()
                 .UseIISIntegration()

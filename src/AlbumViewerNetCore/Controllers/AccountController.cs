@@ -23,17 +23,17 @@ namespace AlbumViewerAspNet5
     {
         AlbumViewerContext context;
         IServiceProvider serviceProvider;
+        private AccountRepository accountRepo;
 
         public AccountController(AlbumViewerContext ctx, 
-            IServiceProvider svcProvider)
-            //SignInManager<User> signInManager)
+            IServiceProvider svcProvider, 
+            AccountRepository actRepo)            
         {
             context = ctx;
             serviceProvider = svcProvider;
-     
+            accountRepo = actRepo;
         }
-
-
+        
 
         //public override void OnActionExecuted(ActionExecutedContext context)
         //{
@@ -59,9 +59,8 @@ namespace AlbumViewerAspNet5
         [HttpPost]
         [Route("api/login")]
         public async Task<bool> Login([FromBody]  User loginUser)
-        {
-            var accountBus = new AccountRepository(context);
-            var user = await accountBus.AuthenticateAndLoadUser(loginUser.Username, loginUser.Password);
+        {            
+            var user = await accountRepo.AuthenticateAndLoadUser(loginUser.Username, loginUser.Password);
 
             if (user == null)
                 throw new ApiException("Invalid Login Credentials", 401);
@@ -84,17 +83,15 @@ namespace AlbumViewerAspNet5
         [Route("api/logout")]
         public async Task<bool> Logout()
         {
-            await HttpContext.Authentication.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            //await signinManager.SignOutAsync();
+            await HttpContext.Authentication.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);            
             return true;
         }
 
         [HttpGet]
         [Route("api/isAuthenticated")]
         public async Task<bool> IsAuthenthenticated()
-        {
-            //throw new ApiException("User is not validated.",401);
-            return this.User.Identity.IsAuthenticated;
+        {            
+            return User.Identity.IsAuthenticated;
         }
 
     }

@@ -14,7 +14,7 @@ namespace AlbumViewerBusiness
         public AccountRepository(AlbumViewerContext context)
             : base(context)
         { }
-
+        
         public async Task<bool> Authenticate(string username, string password)
         {
             // TODO: Do proper password hashing - for now DEMO CODE 

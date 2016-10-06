@@ -265,6 +265,10 @@ namespace Westwind.BusinessObjects
             if (!OnBeforeSave(entity))
                 return false;
 
+            if (AutoValidate && !Validate(entity))
+                return false;
+
+
             int result = await Context.SaveChangesAsync();
 
             if (result == -1)
@@ -282,7 +286,11 @@ namespace Westwind.BusinessObjects
         /// <returns></returns>
         public bool Save(TEntity entity = null)
         {
+            
             if (!OnBeforeSave(entity))
+                return false;
+
+            if (AutoValidate && !Validate(entity))
                 return false;
 
             try
@@ -380,27 +388,27 @@ namespace Westwind.BusinessObjects
 
             return true;
         }
-
-
-
         #endregion
 
 
 
         #region validation
 
-        public bool Validate(TEntity entity)
+        /// <summary>
+        /// Override this method to validate your business object.
+        /// Set Validation Errors and return true or false from
+        /// this method to indicate success or failure.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public virtual bool Validate(TEntity entity)
         {
-            bool result = OnValidate<TEntity>(entity);
-            return result;
-        }
+            bool isValid = OnValidate(entity);
+            if (!isValid)
+                SetError(ValidationErrors.ToString());
 
-        public bool Validate<T>(T entity = null)
-            where T : class, new()
-        {
-            bool result = OnValidate<T>(entity);
-            return result;
-        }
+            return isValid;
+        }        
         #endregion
 
 
@@ -477,8 +485,13 @@ namespace Westwind.BusinessObjects
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
         /// <returns></returns>
-        protected bool OnValidate<T>(T entity)
+        protected virtual bool OnValidate(TEntity entity)
         {
+            // *** typical use case
+            // if (validationRuleFailed)
+            //    ValidationErrors.Add("Error Message","object id");
+            // return ValidationErrors.Count < 1;  // true - validate succeeds
+        
             return true;
         }
         #endregion

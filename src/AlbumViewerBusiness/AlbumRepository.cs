@@ -16,18 +16,22 @@ namespace AlbumViewerBusiness
             : base(context)
         { }
 
-
+        
         /// <summary>
-        /// Loads and individual album
+        /// Loads and individual album.
+        /// 
+        /// Implementation is custom not using base.Load()
+        /// in order to include related entities
         /// </summary>
-        /// <param name="objId"></param>
+        /// <param name="objId">Album Id</param>
         /// <returns></returns>
-        public override async Task<Album> Load(object objId)
+        public override async Task<Album> Load(object albumId)
         {            
+            
             Album album = null;
             try
             {
-                int id = (int) objId;
+                int id = (int) albumId;
                 album = await Context.Albums
                     .Include(ctx => ctx.Tracks)
                     .Include(ctx => ctx.Artist)
@@ -50,39 +54,44 @@ namespace AlbumViewerBusiness
 
 
 
-        public async Task<List<Album>> GetAllAlbums(int page, int pageSize = 15)
+        public async Task<List<Album>> GetAllAlbums(int page = 0, int pageSize = 15)
         {
-            IQueryable<Album> enumResult = Context.Albums
+            IQueryable<Album> albums = Context.Albums
                 .Include(ctx => ctx.Tracks)
                 .Include(ctx => ctx.Artist)
                 .OrderBy(alb => alb.Title);
 
             if (page > 0)
             {
-                enumResult = enumResult
+                albums = albums
                                 .Skip((page - 1) * pageSize)
                                 .Take(pageSize);
             }
 
-            return await enumResult.ToListAsync();
+            return await albums.ToListAsync();
         }
 
+        /// <summary>
+        /// This code is rather complex as EF7 can't work out
+        /// the related entity updates for artist and tracks, 
+        /// so this code manually  updates artists and tracks 
+        /// from the saved entity using code.
+        /// </summary>
+        /// <param name="postedAlbum"></param>
+        /// <returns></returns>
         public async Task<Album> SaveAlbum(Album postedAlbum)
         {
             int id = postedAlbum.Id;            
             
-            Album album = null;
+            Album album;
+
             if (id < 1)
-            {
-                album = new Album();
-                Context.Albums.Add(album);
-            }
+                album = Create();
             else
             {
-                album = await Context.Albums
-                    .Include(ctx => ctx.Tracks)
-                    .Include(ctx => ctx.Artist)
-                    .SingleOrDefaultAsync(alb => alb.Id == id);
+                album = await Load(id);
+                if (album == null)
+                    album = Create();
             }
 
             // check for existing artist and assign if matched
@@ -100,15 +109,9 @@ namespace AlbumViewerBusiness
             if (album.Artist.Id < 1)
                 Context.Artists.Add(album.Artist);
             
-            //result = Context.SaveChanges();
-
             album.ArtistId = album.Artist.Id;
             DataUtils.CopyObjectData(postedAlbum, album, "Tracks,Artist,Id,ArtistId");
            
-            //result = Context.SaveChanges();
-
-            int albumId = album.Id;
-
             foreach (var postedTrack in postedAlbum.Tracks)
             {
                 var track = album.Tracks.FirstOrDefault(trk => trk.Id == postedTrack.Id);
@@ -119,8 +122,7 @@ namespace AlbumViewerBusiness
                     track = new Track();
                     Context.Tracks.Add(track);
                     DataUtils.CopyObjectData(postedTrack, track, "Id,AlbumId,ArtistId");
-                    album.Tracks.Add(track);
-                    //track.AlbumId = albumId;
+                    album.Tracks.Add(track);                    
                 }
                 
             }
@@ -155,6 +157,7 @@ namespace AlbumViewerBusiness
             return album;
         }                
 
+
         public async Task<bool> DeleteAlbum(int id)
         {
             // manually delete tracks
@@ -182,6 +185,24 @@ namespace AlbumViewerBusiness
             var result = await SaveAsync();
 
             return result;
+        }
+
+        protected override bool OnValidate(Album entity)
+        {
+            if (entity == null)
+            {
+                ValidationErrors.Add("No item was passed.");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(entity.Title))
+                ValidationErrors.Add("Please enter a title for this album.","Title");
+            else if(string.IsNullOrEmpty(entity.Description) || entity.Description.Length < 30)
+                ValidationErrors.Add("Please provide a description of at least 30 characters.");
+            else if (entity.Tracks.Count < 1)
+                ValidationErrors.Add("Album must have at least one song associated.");
+
+            return ValidationErrors.Count < 1;
         }
 
     }

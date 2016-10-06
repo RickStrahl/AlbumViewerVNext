@@ -41,8 +41,7 @@ namespace Westwind.Utilities
 	/// Object that holds a single Validation Error for the business object
 	/// </summary>
 	public class ValidationError 
-	{
-		
+	{		
 		/// <summary>
 		/// The error message for this validation error.
 		/// </summary>
