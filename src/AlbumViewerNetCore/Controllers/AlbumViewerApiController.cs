@@ -28,8 +28,12 @@ namespace AlbumViewerAspNet5
 
         ArtistRepository ArtistRepo;
         AlbumRepository AlbumRepo;
-        
+
         public AlbumViewerApiController(AlbumViewerContext ctx, IServiceProvider svcProvider,
+
+
+
+
             ArtistRepository artistRepo, AlbumRepository albumRepo)
         {
             context = ctx;
@@ -47,9 +51,10 @@ namespace AlbumViewerAspNet5
             if (string.IsNullOrEmpty(name))
                 name = "Johnny Doe";
 
-            return new { helloMessage = "Hello!  " + name + ". Time is: " + DateTime.Now };
+            return new {helloMessage = "Hello!  " + name + ". Time is: " + DateTime.Now};
         }
 
+        #region albums
         [HttpGet]
         [Route("api/albums")]
         public async Task<IEnumerable<Album>> GetAlbums(int page = -1, int pageSize = 15)
@@ -58,37 +63,69 @@ namespace AlbumViewerAspNet5
             return await AlbumRepo.GetAllAlbums(page, pageSize);
         }
 
-[HttpGet("api/album/{id:int}")]
-public async Task<Album> GetAlbum(int id)
-{            
-    return await AlbumRepo.Load(id);
-}
+        [HttpGet("api/album/{id:int}")]
+        public async Task<Album> GetAlbum(int id)
+        {
+            return await AlbumRepo.Load(id);
+        }
 
         [HttpPost("api/album")]
-        public async Task<Album> PostAlbum([FromBody] Album postedAlbum)
+        public async Task<Album> SaveAlbum([FromBody] Album postedAlbum)
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
                 throw new ApiException("You have to be logged in to modify data", 401);
 
-            if (!ModelState.IsValid)            
-                throw new ApiException("Model binding failed.",500);           
+            if (!ModelState.IsValid)
+                throw new ApiException("Model binding failed.", 500);
 
             if (!AlbumRepo.Validate(postedAlbum))
-                throw new ApiException(AlbumRepo.ErrorMessage,500,AlbumRepo.ValidationErrors);
-            
+                throw new ApiException(AlbumRepo.ErrorMessage, 500, AlbumRepo.ValidationErrors);
+
             var album = await AlbumRepo.SaveAlbum(postedAlbum);
             if (album == null)
-                throw new  ApiException(AlbumRepo.ErrorMessage,500);
+                throw new ApiException(AlbumRepo.ErrorMessage, 500);
 
             return album;
         }
 
+        [HttpDelete("api/album/{id:int}")]
+        public async Task<bool> DeleteAlbum(int id)
+        {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+                throw new ApiException("You have to be logged in to modify data", 401);
 
+            return await AlbumRepo.DeleteAlbum(id);
+        }
+
+
+        [HttpGet]
+        public async Task<string> DeleteAlbumByName(string name)
+        {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+                throw new ApiException("You have to be logged in to modify data", 401);
+
+            var pks =
+                await context.Albums.Where(alb => alb.Title == name).Select(alb => alb.Id).ToAsyncEnumerable().ToList();
+
+            StringBuilder sb = new StringBuilder();
+            foreach (int pk in pks)
+            {
+                bool result = await AlbumRepo.DeleteAlbum(pk);
+                if (!result)
+                    sb.AppendLine(AlbumRepo.ErrorMessage);
+            }
+
+            return sb.ToString();
+        }
+
+        #endregion
+
+        #region artists
         [HttpGet]
         [Route("api/artists")]
         public async Task<IEnumerable> GetArtists()
-        {            
-            return  await ArtistRepo.GetAllArtists();
+        {
+            return await ArtistRepo.GetAllArtists();
         }
 
         [HttpGet("api/artist/{id:int}")]
@@ -109,15 +146,12 @@ public async Task<Album> GetAlbum(int id)
         }
 
         [HttpPost("api/artist")]
-        public async Task<ArtistResponse> Artist([FromBody] Artist postedArtist)
+        public async Task<ArtistResponse> SaveArtist([FromBody] Artist artist)
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
-                throw new ApiException("You have to be logged in to modify data",401);
+                throw new ApiException("You have to be logged in to modify data", 401);
 
-            
-            var artist = await ArtistRepo.SaveArtist(postedArtist);
-
-            if (artist == null)
+            if (!await ArtistRepo.SaveAsync(artist))
                 throw new ApiException("Unable to save artist.");
 
             return new ArtistResponse()
@@ -132,25 +166,14 @@ public async Task<Album> GetAlbum(int id)
         {
             if (string.IsNullOrEmpty(search))
                 return new List<object>();
-            
+
             var repo = new ArtistRepository(context);
             var term = search.ToLower();
-            return await repo.ArtistLookup(term);            
+            return await repo.ArtistLookup(term);
         }
+        
 
-
-        [HttpGet("api/deletealbum/{id:int}")]
-        public async Task<bool> DeleteAlbum(int id)
-        {
-            if (!HttpContext.User.Identity.IsAuthenticated)
-                throw new ApiException("You have to be logged in to modify data", 401);
-            
-            return await AlbumRepo.DeleteAlbum(id);
-        }
-
-
-
-        [HttpDelete("api/artist/id")]
+        [HttpDelete("api/artist/{id:int}")]
         public async Task<bool> DeleteArtist(int id)
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
@@ -159,34 +182,18 @@ public async Task<Album> GetAlbum(int id)
             return await ArtistRepo.DeleteArtist(id);
         }
 
-
-        [HttpGet]
-        public async Task<string> DeleteAlbumByName(string name)
-        {
-            if (!HttpContext.User.Identity.IsAuthenticated)
-                throw new ApiException("You have to be logged in to modify data", 401);
-            
-            var pks = await context.Albums.Where(alb => alb.Title == name).Select(alb => alb.Id).ToAsyncEnumerable().ToList();
-
-            StringBuilder sb = new StringBuilder();
-            foreach (int pk in pks)
-            {
-                bool result = await AlbumRepo.DeleteAlbum(pk);
-                if (!result)
-                    sb.AppendLine(AlbumRepo.ErrorMessage);
-            }
-
-            return sb.ToString();
-        }
+        #endregion
     }
 
     #region Custom Responses
+
     public class ArtistResponse
     {
         public Artist Artist { get; set; }
 
         public List<Album> Albums { get; set; }
-    }    
+    }
+
     #endregion
 }
 

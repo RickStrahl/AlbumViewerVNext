@@ -83,6 +83,15 @@ export class ArtistService {
     }
   }
 
+  deleteArtist(artist:Artist) {
+    return this.http.delete(this.config.urls.url("artist",artist.Id),
+                            new RequestOptions( {withCredentials:true} ))
+                    .map(response => {
+                         return response.json();  // boolean
+                    })
+                    .catch( new ErrorInfo().parseObservableResponseError);
+  }
+
   private handleError(err) {
     console.log(err);
   }

@@ -62,12 +62,13 @@ export class AlbumService {
       .catch( new ErrorInfo().parsePromiseResponseError );
   }
 
-  deleteAlbum(album:Album):Promise<any> {
+  deleteAlbum(album:Album):Observable<any> {
     return this.http.delete(this.config.urls.url("album",album.Id),
                             this.config.requestOptions)
-      .toPromise()
-      .then(()=> {
-        this.removeAlbum(album);
+      .map((response)=> {
+        let result = response.json();
+        if (result)
+          this.removeAlbum(album);
       })
       .catch( new ErrorInfo().parsePromiseResponseError );
   }

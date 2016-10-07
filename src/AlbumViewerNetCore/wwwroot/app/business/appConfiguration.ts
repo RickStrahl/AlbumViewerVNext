@@ -12,8 +12,8 @@ export class AppConfiguration {
           console.log("AppConfiguration ctor");
 
           if(location.port && (location.port == "3000"))
-            this.urls.baseUrl = "http://localhost:5000/"; // kestrel
-            //this.urls.baseUrl = "http://localhost:26488/"; // iis Express
+            //this.urls.baseUrl = "http://localhost:5000/"; // kestrel
+            this.urls.baseUrl = "http://localhost:26448/"; // iis Express
             //this.urls.baseUrl = "http://localhost/albumviewer/"; // iis
             //this.urls.baseUrl = "https://albumviewer2swf.west-wind.com/";  // online
       }

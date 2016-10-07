@@ -68,15 +68,21 @@ export class ArtistDisplay implements OnInit {
     this.router.navigate(['/album', album.Id]);
   }
 
-  deleteArtist() {
 
-  }
 
   addAlbum() {
 
   }
 
-  deleteAlbum() {
-
+  deleteArtist(artist:Artist) {
+    this.artistService.deleteArtist(artist)
+      .subscribe((result) => {
+        this.error.info("Album deleted.");
+        setTimeout(()=> {
+          this.router.navigate(["/artists"])
+          this.artistService.artistList =
+              this.artistService.artistList.filter( art=> art.Id != artist.Id );
+        }, 1200);
+      }, (err)=> { console.log(err); this.error.error(err) });
   }
 }

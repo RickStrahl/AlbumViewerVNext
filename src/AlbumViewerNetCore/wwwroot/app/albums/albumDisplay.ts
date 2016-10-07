@@ -52,11 +52,11 @@ import {slideIn, slideInLeft} from "../common/animations";
 
   deleteAlbum(album) {
     this.albumService.deleteAlbum(album)
-      .then(()=>{
+      .subscribe( result =>{
         this.error.info("Album '"  + album.Title + "' has been deleted.");
         setTimeout(()=> this.router.navigate(["/albums"]),1500);
-      })
-      .catch( (err)=> this.error.error(err));
+      },
+      (err)=> this.error.error(err));
   }
 
 }

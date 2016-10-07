@@ -3,25 +3,41 @@
 
 This is a sample ASP.NET Core application that demonstrates basic features of ASP.NET Core in an API backend application with an Angular 2.0 front end. The application allows browsing and editing of a list of albums and artists interactively.
 
-The ASP.NET Core Backend demonstrates:
+![](AlbumViewer.png)
 
+**Online Sample:**
+* [Live AlbumViewer Sample](https://samples.west-wind.com/AlbumViewerCore/)
+
+### ASP.NET Core Features
+The **ASP.NET Core** Backend demonstrates:
+
+* Creating an API backend service
 * Isolating business logic and Controller code
 * Using a base Repository for business logic
-* Using multiple .NET Core projects to isolate logic
+* Separating code into separate projects
 * Custom User Authentication
 * CORS Support
 * Using ASP.NET Core as a backend to an Angular 2.0 front end
 
-This sample currently supports:  
+The sample also includes a few Server Side Rendered MVC pages for browsing and viewing of albums and artists. I'll be adding the edit pages at a later point.
+
+Version supported:  
 **ASP.NET Core 1.01**
 
-The front end application uses Angular 2.0 and Bootstrap to provide a mobile friendly front end to browsing and editing of albums and artists and artists.
+### Angular 2.0 Features
+The **Angular 2.0** Frontend application demonstrates:
 
-### Related Links
-* [Live AlbumViewer Sample](http://samples.west-wind.com/AlbumViewerCore/)
+* Mobile friendly, adaptive UI
+* Routing
+* Animations and Page Transitions
+* Client side and server side Authentication tracking
+* Managing Server Urls (dev/production)
 
-### Screen Shot
-![](AlbumViewer.png)
+The front end has been rebuilt from an Angular 1.5 application, so it's not quite broken down into small components yet - a future refactor will address that.
+
+Version supported:  
+**Angular 2.0 RTM**
+
 
 ### Getting Started ###
 You should just be able to clone this repo as is on either Windows or Mac (and probably Linux) and do:
@@ -94,7 +110,7 @@ which creates the final transpiled bundles you can use to run your application t
 #### Platforms 
 Currently the app has been tested to run under Windows and Mac, but it should also work under Linux.
 
-**License:**
+**License:**  
 This sample is licensed under MIT license. Use, play with integrate code from
 this repository as you see fit, at your own risk. This code is based on pre-release
 code and updated regularly to reflect the latest current builds.

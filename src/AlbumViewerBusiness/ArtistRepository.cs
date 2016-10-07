@@ -69,57 +69,41 @@ public class ArtistRepository : EntityFrameworkRepository<AlbumViewerContext,Art
             .ToListAsync();
     }
 
-    /// <summary>
-    /// Pass in an external instance of an artist and either
-    /// update or create that artist as an instance
-    /// </summary>
-    /// <param name="postedArtist"></param>
-    /// <returns></returns>
-    public async Task<Artist> SaveArtist(Artist postedArtist)
-    {
-        int id = postedArtist.Id;
-
-        Artist artist;
-        if (id < 1)
-            artist = Create<Artist>();
-        else
-        {
-            artist = Context.Artists.FirstOrDefault(a => a.Id == id);
-            if (artist == null)
-                artist = Create<Artist>();
-        }
-
-        DataUtils.CopyObjectData(postedArtist, artist, "Id");            
-
-        if (!await SaveAsync())
-            return null;
-
-        return artist;
-    }
+ 
 
     public async Task<bool> DeleteArtist(int id)
     {
-        var artist = await Context.Artists.FirstOrDefaultAsync(art => art.Id == id);
+        bool result = false;
+        using (var tx = Context.Database.BeginTransaction())
+        {
+            var artist = await Context.Artists.FirstOrDefaultAsync(art => art.Id == id);
 
-        // already gone
-        if (artist == null)
-            return true;
+            // already gone
+            if (artist == null)
+                return true;
 
-        var albumIds = await Context.Albums.Where(alb => alb.ArtistId == id).Select(alb => alb.Id).ToListAsync();
+            var albumIds = await Context.Albums.Where(alb => alb.ArtistId == id).Select(alb => alb.Id).ToListAsync();
 
-        var albumRepo = new AlbumRepository(Context);
+            var albumRepo = new AlbumRepository(Context);
 
-        foreach (var albumId in albumIds)
-        {                
-            // don't run async or we get p
-            bool result = await albumRepo.DeleteAlbum(albumId);
+            foreach (var albumId in albumIds)
+            {
+                // don't run async or we get p
+                result = await albumRepo.DeleteAlbum(albumId);
+                if (!result)
+                    return false;
+            }
+
+            Context.Artists.Remove(artist);
+
+            result = await SaveAsync(); // just save
             if (!result)
-                return false;
+               return false;
+
+            tx.Commit();
+
+            return result;
         }
-
-        Context.Artists.Remove(artist);
-
-        return await SaveAsync();            
     }
 
     protected override bool OnValidate(Artist entity)
