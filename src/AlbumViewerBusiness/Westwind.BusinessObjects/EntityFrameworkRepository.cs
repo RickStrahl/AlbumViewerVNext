@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Data;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Westwind.Utilities;
@@ -260,38 +260,116 @@ namespace Westwind.BusinessObjects
         /// <summary>
         /// Saves changes to the repo
         /// </summary>
+        /// <param name="entity">
+        /// Pass the entity to save
+        /// 
+        /// You can omit the parameter if you just want to save the 
+        /// current context. When no entity is passed no validation
+        /// or OnBeforeSave()/OnAfterSave() are applied - just a plain
+        /// SaveChanges        
+        /// </param>
+        /// <param name="useTransaction">
+        /// not implemented yet
+        /// </param>
         public async Task<bool> SaveAsync(TEntity entity = null)
-        {
-            if (!OnBeforeSave(entity))
-                return false;
+        {            
+            if (entity != null)
+            {
+                if (!OnBeforeSave(entity))
+                    return false;
 
-            if (AutoValidate && !Validate(entity))
-                return false;
+                if (AutoValidate && !Validate(entity))
+                    return false;
 
+                var entry = Context.Entry(entity);
+                if (entry.State == EntityState.Detached)
+                {
+                    Context.Attach(entity);
+
+                    // see if it exists
+                    TEntity match = null;
+                    try
+                    {
+                        object id = Context.GetEntityKey(entity).FirstOrDefault();
+                        if (id != null)
+                            match = DbSet.Find(id);
+                    }
+                    catch
+                    {
+                    }
+
+                    if (match != null)
+                        entry.State = EntityState.Modified;
+                    else
+                        entry.State = EntityState.Added;
+                }
+            }
 
             int result = await Context.SaveChangesAsync();
 
             if (result == -1)
                 return false;
 
-            if (!OnAfterSave(entity))
+            if (entity != null && !OnAfterSave(entity))
                 return false;
 
             return true;
         }
 
         /// <summary>
-        /// Saves the underlying data with hooks
+        /// A transacted version of SaveAsync that explicitly uses a transaction around the
+        /// save operation to handle OnBeforeSave() and OnAfterSave() operations.        
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="useTransaction"></param>
+        /// <returns></returns>
+        public async Task<bool> SaveAsync(TEntity entity, bool useTransaction)
+        {
+            if (useTransaction)
+            {
+                using (var tx = Context.Database.BeginTransaction())
+                {
+                    if (await SaveAsync(entity))
+                    {
+                        tx.Commit();
+                        return true;
+                    }
+                    return false;
+                }
+            }
+
+            return await SaveAsync(entity);
+        }
+
+        /// <summary>
+        /// Saves the underlying data with Before and After Save hooks
+        /// and optional validation.
+        /// 
+        /// If entity is not passed on SaveChanges is called
         /// </summary>
         /// <returns></returns>
         public bool Save(TEntity entity = null)
         {
-            
-            if (!OnBeforeSave(entity))
-                return false;
+            if (entity == null)
+            {
+                if (!OnBeforeSave(entity))
+                    return false;
 
-            if (AutoValidate && !Validate(entity))
-                return false;
+                if (AutoValidate && !Validate(entity))
+                    return false;
+
+                var entry = Context.Entry(entity);
+                if (entry.State == EntityState.Detached)
+                {
+                    Context.Attach(entity);
+                    var ids = Context.GetEntityKey(entity);
+                    if (ids != null && ids.Length > 0)
+                        entry.State = EntityState.Modified;
+                    else
+                        entry.State = EntityState.Added;
+                }
+
+            }
 
             try
             {
@@ -305,8 +383,10 @@ namespace Westwind.BusinessObjects
                 return false;
             }
 
-            if (!OnAfterSave(entity))
-                return false;
+            if (entity != null) { 
+                if (!OnAfterSave(entity))
+                    return false;
+            }
 
             return true;
         }

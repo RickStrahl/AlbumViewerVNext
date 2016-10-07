@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Internal;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Westwind.BusinessObjects
 {
@@ -77,6 +78,23 @@ namespace Westwind.BusinessObjects
             entity = query.FirstOrDefault();
 
             return entity;
+        }
+
+        /// <summary>
+        /// Returns an entity key for a give entity
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="context"></param>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public static object[] GetEntityKey<T>(this DbContext context, T entity) where T : class
+        {
+            var state = context.Entry(entity);
+            var metadata = state.Metadata;
+            var key = metadata.FindPrimaryKey();
+            var props = key.Properties.ToArray();
+
+            return props.Select(x => x.GetGetter().GetClrValue(entity)).ToArray();
         }
     }
 }
