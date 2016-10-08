@@ -17,7 +17,7 @@ using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace AlbumViewerAspNet5
+namespace AlbumViewerAspNetCore
 {
     [ApiExceptionFilter]
     [EnableCors("CorsPolicy")]
@@ -30,10 +30,6 @@ namespace AlbumViewerAspNet5
         AlbumRepository AlbumRepo;
 
         public AlbumViewerApiController(AlbumViewerContext ctx, IServiceProvider svcProvider,
-
-
-
-
             ArtistRepository artistRepo, AlbumRepository albumRepo)
         {
             context = ctx;
@@ -46,15 +42,19 @@ namespace AlbumViewerAspNet5
         [HttpGet]
         [Route("api/helloworld")]
         public object HelloWorld(string name = null)
-        {
-            //return "Hello " + name + ". Time is: " + DateTime.Now;
+        {            
             if (string.IsNullOrEmpty(name))
                 name = "Johnny Doe";
 
-            return new {helloMessage = "Hello!  " + name + ". Time is: " + DateTime.Now};
+            return new
+            {
+                message = $"Hello world {name}",
+                time = DateTime.UtcNow                
+            };
         }
 
         #region albums
+
         [HttpGet]
         [Route("api/albums")]
         public async Task<IEnumerable<Album>> GetAlbums(int page = -1, int pageSize = 15)
@@ -80,6 +80,12 @@ namespace AlbumViewerAspNet5
 
             if (!AlbumRepo.Validate(postedAlbum))
                 throw new ApiException(AlbumRepo.ErrorMessage, 500, AlbumRepo.ValidationErrors);
+
+            postedAlbum.Artist.AmazonUrl = DateTime.Now.ToString();
+
+            // this doesn't work for updating the child entities properly
+            //if(!await AlbumRepo.SaveAsync(postedAlbum))
+            //    throw new ApiException(AlbumRepo.ErrorMessage, 500);
 
             var album = await AlbumRepo.SaveAlbum(postedAlbum);
             if (album == null)
@@ -121,6 +127,7 @@ namespace AlbumViewerAspNet5
         #endregion
 
         #region artists
+
         [HttpGet]
         [Route("api/artists")]
         public async Task<IEnumerable> GetArtists()
@@ -151,6 +158,9 @@ namespace AlbumViewerAspNet5
             if (!HttpContext.User.Identity.IsAuthenticated)
                 throw new ApiException("You have to be logged in to modify data", 401);
 
+            if (!ArtistRepo.Validate(artist))
+                throw new ApiException(ArtistRepo.ValidationErrors.ToString(), 500, ArtistRepo.ValidationErrors);
+
             if (!await ArtistRepo.SaveAsync(artist))
                 throw new ApiException("Unable to save artist.");
 
@@ -171,7 +181,7 @@ namespace AlbumViewerAspNet5
             var term = search.ToLower();
             return await repo.ArtistLookup(term);
         }
-        
+
 
         [HttpDelete("api/artist/{id:int}")]
         public async Task<bool> DeleteArtist(int id)

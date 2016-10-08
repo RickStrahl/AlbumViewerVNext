@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,9 @@ using Westwind.BusinessObjects;
 
 namespace AlbumViewerBusiness
 {
-    // 
+    /// <summary>
+    /// Account repository used to validate and manage user accounts
+    /// </summary>
 
     public class AccountRepository : EntityFrameworkRepository<AlbumViewerContext,User>
     {
@@ -21,7 +24,9 @@ namespace AlbumViewerBusiness
             // var hashedPassword = AppUtils.HashPassword(password);
             var hashedPassword = password;
 
-            var user = Context.Users.FirstOrDefault(usr => usr.Username == username && usr.Password == hashedPassword);
+            var user = await Context.Users.FirstOrDefaultAsync(usr => 
+                            usr.Username == username && 
+                            usr.Password == hashedPassword);
             if (user == null)
                 return false;
             
@@ -38,13 +43,6 @@ namespace AlbumViewerBusiness
                           .FirstOrDefault(usr => usr.Username == username &&
                                                  usr.Password == hashedPassword);
             return user;
-        }
-
-        //protected override bool OnBeforeSave(User entity)
-        //{
-        //    // TODO: hash password
-        //    //entity.Password = AppUtils.HashPassword();
-        //    return base.OnBeforeSave(entity);
-        //}
+        }        
     }
 }

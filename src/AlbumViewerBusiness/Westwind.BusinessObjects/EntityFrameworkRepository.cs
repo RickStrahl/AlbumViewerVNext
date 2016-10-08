@@ -305,7 +305,20 @@ namespace Westwind.BusinessObjects
                 }
             }
 
-            int result = await Context.SaveChangesAsync();
+
+
+            int result = -1;
+            try
+            {
+                result = await Context.SaveChangesAsync();
+                if (result == -1)
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                SetError(ex.GetBaseException());
+                return false;
+            }
 
             if (result == -1)
                 return false;

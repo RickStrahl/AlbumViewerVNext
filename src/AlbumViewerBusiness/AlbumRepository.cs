@@ -80,8 +80,8 @@ public override async Task<Album> Load(object albumId)
         /// <returns></returns>
         public async Task<Album> SaveAlbum(Album postedAlbum)
         {
-            int id = postedAlbum.Id;            
-            
+            int id = postedAlbum.Id;
+
             Album album;
 
             if (id < 1)
@@ -97,8 +97,8 @@ public override async Task<Album> Load(object albumId)
             if (album.Artist.Id < 1)
             {
                 var artist = await Context.Artists
-                                          .FirstOrDefaultAsync(art => art.ArtistName == postedAlbum.Artist.ArtistName);
-                if (artist != null)   
+                    .FirstOrDefaultAsync(art => art.ArtistName == postedAlbum.Artist.ArtistName);
+                if (artist != null)
                     album.Artist.Id = artist.Id;
             }
 
@@ -107,10 +107,16 @@ public override async Task<Album> Load(object albumId)
             // new artist 
             if (album.Artist.Id < 1)
                 Context.Artists.Add(album.Artist);
-            
+
             album.ArtistId = album.Artist.Id;
             DataUtils.CopyObjectData(postedAlbum, album, "Tracks,Artist,Id,ArtistId");
-           
+
+            // clear all the album's tracks - this fails: Tracks already Tracked
+            //album.Tracks.Clear();
+            //foreach (var postedTrack in postedAlbum.Tracks)
+            //    album.Tracks.Add(postedTrack);
+
+            // add or udpate tracks
             foreach (var postedTrack in postedAlbum.Tracks)
             {
                 var track = album.Tracks.FirstOrDefault(trk => trk.Id == postedTrack.Id);
@@ -121,9 +127,8 @@ public override async Task<Album> Load(object albumId)
                     track = new Track();
                     Context.Tracks.Add(track);
                     DataUtils.CopyObjectData(postedTrack, track, "Id,AlbumId,ArtistId");
-                    album.Tracks.Add(track);                    
+                    album.Tracks.Add(track);
                 }
-                
             }
 
             // find tracks to delete - first looks for those posted (except 0 ids)
@@ -131,30 +136,21 @@ public override async Task<Album> Load(object albumId)
                 .Where(t => t.Id > 0)
                 .Select(t => t.Id)
                 .ToList();
-
-            // then delete all those that don't exist in the actual albums
+           
+            // then delete all album returned
             var deletedTracks = album.Tracks
                 .Where(trk => trk.Id > 0 && !postedIds.Contains(trk.Id))
                 .ToList();
 
+            foreach (var dtrack in deletedTracks)
+                album.Tracks.Remove(dtrack);
 
-            if (deletedTracks.Count > 0)
-            {
-                foreach (var dtrack in deletedTracks)
-                {
-                    // This works (but parent instance isn't updated after SubmitChanges())
-                    Context.Tracks.Remove(dtrack);
-
-                    // BUG: this bonks!                    
-                    //album.Tracks.Remove(dtrack);
-                }
-            }
-
+            //now lets save it all
             if (!await SaveAsync())
                 return null;
 
             return album;
-        }                
+        }
 
 
         public async Task<bool> DeleteAlbum(int id)

@@ -21,7 +21,7 @@
     "Microsoft.EntityFrameworkCore.Sqlite": "1.0.1",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0",
-    "Microsoft.Extensions.Configuration.CommandLine": "1.0.0",
+    "Microsoft.Extensions.Configuration.CommandLine": "1.0.0",    
     "AlbumViewerBusiness": "1.0.0-*",
     "Microsoft.AspNetCore.Razor.Tools": {
       "version": "1.0.0-preview2-final",

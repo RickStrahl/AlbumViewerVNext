@@ -1,60 +1,25 @@
 ﻿using AlbumViewerBusiness;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-
 using System.Security.Claims;
-
-using System.Security.Authentication;
-using Newtonsoft.Json;
-using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 
-namespace AlbumViewerAspNet5
-{
-    
+namespace AlbumViewerAspNetCore
+{    
     [ApiExceptionFilter]    
     [EnableCors("CorsPolicy")]
     public class AccountController : Controller
     {
-        AlbumViewerContext context;
-        IServiceProvider serviceProvider;
         private AccountRepository accountRepo;
 
-        public AccountController(AlbumViewerContext ctx, 
-            IServiceProvider svcProvider, 
-            AccountRepository actRepo)            
+        public AccountController(AccountRepository actRepo)            
         {
-            context = ctx;
-            serviceProvider = svcProvider;
             accountRepo = actRepo;
         }
-        
 
-        //public override void OnActionExecuted(ActionExecutedContext context)
-        //{
-        //    if (context.Exception == null)
-        //    {
-        //        base.OnActionExecuted(context);
-        //        return;
-        //    }
-
-        //    if (context.Exception is ApiException)
-        //    {
-        //        var ex = context.Exception as ApiException;
-        //        context.Exception = null;
-        //        var apiError = new ApiError(ex.Message);
-   
-        //        Response.StatusCode = ex.StatusCode;
-        //        context.Result = new JsonResult(apiError);
-        //    }
-        //}
-
-            
+           
         [AllowAnonymous]                    
         [HttpPost]
         [Route("api/login")]
@@ -73,7 +38,8 @@ namespace AlbumViewerAspNet5
                 user.Fullname = string.Empty;
             identity.AddClaim(new Claim("FullName", user.Fullname));
 
-            await HttpContext.Authentication.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
+            await HttpContext.Authentication.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(identity));
 
             return true;
         }
@@ -93,6 +59,5 @@ namespace AlbumViewerAspNet5
         {            
             return User.Identity.IsAuthenticated;
         }
-
     }
 }

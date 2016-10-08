@@ -110,38 +110,7 @@ namespace Westwind.Utilities
         }
        
 
-        /// <summary>
-        /// Copies the content of one object to another. The target object 'pulls' properties of the first. 
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="target"></param>
-        public static void CopyObjectData(object source, Object target)
-        {
-            CopyObjectData(source, target, MemberAccess);
-        }
-
-        /// <summary>
-        /// Copies the content of one object to another. The target object 'pulls' properties of the first. 
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="target"></param>
-        /// <param name="memberAccess"></param>
-        public static void CopyObjectData(object source, Object target, BindingFlags memberAccess)
-        {
-            CopyObjectData(source, target, null, memberAccess);
-        }
-
-        /// <summary>
-        /// Copies the content of one object to another. The target object 'pulls' properties of the first. 
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="target"></param>
-        /// <param name="excludedProperties"></param>
-        public static void CopyObjectData(object source, Object target, string excludedProperties)
-        {
-             CopyObjectData(source, target,excludedProperties, MemberAccess);
-        }
-
+      
         /// <summary>
         /// Copies the data of one object to another. The target object 'pulls' properties of the first. 
         /// This any matching properties are written to the target.

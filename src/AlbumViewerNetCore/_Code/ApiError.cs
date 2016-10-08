@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Westwind.Utilities;
 
-namespace AlbumViewerAspNet5
+namespace AlbumViewerAspNetCore
 {
 
     public class ApiError

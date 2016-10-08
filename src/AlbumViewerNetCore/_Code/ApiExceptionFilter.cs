@@ -4,27 +4,51 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Westwind.Utilities;
 
-namespace AlbumViewerAspNet5
+namespace AlbumViewerAspNetCore
 {
-    public class ApiExceptionFilter : ExceptionFilterAttribute
+public class ApiExceptionFilter : ExceptionFilterAttribute
+{
+public override void OnException(ExceptionContext context)
+{
+    ApiError apiError = null;
+    if (context.Exception is ApiException)
     {
-        public override void OnException( ExceptionContext context)
-        {
+        // handle explicit 'known' API errors
+        var ex = context.Exception as ApiException;
+        context.Exception = null;
+        apiError = new ApiError(ex.Message);
+        apiError.errors = ex.Errors;
 
-            if (context.Exception is ApiException)
-            {
-                var ex = context.Exception as ApiException;
-                context.Exception = null;
-                var apiError = new ApiError(ex.Message);
-                apiError.errors = ex.Errors;
+        context.HttpContext.Response.StatusCode = ex.StatusCode;
                 
-                context.HttpContext.Response.StatusCode = ex.StatusCode;
-                context.Result = new JsonResult(apiError);
-            }
+    }
+    else if (context.Exception is UnauthorizedAccessException)
+    {
+        apiError = new ApiError("Unauthorized Access");
+        context.HttpContext.Response.StatusCode = 401;                
+    }
+    else
+    {
+        // Unhandled errors
+#if !DEBUG
+        var msg = "An unhandled error occurred."
+                
+#else
+        var msg = context.Exception.Message;                
+#endif                
+        apiError = new ApiError(msg);
+        context.HttpContext.Response.StatusCode = 500;
 
-            base.OnException(context);
-        }
+        // handle logging here
+    }
+            
+    // always return a JSON result
+    context.Result = new JsonResult(apiError);
+
+    base.OnException(context);
+}
     }
 }
