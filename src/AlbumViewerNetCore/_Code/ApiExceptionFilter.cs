@@ -34,8 +34,7 @@ public override void OnException(ExceptionContext context)
     {
         // Unhandled errors
 #if !DEBUG
-        var msg = "An unhandled error occurred."
-                
+        var msg = "An unhandled error occurred.";                
 #else
         var msg = context.Exception.Message;                
 #endif                

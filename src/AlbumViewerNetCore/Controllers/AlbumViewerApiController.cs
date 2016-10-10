@@ -6,11 +6,13 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Collections;
+using System.IO;
 using System.Text;
 using Westwind.Utilities;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 //using Westwind.Utilities;
 
@@ -28,12 +30,18 @@ namespace AlbumViewerAspNetCore
 
         ArtistRepository ArtistRepo;
         AlbumRepository AlbumRepo;
+        IConfiguration Configuration;
 
-        public AlbumViewerApiController(AlbumViewerContext ctx, IServiceProvider svcProvider,
-            ArtistRepository artistRepo, AlbumRepository albumRepo)
+        public AlbumViewerApiController(
+            AlbumViewerContext ctx, 
+            IServiceProvider svcProvider,
+            ArtistRepository artistRepo, 
+            AlbumRepository albumRepo, 
+            IConfiguration config)
         {
             context = ctx;
             serviceProvider = svcProvider;
+            Configuration = config;
 
             AlbumRepo = albumRepo;
             ArtistRepo = artistRepo;
@@ -192,6 +200,53 @@ namespace AlbumViewerAspNetCore
             return await ArtistRepo.DeleteArtist(id);
         }
 
+        #endregion
+
+        #region admin
+        [HttpGet]
+        [Route("api/reloaddata")]
+        public bool ReloadData()
+        {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+                throw new ApiException("You have to be logged in to modify data", 401);
+
+            string isSqLite = Configuration["data:useSqLite"];
+            try
+            {
+                if (isSqLite != "true")
+                {
+                    context.Database.ExecuteSqlCommand(@"
+drop table Tracks;
+drop table Albums;
+drop table Artists;
+drop table Users;
+");
+                }
+                else
+                {
+                    // this is not reliable for mutliple connections
+                    context.Database.CloseConnection();
+
+                    try
+                    {
+                        System.IO.File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "AlbumViewerData.sqlite"));
+                    }
+                    catch
+                    {
+                        throw new ApiException("Can't reset data. Existing database is busy.");
+                    }
+                }
+
+            }
+            catch { }
+
+
+            AlbumViewerDataImporter.EnsureAlbumData(context,
+                Path.Combine(Directory.GetCurrentDirectory(), 
+                "wwwroot/App_Data/albums.js"));
+
+            return true;
+        }
         #endregion
     }
 

@@ -12,8 +12,8 @@ export class AppConfiguration {
           console.log("AppConfiguration ctor");
 
           if(location.port && (location.port == "3000"))
-            //this.urls.baseUrl = "http://localhost:5000/"; // kestrel
-            this.urls.baseUrl = "http://localhost:26448/"; // iis Express
+            this.urls.baseUrl = "http://localhost:5000/"; // kestrel
+            //this.urls.baseUrl = "http://localhost:26448/"; // iis Express
             //this.urls.baseUrl = "http://localhost/albumviewer/"; // iis
             //this.urls.baseUrl = "https://albumviewer2swf.west-wind.com/";  // online
       }
@@ -37,7 +37,7 @@ export class AppConfiguration {
         login: "api/login", //"api/login",
         logout: "api/logout",
         isAuthenticated: "api/isAuthenticated",
-        reloadData: "api/restoreFromBackup",
+        reloadData: "api/reloadData",
         url: (name,parm1?,parm2?,parm3?) => {
           var url = this.urls.baseUrl + this.urls[name];
           if (parm1)

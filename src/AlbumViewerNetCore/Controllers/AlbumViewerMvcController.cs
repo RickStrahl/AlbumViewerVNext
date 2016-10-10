@@ -49,7 +49,7 @@ namespace MusicStoreVNext
         public async Task<ActionResult> Album(int id)
         {
             var albumRepo = new AlbumRepository(context);
-            var album = albumRepo.Load(id);
+            var album = await albumRepo.Load(id);
 
             return View("Album", album);
         }

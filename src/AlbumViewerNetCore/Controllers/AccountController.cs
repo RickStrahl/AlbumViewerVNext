@@ -55,7 +55,7 @@ namespace AlbumViewerAspNetCore
 
         [HttpGet]
         [Route("api/isAuthenticated")]
-        public async Task<bool> IsAuthenthenticated()
+        public bool IsAuthenthenticated()
         {            
             return User.Identity.IsAuthenticated;
         }

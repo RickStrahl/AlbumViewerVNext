@@ -43,6 +43,14 @@ Version supported:
 You should just be able to clone this repo as is on either Windows or Mac (and probably Linux) and do:
 
 ```
+cd <AlbumViewerNetCore Folder>
+
+cd ..\Westwind.Utilitities
+dotnet restore
+cd ..\AlbumViewerBusiness
+dotnet restore
+
+cd ..\AlbumViewerNetCore
 dotnet restore
 dotnet run
 ```

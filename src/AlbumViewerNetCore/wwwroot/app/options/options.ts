@@ -25,14 +25,18 @@ export class OptionsComponent implements OnInit {
     }
 
   reloadData(){
-    console.log('reloaddata')
-    this.http.get(this.config.urls.url("reloadData"))
+    if (!this.user.isAuthenticated)
+      window.location.hash = "login";
+
+    this.http.get(this.config.urls.url("reloadData"),{withCredentials: true })
       .subscribe(
-        (response) => {
-          debugger;
-          toastr.success("Data has been reloaded.")
-        }, (response)=> {
-          debugger;
+        response => {
+          let success = response.json();
+          if(success)
+            toastr.success("Data has been reloaded.")
+          else
+            toastr.error("Unable to reload data")
+        }, response=> {
           var obsErr = new ErrorInfo().parseObservableResponseError( response);
           var msg = (<any> obsErr).error.message;
           toastr.error("Data reload failed: " + msg);

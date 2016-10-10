@@ -111,10 +111,7 @@ public override async Task<Album> Load(object albumId)
             album.ArtistId = album.Artist.Id;
             DataUtils.CopyObjectData(postedAlbum, album, "Tracks,Artist,Id,ArtistId");
 
-            // clear all the album's tracks - this fails: Tracks already Tracked
-            //album.Tracks.Clear();
-            //foreach (var postedTrack in postedAlbum.Tracks)
-            //    album.Tracks.Add(postedTrack);
+
 
             // add or udpate tracks
             foreach (var postedTrack in postedAlbum.Tracks)
@@ -130,16 +127,15 @@ public override async Task<Album> Load(object albumId)
                     album.Tracks.Add(track);
                 }
             }
+            
 
-            // find tracks to delete - first looks for those posted (except 0 ids)
-            var postedIds = postedAlbum.Tracks
-                .Where(t => t.Id > 0)
-                .Select(t => t.Id)
-                .ToList();
-           
-            // then delete all album returned
+            // then find all deleted tracks not in new tracks
             var deletedTracks = album.Tracks
-                .Where(trk => trk.Id > 0 && !postedIds.Contains(trk.Id))
+                .Where(trk => trk.Id > 0 && 
+                                !postedAlbum.Tracks
+                                    .Where(t => t.Id > 0)
+                                    .Select(t => t.Id)
+                                .Contains(trk.Id) )
                 .ToList();
 
             foreach (var dtrack in deletedTracks)
@@ -151,8 +147,8 @@ public override async Task<Album> Load(object albumId)
 
             return album;
         }
-
-
+        
+        
         public async Task<bool> DeleteAlbum(int id)
         {
             using (var tx = Context.Database.BeginTransaction())

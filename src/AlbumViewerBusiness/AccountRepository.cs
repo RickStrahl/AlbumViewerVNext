@@ -39,8 +39,8 @@ namespace AlbumViewerBusiness
             // var hashedPassword = AppUtils.HashPassword(password);
             var hashedPassword = password;
 
-            var user = Context.Users
-                          .FirstOrDefault(usr => usr.Username == username &&
+            var user = await Context.Users
+                          .FirstOrDefaultAsync(usr => usr.Username == username &&
                                                  usr.Password == hashedPassword);
             return user;
         }        
