@@ -1,5 +1,5 @@
-﻿# West Wind Album Viewer ASP.NET 5 Sample
-**Sample Angular 2.0 application demonstrating ASP.NET Core features**
+﻿# West Wind Album Viewer ASP.NET Core Sample
+**Sample Angular 2.0 application demonstrating ASP.NET Core API features**
 
 This is a sample ASP.NET Core application that demonstrates basic features of ASP.NET Core in an API backend application with an Angular 2.0 front end. The application allows browsing and editing of a list of albums and artists interactively.
 
@@ -25,15 +25,17 @@ Version supported:
 **ASP.NET Core 1.01**
 
 ### Angular 2.0 Features
-The **Angular 2.0** Frontend application demonstrates:
+The **Angular 2.0** front end application demonstrates:
 
+* Page based Application
 * Mobile friendly, adaptive UI
 * Routing
 * Animations and Page Transitions
 * Client side and server side Authentication tracking
+* Client side and server side Validation
 * Managing Server Urls (dev/production)
 
-The front end has been rebuilt from an Angular 1.5 application, so it's not quite broken down into small components yet - a future refactor will address that.
+The front end has been ported from an Angular 1.5 application, so it's not quite broken down into small control level components yet - a future refactor will address that.
 
 Version supported:  
 **Angular 2.0 RTM**

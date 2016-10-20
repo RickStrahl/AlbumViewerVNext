@@ -13,6 +13,7 @@
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
     "Microsoft.Extensions.Logging": "1.0.0",
+    "Microsoft.Extensions.Logging.Filter": "1.0.0",
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
@@ -21,7 +22,9 @@
     "Microsoft.EntityFrameworkCore.Sqlite": "1.0.1",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0",
-    "Microsoft.Extensions.Configuration.CommandLine": "1.0.0",    
+    "Microsoft.Extensions.Configuration.CommandLine": "1.0.0",
+    "Serilog.Extensions.Logging": "1.2.0",
+    "Serilog.Sinks.RollingFile": "3.1.0",
     "AlbumViewerBusiness": "1.0.0-*",
     "Microsoft.AspNetCore.Razor.Tools": {
       "version": "1.0.0-preview2-final",

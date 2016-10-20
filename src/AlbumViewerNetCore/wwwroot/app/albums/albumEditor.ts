@@ -39,46 +39,44 @@ export class AlbumEditor implements OnInit {
     this.bandTypeAhead();
 
     var id = this.route.snapshot.params["id"];
-    if (id < 1)
-    {
+    if (id < 1) {
       this.loaded = true;
       return;
     }
 
     this.albumService.getAlbum(id)
-      .then(
-        (result) => {
-        this.album = result;
-        this.loaded = true;
-      },
-      (err) => {
-        this.error.error(err);
-      });
+      .subscribe(result => {
+          this.album = result;
+          this.loaded = true;
+        },
+        err => {
+          this.error.error(err);
+        });
   }
 
   saveAlbum(album) {
     return this.albumService.saveAlbum(album)
-      .then((album: Album) => {
-        var msg = album.Title + " has been saved."
-        this.error.info(msg);
-        toastr.success(msg);
-        window.document.getElementById("MainView").scrollTop = 0;
+      .subscribe((album: Album) => {
+          var msg = album.Title + " has been saved."
+          this.error.info(msg);
+          toastr.success(msg);
+          window.document.getElementById("MainView").scrollTop = 0;
 
-        setTimeout(function () {
-          window.location.hash = "album/" + album.Id;
-        }, 1500)
-      })
-      .catch( err => {
-        let msg = "Unable to save album: " + err.message;
-        this.error.error(msg);
-        toastr.error(msg);
+          setTimeout(function () {
+            window.location.hash = "album/" + album.Id;
+          }, 1500)
+        },
+        err => {
+          let msg = `Unable to save album: ${err.message}`;
+          this.error.error(msg);
+          toastr.error(msg);
 
 
-        if (err.response && err.response.status == 401) {
-          this.user.isAuthenticated = false;
-          window.location.hash = "login";
-        }
-      });
+          if (err.response && err.response.status == 401) {
+            this.user.isAuthenticated = false;
+            window.location.hash = "login";
+          }
+        });
 
   };
 

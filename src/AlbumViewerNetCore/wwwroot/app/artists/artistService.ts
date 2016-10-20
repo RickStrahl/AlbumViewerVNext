@@ -91,14 +91,4 @@ export class ArtistService {
                     })
                     .catch( new ErrorInfo().parseObservableResponseError);
   }
-
-  private handleError(err) {
-    console.log(err);
-  }
-
-  // private handleError(error: any): CatchSignature<any> {
-  //   debugger;
-  //   console.error('artistService error occurred', error); // for demo purposes only
-  //   return Promise.reject(error.message || error);
-  // }
 }

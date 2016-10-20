@@ -1,27 +1,23 @@
-﻿using System.Runtime;
-using AlbumViewerBusiness;
+﻿using AlbumViewerBusiness;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Collections;
 using System.IO;
 using System.Text;
-using Westwind.Utilities;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-
-//using Westwind.Utilities;
+using Microsoft.Extensions.Logging;
 
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AlbumViewerAspNetCore
 {
-    [ApiExceptionFilter]
+    [ServiceFilter(typeof(ApiExceptionFilter))]
     [EnableCors("CorsPolicy")]
     public class AlbumViewerApiController : Controller
     {
@@ -31,13 +27,15 @@ namespace AlbumViewerAspNetCore
         ArtistRepository ArtistRepo;
         AlbumRepository AlbumRepo;
         IConfiguration Configuration;
+        private ILogger<AlbumViewerApiController> Logger; 
 
         public AlbumViewerApiController(
             AlbumViewerContext ctx, 
             IServiceProvider svcProvider,
             ArtistRepository artistRepo, 
             AlbumRepository albumRepo, 
-            IConfiguration config)
+            IConfiguration config,
+            ILogger<AlbumViewerApiController> logger)
         {
             context = ctx;
             serviceProvider = svcProvider;
@@ -45,6 +43,14 @@ namespace AlbumViewerAspNetCore
 
             AlbumRepo = albumRepo;
             ArtistRepo = artistRepo;
+            Logger = logger;
+        }
+
+        [HttpGet]
+        [Route("api/throw")]
+        public object Throw()
+        {
+            throw new InvalidOperationException("This is an unhandled exception");            
         }
 
         [HttpGet]
@@ -53,7 +59,7 @@ namespace AlbumViewerAspNetCore
         {            
             if (string.IsNullOrEmpty(name))
                 name = "Johnny Doe";
-
+            
             return new
             {
                 message = $"Hello world {name}",

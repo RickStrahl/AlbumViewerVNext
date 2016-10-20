@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Cors;
 
 namespace AlbumViewerAspNetCore
 {    
-    [ApiExceptionFilter]    
+    [ServiceFilter(typeof(ApiExceptionFilter))]    
     [EnableCors("CorsPolicy")]
     public class AccountController : Controller
     {

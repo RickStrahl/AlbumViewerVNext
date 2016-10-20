@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Http, RequestOptions} from '@angular/http'
 import { Album, Artist, Track } from '../business/entities';
 import {AppConfiguration} from "../business/appConfiguration";
-import 'rxjs/add/operator/toPromise';
 import {ErrorInfo} from "../common/errorDisplay";
 import {Observable} from "rxjs";
+import {Http, RequestOptions} from "@angular/http";
 
 
 @Injectable()
@@ -19,23 +18,18 @@ export class AlbumService {
   artistList: Artist[] = [];
   listScrollPos = 0;
 
-  getAlbums(force?:boolean): Observable<Album[]> {
-    //var albums = this.albums;
-    // if (force !== true && this.albumList && this.albumList.length > 0)
-    //   return Promise.resolve(this.albumList);
-
-      return this.http.get(this.config.urls.url("albums"))
+  getAlbums(): Observable<Album[]> {
+    return this.http.get(this.config.urls.url("albums"))
         .map((response)=> {
           this.albumList = response.json();
           return this.albumList;
-            })
+        })
         .catch( new ErrorInfo().parseObservableResponseError );
   }
 
-  getAlbum(id):Promise<Album> {
+  getAlbum(id):Observable<Album> {
       return this.http.get(this.config.urls.url("album",id))
-        .toPromise()
-        .then( (response) => {
+        .map( response => {
             this.album = response.json();
 
             if (!this.albumList || this.albumList.length < 1)
@@ -43,15 +37,15 @@ export class AlbumService {
 
             return this.album;
         })
-        .catch( new ErrorInfo().parsePromiseResponseError );
+        .catch( new ErrorInfo().parseObservableResponseError );
   }
 
-  saveAlbum(album):Promise<any> {
+  saveAlbum(album):Observable<any> {
     return this.http.post(this.config.urls.url("album"),
                           album,
                           new RequestOptions( {withCredentials:true}) )
-       .toPromise()
-       .then( response => {
+
+       .map( response => {
           this.album = response.json();
 
           // explicitly update the list with the updated data
@@ -59,7 +53,7 @@ export class AlbumService {
 
           return this.album;
         })
-      .catch( new ErrorInfo().parsePromiseResponseError );
+      .catch( new ErrorInfo().parseObservableResponseError );
   }
 
   deleteAlbum(album:Album):Observable<any> {

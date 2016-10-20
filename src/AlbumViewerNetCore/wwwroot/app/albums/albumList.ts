@@ -60,14 +60,14 @@ export class AlbumList implements OnInit {
     this.busy = true;
     this.albumList = [];
     this.albumService.getAlbums()
-      .subscribe( albums => {
+      .subscribe(albums => {
         this.albumList = albums;
         this.busy = false;
-        setTimeout(()=> $("#MainView").scrollTop(this.albumService.listScrollPos) , 100);
-      },
-        (err) => {
-          this.error.error(err);
-          this.busy = false;});
+        setTimeout(()=> $("#MainView").scrollTop(this.albumService.listScrollPos), 100);
+      }, err => {
+        this.error.error(err);
+        this.busy = false;
+      });
   }
 
   albumClick(album: Album) {

@@ -7,9 +7,11 @@ using AlbumViewerBusiness;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Text.Encodings.Web;
+using AlbumViewerAspNetCore;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Serialization;
+using Serilog;
 
 namespace AlbumViewerNetCore
 {
@@ -22,7 +24,7 @@ namespace AlbumViewerNetCore
         public Startup(IHostingEnvironment env)
         {
             HostingEnvironment = env;
-
+            
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -30,6 +32,7 @@ namespace AlbumViewerNetCore
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
+            
         }
 
 
@@ -72,13 +75,24 @@ namespace AlbumViewerNetCore
             // Make configuration available for EF configuration
             services.AddSingleton<IConfigurationRoot>(Configuration);
             services.AddSingleton<IConfiguration>(Configuration);
-
+            
             services.AddTransient<AlbumRepository>();
             services.AddTransient<ArtistRepository>();
             services.AddTransient<AccountRepository>();
 
-            // Add framework services.
-            services.AddMvc().AddJsonOptions(opt =>
+            //Log.Logger = new LoggerConfiguration()
+            //        .WriteTo.RollingFile(pathFormat: "logs\\log-{Date}.log")
+            //        .CreateLogger();
+            //services.AddSingleton(Log.Logger);
+
+            services.AddScoped<ApiExceptionFilter>();
+
+            // Add framework services
+            services.AddMvc(options =>
+                {
+                    // options.Filters.Add(new ApiExceptionFilter());
+                })
+            .AddJsonOptions(opt =>
             {
                 var resolver = opt.SerializerSettings.ContractResolver;
                 if (resolver != null)
@@ -86,7 +100,7 @@ namespace AlbumViewerNetCore
                     var res = resolver as DefaultContractResolver;
                     res.NamingStrategy = null;
                 }
-            });
+            });            
 
         }
 
@@ -94,17 +108,39 @@ namespace AlbumViewerNetCore
         public void Configure(IApplicationBuilder app, 
             IHostingEnvironment env, 
             ILoggerFactory loggerFactory,
-            AlbumViewerContext albumContext)
+            AlbumViewerContext albumContext,
+            IConfiguration configuration)
         {
+
+            Log.Logger = new LoggerConfiguration()
+                    .WriteTo.RollingFile(pathFormat: "logs\\log-{Date}.log")
+                    .CreateLogger();
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-                loggerFactory.AddDebug();
+                loggerFactory.WithFilter(new FilterLoggerSettings
+                    {
+                        {"Trace",LogLevel.Trace },
+                        {"Default", LogLevel.Trace},
+                        {"Microsoft", LogLevel.Warning}, // very verbose
+                        {"System", LogLevel.Warning}
+                    })
+                    .AddConsole()
+                    .AddSerilog();
+
+                app.UseDeveloperExceptionPage();             
             }
             else
             {
+                loggerFactory.WithFilter(new FilterLoggerSettings
+                    {
+                        {"Trace",LogLevel.Trace },
+                        {"Default", LogLevel.Trace},
+                        {"Microsoft", LogLevel.Warning}, // very verbose
+                        {"System", LogLevel.Warning}
+                    })
+                    .AddSerilog();
+
                 app.UseExceptionHandler(errorApp =>
 
                     // Application level exception handler here - this is just a place holder
@@ -133,11 +169,25 @@ namespace AlbumViewerNetCore
                         }));
 
 
-                //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-
+                //loggerFactory.AddConsole();
                 //app.UseExceptionHandler("/");
                 //app.UseExceptionHandler("/Home/Error");
             }
+
+            // enable this to log ASP.NET messages into the log
+            // not very useful except for troubleshooting
+            //loggerFactory.WithFilter(new FilterLoggerSettings
+            //        {
+            //            {"Trace",LogLevel.Information },
+            //            {"Default", LogLevel.Information},
+            //            {"Microsoft", LogLevel.Warning}, // very verbose
+            //            {"System", LogLevel.Warning}
+            //        })
+            //        .AddConsole()
+            //        .AddSerilog();
+            // loggerFactory.AddSerilog(new LoggerConfiguration()                
+            //    .WriteTo.RollingFile(pathFormat: "asp-logs\\log-{Date}.log")
+            //    .CreateLogger();
 
             //app.UseCors("CorsPolicy");
 
@@ -148,7 +198,6 @@ namespace AlbumViewerNetCore
                 AutomaticChallenge = false,
                 LoginPath = "/api/login"
             });
-
 
             app.UseDatabaseErrorPage();
             app.UseStatusCodePages();
@@ -162,7 +211,7 @@ namespace AlbumViewerNetCore
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            });            
 
 
 

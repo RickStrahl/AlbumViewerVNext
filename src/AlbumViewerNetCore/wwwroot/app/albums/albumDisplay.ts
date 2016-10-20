@@ -6,12 +6,12 @@ import {ErrorInfo} from "../common/errorDisplay";
 import {AppConfiguration} from "../business/appConfiguration";
 import {slideIn, slideInLeft} from "../common/animations";
 
-      @Component({
-          selector: 'album-display',
-          templateUrl: './albumDisplay.html',
-          animations: [ slideIn ]
-      })
-      export class AlbumDisplay implements OnInit {
+@Component({
+    selector: 'album-display',
+    templateUrl: './albumDisplay.html',
+    animations: [ slideIn ]
+})
+export class AlbumDisplay implements OnInit {
 
   @Input() album:Album = new Album();
   error = new ErrorInfo();
@@ -36,10 +36,9 @@ import {slideIn, slideInLeft} from "../common/animations";
         return;
 
       this.albumService.getAlbum(id)
-        .then((result) => {
+        .subscribe( result => {
           this.album = result;
-        })
-        .catch((err) => this.error.error(err));
+        }, err => this.error.error(err));
     }
   }
 
