@@ -9,15 +9,15 @@ namespace AlbumViewerAspNetCore
 
     public class ApiError
     {
-        public bool isError { get; set; }
         public string message { get; set; }
+        public bool isError { get; set; }
         public string detail { get; set; }
         public ValidationErrorCollection errors { get; set; }
 
 		public ApiError(string message)
         {
             this.message = message;
-            this.isError = true;
+            isError = true;
         }
 
         public ApiError(ModelStateDictionary modelState)
@@ -32,5 +32,4 @@ namespace AlbumViewerAspNetCore
             }
         }
     }
-
 }
