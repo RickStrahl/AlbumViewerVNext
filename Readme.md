@@ -1,13 +1,12 @@
 ﻿# West Wind Album Viewer ASP.NET Core Sample
+
 **Sample Angular 2.0 application demonstrating ASP.NET Core API features**
 
-This is a sample ASP.NET Core application that demonstrates basic features of ASP.NET Core in an API backend application with an Angular 2.0 front end. The application allows browsing and editing of a list of albums and artists interactively.
-
-In a Desktop Web Browser:
+This is a **sample ASP.NET** Core application *that* demonstrates basic features of ASP.NET Core in an API backend application with an Angular 2.0 frontend. The application allows browsing and editing of a list of albums and artists interactively.
 
 ![](AlbumViewer.png)
 
-In a Mobile Web Browser:
+In a Mobile Web Browser: 
 
 ![](AlbumViewerMobile.png)
 

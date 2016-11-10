@@ -24,7 +24,7 @@
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0",
     "Microsoft.Extensions.Configuration.CommandLine": "1.0.0",
     "Serilog.Extensions.Logging": "1.2.0",
-    "Serilog.Sinks.RollingFile": "3.1.0",
+    "Serilog.Sinks.RollingFile": "3.2.0",
     "AlbumViewerBusiness": "1.0.0-*",
     "Microsoft.AspNetCore.Razor.Tools": {
       "version": "1.0.0-preview2-final",
@@ -33,7 +33,6 @@
   },
 
   "tools": {
-    "BundlerMinifier.Core": "2.0.238",
     "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview2-final",
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"
   },

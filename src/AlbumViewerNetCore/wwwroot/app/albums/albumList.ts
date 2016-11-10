@@ -5,7 +5,7 @@ import { Album } from '../business/entities';
 import {AppConfiguration} from "../business/appConfiguration";
 import {Router} from "@angular/router";
 import {ErrorInfo} from "../common/errorDisplay";
-import {slideIn} from "../common/animations";
+import {slideIn, slideInLeft} from "../common/animations";
 import { UserInfo } from "../business/userInfo";
 
 //import * as $ from 'jquery';
@@ -14,12 +14,12 @@ declare var toastr:any;
 
 
 @Component({
-  //moduleId: module.id,
   selector: 'album-list',
   templateUrl: './albumList.html',
   animations: [ slideIn ]
 })
 export class AlbumList implements OnInit {
+
   constructor(private router:Router,
               private albumService: AlbumService,
               private config: AppConfiguration) {
@@ -33,11 +33,11 @@ export class AlbumList implements OnInit {
   ngOnInit() {
     this.getAlbums();
 
+
+
     this.config.isSearchAllowed = true;
     this.config.activeTab = "albums";
     this.config.searchText = "";
-
-
 
     // ??? Non-DOM way to do this?
     setTimeout(() => {

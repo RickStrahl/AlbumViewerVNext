@@ -1,5 +1,5 @@
+import { Album } from './../business/entities';
 import {Component, OnInit, Input, style, animate, state, transition, trigger, OnDestroy} from '@angular/core';
-import {Artist, Album} from "../business/entities";
 import {AlbumService} from "./albumService";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ErrorInfo} from "../common/errorDisplay";
