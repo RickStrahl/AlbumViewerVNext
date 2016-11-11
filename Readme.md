@@ -2,7 +2,7 @@
 
 **Sample Angular 2.0 application demonstrating ASP.NET Core API features**
 
-This is a **sample ASP.NET** Core application *that* demonstrates basic features of ASP.NET Core in an API backend application with an Angular 2.0 frontend. The application allows browsing and editing of a list of albums and artists interactively.
+This is a sample ASP.NET Core application that demonstrates basic features of ASP.NET Core in an API backend application with an Angular 2.0 frontend. The application allows browsing and editing of a list of albums and artists interactively.
 
 ![](AlbumViewer.png)
 
@@ -43,26 +43,18 @@ The **Angular 2.0** front end application demonstrates:
 The front end has been ported from an Angular 1.5 application, so it's not quite broken down into small control level components yet - a future refactor will address that.
 
 Version supported:  
-**Angular 2.0 RTM**
+**Angular 2.1**
 
 
 ### Getting Started ###
 You should just be able to clone this repo as is on either Windows or Mac (and probably Linux) and do:
 
 ```
-cd <AlbumViewerNetCore Folder>
-
-cd ..\Westwind.Utilitities
+cd <Base Solution Folder>
 dotnet restore
-cd ..\AlbumViewerBusiness
-dotnet restore
-
-cd ..\AlbumViewerNetCore
-dotnet restore
+cd AlbumViewerNetCore
 dotnet run
 ```
-
-in the `./src/albumviewercore` folder.
 
 Then navigate to [http://localhost:5000](http://localhost:5000) to start the application. First launch might fail due a timeout due to the initial DB creation, but subsequent requests should work.
 
@@ -127,8 +119,7 @@ Currently the app has been tested to run under Windows and Mac, but it should al
 
 **License:**  
 This sample is licensed under MIT license. Use, play with integrate code from
-this repository as you see fit, at your own risk. This code is based on pre-release
-code and updated regularly to reflect the latest current builds.
+this repository as you see fit, at your own risk. This code is based on pre-release code and updated regularly to reflect the latest current builds.
 
 **Warranty Disclaimer: No Warranty!**
 
