@@ -52,7 +52,7 @@ You should just be able to clone this repo as is on either Windows or Mac (and p
 ```
 cd <Base Solution Folder>
 dotnet restore
-cd AlbumViewerNetCore
+cd .\src\AlbumViewerNetCore
 dotnet run
 ```
 
