@@ -235,11 +235,7 @@ namespace Westwind.BusinessObjects
             {                
                 var entity = await DbSet.FirstOrDefaultAsync(whereClauseLambda);
 
-                if (entity != null)
-                    OnAfterLoaded(entity);
-                else
-                    SetError("Unable to find matching entity.");
-
+               
                 return entity;
             }
             catch (InvalidOperationException)
