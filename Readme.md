@@ -27,7 +27,11 @@ The **ASP.NET Core** Backend demonstrates:
 The sample also includes a few Server Side Rendered MVC pages for browsing and viewing of albums and artists. I'll be adding the edit pages at a later point.
 
 Version supported:  
-**ASP.NET Core 1.01**
+* **.NET Core 1.1.0**
+* **Visual Studio 2017 (.csproj)**
+
+> #### Visual Studio 2015
+> If you're using Visual Studio 2015, you need to use the `Last.NET1.01Version` Git tag to retrieve the last version that uses Visual Studio 2015 and the `.xproj`/`project.json` format. All newer builds use Visual Studio 2017 and the new `.csproj` style format.
 
 ### Angular 2.0 Features
 The **Angular 2.0** front end application demonstrates:
