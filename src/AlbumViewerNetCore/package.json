@@ -10,10 +10,11 @@
     "start": "npm run server"
   },
   "contributors": [
-    "Rick Strahl <rstrahl@west-wind.com>"    
+    "Rick Strahl <rstrahl@west-wind.com>"
   ],
   "license": "MIT",
   "devDependencies": {
+    "@angular/cli": "^1.0.0-rc.0",
     "@types/core-js": "^0.9.32",
     "@types/node": "^6.0.38",
     "angular2-template-loader": "^0.6.0",

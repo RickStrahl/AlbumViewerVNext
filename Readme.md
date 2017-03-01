@@ -29,6 +29,7 @@ The sample also includes a few Server Side Rendered MVC pages for browsing and v
 Version supported:  
 * **.NET Core 1.1.0**
 * **Visual Studio 2017 (.csproj)**
+* **1.0.0-rc3-004530 SDK Version**
 
 > #### Visual Studio 2015
 > If you're using Visual Studio 2015, you need to use the `Last.NET1.01Version` Git tag to retrieve the last version that uses Visual Studio 2015 and the `.xproj`/`project.json` format. All newer builds use Visual Studio 2017 and the new `.csproj` style format.
@@ -136,3 +137,30 @@ OR LOSSES SUSTAINED BY YOU OR LOSSES SUSTAINED BY THIRD PARTIES OR
 A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS, EVEN
 IF YOU OR OTHER PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF 
 SUCH DAMAGES.
+
+<!-- Post Configuration -->
+<!--
+```xml
+<blogpost>
+<title>West Wind Album Viewer ASP.NET Core Sample</title>
+<abstract>
+
+</abstract>
+<categories>
+
+</categories>
+<keywords>
+
+</keywords>
+<isDraft>False</isDraft>
+<featuredImage>http://west-wind.com/wconnect/weblog/imageContent/2017/AlbumViewerVNext/AlbumViewer.png</featuredImage>
+<weblogs>
+<postid>926</postid>
+<weblog>
+Web Connection Weblog
+</weblog>
+</weblogs>
+</blogpost>
+```
+-->
+<!-- End Post Configuration -->
