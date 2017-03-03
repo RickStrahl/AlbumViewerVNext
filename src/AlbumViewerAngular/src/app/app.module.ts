@@ -79,9 +79,8 @@ import {AboutComponent} from "./options/about";
       ArtistService,
       AppConfiguration,
       UserInfo,
-      ErrorInfo,
-      Track,
-      Album,Artist,
+      ErrorInfo,      
+      Album,Artist,Track,
       HttpClient,
 
       // make sure you use this for Hash Urls rather than HTML 5 routing

@@ -44,11 +44,12 @@ The **Angular 2.0** front end application demonstrates:
 * Client side and server side Authentication tracking
 * Client side and server side Validation
 * Managing Server Urls (dev/production)
-
-The front end has been ported from an Angular 1.5 application, so it's not quite broken down into small control level components yet - a future refactor will address that.
+* Angular CLI Project
 
 Version supported:  
-**Angular 2.1**
+**Angular 2.4**
+
+> The front end has been ported from an Angular 1.5 application, so it's not quite broken down into small control level components yet - a future refactor will address that. The current version is mostly page centric rather than component centric.
 
 
 ### Getting Started ###
@@ -90,18 +91,20 @@ SqLite will automatically create the database file in the content content root o
 To use Sql Server create a new empty database and then point the connection string at the new database. Make sure the account the Web server is running under has rights to create tables and then read/write data.
 
 #### To develop the AlbumViewer Angular 2 example
-The front end in the repo comes with pre-compiled .js files for the sample, so the application will just run through IIS Express/IIS or Kestrel.
+The Angular front end sits in a separate AlbumViewerAngular project folder and is built separately from the ASP.NET Core application.
+
+The sample however, does ship with pre-compiled .js files for the sample that have been copied into the Web project's **wwwroot** folder so the application will just run through IIS Express/IIS or Kestrel.
+
 
 Making changes to the Angular 2.0 application requires transpiling of the typescript source files. In order to make changes to the Angular 2 client sample run the following from a command window:
 
 ```
-cd <installFolder>\src\AlbumViewerNetCore
+cd <installFolder>\src\AlbumViewerAngular
 npm install
-npm run build
-npm start
+ng serve
 ```
 
-then navigate to **http://localhost:3000** to run the application. Note this uses the WebPack development server rather than through IIS Express or Kestrel.
+then navigate to **http://localhost:4200** to run the application. Note this uses the WebPack development server rather than through IIS Express or Kestrel.
 
 Depending on which port you run the ASP.NET Core application you may have to change the API server base URL which defaults to **http://localhost:5000/** in the `app/business/appConfiguration.ts` file.
 
@@ -111,10 +114,10 @@ Once you've made your changes, you need to build the application's final output.
 npm run build:prod
 ```
 
-or
+or if you want to copy to the Web Project's **wwwroot** folder:
 
 ```
-webpack -p
+npm run build:asp
 ```
 
 which creates the final transpiled bundles you can use to run your application through the ASP.NET Core application.
@@ -123,8 +126,8 @@ which creates the final transpiled bundles you can use to run your application t
 Currently the app has been tested to run under Windows and Mac, but it should also work under Linux.
 
 **License:**  
-This sample is licensed under MIT license. Use, play with integrate code from
-this repository as you see fit, at your own risk. This code is based on pre-release code and updated regularly to reflect the latest current builds.
+This sample is licensed under MIT license. Use, play with, integrate code from
+this repository as you see fit at your own risk. This code updated regularly to reflect the latest current builds of ASP.NET Core and Angular.
 
 **Warranty Disclaimer: No Warranty!**
 
@@ -137,30 +140,3 @@ OR LOSSES SUSTAINED BY YOU OR LOSSES SUSTAINED BY THIRD PARTIES OR
 A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS, EVEN
 IF YOU OR OTHER PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF 
 SUCH DAMAGES.
-
-<!-- Post Configuration -->
-<!--
-```xml
-<blogpost>
-<title>West Wind Album Viewer ASP.NET Core Sample</title>
-<abstract>
-
-</abstract>
-<categories>
-
-</categories>
-<keywords>
-
-</keywords>
-<isDraft>False</isDraft>
-<featuredImage>http://west-wind.com/wconnect/weblog/imageContent/2017/AlbumViewerVNext/AlbumViewer.png</featuredImage>
-<weblogs>
-<postid>926</postid>
-<weblog>
-Web Connection Weblog
-</weblog>
-</weblogs>
-</blogpost>
-```
--->
-<!-- End Post Configuration -->

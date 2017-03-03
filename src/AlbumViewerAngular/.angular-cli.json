@@ -6,12 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
-      "assets": [
-        "images",
-        "favicon.ico",
-        "touch-icon.png"
-      ],
+      "outDir": "dist",     
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -19,7 +14,12 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
+       "assets": [
+        "images",
+        "favicon.ico",
+        "touch-icon.png"
+       ],
+       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "../node_modules/bootstrap/dist/css/bootstrap-theme.css",
         "../node_modules/font-awesome/css/font-awesome.css",
