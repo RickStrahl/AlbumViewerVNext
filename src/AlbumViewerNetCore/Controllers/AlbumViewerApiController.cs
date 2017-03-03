@@ -86,8 +86,8 @@ namespace AlbumViewerAspNetCore
         [HttpPost("api/album")]
         public async Task<Album> SaveAlbum([FromBody] Album postedAlbum)
         {
-            if (!HttpContext.User.Identity.IsAuthenticated)
-                throw new ApiException("You have to be logged in to modify data", 401);
+            //if (!HttpContext.User.Identity.IsAuthenticated)
+            //    throw new ApiException("You have to be logged in to modify data", 401);
 
             if (!ModelState.IsValid)
                 throw new ApiException("Model binding failed.", 500);
