@@ -216,7 +216,7 @@ namespace AlbumViewerNetCore
 
 
             AlbumViewerDataImporter.EnsureAlbumData(albumContext,
-                Path.Combine(env.ContentRootPath, "App_Data/albums.js"));
+                Path.Combine(env.ContentRootPath, "albums.js"));
 
         }
     }
