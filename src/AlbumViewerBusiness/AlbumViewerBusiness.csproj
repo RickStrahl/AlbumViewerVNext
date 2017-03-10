@@ -11,8 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Westwind.Utilities\Westwind.Utilities.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="NETStandard.Library" Version="1.6.1" />
+  <ItemGroup>    
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.2-beta2" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />

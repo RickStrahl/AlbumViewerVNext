@@ -16,7 +16,7 @@ export class AppConfiguration {
 
           //this.urls.baseUrl = "http://localhost:26448/"; // iis Express
           //this.urls.baseUrl = "http://localhost/albumviewer/"; // iis
-          this.urls.baseUrl = "https://samples.west-wind.com/AlbumViewerCore/";  // online
+          //this.urls.baseUrl = "https://samples.west-wind.com/AlbumViewerCore/";  // online
       }
 
       // top level search text
