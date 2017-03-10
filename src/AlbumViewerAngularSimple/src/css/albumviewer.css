@@ -1,0 +1,409 @@
+﻿html, body {
+}
+body {
+    overflow-x: hidden;
+    letter-spacing:0.6px;
+}
+.page-header-text{
+    font-size: 1.8em;
+    font-weight: bold;
+    color: steelblue;
+}
+h2,h3 {
+    font-family: Trebuchet,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+h3 {
+    color: steelblue;
+}
+
+.line-breaks {
+  white-space: pre-wrap;
+}
+@media(max-width: 768px) {
+  .hidden-small {
+    display: none;
+  }
+}
+@media(max-width: 768px) {
+  .hidden-xs {
+    display: none;
+  }
+}
+
+#Loader-Block {
+  position: absolute;
+  width: 270px;
+  margin-left: -135px;
+  top: 30%;
+  left: 50%;
+  background: #444;
+  color: white;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 4px 4px 6px #535353;
+}
+.statusbar-push{
+  /* add 15px for iPhone status bar */
+  padding-top: 15px;
+}
+#TitleBar {
+    position: absolute;
+    top: 0px;
+    left: 8px;
+    z-index: 11;
+}
+.banner-header-top {
+    color: steelblue;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.banner-header-bottom {
+    color: whitesmoke;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+#Toolbar {
+    display: none;
+}
+#Toolbar-Top {
+}
+#TopMenu {
+}
+#SearchBox {
+  background-color: #FFFFFF;
+  background-image: url(../images/search_box.png);
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
+  vertical-align: center;
+  padding-left: 27px !important;
+}
+.page-header-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color:  #0092d0;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e1e1e1;
+}
+.separator {
+    padding: 3px 0;
+    margin: 10px 0 15px 0;
+    border-bottom: solid 1px #e1e1e1;
+}
+
+    #TopMenu input {
+        color: #535353;
+        padding: 4px 5px;
+        height: auto;
+    }
+    #MainView {
+        position: absolute;
+        left: 0;
+        top: 70px;
+        bottom: 0;
+        padding-top: 10px;
+        width:100%;
+        z-index: 11;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-top: 10px;
+        background: white;
+        overflow-x: hidden;
+    }
+
+.banner {
+
+    background: #535353;
+    color: #e1e1e1;
+    border-bottom: solid 1px black;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 57px;
+    width: 100%;
+    z-index: 10;
+}
+    .banner.active {
+        color: white;
+        font-weight: bolder;
+    }
+
+
+.banner nav {
+    display: inline-block;
+    margin-right: 3px;
+    padding: 4px;
+}
+    .banner nav a, .banner nav input {
+        display: inline-block;
+        padding: 6px 6px 6px;
+        color: #e1e1e1;
+        text-decoration: none;
+    }
+     .banner nav a img {
+        height: 23px;
+        vertical-align: top;
+    }
+
+
+    .banner nav a:hover {
+        color: white;
+        background: #767676;
+        text-decoration: none;
+        border-bottom: solid 4px silver;
+        border-radius: 2px;
+    }
+
+    .banner nav a.active, .banner nav a.selected
+     {
+        color: white;
+        font-weight: bold;
+        border-bottom: solid 4px orange;
+        border-radius: 2px;
+    }
+  .banner-bottom {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    text-align: center;
+    padding-top: inherit;
+    height: 43px;
+
+    display: none;
+}
+  .banner-bottom a {
+        margin: 0 20px;
+    }
+
+    @media(max-width: 640px) {
+        .banner nav a span {
+            display: none;
+        }
+    }
+
+.album {
+    float: left;
+    position: relative;
+
+    text-decoration: none !important;
+    color: inherit;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding: 10px !important;
+    border: 1px solid silver;
+    border-radius: 6px;
+    overflow-y: hidden;
+    height: 140px;
+    max-width: 235px;
+    transition: background linear 375ms;
+}
+    .album-detail-container{
+        height: 100%;
+        overflow: hidden;
+    }
+    .album:hover {
+        background: steelblue;
+        color: white !important;
+        cursor: pointer;
+    }
+    .album:hover .album-overlay {
+        display: block;
+    }
+    .album-overlay {
+        position: relative;
+        float: right;
+        background: #034e8d;
+        color: whitesmoke;
+        padding: 5px;
+        min-width: 40px;
+        display: none;
+        margin-top: -10px;
+        margin-right: -10px;
+        border-radius: 3px;
+        opacity: 0.85;
+        z-index: 1000;
+        box-shadow: 2px 2px 4px #535353;
+
+    }.album-overlay:hover {
+         opacity: 1;
+     }
+    .album-overlay a, .album-overlay a:hover {
+        color: beige;
+        text-decoration: none;
+    }
+    .album-overlay a:hover {
+        color: white;
+    }
+
+.album-title {
+    font-weight: bold;
+}
+
+.album-title-big {
+    font-weight: bold;
+    font-size: 1.55em;
+}
+
+.album-descript {
+  font-size: 0.85em;
+  overflow: hidden;
+  max-height: 83px;
+}
+
+.album-artist {
+    font-size: 0.85em;
+    font-style: italic;
+    color: #2a5fb4;
+}
+
+.album-year {
+    font-size: 0.85em;
+    color: steelblue;
+}
+
+
+.album-image,.album-image-big {
+    width: 55px;
+    float: left;
+    border-radius: 35px;
+}
+.album-image-big {
+    width: auto;
+    float: none;
+    max-width: 95%;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px #535353;
+}
+@media(max-width: 768px){
+    .album-image-big {
+        margin-bottom: 10px;
+    }
+}
+@media(min-width: 960px) {
+    .album {
+        max-width: 32%;
+    }
+    .album-image {
+        width: 70px;
+    }
+}
+
+.song {
+    font-size: .85em;
+    padding: 5px;
+    border-bottom: 1px dashed silver;
+}
+
+.separator {
+    border-bottom: 1px solid lightgrey;
+    margin: 5px auto 15px;
+    height: 1px;
+}
+
+form input:not([type=submit]):not([type=checkbox]):not([type=radio]):not([type=file]):not(.ng-pristine):not(.ng-untouched).ng-invalid,
+select:not(ng-pristine).ng-invalid, textarea:not(.ng-pristine).ng-invalid {
+  background: lightpink;
+  border-left: 5px solid red;
+}
+
+@media (max-width: 640px) {
+    .album {
+        max-width: 100% !important;
+        min-height: 100px;
+    }
+    .album-image {
+        width: 70px;
+    }
+    #Toolbar-Top {
+        display: none;
+    }
+    #Toolbar {
+        display: block;
+    }
+    .banner-bottom {
+        display: block;
+    }
+    #MainView {
+        bottom: 43px;
+    }
+}
+.modal-backdrop {
+    /* bug fix - no overlay */
+    display: none;
+}
+.modal-dialog {
+    margin: 10px auto;
+    z-index: 1100 !important;
+}
+.modal-header {
+    padding: 15px 15px 5px;
+}
+.modal-body {
+    padding: 10px 20px 5px 20px;
+}
+
+@-webkit-keyframes slideOutLeft {
+     from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+     to {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+@keyframes slideOutLeft {
+    from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    to {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    to {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.slide-animation.ng-enter {
+    -webkit-animation: slideInRight 0.50s both ease-in;
+    animation: slideInRight 0.50s both ease-in;
+    z-index: 9999;
+}
+
+.slide-animation.ng-leave {
+   -webkit-animation: slideOutLeft 0.50s both ease-in;
+    animation: slideOutLeft 0.50s both ease-in;
+    z-index: 8888;
+}
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+

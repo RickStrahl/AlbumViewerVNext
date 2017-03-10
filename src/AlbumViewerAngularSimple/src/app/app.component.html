@@ -1,0 +1,34 @@
+﻿<header id="TitleBar" class="statusbar-push" >
+  <a href="#/albums">
+    <img src="images/headphone-head.png"
+         style="height: 35px; float: left" />
+    <div style="float: left; margin-left: 5px; line-height: 1.2">
+      <i class="banner-header-top">West Wind</i><br />
+      <i class="banner-header-bottom">AlbumViewer</i>
+    </div>
+  </a>
+</header>
+
+<div style="margin: 0; padding: 0; border: none;">
+  <div class="banner statusbar-push">
+    <nav id="Toolbar-Top" class="pull-right">
+
+      <a href="#/albums" >
+        <img src="images/record.png" title="Albums" /> <span>Albums</span>
+      </a>
+      <a href="#/artists" >
+        <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
+      </a>
+    </nav>
+  </div>
+</div>
+
+<div id="MainView">
+  <router-outlet></router-outlet>
+
+  <footer>
+    <hr/>
+    &copy; West Wind Technologies
+  </footer>
+</div>
+  

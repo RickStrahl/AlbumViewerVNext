@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "../AlbumViewerNetCore/wwwroot",     
+      "outDir": "../AlbumViewerNetCore/wwwroot",
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -14,12 +14,12 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-       "assets": [
+      "assets": [
         "images",
         "favicon.ico",
         "touch-icon.png"
-       ],
-       "styles": [
+      ],
+      "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "../node_modules/bootstrap/dist/css/bootstrap-theme.css",
         "../node_modules/font-awesome/css/font-awesome.css",

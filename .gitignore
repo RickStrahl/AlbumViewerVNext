@@ -1,6 +1,24 @@
+# compiled output
+/dist
+/tmp
+
+# dependencies
+node_modules/
+bower_components/
+
+# IDEs and editors
+/.idea
+/.vs
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Dotnet
 [Oo]bj/
 [Bb]in/
-AlbumViewer/
 *.xap
 *.user
 /TestResults
@@ -33,14 +51,15 @@ build/
 *net45.csproj
 *k10.csproj
 App_Data/
-bower_components
-node_modules
 *.sln.ide
 */*.Spa/public/*
 */*.Spa/wwwroot/*
 *.ng.ts
 *.sln.ide
 __*.htm
+
+# Application
+AlbumViewer/
 src/AlbumViewerVNext/wwwroot/web.config__X
 thumbs.db
 .vs

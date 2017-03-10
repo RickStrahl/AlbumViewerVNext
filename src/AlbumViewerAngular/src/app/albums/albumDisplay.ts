@@ -1,4 +1,4 @@
-﻿import { Album } from './../business/entities';
+﻿import {Album} from './../business/entities';
 import {Component, OnInit, Input, style, animate, state, transition, trigger, OnDestroy} from '@angular/core';
 import {AlbumService} from "./albumService";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -15,7 +15,6 @@ export class AlbumDisplay implements OnInit {
 
   @Input() album:Album = new Album();
   error = new ErrorInfo();
-
   aniFrame = 'in';
 
   constructor(private route: ActivatedRoute,
@@ -41,8 +40,6 @@ export class AlbumDisplay implements OnInit {
         }, err => this.error.error(err));
     }
   }
-
-
 
   ngOnDestroy() {
     this.aniFrame = 'out';

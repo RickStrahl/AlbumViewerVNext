@@ -1,0 +1,126 @@
+﻿<div class="container"  >
+
+    <div *ngIf="album.Id !== 0" class="btn-group" style="margin-bottom: 10px;">
+        <a [routerLink]="['/albums']"           
+            class="btn btn-sm btn-default"><i class="fa fa-list"></i> List</a>
+        <a href="#/album/{{album.Id}}" class="btn btn-sm btn-default" disabled="true"><i class="fa fa-eye"></i> View</a>
+        <a [href]="album.AmazonUrl" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
+    </div>
+
+    <div class="separator"></div>
+
+
+    <div class="alert alert-warning" *ngIf="errorMessage">
+        <strong>{{ errorMessage }}</strong>
+    </div>
+
+
+    <div class="row" >
+
+        <div class="col-sm-5">
+            <form name="form1" action="javascript:{}" #form1="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="AlbumName">Album Name:</label>
+                    <input id="AlbumName" type="text" class="form-control input-sm"
+                            placeholder="Album Name"
+                            name="Title" required
+                            [(ngModel)]="album.Title" autofocus />
+
+                </div>
+                <div class="form-group">
+                    <label for="BandName">Band Name:</label>
+                    <input type="text" class="form-control input-sm typeahead" id="BandName"
+                            required
+                            autocomplete="off"
+                            data-provide="typeahead"
+                            placeholder="Band Name"
+                            name="ArtistName"
+                            [(ngModel)]="album.Artist.ArtistName" />
+
+
+                </div>
+                <div class="form-group">
+                    <label for="Description">Album Description:</label>
+                    <textarea class="form-control input-sm" id="Description"
+                                placeholder="Album description or review"
+                                required
+                                [(ngModel)]="album.Description"
+                                name="Description"
+                                style="height: 115px"></textarea>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" title="Image Url"><i class="fa fa-image fa-fw"></i></span>
+                        <input type="text" class="form-control input-sm" id="ImageUrl"
+                                required
+                                name="ImageUrl"
+                                placeholder="Image Url" [(ngModel)]="album.ImageUrl" />
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" title="Url where to buy"><i class="fa fa-dollar fa-fw"></i></span>
+                        <input type="text" class="form-control input-sm" id="AmazonUrl"
+                                placeholder="Purchase Url"
+                                name="AmazonUrl"
+                                [(ngModel)]="album.AmazonUrl"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" title="Url where to buy"><i class="fa fa-spotify fa-fw"></i></span>
+                        <input type="text" class="form-control input-sm" id="SpotifyUrl"
+                                placeholder="Listen Url"
+                                name="SpotifyUrl"
+                                [(ngModel)]="album.SpotifyUrl" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="YearReleased">Year released:</label>
+                    <input type="number" class="form-control input-sm" id="YearReleased"
+                            required
+                            name="Year"
+                            placeholder="Year of album release"
+                            [(ngModel)]="album.Year"/>
+                </div>
+
+                <hr/>
+
+
+                <!--<album-songlist [tracks]="album.Tracks" [allowEditing]="true"></album-songlist>-->
+
+                <div class="well well-sm">
+                    <button type="submit" (click)="saveAlbum(album)"
+                            class="btn btn-success"
+                            [disabled]="form1.invalid" accesskey="S">
+                        <i class="fa fa-check"></i> Save
+                    </button>
+                    <a [routerLink]="['/albums']" class="btn btn-default">
+                        <i class="fa fa-remove"></i> Cancel
+                    </a>
+                </div>
+
+                <div class="separator"></div>
+
+            </form>
+        </div>
+
+        <div class="col-sm-7">
+            <h3>Preview</h3>
+            <img [src]="album.ImageUrl" onerror="this.src=''" class="album-image-big"/>
+            <div style="margin-top: 10px;">
+                <h2 class="album-title-big">{{album.Title}}</h2>            
+                <div class="album-descript line-breaks" [innerHTML]="album.Description"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

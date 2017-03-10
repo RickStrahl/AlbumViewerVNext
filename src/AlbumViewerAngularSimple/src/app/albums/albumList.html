@@ -1,0 +1,37 @@
+﻿<div class="container container-fluid" >
+
+<div class="alert alert-warning" *ngIf="errorMessage">
+    <button type="button" class="close" 
+            data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>{{errorMessage}}</strong>
+</div>
+    
+<!--<a href="#/album/edit/0" class="btn btn-sm btn-success pull-right" 
+    (click)="addAlbum()"><i class="fa fa-plus"></i> Add Album</a>-->
+<div class="page-header-text">
+    <i class="fa fa-list">
+    </i> Albums <span class="badge">{{albumList.length}}</span>
+</div>
+
+<div class="container" *ngIf="busy">
+    <i class="fa fa-circle-o-notch fa-spin fa-5x"
+        style="display: block; text-align: center; margin-top: 70px;"></i>
+</div>
+
+<a class="album" role="button" style="text-decoration: none"
+   [routerLink]="['/album/edit',album.Id]"
+    *ngFor="let album of albumList">
+
+    <img [src]="album.ImageUrl" class="album-image" />
+    <div style="padding-left: 80px;">
+        <div class="album-title">{{album.Title}}</div>
+        <div class="album-artist">
+            by {{album.Artist.ArtistName}} 
+            {{(album.Year ? 'in ' + album.Year : '')}}
+        </div>
+        <div class="album-descript">{{album.Description}}</div>
+    </div>
+
+</a>
+
+</div>
