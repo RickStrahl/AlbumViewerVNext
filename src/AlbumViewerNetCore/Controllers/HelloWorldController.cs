@@ -10,6 +10,14 @@ namespace AlbumViewerNetCore.Controllers
 {
     public class HelloWorldController : Controller
     {
+
+        [HttpGet]
+        [Route("index2.html")]
+        public string Index()
+        {
+            return "<h1>Hello</h1><hr/>Index page test";
+        }
+
         [HttpGet]
         [Route("sapi/helloworld")]
         public object HelloWorld(string name = null)

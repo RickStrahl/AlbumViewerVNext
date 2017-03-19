@@ -23,7 +23,7 @@ namespace AlbumViewerAspNetCore
     {
         AlbumViewerContext context;
         IServiceProvider serviceProvider;
-
+        
         ArtistRepository ArtistRepo;
         AlbumRepository AlbumRepo;
         IConfiguration Configuration;
@@ -45,6 +45,9 @@ namespace AlbumViewerAspNetCore
             ArtistRepo = artistRepo;
             Logger = logger;
         }
+
+      
+
 
         [HttpGet]
         [Route("api/throw")]
