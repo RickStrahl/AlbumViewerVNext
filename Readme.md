@@ -1,8 +1,8 @@
 ﻿# West Wind Album Viewer ASP.NET Core Sample
 
-**Sample Angular 2.0 application demonstrating ASP.NET Core API features**
+**Sample Angular (4) application demonstrating ASP.NET Core API features**
 
-This is a sample ASP.NET Core application that demonstrates basic features of ASP.NET Core in an API backend application with an Angular 2.0 frontend. The application allows browsing and editing of a list of albums and artists interactively.
+This is a sample ASP.NET Core application that demonstrates basic features of ASP.NET Core in an API backend application with an Angular frontend. The application allows browsing and editing of a list of albums and artists interactively.
 
 ![](AlbumViewer.png)
 
@@ -28,14 +28,14 @@ The sample also includes a few Server Side Rendered MVC pages for browsing and v
 
 Version supported:  
 * **.NET Core 1.1.1**
-* **Visual Studio 2017 (.csproj)**
 * **1.0.1 SDK Version**
+* **Visual Studio 2017 (.csproj)**
 
 > #### Visual Studio 2015
 > If you're using Visual Studio 2015, you need to use the `Last.NET1.01Version` Git tag to retrieve the last version that uses Visual Studio 2015 and the `.xproj`/`project.json` format. All newer builds use Visual Studio 2017 and the new `.csproj` style format.
 
-### Angular 2.0 Features
-The **Angular 2.0** front end application demonstrates:
+### Angular Features
+The **Angular** front end application demonstrates:
 
 * Page based Application
 * Mobile friendly, adaptive UI
@@ -47,9 +47,8 @@ The **Angular 2.0** front end application demonstrates:
 * Angular CLI Project
 
 Version supported:  
-**Angular 2.4**
-
-> The front end has been ported from an Angular 1.5 application, so it's not quite broken down into small control level components yet - a future refactor will address that. The current version is mostly page centric rather than component centric.
+* **Angular 4.0**  
+* **Angular CLI 1.0**
 
 
 ### Getting Started ###
@@ -104,9 +103,9 @@ npm install
 ng serve
 ```
 
-then navigate to **http://localhost:4200** to run the application. Note this uses the WebPack development server rather than through IIS Express or Kestrel.
+then navigate to **http://localhost:4200** to run the application. Note this uses the WebPack development server rather than running through IIS Express or Kestrel for the front end assets - index.html, all css, images etc. are served from the development server and only API requests go through Kestrel/IIS.
 
-Depending on which port you run the ASP.NET Core application you may have to change the API server base URL which defaults to **http://localhost:5000/** in the `app/business/appConfiguration.ts` file.
+Depending on which port you run the ASP.NET Core application you may have to change the API server base URL which defaults to **http://localhost:5000/** in the `app/business/appConfiguration.ts` file. The default is when running the development server that requests are routed to **http://localhost:5000/** which is where Kestrel runs by default.
 
 Once you've made your changes, you need to build the application's final output. Run:
 

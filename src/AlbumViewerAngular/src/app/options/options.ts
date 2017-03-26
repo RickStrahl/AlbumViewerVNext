@@ -5,7 +5,7 @@ import {ErrorInfo} from "../common/errorDisplay";
 import {Http} from "@angular/http";
 
 declare var toastr:any;
-
+declare var window: any;
 @Component({
     // moduleId: module.id,
     selector: 'options',
@@ -14,8 +14,8 @@ declare var toastr:any;
 export class OptionsComponent implements OnInit {
   error:ErrorInfo = new ErrorInfo();
 
-  constructor(private config:AppConfiguration,
-    private user:UserInfo,
+  constructor(public config:AppConfiguration,
+    public user:UserInfo,
   private http:Http) {
 
     }

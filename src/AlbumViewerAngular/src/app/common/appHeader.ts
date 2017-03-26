@@ -7,7 +7,7 @@ import {AppConfiguration} from "../business/appConfiguration";
     templateUrl: 'appHeader.html'
 })
 export class AppHeader implements OnInit {
-    constructor(private config:AppConfiguration) {
+    constructor(public config:AppConfiguration) {
     }
 
     ngOnInit() {

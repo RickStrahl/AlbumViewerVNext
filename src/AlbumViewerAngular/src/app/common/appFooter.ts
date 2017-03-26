@@ -7,7 +7,7 @@ import {AppConfiguration} from "../business/appConfiguration";
     templateUrl: 'appFooter.html'
 })
 export class AppFooter implements OnInit {
-    constructor(private config:AppConfiguration) {
+    constructor(public config:AppConfiguration) {
 
     }
 

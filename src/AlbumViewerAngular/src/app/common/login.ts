@@ -3,6 +3,7 @@ import {UserInfo} from "../business/userInfo";
 import {ErrorInfo} from "./errorDisplay";
 
 declare var toastr:any;
+declare var window: any;
 
 import {ActivatedRoute} from "@angular/router";
 //declare var toastr:any;
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
     password:string = "";
     error: ErrorInfo = new ErrorInfo();
 
-    constructor(private user:UserInfo,private route:ActivatedRoute)
+    constructor(public user:UserInfo,private route:ActivatedRoute)
     {  }
 
     ngOnInit() {

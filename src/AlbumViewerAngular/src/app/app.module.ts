@@ -5,6 +5,7 @@ import {AppComponent} from "./app.component";
 
 import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   HttpModule, Http, ConnectionBackend, Request, RequestOptionsArgs, Response,
   RequestOptions, XHRBackend, ResponseOptions, BrowserXhr, XSRFStrategy
@@ -48,6 +49,7 @@ import {AboutComponent} from "./options/about";
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     AppRoutingModule
