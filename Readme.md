@@ -113,20 +113,16 @@ Once you've made your changes, you need to build the application's final output.
 npm run build:prod
 ```
 
-or if you want to copy to the Web Project's **wwwroot** folder:
-
-```
-npm run build:asp
-```
-
 which creates the final transpiled bundles you can use to run your application through the ASP.NET Core application.
+
+I've changed the default output folder in `angular-cli.json` from the `.\dist` folder to the ASP.NET `wwwroot` folder so that the application can run entirely served by Kestrel or IIS. It also still works using `ng serve` which uses whatever path is used in `angular-cli.json`.
 
 #### Platforms 
 Currently the app has been tested to run under Windows and Mac, but it should also work under Linux.
 
 **License:**  
 This sample is licensed under MIT license. Use, play with, integrate code from
-this repository as you see fit at your own risk. This code updated regularly to reflect the latest current builds of ASP.NET Core and Angular.
+this repository as you see fit at your own risk. I try to update this code regularly to reflect the latest current builds of ASP.NET Core and Angular.
 
 **Warranty Disclaimer: No Warranty!**
 
