@@ -357,7 +357,7 @@
       "Id": 7,
       "ArtistId": 7,
       "Title": "Angelwitch",
-      "Description": "This NOWBHM classic is widely regarded amongst fans as the band s finest hour. This 30th Anniversary Deluxe Expanded Edition of the band s 1980 album includes the entire recorded output from this era ; BBC Friday Rock Show session tracks along with a complete second disc of rare demo s, alternative versions and 12 single mixes, makes this the definitive Angel Witch Anniversary collection. 30 tracks.",
+      "Description": "This NWOBHM classic is widely regarded amongst fans as the band s finest hour. This 30th Anniversary Deluxe Expanded Edition of the band s 1980 album includes the entire recorded output from this era ; BBC Friday Rock Show session tracks along with a complete second disc of rare demo s, alternative versions and 12 single mixes, makes this the definitive Angel Witch Anniversary collection. 30 tracks.",
       "Year": 1979,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/41QzUbIXJUL._SL250_.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B003IBFP3K/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B003IBFP3K&linkCode=as2&tag=westwindtechn-20&linkId=ZPUTZUBTN5EVWPV6",
