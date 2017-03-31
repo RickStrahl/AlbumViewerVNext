@@ -39,11 +39,15 @@ export class AlbumEditor implements OnInit {
     this.config.isSearchAllowed = false;
     this.bandTypeAhead();
 
+
     var id = this.route.snapshot.params["id"];
     if (id < 1) {
-      this.loaded = true;
-      return;
+        this.loaded = true;
+        this.album = this.albumService.newAlbum();
+        return;
     }
+
+
 
     this.albumService.getAlbum(id)
       .subscribe(result => {

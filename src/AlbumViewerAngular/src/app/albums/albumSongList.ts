@@ -20,11 +20,17 @@ export class AlbumSongList implements OnInit {
   track:Track = new Track();
 
   addTrack(track){
+      this.track = new Track();
       this.isSongVisible = true;
+  }
+  cancelTrack() {
+      this.track = new Track();
+      this.isSongVisible = false;
   }
 
   saveTrack(track){
       this.albumService.addSong(track);
+      this.isSongVisible = false;
   }
 
   removeTrack(track: Track) {

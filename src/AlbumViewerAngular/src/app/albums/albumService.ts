@@ -28,18 +28,22 @@ export class AlbumService {
   }
 
   getAlbum(id):Observable<Album> {
-      return this.http.get(this.config.urls.url("album",id))
-        .map( response => {
+    return this.http.get(this.config.urls.url("album",id))
+		.map( response => {
             this.album = response.json();
 
             if (!this.albumList || this.albumList.length < 1)
-              this.getAlbums(); // load up albums in background
+                this.getAlbums(); // load up albums in background
 
             return this.album;
         })
-        .catch( new ErrorInfo().parseObservableResponseError );
-  }
+		.catch( new ErrorInfo().parseObservableResponseError );
+}
 
+newAlbum():Album {
+      this.album = new Album();
+      return this.album;
+}
   saveAlbum(album):Observable<any> {
     return this.http.post(this.config.urls.url("album"),
                           album,
