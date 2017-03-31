@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "root": "src",
+      "root": "src",      
       "outDir": "../AlbumViewerNetCore/wwwroot",     
       "index": "index.html",
       "main": "main.ts",

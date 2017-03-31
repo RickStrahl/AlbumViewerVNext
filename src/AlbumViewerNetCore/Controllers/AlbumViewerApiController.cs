@@ -7,6 +7,7 @@ using System.Collections;
 using System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,7 +28,8 @@ namespace AlbumViewerAspNetCore
         ArtistRepository ArtistRepo;
         AlbumRepository AlbumRepo;
         IConfiguration Configuration;
-        private ILogger<AlbumViewerApiController> Logger; 
+        private ILogger<AlbumViewerApiController> Logger;
+        private IHostingEnvironment HostingEnv;
 
         public AlbumViewerApiController(
             AlbumViewerContext ctx, 
@@ -35,7 +37,8 @@ namespace AlbumViewerAspNetCore
             ArtistRepository artistRepo, 
             AlbumRepository albumRepo, 
             IConfiguration config,
-            ILogger<AlbumViewerApiController> logger)
+            ILogger<AlbumViewerApiController> logger,
+            IHostingEnvironment env)
         {
             context = ctx;
             serviceProvider = svcProvider;
@@ -44,6 +47,8 @@ namespace AlbumViewerAspNetCore
             AlbumRepo = albumRepo;
             ArtistRepo = artistRepo;
             Logger = logger;
+
+            HostingEnv = env;
         }
 
       
@@ -251,8 +256,8 @@ drop table Users;
 
 
             AlbumViewerDataImporter.EnsureAlbumData(context,
-                Path.Combine(Directory.GetCurrentDirectory(), 
-                "wwwroot/App_Data/albums.js"));
+                Path.Combine(HostingEnv.ContentRootPath, 
+                "albums.js"));
 
             return true;
         }

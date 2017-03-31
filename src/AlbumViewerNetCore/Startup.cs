@@ -120,7 +120,7 @@ namespace AlbumViewerNetCore
             {
                 loggerFactory.WithFilter(new FilterLoggerSettings
                     {
-                        {"Trace",LogLevel.Trace },
+                        {"Trace", LogLevel.Trace},
                         {"Default", LogLevel.Trace},
                         {"Microsoft", LogLevel.Warning}, // very verbose
                         {"System", LogLevel.Warning}
@@ -128,13 +128,13 @@ namespace AlbumViewerNetCore
                     .AddConsole()
                     .AddSerilog();
 
-                app.UseDeveloperExceptionPage();             
+                app.UseDeveloperExceptionPage();
             }
             else
             {
                 loggerFactory.WithFilter(new FilterLoggerSettings
                     {
-                        {"Trace",LogLevel.Trace },
+                        {"Trace", LogLevel.Trace},
                         {"Default", LogLevel.Trace},
                         {"Microsoft", LogLevel.Warning}, // very verbose
                         {"System", LogLevel.Warning}
@@ -168,7 +168,6 @@ namespace AlbumViewerNetCore
                             await context.Response.WriteAsync(new string(' ', 512)); // Padding for IE
                         }));
 
-
                 //loggerFactory.AddConsole();
                 //app.UseExceptionHandler("/");
                 //app.UseExceptionHandler("/Home/Error");
@@ -189,7 +188,7 @@ namespace AlbumViewerNetCore
             //    .WriteTo.RollingFile(pathFormat: "asp-logs\\log-{Date}.log")
             //    .CreateLogger();
 
-            //app.UseCors("CorsPolicy");
+
 
             // Enable Cookie Auth with automatic user policy
             app.UseCookieAuthentication(new CookieAuthenticationOptions()
@@ -212,8 +211,6 @@ namespace AlbumViewerNetCore
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });            
-
-
 
             AlbumViewerDataImporter.EnsureAlbumData(albumContext,
                 Path.Combine(env.ContentRootPath, "albums.js"));
