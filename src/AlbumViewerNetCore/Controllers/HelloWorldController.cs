@@ -19,7 +19,7 @@ namespace AlbumViewerNetCore.Controllers
         }
 
         [HttpGet]
-        [Route("sapi/helloworld")]
+        [Route("api/helloworld")]
         public object HelloWorld(string name = null)
         {
             //return "Hello " + name + ". Time is: " + DateTime.Now;

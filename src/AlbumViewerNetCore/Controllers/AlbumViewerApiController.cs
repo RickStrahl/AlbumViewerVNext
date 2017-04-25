@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -30,7 +31,6 @@ namespace AlbumViewerAspNetCore
         IConfiguration Configuration;
         private ILogger<AlbumViewerApiController> Logger;
         private IHostingEnvironment HostingEnv;
-
         public AlbumViewerApiController(
             AlbumViewerContext ctx, 
             IServiceProvider svcProvider,
@@ -61,19 +61,19 @@ namespace AlbumViewerAspNetCore
             throw new InvalidOperationException("This is an unhandled exception");            
         }
 
-        [HttpGet]
-        [Route("api/helloworld")]
-        public object HelloWorld(string name = null)
-        {            
-            if (string.IsNullOrEmpty(name))
-                name = "Johnny Doe";
+        // [HttpGet]
+        // [Route("api/helloworld")]
+        // public object HelloWorld(string name = null)
+        // {            
+        //     if (string.IsNullOrEmpty(name))
+        //         name = "Johnny Doe";
             
-            return new
-            {
-                message = $"Hello world {name}",
-                time = DateTime.UtcNow                
-            };
-        }
+        //     return new
+        //     {
+        //         message = $"Hello world {name}",
+        //         time = DateTime.UtcNow                
+        //     };
+        // }
 
         #region albums
 
@@ -260,6 +260,19 @@ drop table Users;
                 "albums.js"));
 
             return true;
+        }
+        
+        [HttpGet("api/applicationstats")]
+        public object GetApplicationStats()
+        {
+            var stats = new
+            {
+                OsPlatform =  System.Runtime.InteropServices.RuntimeInformation.OSDescription,
+                HostName = System.Environment.MachineName,
+                Ip = HttpContext.Connection.LocalIpAddress.ToString()
+            };
+
+            return stats;    
         }
         #endregion
     }
