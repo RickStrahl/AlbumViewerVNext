@@ -2,8 +2,6 @@
 
   <error-display [error]="error"></error-display>
 
-
-
   <div class="list-group" style="margin-top: 20px;">
     <a  href="javascript:{}" (click)="reloadData()" class="list-group-item">
       <h4 class="list-group-item-heading">
@@ -17,6 +15,8 @@
         <i class="fa fa-fw fa-info-circle"></i>
         About Album Viewer
       </h4>
+      <div ></div>
+      <small *ngIf="config.applicationStats.OsPlatform">Server Platform: {{config.applicationStats.OsPlatform}}</small>
     </a>
     <a href="default.htm" class="list-group-item">
       <h4>

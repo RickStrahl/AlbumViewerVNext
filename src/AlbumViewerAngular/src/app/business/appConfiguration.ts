@@ -2,6 +2,7 @@
 
 
 import {RequestOptions} from "@angular/http";
+import {ApplicationStats} from "./entities";
 declare var toastr: any;
 declare var location: any;
 
@@ -23,6 +24,7 @@ export class AppConfiguration {
       searchText = "";
       activeTab = "albums";
       isSearchAllowed = true;
+      applicationStats:ApplicationStats = new ApplicationStats();
 
       urls = {
         baseUrl: "./",
@@ -39,6 +41,7 @@ export class AppConfiguration {
         logout: "api/logout",
         isAuthenticated: "api/isAuthenticated",
         reloadData: "api/reloadData",
+        applicationStats: "api/applicationstats",
         url: (name,parm1?,parm2?,parm3?) => {
           var url = this.urls.baseUrl + this.urls[name];
           if (parm1)

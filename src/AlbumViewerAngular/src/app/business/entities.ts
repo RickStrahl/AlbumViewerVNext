@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, InjectionToken} from '@angular/core';
 
 @Injectable()
 export class Album {
@@ -35,5 +35,9 @@ export class Track {
     Length:string = null;
     Bytes:number = 0;
     UnitPrice:number = 0;
+}
 
+@Injectable()
+export class ApplicationStats {
+    OsPlatform:string = null;
 }
