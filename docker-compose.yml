@@ -1,0 +1,38 @@
+# Run docker-compose build
+# Run docker-compose up
+# Live long and prosper
+
+version: '2'
+
+services:
+
+  nginx:
+    container_name: nginxalbumviewer
+    image: nginxalbumviewer
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    # volumes:.
+    #   - ./dist:/usr/share/nginx/html
+    ports:
+      - "8081:80"
+#      - "443:443"
+    networks:
+      - app-network
+
+  aspnet:
+    container_name: 'westwindalbumviewer'
+    image: 'westwind/albumviewer:albumviewer'
+    build:
+      context: ./src/AlbumViewerNetCore
+      dockerfile: ./Dockerfile
+ #   volumes:
+ #     - ./src/AlbumViewerNetCore:/var/www/albumviewer
+    ports:
+     - "5000:5000"
+    networks:
+      - app-network
+ 
+networks:
+  app-network:
+    driver: bridge
