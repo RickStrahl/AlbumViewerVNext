@@ -1,6 +1,7 @@
 # compiled output
 /dist
 /tmp
+/nginx/wwwroot
 
 # dependencies
 node_modules/
@@ -9,6 +10,7 @@ bower_components/
 # IDEs and editors
 /.idea
 /.vs
+.vscode
 .project
 .classpath
 .c9/

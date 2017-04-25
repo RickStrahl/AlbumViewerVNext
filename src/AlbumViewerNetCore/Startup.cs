@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,9 +33,7 @@ namespace AlbumViewerNetCore
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
-            
         }
-
 
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -149,8 +148,7 @@ namespace AlbumViewerNetCore
                             context.Response.StatusCode = 500;
                             context.Response.ContentType = "text/html";
                             await context.Response.WriteAsync("<html><body>\r\n");
-                            await
-                                context.Response.WriteAsync(
+                            await context.Response.WriteAsync(
                                     "We're sorry, we encountered an un-expected issue with your application.<br>\r\n");
 
                             // Capture the exception
@@ -173,22 +171,7 @@ namespace AlbumViewerNetCore
                 //app.UseExceptionHandler("/Home/Error");
             }
 
-            // enable this to log ASP.NET messages into the log
-            // not very useful except for troubleshooting
-            //loggerFactory.WithFilter(new FilterLoggerSettings
-            //        {
-            //            {"Trace",LogLevel.Information },
-            //            {"Default", LogLevel.Information},
-            //            {"Microsoft", LogLevel.Warning}, // very verbose
-            //            {"System", LogLevel.Warning}
-            //        })
-            //        .AddConsole()
-            //        .AddSerilog();
-            // loggerFactory.AddSerilog(new LoggerConfiguration()                
-            //    .WriteTo.RollingFile(pathFormat: "asp-logs\\log-{Date}.log")
-            //    .CreateLogger();
-
-
+            Console.WriteLine("\r\nPlatform: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription);
 
             // Enable Cookie Auth with automatic user policy
             app.UseCookieAuthentication(new CookieAuthenticationOptions()
@@ -210,10 +193,10 @@ namespace AlbumViewerNetCore
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-            });            
+            });
 
-            AlbumViewerDataImporter.EnsureAlbumData(albumContext,
-                Path.Combine(env.ContentRootPath, "albums.js"));
+            //AlbumViewerDataImporter.EnsureAlbumData(albumContext,
+            //    Path.Combine(env.ContentRootPath, "albums.js"));
 
         }
     }
