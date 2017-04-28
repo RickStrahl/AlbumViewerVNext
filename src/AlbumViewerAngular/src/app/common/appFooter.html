@@ -1,12 +1,12 @@
 <div class="banner banner-bottom">
   <nav id="Toolbar">
-    <a href="#/albums" [ngClass]="{ selected: config.activeTab == 'albums'}" >
+    <a routerLink="/albums" [ngClass]="{ selected: config.activeTab == 'albums'}" >
       <img src="images/record.png" title="Albums" /> <span>Albums</span>
     </a>
-    <a href="#/artists" [ngClass]="{ selected: config.activeTab == 'artists'}">
+    <a routerLink="/artists" [ngClass]="{ selected: config.activeTab == 'artists'}">
       <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
     </a>
-    <a href="#/options" [ngClass]="{ selected: config.activeTab == 'options'}">
+    <a routerLink="/options" [ngClass]="{ selected: config.activeTab == 'options'}">
       <img src="images/gear.png" title="Options" /> <span>Options</span>
     </a>
   </nav>

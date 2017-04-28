@@ -1,7 +1,7 @@
-<div  class="container" [@slideIn]="'in'">
+﻿<div  class="container" [@slideIn]="'in'">
 
   <div class="btn-group" style="margin-bottom: 10px;">
-    <a href="#/artists" class="btn btn-sm btn-default">
+    <a routerLink="/artists" class="btn btn-sm btn-default">
       <i class="fa fa-list"></i>
       Artists</a>
     <a (click)="editArtist()"
@@ -43,7 +43,7 @@
   <div class="album" *ngFor="let album of artist.Albums" style="text-decorataion: none;"
        (click)="albumClick(album)">
     <div class="album-overlay">
-      <a href="#/album/edit/{{album.Id}}">
+      <a [routerLink]="['/album/edit',album.Id]">
         <i class="fa fa-edit" title="Edit"></i></a> &nbsp;
       <a (click)="deleteAlbum(album)">
         <i class="fa fa-remove" title="Delete"></i></a>
@@ -61,7 +61,7 @@
     </div>
   </div>
 
-  <a class="btn btn-sm btn-success" href="#/album/edit/0">
+  <a class="btn btn-sm btn-success" routerLink="/album/edit/0">
     <i class="fa fa-plus"></i>
     Add Album
   </a>

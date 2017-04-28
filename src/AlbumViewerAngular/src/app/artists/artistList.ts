@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+﻿import {Component, OnInit} from '@angular/core';
 import { Artist } from '../business/entities';
 import {AppConfiguration} from "../business/appConfiguration";
 import { ArtistService } from './artistService';
@@ -53,8 +53,7 @@ export class ArtistList implements OnInit {
     this.artistService.getArtists()
       .subscribe( artists => {
           this.artistList = artists;
-          console.log("searchtext: " + this.config.searchText);
-
+        
           setTimeout(() => {
             $("#MainView").scrollTop(this.artistService.listScrollPos);
             this.artistService.listScrollPos = 0;

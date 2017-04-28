@@ -1,8 +1,8 @@
-<div class="container"  >
+﻿<div class="container"  >
 
   <div *ngIf="album.Id !== 0" class="btn-group" style="margin-bottom: 10px;">
-    <a href="#/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i> List</a>
-    <a href="#/album/{{album.Id}}" class="btn btn-sm btn-default"><i class="fa fa-eye"></i> View</a>
+    <a routerLink="/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i> List</a>
+    <a [routerLink]="['/album',album.Id]" class="btn btn-sm btn-default"><i class="fa fa-eye"></i> View</a>
     <a [href]="album.AmazonUrl" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
   </div>
 
@@ -96,7 +96,7 @@
                   [disabled]="form1.invalid" accesskey="S">
             <i class="fa fa-check"></i> Save
           </button>
-          <a href="#/album/{{album.Id}}" class="btn btn-default">
+          <a [routerLink]="['/album',album.Id]" class="btn btn-default">
             <i class="fa fa-remove"></i> Cancel
           </a>
         </div>

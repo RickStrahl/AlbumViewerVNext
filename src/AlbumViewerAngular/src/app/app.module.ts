@@ -1,4 +1,4 @@
-
+﻿
 import {NgModule, Injectable} from '@angular/core'
 import { AppRoutingModule } from "./app-routing.module";
 import {AppComponent} from "./app.component";
@@ -86,7 +86,7 @@ import {AboutComponent} from "./options/about";
       HttpClient,
 
       // make sure you use this for Hash Urls rather than HTML 5 routing
-      { provide: LocationStrategy, useClass: HashLocationStrategy },
+      //{ provide: LocationStrategy, useClass: HashLocationStrategy },
 
       // {
       //   provide: XHRBackend,

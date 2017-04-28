@@ -1,8 +1,8 @@
-<div class="container container-fluid slide-animation" [@slideIn]="'in'">
+﻿<div class="container container-fluid slide-animation" [@slideIn]="'in'">
 
     <error-display [error]="error"></error-display>
 
-    <a href="#/album/edit/0" class="btn btn-sm btn-success pull-right" (sclick)="addAlbum()"><i class="fa fa-plus"></i> Add Album</a>
+    <a routerLink="/album/edit/0" class="btn btn-sm btn-success pull-right" (sclick)="addAlbum()"><i class="fa fa-plus"></i> Add Album</a>
     <div class="page-header-text">
         <i class="fa fa-list">
         </i> Albums <span class="badge">{{filteredAlbumList.length}}</span>
@@ -19,7 +19,7 @@
          (click)="albumClick(album)" >
 
         <div class="album-overlay">
-            <a href="#/album/edit/{{album.Id}}">
+            <a routerLink="['/album/edit',{{album.Id}}]">
               <i class="fa fa-edit" title="Edit"></i>
             </a>
             &nbsp;

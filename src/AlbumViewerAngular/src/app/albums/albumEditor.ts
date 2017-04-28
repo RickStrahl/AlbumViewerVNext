@@ -1,7 +1,7 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
+﻿import {Component, OnInit, ElementRef} from '@angular/core';
 import {Album} from "../business/entities";
 import {AlbumService} from "./albumService";
-import {ActivatedRoute} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {ErrorInfo} from "../common/errorDisplay";
 import {AppConfiguration} from "../business/appConfiguration";
 import {UserInfo} from "../business/userInfo";
@@ -20,6 +20,7 @@ import {slideInLeft, slideIn} from "../common/animations";
 })
 export class AlbumEditor implements OnInit {
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private albumService: AlbumService,
               private config:AppConfiguration,
               private user:UserInfo) {
@@ -32,7 +33,7 @@ export class AlbumEditor implements OnInit {
 
   ngOnInit() {
     if (!this.user.isAuthenticated) {
-      window.location.href = "#/login";
+      this.router.navigate(['/login']);
       return;
     }
 

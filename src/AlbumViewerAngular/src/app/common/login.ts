@@ -3,10 +3,8 @@ import {UserInfo} from "../business/userInfo";
 import {ErrorInfo} from "./errorDisplay";
 
 declare var toastr:any;
-declare var window: any;
 
-import {ActivatedRoute} from "@angular/router";
-//declare var toastr:any;
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     //moduleId: module.id,
@@ -18,7 +16,9 @@ export class LoginComponent implements OnInit {
     password:string = "";
     error: ErrorInfo = new ErrorInfo();
 
-    constructor(public user:UserInfo,private route:ActivatedRoute)
+    constructor(public user:UserInfo,
+                private route:ActivatedRoute,
+                private router: Router)
     {  }
 
     ngOnInit() {
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         .subscribe(() => {
             this.user.isAuthenticated = true;
             toastr.success("You are logged in.");
-            window.location.hash = "albums";
+            this.router.navigate(["/albums"]);
         },
         (err)=> {
           this.error.error(err);
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         this.user.logout()
           .subscribe((success) => {
             toastr.success("Logged out.");
-            window.location.hash = "albums";
+            this.router.navigate(["/albums"]);
           });
     }
 

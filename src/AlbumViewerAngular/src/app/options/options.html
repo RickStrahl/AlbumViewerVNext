@@ -10,7 +10,7 @@
       </h4>
       <p class="list-group-item-text">Reset data to original sample data.</p>
     </a>
-    <a href="#/about" class="list-group-item">
+    <a routerLink="/about" class="list-group-item">
       <h4 class="list-group-item-heading">
         <i class="fa fa-fw fa-info-circle"></i>
         About Album Viewer
@@ -34,13 +34,13 @@
       </div>
     </div>
 
-    <a *ngIf="!user.isAuthenticated" href="#/login" class="list-group-item">
+    <a *ngIf="!user.isAuthenticated" routerLink="/login" class="list-group-item">
       <h4 class="list-group-item-heading">
         <i class="fa fa-unlock-alt"></i>
         Sign in
       </h4>
     </a>
-    <a *ngIf="user.isAuthenticated" href="#/logout" class="list-group-item">
+    <a *ngIf="user.isAuthenticated" routerLink="/logout" class="list-group-item">
       <h4 class="list-group-item-heading">
         <i class="fa fa-lock"></i>
         Sign out

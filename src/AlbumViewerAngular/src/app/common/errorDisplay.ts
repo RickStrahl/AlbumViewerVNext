@@ -1,5 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {ResponseOptionsArgs, Response} from "@angular/http";
+import {Component, OnInit, Input } from '@angular/core';
+import { Response} from "@angular/http";
 import {Observable} from "rxjs";
 
 /**
