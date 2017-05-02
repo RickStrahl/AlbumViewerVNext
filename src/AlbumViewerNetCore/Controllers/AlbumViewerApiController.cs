@@ -61,20 +61,7 @@ namespace AlbumViewerAspNetCore
             throw new InvalidOperationException("This is an unhandled exception");            
         }
 
-        // [HttpGet]
-        // [Route("api/helloworld")]
-        // public object HelloWorld(string name = null)
-        // {            
-        //     if (string.IsNullOrEmpty(name))
-        //         name = "Johnny Doe";
-            
-        //     return new
-        //     {
-        //         message = $"Hello world {name}",
-        //         time = DateTime.UtcNow                
-        //     };
-        // }
-
+        
         #region albums
 
         [HttpGet]

@@ -74,7 +74,6 @@ namespace AlbumViewerNetCore
             // Make configuration available for EF configuration
             services.AddSingleton<IConfigurationRoot>(Configuration);
             services.AddSingleton<IConfiguration>(Configuration);
-            
             services.AddTransient<AlbumRepository>();
             services.AddTransient<ArtistRepository>();
             services.AddTransient<AccountRepository>();
@@ -172,6 +171,9 @@ namespace AlbumViewerNetCore
             }
 
             Console.WriteLine("\r\nPlatform: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription);
+												string useSqLite = Configuration["Data:useSqLite"];
+												Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");
+				
 
             // Enable Cookie Auth with automatic user policy
             app.UseCookieAuthentication(new CookieAuthenticationOptions()
@@ -195,8 +197,8 @@ namespace AlbumViewerNetCore
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //AlbumViewerDataImporter.EnsureAlbumData(albumContext,
-            //    Path.Combine(env.ContentRootPath, "albums.js"));
+            AlbumViewerDataImporter.EnsureAlbumData(albumContext,
+                Path.Combine(env.ContentRootPath, "albums.js"));
 
         }
     }
