@@ -32,7 +32,7 @@
             <img [src]="album.ImageUrl" class="album-image" />
             <div style="padding-left: 80px;">
                 <div class="album-title">{{album.Title}}</div>
-                <div class="album-artist">by {{album.Artist.ArtistName}} {{(album.Year ? 'in ' + album.Year : '')}}</div>
+                <div class="album-artist">by <b>{{album.Artist.ArtistName}}</b> {{(album.Year ? 'in ' + album.Year : '')}}</div>
                 <div class="album-descript">{{album.Description}}</div>
             </div>
         </div>

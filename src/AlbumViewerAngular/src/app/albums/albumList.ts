@@ -33,8 +33,6 @@ export class AlbumList implements OnInit {
   ngOnInit() {
     this.getAlbums();
 
-
-
     this.config.isSearchAllowed = true;
     this.config.activeTab = "albums";
     this.config.searchText = "";
@@ -63,6 +61,8 @@ export class AlbumList implements OnInit {
       .subscribe(albums => {
         this.albumList = albums;
         this.busy = false;
+
+        // reset scroll position of the list
         setTimeout(()=> $("#MainView").scrollTop(this.albumService.listScrollPos), 100);
       }, err => {
         this.error.error(err);

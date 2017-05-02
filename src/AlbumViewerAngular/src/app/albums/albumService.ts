@@ -15,12 +15,12 @@ export class AlbumService {
   albumList: Album[] = [];
   album: Album = new Album();
 
-  artistList: Artist[] = [];
+  //artistList: Artist[] = [];
   listScrollPos = 0;
 
   getAlbums(): Observable<Album[]> {
     return this.http.get(this.config.urls.url("albums"))
-        .map((response)=> {
+        .map( response => {
           this.albumList = response.json();
           return this.albumList;
         })

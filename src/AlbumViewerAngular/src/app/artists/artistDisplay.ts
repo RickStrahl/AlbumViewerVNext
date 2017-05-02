@@ -45,7 +45,7 @@ export class ArtistDisplay implements OnInit {
 
     this.artistService.getArtist(id)
       .subscribe(
-        result => {
+          (result: any) => {
           this.artist = result.Artist;
           this.albums = result.Albums;
         },
@@ -56,7 +56,7 @@ export class ArtistDisplay implements OnInit {
 
   editArtist() {
     if (!this.user.isAuthenticated) {
-      window.location.hash = "login";
+      this.router.navigate(["login"]);
       return;
     }
 
@@ -79,7 +79,7 @@ export class ArtistDisplay implements OnInit {
       .subscribe((result) => {
         this.error.info("Album deleted.");
         setTimeout(()=> {
-          this.router.navigate(["/artists"])
+          this.router.navigate(["/artists"]);
           this.artistService.artistList =
               this.artistService.artistList.filter( art=> art.Id != artist.Id );
         }, 1200);
