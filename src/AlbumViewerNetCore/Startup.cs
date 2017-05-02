@@ -57,9 +57,7 @@ namespace AlbumViewerNetCore
                 }
             });
 
-
             services.AddAuthentication();
-
 
             services.AddCors(options =>
             {
@@ -74,6 +72,8 @@ namespace AlbumViewerNetCore
             // Make configuration available for EF configuration
             services.AddSingleton<IConfigurationRoot>(Configuration);
             services.AddSingleton<IConfiguration>(Configuration);
+
+			         // Instance injection
             services.AddTransient<AlbumRepository>();
             services.AddTransient<ArtistRepository>();
             services.AddTransient<AccountRepository>();
@@ -83,6 +83,7 @@ namespace AlbumViewerNetCore
             //        .CreateLogger();
             //services.AddSingleton(Log.Logger);
 
+												// Per request injections
             services.AddScoped<ApiExceptionFilter>();
 
             // Add framework services
