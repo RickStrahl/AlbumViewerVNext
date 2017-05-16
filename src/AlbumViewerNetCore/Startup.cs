@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -58,18 +58,19 @@ namespace AlbumViewerNetCore
                 }
             });
 
-			services.AddAuthentication(o =>
-		    {
-				//var opt = new CookieAuthenticationOptions()
-				//{
-				//	LoginPath = "/api/login",
-				//	LogoutPath = "/api/logout",
-				//};
+			//services.AddAuthentication(o =>
+			//{
+			//	o.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+			//});
+
+			services.AddCookieAuthentication(o =>
+			{
+				o.LoginPath = "/api/login";
+				o.LogoutPath = "/api/logout";
+
 				
-			   o.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-			   o.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-		    });
-		
+			});
+
 			services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -122,6 +123,7 @@ namespace AlbumViewerNetCore
             IConfiguration configuration)
         {
 
+			// Serilog config
             Log.Logger = new LoggerConfiguration()
                     .WriteTo.RollingFile(pathFormat: "logs\\log-{Date}.log")
                     .CreateLogger();
