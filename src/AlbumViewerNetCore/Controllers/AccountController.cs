@@ -1,9 +1,10 @@
-﻿using AlbumViewerBusiness;
+using AlbumViewerBusiness;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Cors;
 
 namespace AlbumViewerAspNetCore
@@ -20,29 +21,30 @@ namespace AlbumViewerAspNetCore
         }
 
            
-        [AllowAnonymous]                    
-        [HttpPost]
-        [Route("api/login")]
-        public async Task<bool> Login([FromBody]  User loginUser)
-        {            
-            var user = await accountRepo.AuthenticateAndLoadUser(loginUser.Username, loginUser.Password);
+		[AllowAnonymous]                    
+		[HttpPost]
+		[Route("api/login")]
+		public async Task<bool> Login([FromBody]  User loginUser)
+		{            
+			var user = await accountRepo.AuthenticateAndLoadUser(loginUser.Username, loginUser.Password);
+			if (user == null)
+				throw new ApiException("Invalid Login Credentials", 401);
 
-            if (user == null)
-                throw new ApiException("Invalid Login Credentials", 401);
-
-
-            var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-            identity.AddClaim(new Claim(ClaimTypes.Name, user.Username))    ;
+			var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+			identity.AddClaim(new Claim(ClaimTypes.Name, user.Username))    ;
            
-            if (user.Fullname == null)
-                user.Fullname = string.Empty;
-            identity.AddClaim(new Claim("FullName", user.Fullname));
+			if (user.Fullname == null)
+				user.Fullname = string.Empty;
+			identity.AddClaim(new Claim("FullName", user.Fullname));
 
-            await HttpContext.Authentication.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(identity));
+			
+			//context.Authenticate | Challenge | SignInAsync("scheme"); // Calls 2.0 auth stack
+			
+			await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+				new ClaimsPrincipal(identity));
 
-            return true;
-        }
+			return true;
+		}
 
         [AllowAnonymous]
         [HttpGet]
