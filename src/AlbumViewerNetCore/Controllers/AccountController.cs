@@ -51,7 +51,7 @@ namespace AlbumViewerAspNetCore
         [Route("api/logout")]
         public async Task<bool> Logout()
         {
-            await HttpContext.Authentication.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);            
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);            
             return true;
         }
 
