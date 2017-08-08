@@ -58,19 +58,13 @@ namespace AlbumViewerNetCore
                 }
             });
 
-			//services.AddAuthentication(o =>
-			//{
-			//	o.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-			//});
-
 			services.AddCookieAuthentication(o =>
 			{
 				o.LoginPath = "/api/login";
 				o.LogoutPath = "/api/logout";
-
-				
 			});
 
+	        
 			services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -129,28 +123,32 @@ namespace AlbumViewerNetCore
                     .CreateLogger();
 
 			if (env.IsDevelopment())
-			{
-				loggerFactory.WithFilter(new FilterLoggerSettings
-					{
-						{"Trace", LogLevel.Trace},
-						{"Default", LogLevel.Trace},
-						{"Microsoft", LogLevel.Warning}, // very verbose
-                        {"System", LogLevel.Warning}
-					})
-				.AddConsole()
-				.AddSerilog();
+			{				
+				//loggerFactory.WithFilter(new FilterLoggerSettings
+				//	{
+				//		{"Trace", LogLevel.Trace},
+				//		{"Default", LogLevel.Trace},
+				//		{"Microsoft", LogLevel.Warning}, // very verbose
+    //                    {"System", LogLevel.Warning}
+				//	})
+						
+				loggerFactory
+					.AddDebug()
+					.AddConsole()
+					.AddSerilog();
 
 				app.UseDeveloperExceptionPage();
 			}
 			else
 			{
-				loggerFactory.WithFilter(new FilterLoggerSettings
-					{
-						{"Trace", LogLevel.Trace},
-						{"Default", LogLevel.Trace},
-						{"Microsoft", LogLevel.Warning}, // very verbose
-                        {"System", LogLevel.Warning}
-					})
+				loggerFactory
+					//.WithFilter(new FilterLoggerSettings
+					//{
+					//	{"Trace", LogLevel.Trace},
+					//	{"Default", LogLevel.Trace},
+					//	{"Microsoft", LogLevel.Warning}, // very verbose
+     //                   {"System", LogLevel.Warning}
+					//})
 					.AddSerilog();
 
 				app.UseExceptionHandler(errorApp =>
@@ -179,7 +177,6 @@ namespace AlbumViewerNetCore
 							await context.Response.WriteAsync(new string(' ', 512)); // Padding for IE
 						}));
 
-				//loggerFactory.AddConsole();
 				//app.UseExceptionHandler("/");
 				//app.UseExceptionHandler("/Home/Error");
 			}
