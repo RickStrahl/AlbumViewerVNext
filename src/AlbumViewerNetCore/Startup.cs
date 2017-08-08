@@ -202,6 +202,14 @@ namespace AlbumViewerNetCore
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
+
+			// catch-all handler - serve index.html
+	        app.Run(async context =>
+	        {
+		        context.Response.ContentType = "text/html";
+				await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
+	        });
+
             AlbumViewerDataImporter.EnsureAlbumData(albumContext,
                 Path.Combine(env.ContentRootPath, "albums.js"));
 
