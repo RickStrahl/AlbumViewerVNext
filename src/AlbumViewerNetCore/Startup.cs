@@ -185,9 +185,8 @@ namespace AlbumViewerNetCore
 												string useSqLite = Configuration["Data:useSqLite"];
 												Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");
 
-
-			app.UseAuthentication();
-		
+			//app.UseAuthentication();
+			
 		    app.UseDatabaseErrorPage();
             app.UseStatusCodePages();
 
@@ -203,7 +202,7 @@ namespace AlbumViewerNetCore
             });
 
 
-			// catch-all handler - serve index.html
+			// catch-all handler for HTML5 client routes - serve index.html
 	        app.Run(async context =>
 	        {
 		        context.Response.ContentType = "text/html";
