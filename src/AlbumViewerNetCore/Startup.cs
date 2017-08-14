@@ -58,13 +58,15 @@ namespace AlbumViewerNetCore
                 }
             });
 
-			services.AddCookieAuthentication(o =>
-			{
-				o.LoginPath = "/api/login";
-				o.LogoutPath = "/api/logout";
-			});
-
-	        
+			
+			services
+				.AddAuthentication()
+				.AddCookie(o=>
+				{
+					o.LoginPath = "/api/login";
+					o.LogoutPath = "/api/logout";
+				});
+			
 			services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -93,20 +95,20 @@ namespace AlbumViewerNetCore
             services.AddScoped<ApiExceptionFilter>();
 
             // Add framework services
-            services.AddMvc(options =>
-                {
-                    // options.Filters.Add(new ApiExceptionFilter());
-                })
-            .AddJsonOptions(opt =>
-            {
-                var resolver = opt.SerializerSettings.ContractResolver;
-                if (resolver != null)
-                {
-                    var res = resolver as DefaultContractResolver;
-                    res.NamingStrategy = null;
-                }
-            });            
-
+	        services
+		        .AddMvc(options =>
+		        {
+			        // options.Filters.Add(new ApiExceptionFilter());
+		        })
+		        .AddJsonOptions(opt =>
+		        {
+			        var resolver = opt.SerializerSettings.ContractResolver;
+			        if (resolver != null)
+			        {
+				        var res = resolver as DefaultContractResolver;
+				        res.NamingStrategy = null;
+			        }
+		        });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -211,7 +213,6 @@ namespace AlbumViewerNetCore
 
             AlbumViewerDataImporter.EnsureAlbumData(albumContext,
                 Path.Combine(env.ContentRootPath, "albums.js"));
-
         }
     }
 }
