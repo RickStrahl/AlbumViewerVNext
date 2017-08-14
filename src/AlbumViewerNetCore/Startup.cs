@@ -58,10 +58,15 @@ namespace AlbumViewerNetCore
                 }
             });
 
-			
+
 			services
-				.AddAuthentication()
-				.AddCookie(o=>
+				.AddAuthentication(o =>
+				{
+					o.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+					o.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+					o.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+				})
+				.AddCookie(o =>
 				{
 					o.LoginPath = "/api/login";
 					o.LogoutPath = "/api/logout";
@@ -187,7 +192,7 @@ namespace AlbumViewerNetCore
 												string useSqLite = Configuration["Data:useSqLite"];
 												Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");
 
-			//app.UseAuthentication();
+			app.UseAuthentication();
 			
 		    app.UseDatabaseErrorPage();
             app.UseStatusCodePages();
