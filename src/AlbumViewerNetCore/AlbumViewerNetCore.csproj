@@ -3,15 +3,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <MvcRazorCompileOnPublish>true</MvcRazorCompileOnPublish>
-    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
-    
-    <!--<PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>-->
+    <!--<AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>-->    
   </PropertyGroup>
-  <ItemGroup>
-    <Content Update="wwwroot\**\*;Views\**\*;Areas\**\Views;appsettings.json;web.config">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
 		<PackageReference Include="Serilog.Extensions.Logging" Version="2.0.0-dev-10172" />
@@ -22,6 +16,9 @@
 	</ItemGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\**\*;Areas\**\Views;appsettings.json;web.config">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <None Update="albums.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
