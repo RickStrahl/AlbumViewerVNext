@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Text.Encodings.Web;
 using AlbumViewerAspNetCore;
+using AlbumViewerBusiness.Configuration;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Serialization;
@@ -59,13 +60,8 @@ namespace AlbumViewerNetCore
             });
 
 
-			services
-				.AddAuthentication(o =>
-				{
-					o.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-					o.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-					o.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-				})
+	        services				
+		        .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 				.AddCookie(o =>
 				{
 					o.LoginPath = "/api/login";
@@ -82,11 +78,18 @@ namespace AlbumViewerNetCore
                         .AllowCredentials());
             });
 
-            // Make configuration available for EF configuration
+
+			// Add Support for strongly typed Configuration and map to class
+	        services.AddOptions();
+	        services.Configure<ApplicationConfiguration>(Configuration.GetSection("Application"));
+
+
+            // Also make top level configuration available (for EF configuration and access to connection string)
             services.AddSingleton<IConfigurationRoot>(Configuration);
             services.AddSingleton<IConfiguration>(Configuration);
 
-			         // Instance injection
+
+			// Instance injection
             services.AddTransient<AlbumRepository>();
             services.AddTransient<ArtistRepository>();
             services.AddTransient<AccountRepository>();
@@ -221,4 +224,5 @@ namespace AlbumViewerNetCore
         }
     }
 }
+
 

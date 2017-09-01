@@ -240,6 +240,12 @@ Websurge-Request-Name: Invalid Login
 
 ------------------------------------------------------------------
 
+GET http://localhost:5005/api/configuration HTTP/1.1
+Accept-Encoding: gzip,deflate
+Accept: application/json
+
+------------------------------------------------------------------
+
 
 ----- Start WebSurge Options -----
 
@@ -249,12 +255,13 @@ Websurge-Request-Name: Invalid Login
   "NoContentDecompression": false,
   "CaptureMinimalResponseData": false,
   "MaxResponseSize": 0,
+  "ReplaceQueryStringValuePairs": null,
+  "ReplaceDomain": "localhost:5000",
   "ReplaceCookieValue": null,
   "ReplaceAuthorization": null,
-  "ReplaceQueryStringValuePairs": null,
-  "ReplaceDomain": "localhost:26448",
   "Username": null,
   "Password": "",
+  "Users": [],
   "RandomizeRequests": false,
   "RequestTimeoutMs": 15000,
   "WarmupSeconds": 2,
@@ -262,6 +269,7 @@ Websurge-Request-Name: Invalid Login
   "FormattedPreviewTheme": "visualstudio",
   "LastThreads": 10,
   "IgnoreCertificateErrors": false,
+  "TrackPerSessionCookies": true,
   "LastSecondsToRun": 30
 }
 
