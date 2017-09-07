@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0A329D36-19A2-4F54-B3C7-17640DDBF44C}"
 EndProject
@@ -14,8 +14,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbumViewerNetCore", "src\AlbumViewerNetCore\AlbumViewerNetCore.csproj", "{00D86129-ADE5-403F-96AE-9263C01BE2E4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbumViewerBusiness", "src\AlbumViewerBusiness\AlbumViewerBusiness.csproj", "{209EAF20-38E2-4C67-9557-9247A07213E6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Westwind.Utilities", "src\Westwind.Utilities\Westwind.Utilities.csproj", "{4D936F4A-C6BD-4724-810F-949AB4D0BD36}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AlbumViewerAngular", "src\AlbumViewerAngular\", "{293C677F-D21F-417A-AC50-7BAB1917AF1C}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -52,10 +50,6 @@ Global
 		{209EAF20-38E2-4C67-9557-9247A07213E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{209EAF20-38E2-4C67-9557-9247A07213E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{209EAF20-38E2-4C67-9557-9247A07213E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D936F4A-C6BD-4724-810F-949AB4D0BD36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D936F4A-C6BD-4724-810F-949AB4D0BD36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D936F4A-C6BD-4724-810F-949AB4D0BD36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D936F4A-C6BD-4724-810F-949AB4D0BD36}.Release|Any CPU.Build.0 = Release|Any CPU
 		{293C677F-D21F-417A-AC50-7BAB1917AF1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{293C677F-D21F-417A-AC50-7BAB1917AF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{293C677F-D21F-417A-AC50-7BAB1917AF1C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
@@ -67,7 +61,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{00D86129-ADE5-403F-96AE-9263C01BE2E4} = {0A329D36-19A2-4F54-B3C7-17640DDBF44C}
 		{209EAF20-38E2-4C67-9557-9247A07213E6} = {0A329D36-19A2-4F54-B3C7-17640DDBF44C}
-		{4D936F4A-C6BD-4724-810F-949AB4D0BD36} = {0A329D36-19A2-4F54-B3C7-17640DDBF44C}
 		{293C677F-D21F-417A-AC50-7BAB1917AF1C} = {0A329D36-19A2-4F54-B3C7-17640DDBF44C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

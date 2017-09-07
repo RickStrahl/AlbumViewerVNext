@@ -320,20 +320,6 @@ select:not(ng-pristine).ng-invalid, textarea:not(.ng-pristine).ng-invalid {
         bottom: 43px;
     }
 }
-.modal-backdrop {
-    /* bug fix - no overlay */
-    display: none;
-}
-.modal-dialog {
-    margin: 10px auto;
-    z-index: 1100 !important;
-}
-.modal-header {
-    padding: 15px 15px 5px;
-}
-.modal-body {
-    padding: 10px 20px 5px 20px;
-}
 
 @-webkit-keyframes slideOutLeft {
      from {
@@ -395,3 +381,25 @@ select:not(ng-pristine).ng-invalid, textarea:not(.ng-pristine).ng-invalid {
 
 
 
+/* fix Bootstrap modal popup */
+.modal {
+    top: 100px;
+    margin: 10px auto;
+    z-index: 1050 !important;
+}
+.modal-backdrop {
+    /* less than .modal z-index */
+    /*z-index: 100 !important;*/
+    display:none;
+}
+
+/*.modal-dialog {
+    margin: 10px auto;
+    z-index: 1100 !important;
+}*/
+.modal-header {
+    padding: 15px 15px 5px;
+}
+.modal-body {
+    padding: 10px 20px 5px 20px;
+}
