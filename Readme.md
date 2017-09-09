@@ -11,7 +11,7 @@ In a Mobile Web Browser:
 ![](AlbumViewerMobile.png)
 
 **Online Sample:**
-* [Live AlbumViewer Sample](https://samples.west-wind.com/AlbumViewerCore/)
+* [Live AlbumViewer Sample](https://albumviewer.west-wind.com)
 
 ### ASP.NET Core Features
 The **ASP.NET Core** Backend demonstrates:
