@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:1.1.1-sdk
+FROM microsoft/dotnet:2.0.0-sdk
 
 MAINTAINER Rick Strahl
 
@@ -9,7 +9,7 @@ ENV ASPNETCORE_ENVIRONMENT=Development
 EXPOSE 1433
 
 # copy publish folder contents to web root
-COPY ./bin/Release/netcoreapp1.1/publish /var/www/albumviewer
+COPY ./bin/Release/netcoreapp2.0/publish /var/www/albumviewer
 
 WORKDIR /var/www/albumviewer
 
