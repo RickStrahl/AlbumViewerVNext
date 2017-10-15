@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Serialization;
 using Serilog;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Routing;
 
 namespace AlbumViewerNetCore
 {
@@ -203,7 +204,18 @@ namespace AlbumViewerNetCore
             app.UseDefaultFiles(); // so index.html is not required
             app.UseStaticFiles();
 
-            // put last so header configs like CORS or Cookies etc can fire
+            // Handle Lets Encrypt Route (before MVC processing!)
+            //app.UseRouter(r =>
+            //{
+            //    r.MapGet(".well-known/acme-challenge/{id}", async (request, response, routeData) =>
+            //    {
+            //        var id = routeData.Values["id"] as string;
+            //        var file = Path.Combine(env.WebRootPath, ".well-known","acme-challenge", id);
+            //        await response.SendFileAsync(file);
+            //    });
+            //});
+
+            //// put last so header configs like CORS or Cookies etc can fire
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -212,8 +224,8 @@ namespace AlbumViewerNetCore
             });
 
 
-			// catch-all handler for HTML5 client routes - serve index.html
-	        app.Run(async context =>
+            // catch-all handler for HTML5 client routes - serve index.html
+            app.Run(async context =>
 	        {
 		        context.Response.ContentType = "text/html";
 				await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));

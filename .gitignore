@@ -13,10 +13,12 @@ bower_components/
 .vscode
 .project
 .classpath
+.well-known
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
+
 
 # Dotnet
 [Oo]bj/

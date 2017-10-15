@@ -1,4 +1,4 @@
-﻿using AlbumViewerBusiness;
+using AlbumViewerBusiness;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -248,7 +248,16 @@ drop table Users;
 
             return true;
         }
-       
+
+
+        [HttpGet]
+        [Route(".well-known/acme-challenge/{id}")]
+        public ActionResult LetsEncrypt(string id)
+        {
+            var file = Path.Combine(this.HostingEnv.WebRootPath, ".well-known", "acme-challenge", id);
+            return PhysicalFile(file, "text/plain");            
+        }
+
         #endregion
     }
 
