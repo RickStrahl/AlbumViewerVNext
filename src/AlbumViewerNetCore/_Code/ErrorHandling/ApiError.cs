@@ -7,11 +7,16 @@ using Westwind.Utilities;
 namespace AlbumViewerAspNetCore
 {
 
+    /// <summary>
+    /// An API Error response returned to the client
+    /// </summary>
     public class ApiError
     {
         public string message { get; set; }
         public bool isError { get; set; }
-        public string detail { get; set; }
+        public string detail { get; set; }        
+        public object data { get; set; }
+
         public ValidationErrorCollection errors { get; set; }
 
 		public ApiError(string message)
