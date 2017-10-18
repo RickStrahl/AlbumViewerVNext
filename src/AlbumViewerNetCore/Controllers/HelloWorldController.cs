@@ -40,27 +40,7 @@ namespace AlbumViewerNetCore.Controllers
 	        };
         }
 
-        [HttpGet]
-        [Route("api/configuration")]
-        public ApplicationConfiguration GetConfiguration()
-        {
-            return AppConfiguration.Value;
-        }
-
-
-	    [HttpGet("api/applicationstats")]
-	    public object GetApplicationStats()
-	    {
-		    var stats = new
-		    {
-			    OsPlatform = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
-			    HostName = System.Environment.MachineName,
-			    Ip = HttpContext.Connection.LocalIpAddress.ToString()
-		    };
-
-		    return stats;
-	    }
-
+  
 
 	}
 }

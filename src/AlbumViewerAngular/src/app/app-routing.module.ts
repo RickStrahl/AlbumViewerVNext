@@ -11,7 +11,6 @@ import {LoginComponent} from "./common/login";
 import {AboutComponent} from "./options/about";
 
 const routes: Routes = [
-	{path: '', redirectTo: "albums", pathMatch: 'full'},
 	{path: '', redirectTo: 'albums', pathMatch: 'full'},
 	{path: 'albums', component: AlbumList },
 	{path: 'album/:id', component: AlbumDisplay },

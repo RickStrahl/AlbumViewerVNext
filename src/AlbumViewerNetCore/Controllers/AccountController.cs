@@ -37,10 +37,7 @@ namespace AlbumViewerAspNetCore
 			if (user.Fullname == null)
 				user.Fullname = string.Empty;
 			identity.AddClaim(new Claim("FullName", user.Fullname));
-
-			
-			//context.Authenticate | Challenge | SignInAsync("scheme"); // Calls 2.0 auth stack
-			
+								
 			await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
 				new ClaimsPrincipal(identity));
 

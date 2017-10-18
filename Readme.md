@@ -29,7 +29,7 @@ The sample also includes a few Server Side Rendered MVC pages for browsing and v
 Version supported:  
 * **.NET Core 2.0**
 * **2.0 SDK Version**
-* **Visual Studio 2017.3 (.csproj)**
+* **Visual Studio 2017.3+ (.csproj)**
 
 > #### Visual Studio 2015
 > If you're using Visual Studio 2015, you need to use the `Last.NET1.01Version` Git tag to retrieve the last version that uses Visual Studio 2015 and the `.xproj`/`project.json` format. All newer builds use Visual Studio 2017 and the new `.csproj` style format.
@@ -47,8 +47,8 @@ The **Angular** front end application demonstrates:
 * Angular CLI Project
 
 Version supported:  
-* **Angular 4.33**  
-* **Angular CLI 1.27**
+* **Angular 4.2.4**  
+* **Angular CLI 1.4.7**
 
 
 ### Getting Started ###
