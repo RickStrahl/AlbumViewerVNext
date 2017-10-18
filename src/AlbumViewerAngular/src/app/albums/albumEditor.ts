@@ -82,7 +82,6 @@ export class AlbumEditor implements OnInit {
             this.router.navigate(["login"]);
           }
         });
-
   };
 
   bandTypeAhead() {

@@ -89,7 +89,7 @@ public class ArtistRepository : EntityFrameworkRepository<AlbumViewerContext,Art
             foreach (var albumId in albumIds)
             {
                 // don't run async or we get p
-                result = await albumRepo.DeleteAlbum(albumId);
+                result = await albumRepo.DeleteAlbum(albumId, tx);
                 if (!result)
                     return false;
             }

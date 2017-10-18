@@ -5,18 +5,19 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Westwind.BusinessObjects;
 using Westwind.Utilities;
 
 namespace AlbumViewerBusiness
 {
-    public class AlbumRepository : EntityFrameworkRepository<AlbumViewerContext,Album>
-    {    
+    public class AlbumRepository : EntityFrameworkRepository<AlbumViewerContext, Album>
+    {
         public AlbumRepository(AlbumViewerContext context)
             : base(context)
         { }
 
-                
+
         /// <summary>
         /// Loads and individual album.
         /// 
@@ -26,11 +27,11 @@ namespace AlbumViewerBusiness
         /// <param name="objId">Album Id</param>
         /// <returns></returns>
         public override async Task<Album> Load(object albumId)
-        {                        
+        {
             Album album = null;
             try
             {
-                int id = (int) albumId;
+                int id = (int)albumId;
                 album = await Context.Albums
                     .Include(ctx => ctx.Tracks)
                     .Include(ctx => ctx.Artist)
@@ -130,15 +131,15 @@ namespace AlbumViewerBusiness
                     album.Tracks.Add(track);
                 }
             }
-            
+
 
             // then find all deleted tracks not in new tracks
             var deletedTracks = album.Tracks
-                .Where(trk => trk.Id > 0 && 
+                .Where(trk => trk.Id > 0 &&
                                 !postedAlbum.Tracks
                                     .Where(t => t.Id > 0)
                                     .Select(t => t.Id)
-                                .Contains(trk.Id) )
+                                .Contains(trk.Id))
                 .ToList();
 
             foreach (var dtrack in deletedTracks)
@@ -150,39 +151,48 @@ namespace AlbumViewerBusiness
 
             return album;
         }
-        
-        
-        public async Task<bool> DeleteAlbum(int id)
+
+
+        public async Task<bool> DeleteAlbum(int id, IDbContextTransaction tx = null)
         {
-            using (var tx = Context.Database.BeginTransaction())
+            bool nested = false;
+            if (tx == null)
+                tx = Context.Database.BeginTransaction();
+            else
+                nested = true;
+
+            // manually delete tracks
+            var tracks = await Context.Tracks.Where(t => t.AlbumId == id).ToListAsync();
+            for (int i = tracks.Count - 1; i > -1; i--)
             {
-                // manually delete tracks
-                var tracks = await Context.Tracks.Where(t => t.AlbumId == id).ToListAsync();
-                for (int i = tracks.Count - 1; i > -1; i--)
-                {
-                    var track = tracks[i];
-                    tracks.Remove(track);
-                    Context.Tracks.Remove(track);
-                }
-
-                var album = await Context.Albums
-                    .FirstOrDefaultAsync(a => a.Id == id);
-
-                if (album == null)
-                {
-                    SetError("Invalid album id.");
-                    return false;
-                }
-
-                Context.Albums.Remove(album);
-
-                var result = await SaveAsync();
-                if (result)
-                    tx.Commit();
-
-                return result;
+                var track = tracks[i];
+                tracks.Remove(track);
+                Context.Tracks.Remove(track);
             }
+
+            var album = await Context.Albums
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (album == null)
+            {
+                SetError("Invalid album id.");
+
+                return false;
+            }
+
+            Context.Albums.Remove(album);
+
+            var result = await SaveAsync();
+
+            if (result && !nested)
+                tx.Commit();
+            
+            if (!nested)
+                tx.Dispose();
+
+            return result;
         }
+
 
         protected override bool OnValidate(Album entity)
         {
@@ -193,8 +203,8 @@ namespace AlbumViewerBusiness
             }
 
             if (string.IsNullOrEmpty(entity.Title))
-                ValidationErrors.Add("Please enter a title for this album.","Title");
-            else if(string.IsNullOrEmpty(entity.Description) || entity.Description.Length < 30)
+                ValidationErrors.Add("Please enter a title for this album.", "Title");
+            else if (string.IsNullOrEmpty(entity.Description) || entity.Description.Length < 30)
                 ValidationErrors.Add("Please provide a description of at least 30 characters.");
             else if (entity.Tracks.Count < 1)
                 ValidationErrors.Add("Album must have at least one song associated.");

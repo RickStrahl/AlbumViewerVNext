@@ -83,6 +83,8 @@ namespace AlbumViewerAspNetCore
         [HttpPost("api/album")]
         public async Task<Album> SaveAlbum([FromBody] Album postedAlbum)
         {
+            //throw new ApiException("Lemmy says: NO!");
+
             if (!HttpContext.User.Identity.IsAuthenticated)
                 throw new ApiException("You have to be logged in to modify data", 401);
 

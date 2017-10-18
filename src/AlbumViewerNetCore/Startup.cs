@@ -35,7 +35,7 @@ namespace AlbumViewerNetCore
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
 
-            Configuration = builder.Build();
+            Configuration = builder.Build();            
         }
 
 
@@ -191,7 +191,7 @@ namespace AlbumViewerNetCore
 				//app.UseExceptionHandler("/");
 				//app.UseExceptionHandler("/Home/Error");
 			}
-
+            
             Console.WriteLine("\r\nPlatform: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription);
 												string useSqLite = Configuration["Data:useSqLite"];
 												Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");

@@ -1,4 +1,4 @@
-import {Injectable, InjectionToken} from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class Album {
@@ -26,6 +26,11 @@ export class Artist {
     Albums:Album[] = [];
 }
 
+@Injectable()
+export class ArtistResult {
+    Artist: Artist = null;
+    Albums: Album[] = [];
+}
 
 @Injectable()
 export class Track {

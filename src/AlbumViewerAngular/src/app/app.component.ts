@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {UserInfo} from "./business/userInfo";
 
+declare var toastr:any;
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -16,10 +18,14 @@ export class AppComponent {
         this.user.checkAuthentication()
             .subscribe();
 
-        // re-check infrequently - once every 5 minutes
+        // re-check infrequently - once every 2 minutes
         setInterval( ()=> {
+            var previousStatus = user.isAuthenticated;
             this.user.checkAuthentication()
-                .subscribe();
-        },300000)
+                .subscribe((isAuthenticated)=> {
+                    if (!isAuthenticated && previousStatus)
+                        toastr.warning("Your session has expired. Please log in again.");
+                });
+        },120000)
     }
 }

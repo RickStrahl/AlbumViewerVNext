@@ -22,18 +22,18 @@ namespace AlbumViewerNetCore
 
 	    public static IWebHost BuildWebHost(string[] args)
 	    {
-	        // use this to allow command line and environment variable parameters in the config
+            // use this to allow command line and environment variable parameters in the config
             // Example command line: --hosturl "http://0.0.0.0:10000"
-	        var configuration = new ConfigurationBuilder()
-	            .AddCommandLine(args)
+            var configuration = new ConfigurationBuilder()
+                .AddCommandLine(args)
                 .AddEnvironmentVariables()
-	            .Build();
+                .Build();
 
-	        var hostUrl = configuration["hosturl"];
-	        if (string.IsNullOrEmpty(hostUrl))
-	            hostUrl = "http://0.0.0.0:5000";
+            var hostUrl = configuration["hosturl"];
+            if (string.IsNullOrEmpty(hostUrl))
+                hostUrl = "http://0.0.0.0:5000";
 
-	        var host = WebHost.CreateDefaultBuilder(args)
+            var host = WebHost.CreateDefaultBuilder(args)
 	            .UseUrls(hostUrl)
 	            .UseStartup<Startup>()
 	            .Build();

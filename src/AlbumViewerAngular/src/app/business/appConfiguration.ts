@@ -66,5 +66,6 @@ export class AppConfiguration {
    * @type {RequestOptions}
    */
   requestOptions =  new RequestOptions({  withCredentials: true });
+  requestHeaders = { withCredentials: true};
 }
 

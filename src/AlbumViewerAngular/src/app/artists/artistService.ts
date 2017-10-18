@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Artist, Album, Track } from '../business/entities';
+import {Artist, Album, ArtistResult} from '../business/entities';
 
 import {AppConfiguration} from "../business/appConfiguration";
 import {Http, RequestOptions} from "@angular/http";
-import {HttpClient} from "../business/HttpClient";
+import {HttpClient} from "@angular/common/http";
 import {ErrorInfo} from "../common/errorDisplay";
 import {Observable} from "rxjs";
 
 
+
 @Injectable()
 export class ArtistService {
-  constructor(private http: Http,private httpClient:HttpClient,
+  constructor(private httpClient: HttpClient,
               private config: AppConfiguration) {
     console.log("ArtistService ctor");
   }
@@ -29,44 +30,41 @@ export class ArtistService {
     if (force !== true && (this.artistList && this.artistList.length > 0))
       return Observable.of(this.artistList) as Observable<Artist[]>;
 
-    return this.http.get(this.config.urls.url("artists"))
-      .map(response => {
-        this.artistList = response.json();
-
+    return this.httpClient.get<Artist[]>(this.config.urls.url("artists"))
+      .map( artistList => {
+        this.artistList = artistList;
         return this.artistList;
       })
       .catch( new ErrorInfo().parseObservableResponseError);
   }
 
 
-  getArtist(id)  {
-    return this.http.get(this.config.urls.url("artist",id),
-                         this.config.requestOptions)
-        .map(response => {
-          var result = response.json();
-          this.artist = result.Artist;
-          this.artist.Albums = result.Albums;
+  getArtist(id):Observable<ArtistResult>  {
+    return this.httpClient.get<any>(this.config.urls.url("artist",id),
+                         this.config.requestHeaders)
+        .map(artistResult => {
+          this.artist = artistResult.Artist;
+          this.artist.Albums = artistResult.Albums;
 
           if(!this.artistList || this.artistList.length < 1)
             this.getArtists();
 
-          return result;
+          return artistResult;
         })
         .catch( new ErrorInfo().parseObservableResponseError );
   }
 
-  saveArtist(artist) {
+  saveArtist(artist):Observable<ArtistResult> {
+      return this.httpClient.post<ArtistResult>(this.config.urls.url("saveArtist"),artist,
+                             this.config.requestHeaders)
+        .map( artistResult => {
 
-      return this.http.post(this.config.urls.url("saveArtist"),artist,
-                             new RequestOptions( {withCredentials:true} ))
-        .map( response => {
-          var result = response.json();
-          this.artist = result.Artist;
-          this.artist.Albums = result.Albums;
+          this.artist = artistResult.Artist;
+          this.artist.Albums = artistResult.Albums;
 
-          this.updateArtist(result.Artist);
+          this.updateArtist(artistResult.Artist);
 
-          return result;
+          return artistResult;
         })
         .catch( new ErrorInfo().parseObservableResponseError);
   }
@@ -83,12 +81,10 @@ export class ArtistService {
     }
   }
 
-  deleteArtist(artist:Artist) {
-    return this.http.delete(this.config.urls.url("artist",artist.Id),
-                            new RequestOptions( {withCredentials:true} ))
-                    .map(response => {
-                         return response.json();  // boolean
-                    })
+  deleteArtist(artist:Artist):Observable<boolean> {
+    return this.httpClient.delete<boolean>(this.config.urls.url("artist",artist.Id),
+                            this.config.requestHeaders)
                     .catch( new ErrorInfo().parseObservableResponseError);
   }
 }
+
