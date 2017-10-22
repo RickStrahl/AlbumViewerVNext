@@ -80,8 +80,7 @@ import {AboutComponent} from "./options/about";
         AppConfiguration,
         UserInfo,
         ErrorInfo,
-        Album, Artist, Track,
-        HttpClient,
+        Album, Artist, Track
 
         // make sure you use this for Hash Urls rather than HTML 5 routing
         //{ provide: LocationStrategy, useClass: HashLocationStrategy },
