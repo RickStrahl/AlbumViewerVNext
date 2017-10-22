@@ -48,7 +48,7 @@ namespace AlbumViewerNetCore
                 if (useSqLite != "true")
                 {
                     var connStr = Configuration["Data:SqlServerConnectionString"];
-                    builder.UseSqlServer(connStr);
+                    builder.UseSqlServer(connStr, opt => opt.EnableRetryOnFailure());
                 }
                 else
                 {
@@ -60,16 +60,7 @@ namespace AlbumViewerNetCore
                 }
             });
 
-
-	        services				
-		        .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-				.AddCookie(o =>
-				{
-					o.LoginPath = "/api/login";
-					o.LogoutPath = "/api/logout";
-				});
-			
-			services.AddCors(options =>
+            services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
                     builder => builder
@@ -79,6 +70,14 @@ namespace AlbumViewerNetCore
                         .AllowCredentials());
             });
 
+            services
+                .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+				.AddCookie(o =>
+				{
+					o.LoginPath = "/api/login";
+					o.LogoutPath = "/api/logout";
+				});
+			
 
 			// Add Support for strongly typed Configuration and map to class
 	        services.AddOptions();
@@ -94,13 +93,8 @@ namespace AlbumViewerNetCore
             services.AddTransient<AlbumRepository>();
             services.AddTransient<ArtistRepository>();
             services.AddTransient<AccountRepository>();
-
-            //Log.Logger = new LoggerConfiguration()
-            //        .WriteTo.RollingFile(pathFormat: "logs\\log-{Date}.log")
-            //        .CreateLogger();
-            //services.AddSingleton(Log.Logger);
-
-												// Per request injections
+            
+            // Per request injections
             services.AddScoped<ApiExceptionFilter>();
 
             // Add framework services
@@ -135,14 +129,6 @@ namespace AlbumViewerNetCore
 
 			if (env.IsDevelopment())
 			{				
-				//loggerFactory.WithFilter(new FilterLoggerSettings
-				//	{
-				//		{"Trace", LogLevel.Trace},
-				//		{"Default", LogLevel.Trace},
-				//		{"Microsoft", LogLevel.Warning}, // very verbose
-    //                    {"System", LogLevel.Warning}
-				//	})
-						
 				loggerFactory
 					.AddDebug()
 					.AddConsole()
@@ -153,13 +139,6 @@ namespace AlbumViewerNetCore
 			else
 			{
 				loggerFactory
-					//.WithFilter(new FilterLoggerSettings
-					//{
-					//	{"Trace", LogLevel.Trace},
-					//	{"Default", LogLevel.Trace},
-					//	{"Microsoft", LogLevel.Warning}, // very verbose
-     //                   {"System", LogLevel.Warning}
-					//})
 					.AddSerilog();
 
 				app.UseExceptionHandler(errorApp =>
@@ -187,14 +166,11 @@ namespace AlbumViewerNetCore
 							await context.Response.WriteAsync("</body></html>\r\n");
 							await context.Response.WriteAsync(new string(' ', 512)); // Padding for IE
 						}));
-
-				//app.UseExceptionHandler("/");
-				//app.UseExceptionHandler("/Home/Error");
 			}
-            
+
             Console.WriteLine("\r\nPlatform: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription);
-												string useSqLite = Configuration["Data:useSqLite"];
-												Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");
+            string useSqLite = Configuration["Data:useSqLite"];
+			Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");
 
 			app.UseAuthentication();
 			
@@ -216,12 +192,7 @@ namespace AlbumViewerNetCore
             //});
 
             //// put last so header configs like CORS or Cookies etc can fire
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvcWithDefaultRoute();
 
 
             // catch-all handler for HTML5 client routes - serve index.html
