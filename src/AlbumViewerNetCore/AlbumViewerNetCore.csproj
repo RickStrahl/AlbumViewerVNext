@@ -13,19 +13,18 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\**\*;Areas\**\Views;appsettings.json;web.config">
+    <Content Update="wwwroot\**\*;Areas\**\Views;appsettings.json;albums.js;web.config">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <None Update="albums.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>    
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="logs\**" />
+    <Content Remove="logs\**" />
+    <EmbeddedResource Remove="logs\**" />
+    <None Remove="logs\**" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="logs\" />
   </ItemGroup>
 </Project>  
