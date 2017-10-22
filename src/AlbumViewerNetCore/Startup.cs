@@ -60,6 +60,8 @@ namespace AlbumViewerNetCore
                 }
             });
 
+            // Cors policy is added to controllers via [EnableCors("CorsPolicy")]
+            // or .UseCors("CorsPolicy") globally
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -70,6 +72,7 @@ namespace AlbumViewerNetCore
                         .AllowCredentials());
             });
 
+            // set up and configure Authentication - make sure to call .UseAuthentication()
             services
                 .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 				.AddCookie(o =>
@@ -181,6 +184,7 @@ namespace AlbumViewerNetCore
             app.UseStaticFiles();
 
             // Handle Lets Encrypt Route (before MVC processing!)
+            // alternately use an MVC Route (in ConfigurationController)
             //app.UseRouter(r =>
             //{
             //    r.MapGet(".well-known/acme-challenge/{id}", async (request, response, routeData) =>
@@ -202,6 +206,7 @@ namespace AlbumViewerNetCore
 				await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
 	        });
 
+            // Initialize Database if it doesn't exist
             AlbumViewerDataImporter.EnsureAlbumData(albumContext,
                 Path.Combine(env.ContentRootPath, "albums.js"));
         }
