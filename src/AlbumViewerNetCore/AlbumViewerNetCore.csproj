@@ -13,15 +13,20 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\**\*;Areas\**\Views;appsettings.json;albums.js;web.config">
+    <Content Update="wwwroot\**\*;Areas\**\Views;appsettings.json;album.js;web.config">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>    
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="logs\**" />
-    <Content Remove="logs\**" />
+    <Content Remove="logs\**" />    
     <EmbeddedResource Remove="logs\**" />
     <None Remove="logs\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="albums.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
