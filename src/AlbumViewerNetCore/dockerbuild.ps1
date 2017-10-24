@@ -12,7 +12,7 @@ docker build -t westwind/albumviewer:albumviewer .
 $localIpAddress=((ipconfig | findstr [0-9].\.)[0]).Split()[-1]
 
 # immediately start running the container in the background (-d) (no console)
-docker run  -it -p 5004:5000 --name albumviewer  westwind/albumviewer:albumviewer 
+docker run  -it -p 5004:80 --name albumviewer  westwind/albumviewer:albumviewer 
 
 # Map host IP to a domain - so we can access local SQL server
 #--add-host dev.west-wind.com:$localIpAddress
@@ -24,3 +24,5 @@ docker run  -it -p 5004:5000 --name albumviewer  westwind/albumviewer:albumviewe
 
 # # if above doesn't work
 # docker exec -it albumviewer  /bin/sh
+
+#docker push 
