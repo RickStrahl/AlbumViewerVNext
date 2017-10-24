@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.HttpSys;
 using Microsoft.Extensions.Configuration;
 
 namespace AlbumViewerNetCore
@@ -22,21 +23,18 @@ namespace AlbumViewerNetCore
 
 	    public static IWebHost BuildWebHost(string[] args)
 	    {
-            // use this to allow command line and environment variable parameters in the config
-            // Example command line: --hosturl "http://0.0.0.0:10000"
-            var configuration = new ConfigurationBuilder()
-                .AddCommandLine(args)
-                .AddEnvironmentVariables()
-                .Build();
-
-            var hostUrl = configuration["hosturl"];
-            if (string.IsNullOrEmpty(hostUrl))
-                hostUrl = "http://0.0.0.0:5000";
-
-            var host = WebHost.CreateDefaultBuilder(args)
-	            .UseUrls(hostUrl)
+ var host = WebHost.CreateDefaultBuilder(args)
+	                    
 	            .UseStartup<Startup>()
-	            .Build();
+                //.UseHttpSys(options =>
+                //{
+                //    options.Authentication.Schemes = AuthenticationSchemes.None;
+                //    options.Authentication.AllowAnonymous = true;
+                //    options.MaxConnections = 100;
+                //    options.MaxRequestBodySize = 30000000;
+                //    options.UrlPrefixes.Add("http://localhost:5002");
+                //})
+                .Build();
 
 
 	        return host;
