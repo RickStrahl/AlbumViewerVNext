@@ -23,7 +23,7 @@ namespace AlbumViewerBusiness
             }
             catch
             {
-                context.Database.EnsureCreated(); // just create the schema as is no migrations
+                context.Database.EnsureCreated(); // just create the schema - no migrations
                 hasData = context.Albums.Any();
             }
 

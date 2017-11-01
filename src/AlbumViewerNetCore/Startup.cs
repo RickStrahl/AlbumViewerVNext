@@ -93,9 +93,9 @@ namespace AlbumViewerNetCore
 
 
 			// Instance injection
-            services.AddTransient<AlbumRepository>();
-            services.AddTransient<ArtistRepository>();
-            services.AddTransient<AccountRepository>();
+            services.AddScoped<AlbumRepository>();
+            services.AddScoped<ArtistRepository>();
+            services.AddScoped<AccountRepository>();
             
             // Per request injections
             services.AddScoped<ApiExceptionFilter>();
@@ -201,7 +201,13 @@ namespace AlbumViewerNetCore
 
             // catch-all handler for HTML5 client routes - serve index.html
             app.Run(async context =>
-	        {
+            {
+                // Make sure Angular output was created in wwwroot
+                // Running Angular in dev mode nukes output folder!
+                // so it could be missing.
+                if (env.WebRootPath == null)
+                    throw new InvalidOperationException("wwwroot folder doesn't exist. Please recompile your Angular Project before accessing index.html.");
+
 		        context.Response.ContentType = "text/html";
 				await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
 	        });

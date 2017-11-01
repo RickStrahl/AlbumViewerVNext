@@ -2,7 +2,7 @@
     {
       "Id": 1,
       "ArtistId": 1,
-      "Title": "Ace of Spades (sql) ",
+      "Title": "Ace of Spades (Sqlite) ",
       "Description": "Motörhead are the founding fathers of speed and thrash metal. Without this band, there would be no Slayer or Sepultura, so you've at least got to give Lemmy and Co. props for being so influential. And \"Aces of Spades\" is an essential, legendary speed metal classic. It's full of fast, meaty riffs, great solos, toe-tapping drums, and catchy, gruff vocals. Almost every song on here (especially the title track, \"Love Me Like a Reptile,\" and \"We Are The Road Crew\") is very catchy. And the album opening title track, which has a speedy, groove-y main riff, is world renowned. Other highlights include the wah-wah solo and shout-along refrain on \"Fire, Fire,\" \"Jailbait,\" \"Dance\" (which has a pair of tasty guitar solos), the X-rated \"The Chase Is Better Than The Catch,\" and the famous, rhythmic, nearly dance-able \"Please Don't Touch.\" All in all, if you're looking for great, groove-y, contagious and exciting speed metal, Motorhead \"aces\" it.",
       "Year": 1978,
       "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/618Zuqc4J5L._SL250_.jpg",
@@ -10,7 +10,7 @@
       "SpotifyUrl": "https://play.spotify.com/album/2La9yFPh8VZ1VsaVXtHazI",
       "Artist": {
         "Id": 1,
-        "ArtistName": "Motörhead (Sql)",
+        "ArtistName": "Motörhead (Sqlite)",
         "Description": "Motörhead have never JUST been the best rock'n'roll band in the world. They've never JUST been the loudest. Or the hardest. Or the toughest. Or the bad-ass-est. No...Motörhead are also a lifestyle.",
         "ImageUrl": "http://news.sagacom.com/wp-content/blogs.dir/3/files/2015/11/philtaylor.jpg",
         "AmazonUrl": "http://www.amazon.com/gp/product/B00005NHO2/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005NHO2&linkCode=as2&tag=westwindtechn-20"
@@ -2442,7 +2442,7 @@
       "SpotifyUrl": "https://play.spotify.com/album/2TMefJ7gbZBQcOo0e0Lu8P",
       "Artist": {
         "Id": 1,
-        "ArtistName": "Motörhead (Sql)",
+        "ArtistName": "Motörhead (Sqlite)",
         "Description": "Motörhead have never JUST been the best rock'n'roll band in the world. They've never JUST been the loudest. Or the hardest. Or the toughest. Or the bad-ass-est. No...Motörhead are also a lifestyle.",
         "ImageUrl": "http://news.sagacom.com/wp-content/blogs.dir/3/files/2015/11/philtaylor.jpg",
         "AmazonUrl": "http://www.amazon.com/gp/product/B00005NHO2/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005NHO2&linkCode=as2&tag=westwindtechn-20"
@@ -3295,7 +3295,7 @@
       "SpotifyUrl": "https://play.spotify.com/album/6wx6UUBEUt8SFNzh6Nc3k3",
       "Artist": {
         "Id": 1,
-        "ArtistName": "Motörhead (Sql)",
+        "ArtistName": "Motörhead (Sqlite)",
         "Description": "Motörhead have never JUST been the best rock'n'roll band in the world. They've never JUST been the loudest. Or the hardest. Or the toughest. Or the bad-ass-est. No...Motörhead are also a lifestyle.",
         "ImageUrl": "http://news.sagacom.com/wp-content/blogs.dir/3/files/2015/11/philtaylor.jpg",
         "AmazonUrl": "http://www.amazon.com/gp/product/B00005NHO2/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005NHO2&linkCode=as2&tag=westwindtechn-20"
