@@ -41,6 +41,9 @@ namespace AlbumViewerNetCore.Controllers
 	    [HttpGet("api/applicationstats")]
         public object GetApplicationStats()
         {
+            // Seriously?
+            //var desc = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
+
             var rt = typeof(IHostingEnvironment)
                 .GetTypeInfo()
                 .Assembly
@@ -50,7 +53,7 @@ namespace AlbumViewerNetCore.Controllers
             var stats = new
             {
                 OsPlatform = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
-                AspDotnetVersion = v.ToString()
+                AspDotnetVersion = AppContext.TargetFrameworkName
             };
 
             return stats;
