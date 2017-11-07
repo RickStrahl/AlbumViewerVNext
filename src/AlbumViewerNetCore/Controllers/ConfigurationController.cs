@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System.Reflection;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -38,17 +39,22 @@ namespace AlbumViewerNetCore.Controllers
 
 
 	    [HttpGet("api/applicationstats")]
-	    public object GetApplicationStats()
-	    {
-		    var stats = new
-		    {
-			    OsPlatform = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
-			    HostName = System.Environment.MachineName,
-			    Ip = HttpContext.Connection.LocalIpAddress.ToString()
-		    };
+        public object GetApplicationStats()
+        {
+            var rt = typeof(IHostingEnvironment)
+                .GetTypeInfo()
+                .Assembly
+                .GetCustomAttribute<AssemblyFileVersionAttribute>();
+            var v = new Version(rt.Version);
 
-		    return stats;
-	    }
+            var stats = new
+            {
+                OsPlatform = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
+                AspDotnetVersion = v.ToString()
+            };
+
+            return stats;
+        }
 
 
         /// <summary>

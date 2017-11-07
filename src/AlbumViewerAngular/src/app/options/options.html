@@ -1,8 +1,11 @@
 <div  class="container">
-
+  
   <error-display [error]="error"></error-display>
 
   <div class="list-group" style="margin-top: 20px;">
+      <style>
+          .list-group .fa { color: steelblue; font-size: 1.3em;padding-right: 15px;}
+      </style>
     <a  href="javascript:{}" (click)="reloadData()" class="list-group-item">
       <h4 class="list-group-item-heading">
         <i class="fa fa-fw fa-refresh"></i>
@@ -15,8 +18,11 @@
         <i class="fa fa-fw fa-info-circle"></i>
         About Album Viewer
       </h4>
-      <div ></div>
-      <small *ngIf="config.applicationStats.OsPlatform">Server Platform: {{config.applicationStats.OsPlatform}}</small>
+      <p>
+        <small *ngIf="config.applicationStats.OsPlatform">Server Platform: {{config.applicationStats.OsPlatform}}</small><br/>
+        <small *ngIf="config.applicationStats.OsPlatform">ASP.NET Version: {{config.applicationStats.AspDotnetVersion}}</small><br/>
+        <small *ngIf="config.applicationStats.OsPlatform">Angular Version: {{config.applicationStats.AngularVersion}}</small>        
+      </p>
     </a>
     <a href="default.htm" class="list-group-item">
       <h4>

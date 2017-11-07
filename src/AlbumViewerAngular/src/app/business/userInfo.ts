@@ -1,9 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AppConfiguration} from "./appConfiguration";
+
 import {Observable}  from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+
 
 import {ErrorInfo} from "../common/errorDisplay";
 
@@ -47,9 +50,9 @@ export class UserInfo {
     }
 
     logout() {
-        return this.http.get(this.config.urls.url("logout"))
+        return this.http.get<boolean>(this.config.urls.url("logout"))
             .map(
-                (response) => {
+                (success) => {
                     this.isAuthenticated = false;
                     return true;
                 }
@@ -69,7 +72,7 @@ export class UserInfo {
                 this.isAuthenticated = result;
                 return result;
             })
-            .catch((response) => {
+            .catch((response) => {                
                 this.isAuthenticated = false;
                 return Observable.throw(response);
             });

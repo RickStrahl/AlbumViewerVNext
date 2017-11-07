@@ -1,6 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Response} from "@angular/http";
 import {Observable}  from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
+
 
 /**
  *   A Bootstrap based alert display

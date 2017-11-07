@@ -24,13 +24,28 @@
   <![endif]-->
 
   <title>West Wind Album Viewer</title>
-
+  <style>
+    /* put here to avoid delay loaded css stylesheet for loading image */
+    #Loader-Block {
+      position: absolute;
+      width: 270px;
+      margin-left: -135px;
+      top: 30%;
+      left: 50%;
+      background: #444;
+      color: white;
+      padding: 20px;
+      border-radius: 4px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 4px 4px 6px #535353;
+    }
+  </style>
 </head>
 <body>
 
 <app-root>
   <div id="Loader-Block" class="center-block">
-
     <img src="touch-icon.png" style="height: 65px" class="pull-left"/>
     <i class="fa fa-circle-o-notch fa-5x fa-spin"></i>
 

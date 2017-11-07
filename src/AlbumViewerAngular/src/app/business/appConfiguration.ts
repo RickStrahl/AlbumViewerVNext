@@ -1,13 +1,13 @@
 ﻿import { Injectable } from '@angular/core';
 import {ApplicationStats} from "./entities";
 
+declare var $:any;
 declare var toastr: any;
 declare var location: any;
 
 @Injectable()
 export class AppConfiguration {
-      constructor(){
-        debugger;
+      constructor(){        
           console.log("AppConfiguration ctor");
           this.setToastrOptions();
           
@@ -17,6 +17,8 @@ export class AppConfiguration {
           //this.urls.baseUrl = "http://localhost:26448/"; // iis Express
           //this.urls.baseUrl = "http://localhost/albumviewer/"; // iis          
           //this.urls.baseUrl = "https://albumviewer.west-wind.com/";  // online
+
+          
       }
 
       // top level search text

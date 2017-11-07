@@ -31,20 +31,6 @@ h3 {
   }
 }
 
-#Loader-Block {
-  position: absolute;
-  width: 270px;
-  margin-left: -135px;
-  top: 30%;
-  left: 50%;
-  background: #444;
-  color: white;
-  padding: 20px;
-  border-radius: 4px;
-  text-align: center;
-  z-index: 1000;
-  box-shadow: 4px 4px 6px #535353;
-}
 .statusbar-push{
   /* add 15px for iPhone status bar */
   padding-top: 15px;
