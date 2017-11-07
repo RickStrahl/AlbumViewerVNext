@@ -35,9 +35,11 @@ import {ArtistEditor} from "./artists/artistEditor";
 import {OptionsComponent} from "./Options/options";
 import {LoginComponent} from "./common/login";
 
-import {HttpClient} from "./business/HttpClient";
+//import {HttpClient} from "./business/HttpClient";
 import {AboutComponent} from "./options/about";
 
+//declare var $:any;
+//declare var toastr:any;
 
 // Enable production mode
 // import { enableProdMode } from '@angular/core';

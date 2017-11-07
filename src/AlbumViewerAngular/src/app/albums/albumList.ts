@@ -8,7 +8,6 @@ import {ErrorInfo} from "../common/errorDisplay";
 import {slideIn, slideInLeft} from "../common/animations";
 import { UserInfo } from "../business/userInfo";
 
-//import * as $ from 'jquery';
 declare var $:any;
 declare var toastr:any;
 
@@ -38,7 +37,7 @@ export class AlbumList implements OnInit {
     this.config.searchText = "";
 
     // ??? Non-DOM way to do this?
-    setTimeout(() => {
+    setTimeout(() => {        
       $("#SearchBox").focus();
     },200);
   }

@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import {Artist, Album, ArtistResult} from '../business/entities';
 
 import {AppConfiguration} from "../business/appConfiguration";
-import {Http, RequestOptions} from "@angular/http";
 import {HttpClient} from "@angular/common/http";
 import {ErrorInfo} from "../common/errorDisplay";
-import {Observable} from "rxjs";
-
-
+import {Observable} from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class ArtistService {
@@ -28,7 +26,7 @@ export class ArtistService {
 
     // use locally cached version
     if (force !== true && (this.artistList && this.artistList.length > 0))
-      return Observable.of(this.artistList) as Observable<Artist[]>;
+      return of(this.artistList) as Observable<Artist[]>;
 
     return this.httpClient.get<Artist[]>(this.config.urls.url("artists"))
       .map( artistList => {

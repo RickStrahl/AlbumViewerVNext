@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Album, Artist, Track} from '../business/entities';
 import {AppConfiguration} from "../business/appConfiguration";
 import {ErrorInfo} from "../common/errorDisplay";
-import {Observable} from "rxjs";
+import {Observable}  from 'rxjs/Observable';
 import {HttpClient} from "@angular/common/http";
 
 @Injectable()

@@ -1,6 +1,6 @@
 ﻿# West Wind Album Viewer ASP.NET Core Sample
 
-**Sample Angular (4) application demonstrating ASP.NET Core API features**
+**Sample Angular (5) application demonstrating ASP.NET Core API features**
 
 This is a sample ASP.NET Core application that demonstrates basic features of ASP.NET Core in an API backend application with an Angular frontend. The application allows browsing and editing of a list of albums and artists interactively.
 
@@ -47,11 +47,18 @@ The **Angular** front end application demonstrates:
 * Angular CLI Project
 
 Version supported:  
-* **Angular 4.2.4**  
-* **Angular CLI 1.4.7**
+* **Angular 5.0**  
+* **Angular CLI 1.5.0**
 
 
-### Getting Started ###
+### Getting Started
+To check out the application you can:
+
+* Run the Docker Image
+* Run everything local
+
+
+#### .NET Core API Configuration
 You should just be able to clone this repo as is on either Windows or Mac (and probably Linux) and do:
 
 ```
@@ -103,22 +110,52 @@ npm install
 ng serve
 ```
 
-then navigate to **http://localhost:4200** to run the application. Note this uses the WebPack development server rather than running through IIS Express or Kestrel for the front end assets - index.html, all css, images etc. are served from the development server and only API requests go through Kestrel/IIS.
+then navigate to http://localhost:4200 to run the application. Note this uses the WebPack development server rather than running through IIS Express or Kestrel for the front end assets - `index.html`, all css, images etc. are served from the development server and only API requests go through Kestrel/IIS.
 
-Depending on which port you run the ASP.NET Core application you may have to change the API server base URL which defaults to **http://localhost:5000/** in the `app/business/appConfiguration.ts` file. The default is when running the development server that requests are routed to **http://localhost:5000/** which is where Kestrel runs by default.
+Depending on which port you run the ASP.NET Core application you may have to change the API server base URL which defaults to http://localhost:5000/ in the `app/business/appConfiguration.ts` file. The default is when running the development server that requests are routed to http://localhost:5000/ which is where Kestrel runs by default.
 
-Once you've made your changes, you need to build the application's final output. Run:
+Once you've made your changes, you need to build the application's final output which builds into the API applications `wwwroot` folder.
+
+Run:
 
 ```
-npm run build:prod
+ng build --prod
 ```
 
-which creates the final transpiled bundles you can use to run your application through the ASP.NET Core application.
+which creates the final transpiled bundles you can use to run through the ASP.NET Core application on http://localhost:5000/.
 
 I've changed the default output folder in `angular-cli.json` from the `.\dist` folder to the ASP.NET `wwwroot` folder so that the application can run entirely served by Kestrel or IIS. It also still works using `ng serve` which uses whatever path is used in `angular-cli.json`.
 
+#### Run in Docker
+If you just want to run the application from a docker file, you can use the following from a command line if Docker is installed:
+
+```ps
+docker pull rickstrahl/albumviewer
+docker run  -it -p 5004:80 --name albumviewer  rickstrahl/albumviewer
+```
+
+You should then be able to navigate to:
+
+http://localhost:5004
+
+to run the application.
+
+To later stop the container:
+
+```ps
+# docker stop albumviewer
+```
+
+or to restart:
+
+```
+docker start albumviewer -i
+```
+
+This runs a fixed container that was build with `dockerbuild.ps1` or `dockerbuild.sh`. You can update the application and create a new container using these files.
+
 #### Platforms 
-Currently the app has been tested to run under Windows and Mac, but it should also work under Linux.
+Currently the app has been tested to run under Windows and Mac and under Docker running Linux.
 
 **License:**  
 This sample is licensed under MIT license. Use, play with, integrate code from

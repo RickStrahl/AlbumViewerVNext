@@ -1,7 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions} from "@angular/http";
+import {HttpClient} from "@angular/common/http";
 import {AppConfiguration} from "./appConfiguration";
-import {Observable} from "rxjs";
+import {Observable}  from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 import {ErrorInfo} from "../common/errorDisplay";
 
 @Injectable()
@@ -13,17 +16,16 @@ export class UserInfo {
 
     private _isAuthenticated = false;
     set isAuthenticated(val) {
-        this._isAuthenticated = val;
+        this._isAuthenticated = val || false;
         // cache authentication
-        localStorage.setItem('av_isAuthenticated', val.toString());
+        localStorage.setItem('av_isAuthenticated', this._isAuthenticated.toString());
     }
 
     get isAuthenticated() {
         return this._isAuthenticated;
     };
 
-
-    constructor(private http: Http,
+    constructor(private http: HttpClient,
                 private config: AppConfiguration) {
         // initialize isAuthenticate from localstorage
         var isAuthenticated = localStorage.getItem("av_isAuthenticated");
@@ -35,7 +37,7 @@ export class UserInfo {
         return this.http.post(this.config.urls.url("login"), {
             username: username,
             password: password
-        }, new RequestOptions({withCredentials: true}))
+        })
             .catch((response) => {
                 if (response.status === 401)
                     this.isAuthenticated = false;
@@ -45,8 +47,7 @@ export class UserInfo {
     }
 
     logout() {
-        return this.http.get(this.config.urls.url("logout"),
-            new RequestOptions({withCredentials: true}))
+        return this.http.get(this.config.urls.url("logout"))
             .map(
                 (response) => {
                     this.isAuthenticated = false;
@@ -63,10 +64,8 @@ export class UserInfo {
     checkAuthentication() {
         var url = this.config.urls.url("isAuthenticated");
         console.log(url);
-        return this.http.get(url,
-            new RequestOptions({withCredentials: true}))
-            .map((response) => {
-                let result = response.json();
+        return this.http.get<boolean>(url)            
+            .map((result) => {                
                 this.isAuthenticated = result;
                 return result;
             })

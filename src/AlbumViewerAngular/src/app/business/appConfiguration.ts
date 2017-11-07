@@ -1,23 +1,22 @@
 ﻿import { Injectable } from '@angular/core';
-
-
-import {RequestOptions} from "@angular/http";
 import {ApplicationStats} from "./entities";
+
 declare var toastr: any;
 declare var location: any;
 
 @Injectable()
 export class AppConfiguration {
       constructor(){
-          this.setToastrOptions();
+        debugger;
           console.log("AppConfiguration ctor");
-
+          this.setToastrOptions();
+          
           if(location.port && (location.port == "3000") || (location.port== "4200") )
             this.urls.baseUrl = "http://localhost:5000/"; // kestrel
 
           //this.urls.baseUrl = "http://localhost:26448/"; // iis Express
-          //this.urls.baseUrl = "http://localhost/albumviewer/"; // iis
-          //this.urls.baseUrl = "https://samples.west-wind.com/AlbumViewerCore/";  // online
+          //this.urls.baseUrl = "http://localhost/albumviewer/"; // iis          
+          //this.urls.baseUrl = "https://albumviewer.west-wind.com/";  // online
       }
 
       // top level search text
@@ -64,8 +63,7 @@ export class AppConfiguration {
   /**
    * Http Request options to for requests
    * @type {RequestOptions}
-   */
-  requestOptions =  new RequestOptions({  withCredentials: true });
+   */  
   requestHeaders = { withCredentials: true};
 }
 
