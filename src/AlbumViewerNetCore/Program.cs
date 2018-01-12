@@ -5,10 +5,10 @@ using Microsoft.Extensions.Configuration;
 
 namespace AlbumViewerNetCore
 {
-	public class Program
-	{
-	    public static void Main(string[] args)
-	    {
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
             BuildWebHost(args).Run();
 
 // The simplest thing possible!
@@ -19,13 +19,13 @@ namespace AlbumViewerNetCore
 	            })
 	            .WaitForShutdown();
 #endif
-	    }
+        }
 
-	    public static IWebHost BuildWebHost(string[] args)
-	    {
- var host = WebHost.CreateDefaultBuilder(args)
-	                    
-	            .UseStartup<Startup>()
+        public static IWebHost BuildWebHost(string[] args)
+        {
+            var host = WebHost.CreateDefaultBuilder(args)
+
+                .UseStartup<Startup>()
                 //.UseHttpSys(options =>
                 //{
                 //    options.Authentication.Schemes = AuthenticationSchemes.None;
@@ -37,12 +37,9 @@ namespace AlbumViewerNetCore
                 .Build();
 
 
-	        return host;
-	  	        
-	    }
+            return host;
 
+        }
 
-
-        
-	}
+    }
 }
