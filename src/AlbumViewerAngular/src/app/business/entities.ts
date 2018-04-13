@@ -47,6 +47,6 @@ export class Track {
 export class ApplicationStats {
     OsPlatform:string = null;
     AngularVersion = "Unknown"; 
-    AspDotnetVersion = "Unknown";  
-
+    AspDotnetVersion = "Unknown";
+    DataMode = "Unknown";
 }

@@ -20,8 +20,9 @@
       </h4>
       <p>
         <small *ngIf="config.applicationStats.OsPlatform">Server Platform: {{config.applicationStats.OsPlatform}}</small><br/>
-        <small *ngIf="config.applicationStats.OsPlatform">ASP.NET Version: {{config.applicationStats.AspDotnetVersion}}</small><br/>
-        <small *ngIf="config.applicationStats.OsPlatform">Angular Version: {{config.applicationStats.AngularVersion}}</small>        
+        <small *ngIf="config.applicationStats.AspDotnetVersion">ASP.NET Version: {{config.applicationStats.AspDotnetVersion}}</small><br/>
+        <small *ngIf="config.applicationStats.AngularVersion">Angular Version: {{config.applicationStats.AngularVersion}}</small><br>
+        <small *ngIf="config.applicationStats.DataMode">Data Mode: {{config.applicationStats.DataMode}}</small>
       </p>
     </a>
     <a href="default.htm" class="list-group-item">

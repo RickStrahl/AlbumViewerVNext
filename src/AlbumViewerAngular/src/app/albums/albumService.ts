@@ -5,6 +5,11 @@ import {ErrorInfo} from "../common/errorDisplay";
 import {Observable}  from 'rxjs/Observable';
 import {HttpClient} from "@angular/common/http";
 
+
+// import 'rxjs/Operator/map';
+// import 'rxjs/add/operator/catch';
+// import 'rxjs/add/observable/throw';
+
 @Injectable()
 export class AlbumService {
     constructor( private httpClient: HttpClient,

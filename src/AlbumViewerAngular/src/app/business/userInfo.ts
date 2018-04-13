@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AppConfiguration} from "./appConfiguration";
 
-import {Observable}  from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -31,8 +31,8 @@ export class UserInfo {
     constructor(private http: HttpClient,
                 private config: AppConfiguration) {
         // initialize isAuthenticate from localstorage
-        var isAuthenticated = localStorage.getItem("av_isAuthenticated");
-        this._isAuthenticated = !isAuthenticated || isAuthenticated === 'false' ? false : true;
+        let isAuthenticated = localStorage.getItem("av_isAuthenticated");
+        this._isAuthenticated = !(!isAuthenticated || isAuthenticated === 'false');
     }
 
 
@@ -41,7 +41,7 @@ export class UserInfo {
             username: username,
             password: password
         })
-            .catch((response) => {
+        .catch((response) => {
                 if (response.status === 401)
                     this.isAuthenticated = false;
 
@@ -65,7 +65,7 @@ export class UserInfo {
      * @returns {Observable<t>}
      */
     checkAuthentication() {
-        var url = this.config.urls.url("isAuthenticated");
+        const url = this.config.urls.url("isAuthenticated");
         console.log(url);
         return this.http.get<boolean>(url)            
             .map((result) => {                

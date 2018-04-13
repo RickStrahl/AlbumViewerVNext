@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using System.Reflection;
 using Microsoft.AspNetCore.Hosting.Internal;
 using System.Runtime.Versioning;
+using Microsoft.Extensions.Configuration;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,13 +23,16 @@ namespace AlbumViewerNetCore.Controllers
     public class ConfigurationController : Controller
     {
         IOptions<ApplicationConfiguration> AppConfiguration;
+        IConfigurationRoot RawConfiguration;
         IHostingEnvironment Host;
 
         public ConfigurationController(IOptions<ApplicationConfiguration> configuration,
+            IConfigurationRoot config,
             IHostingEnvironment host)
         {
             AppConfiguration = configuration;
             Host = host;
+            RawConfiguration = config;
         }
 
 
@@ -55,11 +59,17 @@ namespace AlbumViewerNetCore.Controllers
             var entryAss = Assembly.GetEntryAssembly();
             var vname = Assembly.GetEntryAssembly()?.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName;
 
+            string useSqLite = RawConfiguration["Data:useSqLite"];
+
+
             var stats = new
-            {                
+            {
                 OsPlatform = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
-                AspDotnetVersion = vname
+                AspDotnetVersion = vname,
+                DataMode = useSqLite == "true" ? "SqLite" : "Sql Server"
             };
+
+            string runtime = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
 
             return stats;
         }
