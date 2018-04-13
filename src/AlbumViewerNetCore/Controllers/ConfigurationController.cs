@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Reflection;
+using Microsoft.AspNetCore.Hosting.Internal;
+using System.Runtime.Versioning;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -50,10 +52,13 @@ namespace AlbumViewerNetCore.Controllers
                 .GetCustomAttribute<AssemblyFileVersionAttribute>();
             var v = new Version(rt.Version);
 
+            var entryAss = Assembly.GetEntryAssembly();
+            var vname = Assembly.GetEntryAssembly()?.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName;
+
             var stats = new
-            {
+            {                
                 OsPlatform = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
-                AspDotnetVersion = AppContext.TargetFrameworkName
+                AspDotnetVersion = vname
             };
 
             return stats;
