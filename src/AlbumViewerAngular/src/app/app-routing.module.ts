@@ -6,7 +6,7 @@ import { AlbumDisplay} from './albums/albumDisplay';
 import {AlbumEditor } from './albums/albumEditor';
 import { ArtistList } from './artists/artistList';
 import { ArtistDisplay} from "./artists/artistDisplay";
-import {OptionsComponent} from "./Options/options";
+import {OptionsComponent} from "./options/options";
 import {LoginComponent} from "./common/login";
 import {AboutComponent} from "./options/about";
 

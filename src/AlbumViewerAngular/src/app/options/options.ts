@@ -8,9 +8,10 @@ import { ApplicationStats } from '../business/entities';
 declare var $:any;
 declare var toastr:any;
 declare var window: any;
+
 @Component({
     selector: 'options',
-    templateUrl: 'options.html'
+    templateUrl: 'options.html'    
 })
 export class OptionsComponent implements OnInit {
     error: ErrorInfo = new ErrorInfo();

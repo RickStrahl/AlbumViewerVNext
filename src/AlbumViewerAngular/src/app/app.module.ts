@@ -32,11 +32,12 @@ import {AlbumSongList} from "./albums/albumSongList";
 // directives and shared components
 import {ErrorDisplay, ErrorInfo} from './common/errorDisplay';
 import {ArtistEditor} from "./artists/artistEditor";
-import {OptionsComponent} from "./Options/options";
+
 import {LoginComponent} from "./common/login";
 
 //import {HttpClient} from "./business/HttpClient";
 import {AboutComponent} from "./options/about";
+import { OptionsComponent } from './options/options';
 
 //declare var $:any;
 //declare var toastr:any;
@@ -61,6 +62,7 @@ import {AboutComponent} from "./options/about";
         AppHeader,
         AppFooter,
 
+        OptionsComponent,
         AboutComponent,
         AlbumList,
         AlbumDisplay,
@@ -69,11 +71,8 @@ import {AboutComponent} from "./options/about";
         ArtistList,
         ArtistDisplay,
         ArtistEditor,
-        ErrorDisplay,
-
-        LoginComponent,
-        OptionsComponent
-
+        ErrorDisplay,        
+        LoginComponent
     ],
     // services, pipes and providers
     providers: [

@@ -2,13 +2,11 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AppConfiguration} from "./appConfiguration";
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
+import { Observable, throwError } from 'rxjs';
+import {map,catchError} from 'rxjs/operators';
 
 
-import {ErrorInfo} from "../common/errorDisplay";
+import {ErrorInfo, ErrorDisplay} from "../common/errorDisplay";
 
 @Injectable()
 export class UserInfo {
@@ -41,22 +39,23 @@ export class UserInfo {
             username: username,
             password: password
         })
-        .catch((response) => {
+        .pipe(catchError((response) => {
                 if (response.status === 401)
                     this.isAuthenticated = false;
 
                 return new ErrorInfo().parseObservableResponseError(response);
-            });
+            }));
     }
 
     logout() {
         return this.http.get<boolean>(this.config.urls.url("logout"))
-            .map(
-                (success) => {
-                    this.isAuthenticated = false;
-                    return true;
-                }
-            );
+            .pipe(
+                map(
+                    (success) => {
+                        this.isAuthenticated = false;
+                        return true;
+                    }
+                ));
     }
 
     /**
@@ -67,14 +66,17 @@ export class UserInfo {
     checkAuthentication() {
         const url = this.config.urls.url("isAuthenticated");
         console.log(url);
-        return this.http.get<boolean>(url)            
-            .map((result) => {                
-                this.isAuthenticated = result;
-                return result;
-            })
-            .catch((response) => {                
-                this.isAuthenticated = false;
-                return Observable.throw(response);
-            });
+        return this.http.get<boolean>(url)
+            .pipe(
+                map((result) => {
+                    this.isAuthenticated = result;
+                    return result;
+                }),
+                catchError((response) => {
+                    this.isAuthenticated = false;                    
+                    var err = new ErrorInfo().parseObservableResponseError(response)
+                    return throwError(err);
+                })
+            );
     }
 }

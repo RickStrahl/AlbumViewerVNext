@@ -1,8 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Response} from "@angular/http";
-import {Observable}  from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
-
+import {Observable, throwError}  from 'rxjs';
 
 /**
  *   A Bootstrap based alert display
@@ -176,18 +174,18 @@ export class ErrorInfo {
             } catch(ex) { }
 
             if(err.hasOwnProperty("message"))
-                return Observable.throw(err);
+                return throwError(err);
             if (err.hasOwnProperty("Message"))
             {
                 err.message = err["Message"];
-                return Observable.throw(err);
+                return throwError(err);
             }
         }
         if (response.hasOwnProperty("message"))
             return Observable.throw(response);
         if (response.hasOwnProperty("Message")) {
             response.message = response.Message;
-            return Observable.throw(response);
+            return throwError(response);
         }
 
         err.response = response;
@@ -204,6 +202,6 @@ export class ErrorInfo {
         if (!err.message)
             err.message = "Unknown server failure.";
 
-        return Observable.throw(err);
+        return throwError(err);        
     }
 }
