@@ -106,6 +106,7 @@ namespace AlbumViewerNetCore
 		        {
 			        // options.Filters.Add(new ApiExceptionFilter());
 		        })
+	            .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1)
 		        .AddJsonOptions(opt =>
 		        {
 			        var resolver = opt.SerializerSettings.ContractResolver;
@@ -170,6 +171,8 @@ namespace AlbumViewerNetCore
 							await context.Response.WriteAsync(new string(' ', 512)); // Padding for IE
 						}));
 			}
+
+            //app.UseHttpsRedirection();
 
             Console.WriteLine("\r\nPlatform: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription);
             string useSqLite = Configuration["Data:useSqLite"];

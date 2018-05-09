@@ -1,6 +1,6 @@
 ﻿# West Wind Album Viewer ASP.NET Core Sample
 
-**Sample Angular (5) application demonstrating ASP.NET Core API features**
+**Sample Angular (6) application demonstrating ASP.NET Core API features**
 
 This is a sample ASP.NET Core application that demonstrates basic features of ASP.NET Core in an API backend application with an Angular frontend. The application allows browsing and editing of a list of albums and artists interactively.
 
@@ -29,7 +29,7 @@ The sample also includes a few Server Side Rendered MVC pages for browsing and v
 Version supported:  
 * **.NET Core 2.0**
 * **2.0 SDK Version**
-* **Visual Studio 2017.3+ (.csproj)**
+* **Visual Studio 2017.7 (.csproj)**
 
 > #### Visual Studio 2015
 > If you're using Visual Studio 2015, you need to use the `Last.NET1.01Version` Git tag to retrieve the last version that uses Visual Studio 2015 and the `.xproj`/`project.json` format. All newer builds use Visual Studio 2017 and the new `.csproj` style format.
@@ -47,7 +47,7 @@ The **Angular** front end application demonstrates:
 * Angular CLI Project
 
 Version supported:  
-* **Angular 5.0**  
+* **Angular 6.0**  
 * **Angular CLI 1.5.0**
 
 
