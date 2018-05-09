@@ -359,7 +359,7 @@ namespace Westwind.BusinessObjects
         /// <returns></returns>
         public bool Save(TEntity entity = null)
         {
-            if (entity == null)
+            if (entity != null)
             {
                 if (!OnBeforeSave(entity))
                     return false;
