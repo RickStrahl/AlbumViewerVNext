@@ -8,7 +8,9 @@ import {map,catchError} from 'rxjs/operators';
 
 import {ErrorInfo, ErrorDisplay} from "../common/errorDisplay";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class UserInfo {
 
     isAdmin = false;

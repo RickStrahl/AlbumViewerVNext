@@ -12,7 +12,9 @@ import {HttpClient} from "@angular/common/http";
 // import 'rxjs/add/operator/catch';
 // import 'rxjs/add/observable/throw';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AlbumService {
     constructor( private httpClient: HttpClient,
                  private config: AppConfiguration) {

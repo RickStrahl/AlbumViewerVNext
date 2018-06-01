@@ -5,7 +5,7 @@ import {AppComponent} from "./app.component";
 import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { HttpModule } from "@angular/http";  // legacy
+import {HttpModule} from "@angular/http";  // legacy
 import {HttpClientModule} from "@angular/common/http";   // use this
 
 
@@ -38,6 +38,7 @@ import {LoginComponent} from "./common/login";
 //import {HttpClient} from "./business/HttpClient";
 import {AboutComponent} from "./options/about";
 import { OptionsComponent } from './options/options';
+
 
 //declare var $:any;
 //declare var toastr:any;
@@ -75,13 +76,8 @@ import { OptionsComponent } from './options/options';
         LoginComponent
     ],
     // services, pipes and providers
-    providers: [
-        AlbumService,
-        ArtistService,
-        AppConfiguration,
-        UserInfo,
-        ErrorInfo,
-        Album, Artist, Track
+    providers: [            
+        //Album, Artist, Track
 
         // make sure you use this for Hash Urls rather than HTML 5 routing
         //{ provide: LocationStrategy, useClass: HashLocationStrategy },

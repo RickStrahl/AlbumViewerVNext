@@ -1,4 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
+
+import {Injectable, Component, OnInit, Input} from '@angular/core';
 import {Response} from "@angular/http";
 import {Observable, throwError}  from 'rxjs';
 
@@ -44,6 +45,9 @@ export class ErrorDisplay implements OnInit {
     }
 }
 
+@Injectable({
+    providedIn: 'root'
+})
 export class ErrorInfo {
     constructor() {
         this.reset();

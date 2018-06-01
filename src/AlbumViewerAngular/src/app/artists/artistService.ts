@@ -7,7 +7,9 @@ import {ErrorInfo} from "../common/errorDisplay";
 import {Observable, of} from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ArtistService {
   constructor(private httpClient: HttpClient,
               private config: AppConfiguration) {

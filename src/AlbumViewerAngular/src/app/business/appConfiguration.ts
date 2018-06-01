@@ -5,7 +5,9 @@ declare var $:any;
 declare var toastr: any;
 declare var location: any;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AppConfiguration {
       constructor(){        
           console.log("AppConfiguration ctor");

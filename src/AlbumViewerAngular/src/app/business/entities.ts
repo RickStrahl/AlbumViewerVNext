@@ -16,7 +16,9 @@ export class Album {
     Tracks:Track[] = [];
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class Artist {
     Id:number = 0;
     ArtistName:string = null;
@@ -27,13 +29,17 @@ export class Artist {
     Albums:Album[] = [];
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ArtistResult {
     Artist: Artist = null;
     Albums: Album[] = [];
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class Track {
     Id:number = 0;
     AlbumId:number = 0;
@@ -43,7 +49,9 @@ export class Track {
     UnitPrice:number = 0;
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ApplicationStats {
     OsPlatform:string = null;
     AngularVersion = "Unknown"; 
