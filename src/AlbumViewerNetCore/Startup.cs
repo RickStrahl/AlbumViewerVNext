@@ -209,7 +209,7 @@ namespace AlbumViewerNetCore
                 // Running Angular in dev mode nukes output folder!
                 // so it could be missing.
                 if (env.WebRootPath == null)
-                    throw new InvalidOperationException("wwwroot folder doesn't exist. Please recompile your Angular Project before accessing index.html.");
+                    throw new InvalidOperationException("wwwroot folder doesn't exist. Please recompile your Angular Project before accessing index.html. API calls will work fine.");
 
 		        context.Response.ContentType = "text/html";
 				await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
