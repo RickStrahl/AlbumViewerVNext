@@ -27,8 +27,8 @@ The **ASP.NET Core** Backend demonstrates:
 The sample also includes a few Server Side Rendered MVC pages for browsing and viewing of albums and artists. I'll be adding the edit pages at a later point.
 
 Version supported:  
-* **.NET Core 2.0**
-* **2.0 SDK Version**
+* **.NET Core 2.1.0**
+* **2.1.300 SDK Version**
 * **Visual Studio 2017.7 (.csproj)**
 
 > #### Visual Studio 2015
@@ -47,8 +47,8 @@ The **Angular** front end application demonstrates:
 * Angular CLI Project
 
 Version supported:  
-* **Angular 6.0**  
-* **Angular CLI 1.5.0**
+* **Angular 6.0.3**  
+* **Angular CLI 6.0.3**
 
 
 ### Getting Started
@@ -56,7 +56,6 @@ To check out the application you can:
 
 * Run the Docker Image
 * Run everything local
-
 
 #### .NET Core API Configuration
 You should just be able to clone this repo as is on either Windows or Mac (and probably Linux) and do:
