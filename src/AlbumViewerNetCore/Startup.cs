@@ -115,6 +115,9 @@ namespace AlbumViewerNetCore
 				        var res = resolver as DefaultContractResolver;
 				        res.NamingStrategy = null;
 			        }
+
+                    if (HostingEnvironment.IsDevelopment())       
+                        opt.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
 		        });
         }
 
