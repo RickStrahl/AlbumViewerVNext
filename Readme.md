@@ -2,7 +2,7 @@
 
 **Sample Angular (6) application demonstrating ASP.NET Core API features**
 
-This is a sample ASP.NET Core application that demonstrates basic features of ASP.NET Core in an API backend application with an Angular frontend. The application allows browsing and editing of a list of albums and artists interactively.
+This is a sample **ASP.NET Core application** that *demonstrates* basic features of `ASP.NET` Core in an API backend application with an Angular frontend. The application allows browsing and editing of a list of albums and artists interactively.
 
 ![](AlbumViewer.png)
 
@@ -29,7 +29,7 @@ The sample also includes a few Server Side Rendered MVC pages for browsing and v
 Version supported:  
 * **.NET Core 2.1.0**
 * **2.1.300 SDK Version**
-* **Visual Studio 2017.7 (.csproj)**
+* **Visual Studio 2017.7**
 
 > #### Visual Studio 2015
 > If you're using Visual Studio 2015, you need to use the `Last.NET1.01Version` Git tag to retrieve the last version that uses Visual Studio 2015 and the `.xproj`/`project.json` format. All newer builds use Visual Studio 2017 and the new `.csproj` style format.
@@ -99,7 +99,6 @@ To use Sql Server create a new empty database and then point the connection stri
 The Angular front end sits in a separate AlbumViewerAngular project folder and is built separately from the ASP.NET Core application.
 
 The sample however, does ship with pre-compiled .js files for the sample that have been copied into the Web project's **wwwroot** folder so the application will just run through IIS Express/IIS or Kestrel.
-
 
 Making changes to the Angular 2.0 application requires transpiling of the typescript source files. In order to make changes to the Angular 2 client sample run the following from a command window:
 
