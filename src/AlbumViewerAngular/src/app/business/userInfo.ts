@@ -74,7 +74,7 @@ export class UserInfo {
                     this.isAuthenticated = result;
                     return result;
                 }),
-                catchError((response) => {
+                catchError((response) => {                    
                     this.isAuthenticated = false;                    
                     var err = new ErrorInfo().parseObservableResponseError(response)
                     return throwError(err);

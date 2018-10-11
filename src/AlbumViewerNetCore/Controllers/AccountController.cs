@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Cors;
+using System;
 
 namespace AlbumViewerAspNetCore
 {    
@@ -37,7 +38,12 @@ namespace AlbumViewerAspNetCore
 			if (user.Fullname == null)
 				user.Fullname = string.Empty;
 			identity.AddClaim(new Claim("FullName", user.Fullname));
-								
+
+            var props = new AuthenticationProperties()
+            {
+                ExpiresUtc = DateTime.UtcNow.AddHours(1)
+            };
+
 			await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
 				new ClaimsPrincipal(identity));
 

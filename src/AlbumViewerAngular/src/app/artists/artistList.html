@@ -11,8 +11,8 @@
     <a class="list-group-item"
        *ngFor="let artist of filteredArtistList"
        (click)="artistClick(artist)" role="button">
-       <img [src]="artist.ImageUrl" style="width: 40px; height: 40px; border-radius: 30px;" />
-      <!-- <i class="fa fa-users" style="color: steelblue;"></i> &nbsp; -->
+       <!-- <img [src]="artist.ImageUrl" style="width: 40px; height: 40px; border-radius: 30px;" /> -->
+      <i class="fa fa-users" style="color: steelblue;"></i> &nbsp;
       <span class="badge">{{artist.AlbumCount}}</span>
       <span style="padding-left: 20px;font-size: 1.1em">{{artist.ArtistName}}</span>
     </a>
