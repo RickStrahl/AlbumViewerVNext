@@ -12,7 +12,7 @@ namespace AlbumViewerBusiness
     /// Account repository used to validate and manage user accounts
     /// </summary>
 
-    public class AccountRepository : EntityFrameworkRepository<AlbumViewerContext,User>
+    public class AccountRepository : EntityFrameworkRepository<AlbumViewerContext,User>, IAccountRepository
     {
         public AccountRepository(AlbumViewerContext context)
             : base(context)
