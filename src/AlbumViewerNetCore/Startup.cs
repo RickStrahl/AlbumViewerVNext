@@ -95,7 +95,7 @@ namespace AlbumViewerNetCore
 			// Instance injection
             services.AddScoped<AlbumRepository>();
             services.AddScoped<ArtistRepository>();
-            services.AddScoped<AccountRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
             
             // Per request injections
             services.AddScoped<ApiExceptionFilter>();

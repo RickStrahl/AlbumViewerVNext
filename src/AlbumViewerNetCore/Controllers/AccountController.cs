@@ -14,9 +14,9 @@ namespace AlbumViewerAspNetCore
     [EnableCors("CorsPolicy")]
     public class AccountController : Controller
     {
-        private AccountRepository accountRepo;
+        private IAccountRepository accountRepo;
 
-        public AccountController(AccountRepository actRepo)            
+        public AccountController(IAccountRepository actRepo)            
         {
             accountRepo = actRepo;
         }
