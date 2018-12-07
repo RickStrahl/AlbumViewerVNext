@@ -26,16 +26,14 @@ export class AlbumService {
     //artistList: Artist[] = [];
     listScrollPos = 0;
 
-getAlbums(): Observable<any> {
-    return this.httpClient.get<Album[]>(this.config.urls.url("albums"))
-                .pipe(
-                    map(albumList => this.albumList = albumList),
-                    catchError( new ErrorInfo().parseObservableResponseError)
-                );
-        
-        // .map(albumList => this.albumList = albumList),
-        // .catch(new ErrorInfo().parseObservableResponseError)            
-}
+    getAlbums(): Observable<any> {
+        return this.httpClient.get<Album[]>(this.config.urls.url("albums"))
+                    .pipe(
+                        map(albumList => this.albumList = albumList),
+                        catchError( new ErrorInfo().parseObservableResponseError)
+                    );
+                    
+    }
 
     getAlbum(id): Observable<Album> {
         return this.httpClient.get<Album>(this.config.urls.url("album", id))
