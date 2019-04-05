@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
   <ItemGroup>
     <!--<ProjectReference Include="..\Westwind.Utilities\Westwind.Utilities.csproj" />-->
@@ -13,4 +14,4 @@
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
-</Project>
+</Project>  
