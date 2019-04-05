@@ -6,7 +6,7 @@
     <AssemblyVersion>1.0.10.0</AssemblyVersion>
     <FileVersion>1.0.10.0</FileVersion>
     <StartupObject></StartupObject>
-    <!--<AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>-->
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -27,13 +27,5 @@
     <Content Remove="logs\**" />
     <EmbeddedResource Remove="logs\**" />
     <None Remove="logs\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="albums.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\websurge-allow.txt" />
-  </ItemGroup>
+  </ItemGroup>  
 </Project>  
