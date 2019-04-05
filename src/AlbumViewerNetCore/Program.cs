@@ -23,9 +23,9 @@ namespace AlbumViewerNetCore
 
         public static IWebHost BuildWebHost(string[] args)
         {
-            var host = WebHost.CreateDefaultBuilder(args)
-
-                .UseStartup<Startup>()
+            var host = WebHost.CreateDefaultBuilder(args)                
+               .UseStartup<Startup>()
+                //.UseIIS()
                 //.UseHttpSys(options =>
                 //{
                 //    options.Authentication.Schemes = AuthenticationSchemes.None;

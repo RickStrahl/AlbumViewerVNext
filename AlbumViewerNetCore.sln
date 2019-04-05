@@ -1,13 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0A329D36-19A2-4F54-B3C7-17640DDBF44C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B10A5E44-A157-44F6-95C6-7AF5626B5D4C}"
 	ProjectSection(SolutionItems) = preProject
 		AlbumViewer_WebSurge_HttpRequests.websurge = AlbumViewer_WebSurge_HttpRequests.websurge
+		src\AlbumViewerNetCore\Properties\launchSettings.json = src\AlbumViewerNetCore\Properties\launchSettings.json
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject

@@ -106,7 +106,7 @@ namespace AlbumViewerNetCore
 		        {
 			        // options.Filters.Add(new ApiExceptionFilter());
 		        })
-	            .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1)
+	            .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2)
 		        .AddJsonOptions(opt =>
 		        {
 			        var resolver = opt.SerializerSettings.ContractResolver;
@@ -199,7 +199,7 @@ namespace AlbumViewerNetCore
             //        var file = Path.Combine(env.WebRootPath, ".well-known","acme-challenge", id);
             //        await response.SendFileAsync(file);
             //    });
-            //});
+            //});         
 
             //// put last so header configs like CORS or Cookies etc can fire
             app.UseMvcWithDefaultRoute();
