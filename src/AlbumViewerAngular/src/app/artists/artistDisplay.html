@@ -5,13 +5,13 @@
       <i class="fa fa-list"></i>
       Artists</a>
 
-    <button  (click)="ArtistEditor.open()"
+    <button  (click)="openModalEditor(editor)"
        class="btn btn-sm btn-primary">
       <i class="fa fa-edit"></i>
       Edit
     </button>
 
-    <button (click)="deleteArtist(artist)"
+    <button (click)="deleteArtist(ArtistEditor)"
             class="btn btn-sm btn-primary">
       <i class="fa fa-remove"></i>
       Delete

@@ -46,6 +46,7 @@ export class ArtistService {
       .pipe(map(artistResult => {
         this.artist = artistResult.Artist;
         this.artist.Albums = artistResult.Albums;
+        this.artist.AlbumCount = artistResult.Albums.length;
 
         if (!this.artistList || this.artistList.length < 1)
           this.getArtists();
@@ -63,6 +64,7 @@ export class ArtistService {
 
         this.artist = artistResult.Artist;
         this.artist.Albums = artistResult.Albums;
+        this.artist.AlbumCount = artistResult.Albums.length;
 
         this.updateArtist(artistResult.Artist);
 

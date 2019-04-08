@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { ArtistService} from "./artistService";
 import { Artist, Album} from "../business/entities";
 import { AppConfiguration} from "../business/appConfiguration";
-import { ActivatedRoute, Router} from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import {UserInfo} from "../business/userInfo";
 import {ErrorInfo} from "../common/errorDisplay";
@@ -57,23 +57,22 @@ export class ArtistDisplay implements OnInit {
         });
   }
 
-  editArtist() {
-    if (!this.user.isAuthenticated) {
-      this.router.navigate(["login"]);
-      return;
-    }
 
-    this.editor.showEditor();
-  };
 
   albumClick(album) {
     //window.location.hash = "album/" + album.Id;
     this.router.navigate(['/album', album.Id]);
   }
 
-  openModalEditor(modal){
-    
-    this.modalService.open(modal, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  openModalEditor(artistEditor){
+    if (!this.user.isAuthenticated) {
+      this.router.navigate(["/login"]);
+      return;
+    }    
+
+    this.modalService.open(artistEditor.modalEditor, {ariaLabelledBy: 'modal-basic-title'})
+                     .result
+                     .then((result) => {
       //this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       //this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -95,5 +94,9 @@ export class ArtistDisplay implements OnInit {
               this.artistService.artistList.filter( art=> art.Id != artist.Id );
         }, 1200);
       }, (err)=> { console.log(err); this.error.error(err) });
+  }
+
+  deleteAlbum(album:Album) {
+    
   }
 }

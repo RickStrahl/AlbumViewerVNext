@@ -17,7 +17,7 @@ declare var $: any;
 })
 export class ArtistEditor implements OnInit {
   @Input() artist: Artist = new Artist();
-  @ViewChild('ModalEditor')  modalEditor; 
+  @ViewChild('ModalEditor') public  modalEditor; 
 
   albums: Album[] = [];
   formActive = false;
@@ -34,10 +34,6 @@ export class ArtistEditor implements OnInit {
     this.config.isSearchAllowed = false;
   }
 
-
-  showEditor() {
-    (<any> $("#EditModal")).modal("show");
-  }
 
   open() {
      this.modalService.open(this.modalEditor, {ariaLabelledBy: 'modal-basic-title'})
@@ -70,5 +66,7 @@ export class ArtistEditor implements OnInit {
         }
       });
   }
+
+
 
 }

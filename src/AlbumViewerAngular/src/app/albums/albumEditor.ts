@@ -6,8 +6,8 @@ import {ErrorInfo} from "../common/errorDisplay";
 import {AppConfiguration} from "../business/appConfiguration";
 import { UserInfo } from "../business/userInfo";
 
-import { Observable, merge, of } from 'rxjs';
-import { debounceTime, map, switchMap, catchError , distinctUntilChanged } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, catchError  } from 'rxjs/operators';
 
 //declare var $:any ;
 declare var $:any;
@@ -15,8 +15,6 @@ declare var toastr:any;
 declare var window:any;
 
 import { slideInLeft, slideIn } from "../common/animations";
-
-import { HttpClient } from "@angular/common/http";
 
 
 
@@ -31,9 +29,7 @@ export class AlbumEditor implements OnInit {
               private albumService: AlbumService,
               private config:AppConfiguration,
               private user: UserInfo,
-              private httpClient: HttpClient) {
-  }
-    model: any;
+         ) {  }
 
   album: Album = new Album();
   error: ErrorInfo = new ErrorInfo();
@@ -118,10 +114,12 @@ export class AlbumEditor implements OnInit {
      * display and list values
      * @param value For
      */
-    resultFormatBandListValue(value: any) {      
+    resultFormatBandListValue(value: any) {            
       return value.name;
     } 
     inputFormatBandListValue(value: any)   {
+      if(value.name)
+        return value.name
       return value;
     }
 }
