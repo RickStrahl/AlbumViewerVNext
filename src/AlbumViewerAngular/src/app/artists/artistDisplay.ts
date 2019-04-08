@@ -70,13 +70,7 @@ export class ArtistDisplay implements OnInit {
       return;
     }    
 
-    this.modalService.open(artistEditor.modalEditor, {ariaLabelledBy: 'modal-basic-title'})
-                     .result
-                     .then((result) => {
-      //this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      //this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    this.editor.open();  
   }
 
 

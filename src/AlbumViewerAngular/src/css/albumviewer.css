@@ -411,11 +411,9 @@ select:not(ng-pristine).ng-invalid, textarea:not(.ng-pristine).ng-invalid {
     margin: 10px auto;
     z-index: 1050 !important;
 }
-.modal-backdrop {
-    /* less than .modal z-index */
-    /*z-index: 100 !important;*/
+/* .modal-backdrop {
     display:none;
-}
+}  */
 
 /*.modal-dialog {
     margin: 10px auto;

@@ -32,16 +32,18 @@ import {AlbumSongList} from "./albums/albumSongList";
 // directives and shared components
 import {ErrorDisplay, ErrorInfo} from './common/errorDisplay';
 import {ArtistEditor} from "./artists/artistEditor";
-import {HttpRequestInterceptor} from './business/httpRequestInterceptor'
-
 import {LoginComponent} from './common/login';
 
-//import {HttpClient} from "./business/HttpClient";
 import {AboutComponent} from './options/about';
 import { OptionsComponent } from './options/options';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+/* Custom Components or overrides */
+import {HttpRequestInterceptor} from './business/httpRequestInterceptor'
+import { FocusDirective } from './common/focusDirective';
+
+
+import { NgbTypeaheadModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 //declare var $:any;
 //declare var toastr:any;
@@ -58,7 +60,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         HttpModule,
         HttpClientModule,
         AppRoutingModule,
-        NgbModule
+        
+        // ng-bootstrap
+        //NgbModule
+        NgbTypeaheadModule, NgbModalModule
     ],
 
     // components
@@ -77,7 +82,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         ArtistDisplay,
         ArtistEditor,
         ErrorDisplay,        
-        LoginComponent
+        LoginComponent,
+        
+        FocusDirective
     ],
     // services, pipes and providers
     providers: [            

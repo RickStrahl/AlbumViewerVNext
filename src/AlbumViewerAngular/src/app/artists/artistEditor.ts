@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, ViewChild } from '@angular/core';
+import {Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import {ArtistService} from "./artistService";
 import {Artist, Album} from "../business/entities";
 
@@ -18,7 +18,8 @@ declare var $: any;
 export class ArtistEditor implements OnInit {
   @Input() artist: Artist = new Artist();
   @ViewChild('ModalEditor') public  modalEditor; 
-
+  @ViewChild('ArtistName') artistName:ElementRef;
+  
   albums: Album[] = [];
   formActive = false;
   error: ErrorInfo = new ErrorInfo();
@@ -28,16 +29,22 @@ export class ArtistEditor implements OnInit {
               private user:UserInfo,
               private modalService: NgbModal) {
     console.log("ArtistEditor ctor");
+
+    
   }
 
   ngOnInit() {
     this.config.isSearchAllowed = false;
   }
 
-
   open() {
+    
      this.modalService.open(this.modalEditor, {ariaLabelledBy: 'modal-basic-title'})
-          .result.then((result) => { }, (reason) => { });
+          .result
+          .then((result) => { 
+              
+              
+          }, (reason) => { });
   }
   close()  {
     this.modalService.dismissAll();
