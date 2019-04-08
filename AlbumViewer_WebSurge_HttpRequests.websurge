@@ -244,6 +244,12 @@ Websurge-Request-Name: Script
 
 ------------------------------------------------------------------
 
+GET http://localhost:5005/api/artistlookup?search=S HTTP/1.1
+Accept-Encoding: gzip,deflate
+Websurge-Request-Name: Artist Lookup (Typeahead)
+
+------------------------------------------------------------------
+
 
 ----- Start WebSurge Options -----
 
@@ -254,7 +260,7 @@ Websurge-Request-Name: Script
   "CaptureMinimalResponseData": false,
   "MaxResponseSize": 0,
   "ReplaceQueryStringValuePairs": null,
-  "ReplaceDomain": "localhost/albumviewer",
+  "ReplaceDomain": "localhost:5000",
   "ReplaceCookieValue": null,
   "ReplaceAuthorization": null,
   "Username": null,

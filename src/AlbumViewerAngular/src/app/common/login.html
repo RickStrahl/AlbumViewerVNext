@@ -6,17 +6,19 @@
 
   <error-display [error]="error"></error-display>
 
-  <div id="WebLogin" class="panel panel-primary">
-    <div class="panel-heading">
+  <div id="WebLogin" class="card">
+    <div class="card-header bg-primary text-white">
       Please sign in
     </div>
-
+      <div class="card-body">
 
     <form class="panel-body" name="form1" #form1="ngForm">
       <div class="form-group">
           <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-fw fa-user"></i>
+              <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="fa fa-fw fa-user"></i>
+                  </span>
               </div>
               <input type="text" name="WebLogin_txtUsername"
                    id="WebLogin_txtUsername"
@@ -32,9 +34,11 @@
 
       <div class="form-group">
         <div class="input-group">
-          <div class="input-group-addon">
-            <i class="fa fa-fw fa-unlock-alt"></i>
-          </div>
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa fa-fw fa-unlock-alt"></i>
+                </span>
+            </div>
           <input type="password" name="password"
                  id="password"
                  class="form-control"
@@ -69,6 +73,6 @@
 
     </form>
 
-  </div>
-
+          </div>
+      </div>
 </div>

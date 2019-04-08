@@ -1,21 +1,57 @@
 html, body {
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
 }
 body {
     overflow-x: hidden;
-    letter-spacing:0.6px;
+    letter-spacing:0.5px;
 }
 .page-header-text{
     font-size: 1.8em;
     font-weight: bold;
     color: steelblue;
 }
+h1,h2,h3,h4,h5,h6{
+    font-weight: 600;
+}
 h2,h3 {
     font-family: Trebuchet,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: bold;
+    font-weight: 600;
 }
 h3 {
     color: steelblue;
 }
+h4{
+    font-size: 1.1em;
+}
+.margin-bottom {
+    margin-bottom: 20px;
+}
+.margin-bottom-2x {
+    margin-bottom: 40px;
+}
+.margin-top {
+    margin-top: 20px;
+}
+.margin-top-2x {
+    margin-top: 40px;
+}
+
+.fa {
+    margin-right: 5px;
+}
+img {
+    margin-right: 5px;
+}
+.badge-small {
+    margin-left: 1px;
+    font-size: 0.43em;
+    vertical-align: super
+}
+.bg-primary, .btn-primary {
+    background-color: rgb(66, 146, 213) !important;
+}
+
 
 .line-breaks {
   white-space: pre-wrap;
@@ -37,9 +73,9 @@ h3 {
 }
 #TitleBar {
     position: absolute;
-    top: 0px;
+    top: 10px;
     left: 8px;
-    z-index: 11;
+    z-index: 11;    
 }
 #Toolbar {
     display: none;
@@ -58,7 +94,7 @@ h3 {
 }
 .page-header-text {
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight: 600;
     color:  #0092d0;
     padding-bottom: 5px;
     margin-bottom: 15px;
@@ -78,9 +114,9 @@ h3 {
     #MainView {
         position: absolute;
         left: 0;
-        top: 65px;
+        top: 58px;
         bottom: 0;
-        padding-top: 10px;
+        padding-top: 20px;
         width:100%;
         z-index: 11;
         overflow-x: hidden;
@@ -93,14 +129,14 @@ h3 {
 
 .banner {
 
-    background: #535353;
+    background: #535353;    
     color: #e1e1e1;
     border-bottom: solid 1px black;
     position: fixed;
     top: 0;
     left: 0;
 
-    height: 57px;
+    height: 58px;
     width: 100%;
     z-index: 10;
 }
@@ -138,7 +174,7 @@ h3 {
     .banner nav a.active, .banner nav a.selected
      {
         color: white;
-        font-weight: bold;
+        font-weight: 600;
         border-bottom: solid 4px orange;
         border-radius: 2px;
     }
@@ -172,7 +208,7 @@ h3 {
         border: 1px solid silver;
         border-radius: 6px;
         overflow-y: hidden;
-        height: 140px;
+        height: 165px;
         max-width: 235px;
         transition: background linear 375ms;
     }
@@ -216,17 +252,19 @@ h3 {
 
 .album-title {
     font-weight: bold;
+    color: #444;    
 }
 
 .album-title-big {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.55em;
 }
 
 .album-descript {
-  font-size: 0.85em;
+  font-size: 0.80em;
   overflow: hidden;
   max-height: 83px;
+  line-height: 1.35;
 }
 
 .album-artist {
@@ -285,10 +323,10 @@ select:not(ng-pristine).ng-invalid, textarea:not(.ng-pristine).ng-invalid {
   border-left: 5px solid red;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 780px) {
     .album {
         max-width: 100% !important;
-        min-height: 100px;
+        min-height: 120px;
     }
     .album-image {
         width: 70px;

@@ -122,5 +122,11 @@ export class AlbumService {
             this.album.Tracks.splice(idx, 1);
     }
 
+    artistLookup(searchTerm: String):Observable<any> {
+        let url = this.config.urls.url("artistLookup") + searchTerm;
+        return this.httpClient.get<any>( url).pipe(            
+            catchError(new ErrorInfo().parseObservableResponseError)              
+        );
+    }
 
 }

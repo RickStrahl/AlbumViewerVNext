@@ -1,11 +1,11 @@
-﻿<div class="container container-fluid slide-animation" [@slideIn]="'in'">
+<div class="container container-fluid slide-animation" [@slideIn]="'in'">
 
     <error-display [error]="error"></error-display>
 
     <a routerLink="/album/edit/0" class="btn btn-sm btn-success pull-right" (sclick)="addAlbum()"><i class="fa fa-plus"></i> Add Album</a>
     <div class="page-header-text">
         <i class="fa fa-list">
-        </i> Albums <span class="badge">{{filteredAlbumList.length}}</span>
+        </i> Albums <span class="badge badge-danger badge-small">{{filteredAlbumList.length}}</span>
     </div>
 
     <div class="container" *ngIf="busy">

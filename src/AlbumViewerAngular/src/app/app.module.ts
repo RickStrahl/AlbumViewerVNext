@@ -1,12 +1,12 @@
-﻿import {NgModule, Injectable} from '@angular/core'
-import {AppRoutingModule} from "./app-routing.module";
+import {NgModule, Injectable} from '@angular/core'
+import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from "./app.component";
 
-import {FormsModule} from "@angular/forms";
-import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpModule} from "@angular/http";  // legacy
-import {HttpClientModule} from "@angular/common/http";   // use this
+import {HttpModule} from '@angular/http';  // legacy
+import {HttpClientModule} from '@angular/common/http';   // use this
 
 
 // components
@@ -33,12 +33,14 @@ import {AlbumSongList} from "./albums/albumSongList";
 import {ErrorDisplay, ErrorInfo} from './common/errorDisplay';
 import {ArtistEditor} from "./artists/artistEditor";
 
-import {LoginComponent} from "./common/login";
+import {LoginComponent} from './common/login';
 
 //import {HttpClient} from "./business/HttpClient";
-import {AboutComponent} from "./options/about";
+import {AboutComponent} from './options/about';
 import { OptionsComponent } from './options/options';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 //declare var $:any;
 //declare var toastr:any;
@@ -54,7 +56,8 @@ import { OptionsComponent } from './options/options';
         FormsModule,
         HttpModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NgbModule
     ],
 
     // components

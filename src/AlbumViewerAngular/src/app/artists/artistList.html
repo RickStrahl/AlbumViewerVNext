@@ -3,19 +3,20 @@
   <error-display [error]="error"></error-display>
 
   <div class="list-group">
-    <a routerLink="/artists" class="list-group-item active">      
-      <i class="fa fa-list"></i> Artists
-      <span class="badge">{{artistList.length}}</span>
-    </a>
 
-    <a class="list-group-item"
-       *ngFor="let artist of filteredArtistList"
-       (click)="artistClick(artist)" role="button">
-       <!-- <img [src]="artist.ImageUrl" style="width: 40px; height: 40px; border-radius: 30px;" /> -->
-      <i class="fa fa-users" style="color: steelblue;"></i> &nbsp;
-      <span class="badge">{{artist.AlbumCount}}</span>
-      <span style="padding-left: 20px;font-size: 1.1em">{{artist.ArtistName}}</span>
-    </a>
+      <div class="page-header-text">
+          <i class="fa fa-list"></i> Artists
+          <div class="badge badge-danger badge-small">{{artistList.length}}</div>
+      </div>
+
+      <a class="list-group-item list-group-item-action"
+         *ngFor="let artist of filteredArtistList"
+         (click)="artistClick(artist)" role="button">
+          <!-- <img [src]="artist.ImageUrl" style="width: 40px; height: 40px; border-radius: 30px;" /> -->
+          <i class="fa fa-users" style="color: steelblue;"></i> &nbsp;
+          <span class="badge badge-info badge-small" style="font-size: 0.7em;">{{artist.AlbumCount}}</span>
+          <span style="padding-left: 20px; font-size: 1.1em">{{artist.ArtistName}}</span>
+      </a>
   </div>
 
 </div>

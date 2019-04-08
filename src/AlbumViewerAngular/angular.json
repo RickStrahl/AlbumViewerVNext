@@ -39,11 +39,10 @@
               }
             ],
             "styles": [
-              {"input": "src/css/albumviewer.css"},
-              {"input": "node_modules/bootstrap/dist/css/bootstrap.css"},
-              {"input": "node_modules/bootstrap/dist/css/bootstrap-theme.css"},
-              {"input": "node_modules/font-awesome/css/font-awesome.css"},
-              {"input": "node_modules/toastr/build/toastr.css"}
+	        {"input": "node_modules/bootstrap/dist/css/bootstrap.css"},                
+                {"input": "node_modules/font-awesome/css/font-awesome.css" },
+                {"input": "node_modules/toastr/build/toastr.css" },
+                {"input": "src/css/albumviewer.css" }
             ],            
             "scripts": [
               {
@@ -51,13 +50,7 @@
               },
               {
                 "input": "node_modules/toastr/toastr.js"
-              },
-              {
-                "input": "node_modules/bootstrap/dist/js/bootstrap.js"
-              },
-              {
-                "input": "node_modules/bootstrap-3-typeahead/bootstrap3-typeahead.js"
-              }
+              }            
             ]
           },
           "configurations": {

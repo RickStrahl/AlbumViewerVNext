@@ -27,7 +27,7 @@ The **ASP.NET Core** Backend demonstrates:
 The sample also includes a few Server Side Rendered MVC pages for browsing and viewing of albums and artists. I'll be adding the edit pages at a later point.
 
 Version supported:  
-* **.NET Core 2.2.0**
+* **.NET Core 2.2**
 * **2.2 SDK or later**
 * **Visual Studio 2017.7 or later**
 
@@ -44,8 +44,8 @@ The **Angular** front end application demonstrates:
 * Angular CLI Project
 
 Version supported:  
-* **Angular 6.0.3**  
-* **Angular CLI 6.0.3**
+* **Angular 7.2.12**  
+* **Angular CLI 6.2.5**
 
 
 ### Getting Started

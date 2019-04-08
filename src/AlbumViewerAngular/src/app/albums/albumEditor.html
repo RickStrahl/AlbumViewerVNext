@@ -1,9 +1,9 @@
-﻿<div class="container"  >
+<div class="container"  >
 
-  <div *ngIf="album.Id !== 0" class="btn-group" style="margin-bottom: 10px;">
-    <a routerLink="/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i> List</a>
-    <a [routerLink]="['/album',album.Id]" class="btn btn-sm btn-default"><i class="fa fa-eye"></i> View</a>
-    <a [href]="album.AmazonUrl" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
+  <div *ngIf="album.Id !== 0" class="btn-group" role="group" style="margin-bottom: 10px;">
+    <a routerLink="/albums" class="btn btn-sm btn-primary"><i class="fa fa-list"></i> List</a>
+    <a [routerLink]="['/album',album.Id]" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</a>
+    <a [href]="album.AmazonUrl" class="btn btn-sm btn-primary"><i class="fa fa-dollar"></i> Buy</a>
   </div>
 
   <div class="separator"></div>
@@ -22,19 +22,23 @@
                  [(ngModel)]="album.Title" autofocus />
 
         </div>
-        <div class="form-group">
-          <label for="BandName">Band Name:</label>
-          <input type="text" class="form-control input-sm typeahead" id="BandName"
-                 required
-                 autocomplete="off"
-                 data-provide="typeahead"
-                 placeholder="Band Name"
-                 name="ArtistName"
-                 [(ngModel)]="album.Artist.ArtistName" />
 
 
-        </div>
-        <div class="form-group">
+          <div class="form-group">
+              <label for="typeahead-basic">Band Name (Auto):</label>
+              <input id="typeahead-basic" type="text"
+                     name="SearchText"
+                     class="form-control"                     
+                     [(ngModel)]="album.Artist.ArtistName"
+                     [ngbTypeahead]="search"                     
+                     [resultFormatter]="resultFormatBandListValue"
+                     [inputFormatter]="inputFormatBandListValue"
+                     #instance="ngbTypeahead"                     
+                     />
+          </div>
+
+
+          <div class="form-group">
           <label for="Description">Album Description:</label>
           <textarea class="form-control input-sm" id="Description"
                     placeholder="Album description or review"
@@ -47,7 +51,11 @@
 
         <div class="form-group">
           <div class="input-group">
-            <span class="input-group-addon" title="Image Url"><i class="fa fa-image fa-fw"></i></span>
+              <span class="input-group-prepend" title="Image Url">
+                  <span class="input-group-text">
+                      <i class="fa fa-image fa-fw"></i>
+                  </span>
+              </span>
             <input type="text" class="form-control input-sm" id="ImageUrl"
                    required
                    name="ImageUrl"
@@ -58,7 +66,11 @@
 
         <div class="form-group">
           <div class="input-group">
-            <span class="input-group-addon" title="Url where to buy"><i class="fa fa-dollar fa-fw"></i></span>
+              <span class="input-group-prepend" title="Url where to buy">
+                  <span class="input-group-text">
+                      <i class="fa fa-dollar fa-fw"></i>
+                  </span>
+              </span>
             <input type="text" class="form-control input-sm" id="AmazonUrl"
                    placeholder="Purchase Url"
                    name="AmazonUrl"
@@ -68,7 +80,11 @@
 
         <div class="form-group">
           <div class="input-group">
-            <span class="input-group-addon" title="Url where to buy"><i class="fa fa-spotify fa-fw"></i></span>
+              <div class="input-group-prepend" title="Url where to buy">
+                  <span class="input-group-text">
+                      <i class="fa fa-spotify fa-fw"></i>
+                  </span>
+              </div>
             <input type="text" class="form-control input-sm" id="SpotifyUrl"
                    placeholder="Listen Url"
                    name="SpotifyUrl"

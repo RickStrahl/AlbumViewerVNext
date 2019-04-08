@@ -66,10 +66,12 @@ namespace AlbumViewerNetCore
             {
                 options.AddPolicy("CorsPolicy",
                     builder => builder
-                        .AllowAnyOrigin()
+                            // required if AllowCredentials is set also
+                        .SetIsOriginAllowed(s=> true)
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials());
+
             });
 
             // set up and configure Authentication - make sure to call .UseAuthentication()

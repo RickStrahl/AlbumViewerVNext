@@ -1,17 +1,24 @@
-﻿import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, OnInit, ElementRef} from '@angular/core';
 import {Album} from "../business/entities";
 import {AlbumService} from "./albumService";
 import {Router, ActivatedRoute} from "@angular/router";
 import {ErrorInfo} from "../common/errorDisplay";
 import {AppConfiguration} from "../business/appConfiguration";
-import {UserInfo} from "../business/userInfo";
+import { UserInfo } from "../business/userInfo";
+
+import { Observable, merge, of } from 'rxjs';
+import { debounceTime, map, switchMap, catchError , distinctUntilChanged } from 'rxjs/operators';
 
 //declare var $:any ;
 declare var $:any;
 declare var toastr:any;
 declare var window:any;
 
-import {slideInLeft, slideIn} from "../common/animations";
+import { slideInLeft, slideIn } from "../common/animations";
+
+import { HttpClient } from "@angular/common/http";
+
+
 
 @Component({
     selector: 'album-editor',
@@ -23,13 +30,18 @@ export class AlbumEditor implements OnInit {
               private router: Router,
               private albumService: AlbumService,
               private config:AppConfiguration,
-              private user:UserInfo) {
+              private user: UserInfo,
+              private httpClient: HttpClient) {
   }
+    model: any;
 
   album: Album = new Album();
   error: ErrorInfo = new ErrorInfo();
   loaded =  false;
   aniFrame = 'in';
+  public searchData: any  = {};
+
+
 
   ngOnInit() {
     if (!this.user.isAuthenticated) {
@@ -38,9 +50,7 @@ export class AlbumEditor implements OnInit {
     }
 
     this.config.isSearchAllowed = false;
-    this.bandTypeAhead();
-
-
+    
     var id = this.route.snapshot.params["id"];
     if (id < 1) {
         this.loaded = true;
@@ -48,7 +58,7 @@ export class AlbumEditor implements OnInit {
         return;
     }
 
-
+   
 
     this.albumService.getAlbum(id)
       .subscribe(result => {
@@ -60,10 +70,11 @@ export class AlbumEditor implements OnInit {
         });
   }
 
+  
   saveAlbum(album) {
     return this.albumService.saveAlbum(album)
       .subscribe((album: Album) => {
-          var msg = album.Title + " has been saved."
+          var msg = album.Title + " has been saved.";
           this.error.info(msg);
           toastr.success(msg);
           window.document.getElementById("MainView").scrollTop = 0;
@@ -82,33 +93,35 @@ export class AlbumEditor implements OnInit {
             this.router.navigate(["login"]);
           }
         });
-  };
+    };
 
-  bandTypeAhead() {
-    var $input:any = $("#BandName");
-    var config = this.config;
+  
+    /**
+     * Returns a list of Artist Lookup items and pipes them 
+     * into the look up list. Result format is:
+     * [ {name: "band", id: "band"}]
+     * 
+     * Called from ngb-TypeAhead with the search term observable
+     */
+    search = (text$: Observable<string>) => {
+      return text$.pipe(      
+          debounceTime(200), 
+          distinctUntilChanged(),
+          // switchMap allows returning an observable rather than maps array
+          switchMap( (searchText) =>  this.albumService.artistLookup(searchText) ),
+          catchError(new ErrorInfo().parseObservableResponseError)              
+      );                 
+    }
 
-    // delay slightly to ensure that the
-    // typeahead component is loaded when
-    // doing a full browser refresh
-    setTimeout( function () {
-        $input.typeahead({
-            source: [],
-            autoselect: true,
-            minLength: 0
-        });
-
-        $input.keyup( function() {
-          let s = $(this).val();
-          let url = config.urls.url("artistLookup") + s;
-
-          $.getJSON(url,
-              (data) => {
-                  $input.data('typeahead').source = data;
-              });
-        });
-
-    },1000);
-
+    /**
+     * Used to format the result data from the lookup into the
+     * display and list values
+     * @param value For
+     */
+    resultFormatBandListValue(value: any) {      
+      return value.name;
+    } 
+    inputFormatBandListValue(value: any)   {
+      return value;
     }
 }
