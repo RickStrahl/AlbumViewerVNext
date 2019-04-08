@@ -68,12 +68,13 @@ namespace AlbumViewerNetCore
                     builder => builder
                             // required if AllowCredentials is set also
                         .SetIsOriginAllowed(s=> true)
+                        //.AllowAnyOrigin()             
                         .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials());
-
+                        .AllowAnyHeader()                            
+                        .AllowCredentials()
+                    );
             });
-
+            
             // set up and configure Authentication - make sure to call .UseAuthentication()
             services
                 .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -182,6 +183,9 @@ namespace AlbumViewerNetCore
             Console.WriteLine("\r\nPlatform: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription);
             string useSqLite = Configuration["Data:useSqLite"];
 			Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");
+
+            app.UseCors("CorsPolicy");
+            
 
 			app.UseAuthentication();
 			

@@ -79,7 +79,7 @@ export class AlbumEditor implements OnInit {
           toastr.success(msg);
           window.document.getElementById("MainView").scrollTop = 0;
 
-          setTimeout(function () {
+          setTimeout(()=> {
             this.router.navigate(["/album", album.Id]);
           }, 1500)
         },
@@ -90,7 +90,7 @@ export class AlbumEditor implements OnInit {
 
           if (err.response && err.response.status == 401) {
             this.user.isAuthenticated = false;
-            this.router.navigate(["login"]);
+            this.router.navigate(["/login"]);
           }
         });
     };

@@ -19,8 +19,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace AlbumViewerAspNetCore
 {
-    [ServiceFilter(typeof(ApiExceptionFilter))]
-    [EnableCors("CorsPolicy")]
+    [ServiceFilter(typeof(ApiExceptionFilter))]    
     public class AlbumViewerApiController : Controller
     {
         AlbumViewerContext context;

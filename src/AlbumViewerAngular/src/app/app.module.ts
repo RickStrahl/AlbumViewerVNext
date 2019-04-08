@@ -6,7 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';  // legacy
-import {HttpClientModule} from '@angular/common/http';   // use this
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';   // use this
 
 
 // components
@@ -32,6 +32,7 @@ import {AlbumSongList} from "./albums/albumSongList";
 // directives and shared components
 import {ErrorDisplay, ErrorInfo} from './common/errorDisplay';
 import {ArtistEditor} from "./artists/artistEditor";
+import {HttpRequestInterceptor} from './business/httpRequestInterceptor'
 
 import {LoginComponent} from './common/login';
 
@@ -92,6 +93,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         //   },
         //   deps: [BrowserXhr, ResponseOptions, XSRFStrategy, UserInfo],
         // }
+
+        // Http Interceptor(s) - this one adds with Client Credentials
+        [
+            { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
+        ],
     ],
 
     bootstrap: [AppComponent]

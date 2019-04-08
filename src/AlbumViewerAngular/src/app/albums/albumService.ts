@@ -57,7 +57,7 @@ export class AlbumService {
 
     saveAlbum(album): Observable<any> {
         return this.httpClient.post<Album>(this.config.urls.url("album"),
-            album,{withCredentials: true})
+            album)
             .pipe(map(album => {
                 this.album = album;
 
@@ -70,8 +70,7 @@ export class AlbumService {
     }
 
     deleteAlbum(album: Album): Observable<any> {
-        return this.httpClient.delete<boolean>(this.config.urls.url("album", album.Id),
-            this.config.requestHeaders)
+        return this.httpClient.delete<boolean>(this.config.urls.url("album", album.Id))
             .pipe(
                 map(result => {
                     if (result)

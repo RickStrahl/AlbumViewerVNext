@@ -11,8 +11,7 @@ using System;
 
 namespace AlbumViewerAspNetCore
 {    
-    [ServiceFilter(typeof(ApiExceptionFilter))]    
-    [EnableCors("CorsPolicy")]
+    [ServiceFilter(typeof(ApiExceptionFilter))]        
     public class AccountController : Controller
     {
         private AccountRepository accountRepo;

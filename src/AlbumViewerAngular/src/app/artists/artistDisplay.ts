@@ -9,6 +9,8 @@ import {ErrorInfo} from "../common/errorDisplay";
 import { ArtistEditor } from "./artistEditor";
 import {slideIn} from "../common/animations";
 
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
@@ -32,7 +34,8 @@ export class ArtistDisplay implements OnInit {
               private artistService: ArtistService,
               private config: AppConfiguration,
               private router: Router,
-              private user: UserInfo) {
+              private user: UserInfo,
+              private modalService: NgbModal) {
   }
 
 
@@ -68,6 +71,14 @@ export class ArtistDisplay implements OnInit {
     this.router.navigate(['/album', album.Id]);
   }
 
+  openModalEditor(modal){
+    
+    this.modalService.open(modal, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      //this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      //this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
 
 
   addAlbum() {

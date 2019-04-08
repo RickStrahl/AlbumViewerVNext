@@ -1,5 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import {ApplicationStats} from "./entities";
+import { HttpHeaders } from '@angular/common/http';
+
 
 declare var $:any;
 declare var toastr: any;
@@ -67,6 +69,8 @@ export class AppConfiguration {
    * Http Request options to for requests
    * @type {RequestOptions}
    */  
-  requestHeaders = { withCredentials: true};
+  requestHeaders =  {
+    withCredentials: true,  
+  }
 }
 

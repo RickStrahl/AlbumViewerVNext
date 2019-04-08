@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AppConfiguration} from "./appConfiguration";
 
 import { Observable, throwError } from 'rxjs';
@@ -40,7 +40,7 @@ export class UserInfo {
         return this.http.post(this.config.urls.url("login"), {
             username: username,
             password: password
-        })
+        },this.config.requestHeaders)
         .pipe(catchError((response) => {
                 if (response.status === 401)
                     this.isAuthenticated = false;

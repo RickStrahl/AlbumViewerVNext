@@ -1,10 +1,12 @@
-import {Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, ViewChild } from '@angular/core';
 import {ArtistService} from "./artistService";
 import {Artist, Album} from "../business/entities";
 
 import {ErrorInfo} from "../common/errorDisplay";
 import {AppConfiguration} from "../business/appConfiguration";
 import {UserInfo} from "../business/userInfo";
+
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 declare var $: any;
 
@@ -15,13 +17,16 @@ declare var $: any;
 })
 export class ArtistEditor implements OnInit {
   @Input() artist: Artist = new Artist();
+  @ViewChild('ModalEditor')  modalEditor; 
+
   albums: Album[] = [];
   formActive = false;
   error: ErrorInfo = new ErrorInfo();
 
   constructor(private artistService: ArtistService,
               private config: AppConfiguration,
-              private user:UserInfo) {
+              private user:UserInfo,
+              private modalService: NgbModal) {
     console.log("ArtistEditor ctor");
   }
 
@@ -34,7 +39,13 @@ export class ArtistEditor implements OnInit {
     (<any> $("#EditModal")).modal("show");
   }
 
-
+  open() {
+     this.modalService.open(this.modalEditor, {ariaLabelledBy: 'modal-basic-title'})
+          .result.then((result) => { }, (reason) => { });
+  }
+  close()  {
+    this.modalService.dismissAll();
+  }
 
   saveArtist(artist) {
     this.artistService.saveArtist(artist)
@@ -42,14 +53,14 @@ export class ArtistEditor implements OnInit {
         this.artist = result.Artist;
         this.albums = result.Albums;
 
-          (<any> $("#EditModal")).modal("hide");
+        this.close();
 
         this.formActive = false;
         setTimeout(()=> {
           this.formActive = true;
         }, 0);
 
-        this.error.info("Artist has been saved");
+        this.error.info("Artist has been saved");        
       },
       err => {
         this.error.error(err);

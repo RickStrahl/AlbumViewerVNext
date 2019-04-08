@@ -1,17 +1,18 @@
-﻿<div  class="container" [@slideIn]="'in'">
+<div  class="container" [@slideIn]="'in'">
 
-  <div class="btn-group" style="margin-bottom: 10px;">
-    <a routerLink="/artists" class="btn btn-sm btn-default">
+  <div class="btn-group margin-bottom" role="group" >
+    <a routerLink="/artists" class="btn btn-sm btn-primary">
       <i class="fa fa-list"></i>
       Artists</a>
-    <a (click)="editArtist()"
-       class="btn btn-sm btn-default">
+
+    <button  (click)="ArtistEditor.open()"
+       class="btn btn-sm btn-primary">
       <i class="fa fa-edit"></i>
       Edit
-    </a>
+    </button>
 
     <button (click)="deleteArtist(artist)"
-            class="btn btn-sm btn-default">
+            class="btn btn-sm btn-primary">
       <i class="fa fa-remove"></i>
       Delete
     </button>
@@ -71,4 +72,4 @@
 </div>
 
 <!-- modal edit dialog -->
-<artist-editor [artist]="artist"></artist-editor>
+<artist-editor #ArtistEditor  [artist]="artist" ></artist-editor>
