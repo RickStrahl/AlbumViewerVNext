@@ -4,11 +4,13 @@
 
 This is a sample **ASP.NET Core application** that *demonstrates* basic features of `ASP.NET` Core in an API backend application with an Angular frontend. The application allows browsing and editing of a list of albums and artists interactively.
 
+**On the Desktop:**
+
 ![](AlbumViewer.png)
 
-In a Mobile Web Browser: 
+**In a Mobile Web Browser:**
 
-![](AlbumViewerMobile.png)
+![](AlbumViewerMobile.jpg)
 
 **Online Sample:**
 * [Live AlbumViewer Sample](https://albumviewer.west-wind.com)
