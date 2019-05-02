@@ -66,13 +66,13 @@ export class ArtistDisplay implements OnInit {
 
   openModalEditor(artistEditor){
     if (!this.user.isAuthenticated) {
+      this.user.requestedUrl = this.router.url;
       this.router.navigate(["/login"]);
       return;
     }    
 
     this.editor.open();  
   }
-
 
   addAlbum() {
 

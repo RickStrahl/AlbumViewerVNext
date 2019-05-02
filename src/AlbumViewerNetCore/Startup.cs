@@ -94,15 +94,15 @@ namespace AlbumViewerNetCore
 
 
             // set up and configure Cookie Authentication - make sure to call .UseAuthentication()
-    //        services
-    //            .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-				//.AddCookie(o =>
-				//{
-				//	o.LoginPath = "/api/login";
-				//	o.LogoutPath = "/api/logout";
-				//});
+            //services
+            //    .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            //    .AddCookie(o =>
+            //    {
+            //        o.LoginPath = "/api/login";
+            //        o.LogoutPath = "/api/logout";
+            //    });
 
-                // set up and configure Bearer Token Security
+            // set up and configure Bearer Token Security - 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -116,6 +116,7 @@ namespace AlbumViewerNetCore
                         IssuerSigningKey = new SymmetricSecurityKey(
                             Encoding.UTF8.GetBytes(config.JwtToken.SigningKey))
                     };
+                    
                 });
 
             

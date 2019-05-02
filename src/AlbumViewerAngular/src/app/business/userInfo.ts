@@ -16,32 +16,79 @@ export class UserInfo {
     isAdmin = false;
     userName: string = null;
     sessionStarted = new Date();
+    expires = new Date();
+    requestedUrl = "";
 
     private _isAuthenticated = false;
     set isAuthenticated(val) {
         this._isAuthenticated = val || false;
         // cache authentication
-        localStorage.setItem('av_isAuthenticated', this._isAuthenticated.toString());
+        if (this._isAuthenticated)
+            localStorage.setItem('av_token', this._token);
+        else
+            localStorage.removeItem('av_token');
     }
-
     get isAuthenticated() {
         return this._isAuthenticated;
     };
 
-    constructor(private http: HttpClient,
-                private config: AppConfiguration) {
-        // initialize isAuthenticate from localstorage
-        let isAuthenticated = localStorage.getItem("av_isAuthenticated");
-        this._isAuthenticated = !(!isAuthenticated || isAuthenticated === 'false');
+
+    private _token = "";
+    get token() {
+        return this._token
+    }
+    set token(value) {
+        this._token = value;
+        localStorage.setItem('av_token',value);
     }
 
 
+    constructor(private http: HttpClient,
+                private config: AppConfiguration) {
+        // initialize isAuthenticate from localstorage
+        let token  = localStorage.getItem("av_token");
+        if(token)
+        {
+            this._isAuthenticated = true;
+            this.token = token;
+        }
+        else{
+            this._isAuthenticated = false;
+            this.token = null;
+        }
+    }
+
+    /*
+        Cookie Auth
+     */
     login(username, password) {
         return this.http.post(this.config.urls.url("login"), {
             username: username,
             password: password
         },this.config.requestHeaders)
         .pipe(catchError((response) => {
+                if (response.status === 401)
+                    this.isAuthenticated = false;
+
+                return new ErrorInfo().parseObservableResponseError(response);
+            }));
+    }
+
+    /*
+        Token Auth
+    */
+    authenticate(username, password) {
+        return this.http.post<TokenInfo>(this.config.urls.url("authenticate"), {
+            username: username,
+            password: password
+        },this.config.requestHeaders)
+            .pipe(
+                map( (tokenInfo) => {
+                    this.token = tokenInfo.token;
+                    this.expires = new Date(tokenInfo.expires);
+                    return true;
+                }),
+                catchError((response) => {
                 if (response.status === 401)
                     this.isAuthenticated = false;
 
@@ -80,5 +127,16 @@ export class UserInfo {
                     return throwError(err);
                 })
             );
+    }
+}
+
+export class TokenInfo {
+    token: "";
+    expires: Date;
+    displayName: "";
+
+    constructor()
+    {
+        this.expires = new Date();
     }
 }

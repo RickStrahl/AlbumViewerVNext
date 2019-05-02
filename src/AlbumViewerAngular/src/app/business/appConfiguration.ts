@@ -42,6 +42,7 @@ export class AppConfiguration {
         artistLookup: "api/artistlookup?search=",
         saveArtist: "api/artist",
         login: "api/login", //"api/login",
+        authenticate: "api/authenticate",
         logout: "api/logout",
         isAuthenticated: "api/isAuthenticated",
         reloadData: "api/reloadData",

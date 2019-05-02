@@ -207,11 +207,27 @@ Websurge-Request-Name: Login
    Username: "test",
    Password: "test"
 }
+HTTP/1.1  
+Transfer-Encoding: chunked
+X-SourceFiles: =?UTF-8?B?QzpccHJvamVjdHMyMDEwXEFsYnVtVmlld2VyVk5leHRcc3JjXEFsYnVtVmlld2VyTmV0Q29yZVxhcGlcbG9naW4=?=
+Content-Type: application/json; charset=utf-8
+Date: Thu, 02 May 2019 10:16:10 GMT
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+
+{
+  "message": "No sign-in authentication handlers are registered. Did you forget to call AddAuthentication().AddCookies(\"Cookies\",...)?",
+  "isError": true,
+  "detail": "   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignInAsync(HttpContext context, String scheme, ClaimsPrincipal principal, AuthenticationProperties properties)\r\n   at AlbumViewerAspNetCore.AccountController.Login(User loginUser) in C:\\projects2010\\AlbumViewerVNext\\src\\AlbumViewerNetCore\\Controllers\\AccountController.cs:line 60\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()\r\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()\r\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)\r\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()",
+  "data": null,
+  "errors": null
+}
 
 ------------------------------------------------------------------
 
 GET http://localhost:5005/api/logout HTTP/1.1
 Accept-Encoding: gzip,deflate
+Authorization: BearerTokenHere
 Websurge-Request-Name: Logout
 
 ------------------------------------------------------------------
@@ -229,13 +245,13 @@ HTTP/1.1
 Transfer-Encoding: chunked
 X-SourceFiles: =?UTF-8?B?QzpccHJvamVjdHMyMDEwXEFsYnVtVmlld2VyVk5leHRcc3JjXEFsYnVtVmlld2VyTmV0Q29yZVxhcGlcYXV0aGVudGljYXRl?=
 Content-Type: application/json; charset=utf-8
-Date: Thu, 02 May 2019 09:08:31 GMT
+Date: Thu, 02 May 2019 10:16:20 GMT
 Server: Microsoft-IIS/10.0
 X-Powered-By: ASP.NET
 
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiMTVjZjBiM2YtNjllMi00NjQwLWEyNTMtMmQ1YmU5N2Q5NjU5IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxlNDdkYjkzMCIsImV4cCI6MTU1Njc5MTcxMSwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.XRs1rT4nfdNemDEnLc3Q5W72x2daAdLmp8KdTIoM-HQ",
-  "expires": "2019-05-02T10:08:31Z",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiY2NlNTgzOWUtZmIwMy00MzEzLTgzNTItYmNmOGVhYmY3YzNkIiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxhMjg1NTExMiIsImV4cCI6MTU1Njc5NTc4MCwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.6lwk_boQFA4pWk2O6BTGmLN3hJ4-xNCGR-xalHASs-E",
+  "expires": "2019-05-02T11:16:20Z",
   "displayName": "Test User"
 }
 
@@ -273,8 +289,17 @@ Accept: application/json
 
 GET http://localhost:5005/api/isauthenticated HTTP/1.1
 Accept-Encoding: gzip,deflate
-Authorization: Bearer xxx
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiMTVjZjBiM2YtNjllMi00NjQwLWEyNTMtMmQ1YmU5N2Q5NjU5IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxlNDdkYjkzMCIsImV4cCI6MTU1Njc5MTcxMSwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.XRs1rT4nfdNemDEnLc3Q5W72x2daAdLmp8KdTIoM-HQ
 Websurge-Request-Name: Is Authenticated
+HTTP/1.1  
+X-SourceFiles: =?UTF-8?B?QzpccHJvamVjdHMyMDEwXEFsYnVtVmlld2VyVk5leHRcc3JjXEFsYnVtVmlld2VyTmV0Q29yZVxhcGlcaXNhdXRoZW50aWNhdGVk?=
+Content-Length: 4
+Content-Type: application/json; charset=utf-8
+Date: Thu, 02 May 2019 09:13:06 GMT
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+
+true
 
 ------------------------------------------------------------------
 
@@ -290,7 +315,7 @@ Websurge-Request-Name: Is Authenticated
   "ReplaceQueryStringValuePairs": null,
   "ReplaceDomain": "localhost:26448",
   "ReplaceCookieValue": null,
-  "ReplaceAuthorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiMTVjZjBiM2YtNjllMi00NjQwLWEyNTMtMmQ1YmU5N2Q5NjU5IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxlNDdkYjkzMCIsImV4cCI6MTU1Njc5MTcxMSwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.XRs1rT4nfdNemDEnLc3Q5W72x2daAdLmp8KdTIoM-HQ",
+  "ReplaceAuthorization": "Bearer IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxhMjg1NTExMiIsImV4cCI6MTU1Njc5NTc4MCwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.6lwk_boQFA4pWk2O6BTGmLN3hJ4-xNCGR-xalHASs-E",
   "Username": null,
   "Password": "",
   "Users": [],

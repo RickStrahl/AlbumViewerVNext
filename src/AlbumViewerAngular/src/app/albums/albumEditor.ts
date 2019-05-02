@@ -42,20 +42,19 @@ export class AlbumEditor implements OnInit {
 
   ngOnInit() {
     if (!this.user.isAuthenticated) {
+        this.user.requestedUrl = this.router.url;
       this.router.navigate(['/login']);
       return;
     }
 
     this.config.isSearchAllowed = false;
-    
-    var id = this.route.snapshot.params["id"];
+
+      var id = this.route.snapshot.params["id"];
     if (id < 1) {
         this.loaded = true;
         this.album = this.albumService.newAlbum();
         return;
     }
-
-   
 
     this.albumService.getAlbum(id)
       .subscribe(result => {
