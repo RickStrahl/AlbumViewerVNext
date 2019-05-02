@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using AlbumViewerBusiness;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using System.Text;
 using System.Text.Encodings.Web;
 using AlbumViewerAspNetCore;
 using AlbumViewerBusiness.Configuration;
@@ -15,7 +16,9 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Serialization;
 using Serilog;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AlbumViewerNetCore
 {
@@ -60,6 +63,20 @@ namespace AlbumViewerNetCore
                 }
             });
 
+            var config = new ApplicationConfiguration();
+            Configuration.Bind("Application", config);
+            services.AddSingleton(config);
+
+            App.Configuration = config;
+
+            // Add Support for strongly typed Configuration and map to class
+            //services.AddOptions();
+            //services.Configure<ApplicationConfiguration>(Configuration.GetSection("Application"));
+
+            // Also make top level configuration available (for EF configuration and access to connection string)
+            services.AddSingleton<IConfigurationRoot>(Configuration);
+            services.AddSingleton<IConfiguration>(Configuration);
+
             // Cors policy is added to controllers via [EnableCors("CorsPolicy")]
             // or .UseCors("CorsPolicy") globally
             services.AddCors(options =>
@@ -74,25 +91,34 @@ namespace AlbumViewerNetCore
                         .AllowCredentials()
                     );
             });
-            
-            // set up and configure Authentication - make sure to call .UseAuthentication()
-            services
-                .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-				.AddCookie(o =>
-				{
-					o.LoginPath = "/api/login";
-					o.LogoutPath = "/api/logout";
-				});
-			
 
-			// Add Support for strongly typed Configuration and map to class
-	        services.AddOptions();
-	        services.Configure<ApplicationConfiguration>(Configuration.GetSection("Application"));
+
+            // set up and configure Cookie Authentication - make sure to call .UseAuthentication()
+    //        services
+    //            .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+				//.AddCookie(o =>
+				//{
+				//	o.LoginPath = "/api/login";
+				//	o.LogoutPath = "/api/logout";
+				//});
+
+                // set up and configure Bearer Token Security
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidIssuer = config.JwtToken.Issuer,
+                        ValidateAudience = true,
+                        ValidAudience = config.JwtToken.Audience,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(config.JwtToken.SigningKey))
+                    };
+                });
 
             
-            // Also make top level configuration available (for EF configuration and access to connection string)
-            services.AddSingleton<IConfigurationRoot>(Configuration);
-            services.AddSingleton<IConfiguration>(Configuration);
 
 
 			// Instance injection
@@ -185,9 +211,9 @@ namespace AlbumViewerNetCore
 			Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");
 
             app.UseCors("CorsPolicy");
-            
 
-			app.UseAuthentication();
+
+            app.UseAuthentication();
 			
 		    app.UseDatabaseErrorPage();
             app.UseStatusCodePages();
