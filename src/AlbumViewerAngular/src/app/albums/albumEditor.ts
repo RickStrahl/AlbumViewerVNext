@@ -35,6 +35,7 @@ export class AlbumEditor implements OnInit {
   error: ErrorInfo = new ErrorInfo();
   loaded =  false;
   aniFrame = 'in';
+
   public searchData: any  = {};
 
 

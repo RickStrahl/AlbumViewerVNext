@@ -154,6 +154,7 @@ img {
     .banner nav a, .banner nav input {
         display: inline-block;
         padding: 6px 6px 6px;
+        margin-right: 5px;
         color: #e1e1e1;
         text-decoration: none;
     }
@@ -402,7 +403,6 @@ select:not(ng-pristine).ng-invalid, textarea:not(.ng-pristine).ng-invalid {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
-
 
 
 /* fix Bootstrap modal popup */

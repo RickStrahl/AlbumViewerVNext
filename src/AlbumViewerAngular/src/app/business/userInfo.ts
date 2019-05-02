@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AppConfiguration} from "./appConfiguration";
 
 import { Observable, throwError } from 'rxjs';
-import {map,catchError} from 'rxjs/operators';
+import { map,catchError } from 'rxjs/operators';
 
 
 import {ErrorInfo, ErrorDisplay} from "../common/errorDisplay";

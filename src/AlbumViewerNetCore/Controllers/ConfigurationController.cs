@@ -47,29 +47,29 @@ namespace AlbumViewerNetCore.Controllers
 	    [HttpGet("api/applicationstats")]
         public object GetApplicationStats()
         {
-            // Seriously?
-            //var desc = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
+            
+            //var rt = typeof(IHostingEnvironment)
+            //    .GetTypeInfo()
+            //    .Assembly
+            //    .GetCustomAttribute<AssemblyFileVersionAttribute>();
+            //var v = new Version(rt.Version);
 
-            var rt = typeof(IHostingEnvironment)
-                .GetTypeInfo()
-                .Assembly
-                .GetCustomAttribute<AssemblyFileVersionAttribute>();
-            var v = new Version(rt.Version);
-
-            var entryAss = Assembly.GetEntryAssembly();
             var vname = Assembly.GetEntryAssembly()?.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName;
 
             string useSqLite = RawConfiguration["Data:useSqLite"];
 
+            // in 3.0 this might work - 2.2: SERIOUSLY????
+            string runtime = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
 
             var stats = new
             {
                 OsPlatform = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
-                AspDotnetVersion = vname,
+                AspDotnetVersion = vname + " (" +
+                                   System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture.ToString().ToLower() + ")",
                 DataMode = useSqLite == "true" ? "SqLite" : "Sql Server"
             };
 
-            string runtime = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
+            
 
             return stats;
         }

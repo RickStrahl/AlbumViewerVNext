@@ -8,4 +8,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic().bootstrapModule(AppModule,
+    {
+    // force compiler not remove template white space
+    preserveWhitespaces: false,
+});

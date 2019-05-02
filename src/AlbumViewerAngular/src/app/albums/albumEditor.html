@@ -106,15 +106,17 @@
 
         <album-songlist [tracks]="album.Tracks" [allowEditing]="true"></album-songlist>
 
-        <div class="well well-sm">
+        <div >
+
           <button type="submit" (click)="saveAlbum(album)"
                   class="btn btn-success"
                   [disabled]="form1.invalid" accesskey="S">
             <i class="fa fa-check"></i> Save
           </button>
-          <a [routerLink]="['/album',album.Id]" class="btn btn-default">
-            <i class="fa fa-remove"></i> Cancel
-          </a>
+
+          <button [routerLink]="['/album',album.Id]" class="btn btn-secondary ml-2">
+            <i class="fa  fa-remove"></i> Cancel
+          </button>
         </div>
 
         <div class="separator"></div>

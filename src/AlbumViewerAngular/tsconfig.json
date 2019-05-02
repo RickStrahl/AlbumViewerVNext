@@ -9,6 +9,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
+    "angularCompilerOptions": {
+      "preserveWhitespaces": false
+    },
     "typeRoots": [
       "node_modules/@types"
     ],
