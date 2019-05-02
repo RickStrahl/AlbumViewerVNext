@@ -14,8 +14,7 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.4" />
 		<PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
 		<PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-		<PackageReference Include="Westwind.AspNetCore" Version="3.2.0" />
-		<ProjectReference Include="..\..\..\Westwind.AspNetCore\Westwind.AspNetCore\Westwind.AspNetCore.csproj" />		
+		<PackageReference Include="Westwind.AspNetCore" Version="3.2.8" />		
 	    <ProjectReference Include="..\AlbumViewerBusiness\AlbumViewerBusiness.csproj" />
 	</ItemGroup>
 

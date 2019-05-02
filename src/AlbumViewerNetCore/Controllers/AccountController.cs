@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Westwind.AspNetCore.Security;
 using Westwind.Web;
 
+
 namespace AlbumViewerAspNetCore
 {
     [Authorize()]
@@ -83,7 +84,7 @@ namespace AlbumViewerAspNetCore
             if (user == null)
                 throw new ApiException("Invalid Login Credentials", 401);
 
-            // create a state object we can serialize as a claim
+            // create a state object we can serialize as a single claim
             var UserState = new UserState();
 
             // track user state through our claim

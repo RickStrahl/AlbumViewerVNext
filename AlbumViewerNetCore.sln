@@ -37,8 +37,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AlbumViewerAngular", "src\A
 		SlnRelativePath = "src\AlbumViewerAngular\"
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Westwind.AspNetCore", "..\Westwind.AspNetCore\Westwind.AspNetCore\Westwind.AspNetCore.csproj", "{F5EB240D-B268-408D-912A-F23ACEBAC26B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,10 +55,6 @@ Global
 		{293C677F-D21F-417A-AC50-7BAB1917AF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{293C677F-D21F-417A-AC50-7BAB1917AF1C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{293C677F-D21F-417A-AC50-7BAB1917AF1C}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{F5EB240D-B268-408D-912A-F23ACEBAC26B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5EB240D-B268-408D-912A-F23ACEBAC26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5EB240D-B268-408D-912A-F23ACEBAC26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5EB240D-B268-408D-912A-F23ACEBAC26B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
