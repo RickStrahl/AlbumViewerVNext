@@ -89,7 +89,7 @@ namespace AlbumViewerNetCore
 	        services.AddOptions();
 	        services.Configure<ApplicationConfiguration>(Configuration.GetSection("Application"));
 
-
+            
             // Also make top level configuration available (for EF configuration and access to connection string)
             services.AddSingleton<IConfigurationRoot>(Configuration);
             services.AddSingleton<IConfiguration>(Configuration);
