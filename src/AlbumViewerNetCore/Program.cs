@@ -9,22 +9,14 @@ namespace AlbumViewerNetCore
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
-
-// The simplest thing possible!
-#if false
-            WebHost.Start(async (context) =>
-	            {
-	                await context.Response.WriteAsync("Hello World. Time is: " + DateTime.Now);
-	            })
-	            .WaitForShutdown();
-#endif
+            var builder = CreateWebHostBuilder(args);
+            builder.Build().Run();
         }
-
-        public static IWebHost BuildWebHost(string[] args)
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
-            var host = WebHost.CreateDefaultBuilder(args)                
-               .UseStartup<Startup>()
+
+            var builder = WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
                 //.UseIIS()
                 //.UseHttpSys(options =>
                 //{
@@ -33,13 +25,13 @@ namespace AlbumViewerNetCore
                 //    options.MaxConnections = 100;
                 //    options.MaxRequestBodySize = 30000000;
                 //    options.UrlPrefixes.Add("http://localhost:5002");
-                //})                
-                .Build();
+                //})
+                
 
-
-            return host;
+            return builder;
 
         }
+
 
     }
 }

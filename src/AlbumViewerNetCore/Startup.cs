@@ -15,9 +15,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Serialization;
 using Serilog;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.IdentityModel.Tokens;
 
 namespace AlbumViewerNetCore
@@ -122,6 +120,8 @@ namespace AlbumViewerNetCore
             
 
 
+
+
 			// Instance injection
             services.AddScoped<AlbumRepository>();
             services.AddScoped<ArtistRepository>();
@@ -159,19 +159,19 @@ namespace AlbumViewerNetCore
             IConfiguration configuration)
         {
 
-			// Serilog config
+            //// Serilog config
             Log.Logger = new LoggerConfiguration()
                     .WriteTo.RollingFile(pathFormat: "logs\\log-{Date}.log")
                     .CreateLogger();
 
-			if (env.IsDevelopment())
-			{				
-				loggerFactory
-					.AddDebug()
-					.AddConsole()
-					.AddSerilog();
+            if (env.IsDevelopment())
+			{
+                loggerFactory
+                    .AddDebug()
+                    .AddConsole()
+                    .AddSerilog();
 
-				app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();
 			}
 			else
 			{
