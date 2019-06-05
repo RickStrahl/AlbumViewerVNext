@@ -38,37 +38,7 @@ namespace AlbumViewerAspNetCore
             accountRepo = actRepo;
         }
 
-        /// <summary>
-        ///  Cookie Authentication login (not used anymore)
-        /// </summary>
-        /// <param name="loginUser"></param>
-        /// <returns></returns>
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("api/login")]
-        public async Task<bool> Login([FromBody] User loginUser)
-        {
-            var user = await accountRepo.AuthenticateAndLoadUser(loginUser.Username, loginUser.Password);
-            if (user == null)
-                throw new ApiException("Invalid Login Credentials", 401);
-
-            var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-            identity.AddClaim(new Claim(ClaimTypes.Name, user.Username));
-
-            if (user.Fullname == null)
-                user.Fullname = string.Empty;
-            identity.AddClaim(new Claim("FullName", user.Fullname));
-
-            var props = new AuthenticationProperties()
-            {
-                ExpiresUtc = DateTime.UtcNow.AddHours(1)
-            };
-
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(identity));
-
-            return true;
-        }
+    
 
         /// <summary>
         /// Token authentication login
@@ -112,28 +82,6 @@ namespace AlbumViewerAspNetCore
                 displayName = user.Fullname
             };
         }
-
-        //var user = await accountRepo.AuthenticateAndLoadUser(loginUser.Username, loginUser.Password);
-        //if (user == null)
-        //    throw new ApiException("Invalid Login Credentials", 401);
-
-        //var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-        //identity.AddClaim(new Claim(ClaimTypes.Name, user.Username));
-
-        //if (user.Fullname == null)
-        //    user.Fullname = string.Empty;
-        //identity.AddClaim(new Claim("FullName", user.Fullname));
-
-        //var props = new AuthenticationProperties()
-        //{
-        //    ExpiresUtc = DateTime.UtcNow.AddHours(1)
-        //};
-
-        //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-        //    new ClaimsPrincipal(identity));
-
-        //    return true;
-        //}
 
         
 
@@ -188,6 +136,41 @@ namespace AlbumViewerAspNetCore
             var cancelledTokenIds = cancelledTokens.Where(kv => kv.Value > dt).Select(kv => kv.Key);
             foreach (var key in cancelledTokenIds)
                 cancelledTokens.Remove(key);
+        }
+        #endregion
+
+        #region Obsolete
+
+        /// <summary>
+        ///  Cookie Authentication login (not used anymore)
+        /// </summary>
+        /// <param name="loginUser"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("api/login")]
+        public async Task<bool> Login([FromBody] User loginUser)
+        {
+            var user = await accountRepo.AuthenticateAndLoadUser(loginUser.Username, loginUser.Password);
+            if (user == null)
+                throw new ApiException("Invalid Login Credentials", 401);
+
+            var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+            identity.AddClaim(new Claim(ClaimTypes.Name, user.Username));
+
+            if (user.Fullname == null)
+                user.Fullname = string.Empty;
+            identity.AddClaim(new Claim("FullName", user.Fullname));
+
+            var props = new AuthenticationProperties()
+            {
+                ExpiresUtc = DateTime.UtcNow.AddHours(1)
+            };
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(identity));
+
+            return true;
         }
         #endregion
 

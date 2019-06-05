@@ -13,7 +13,8 @@
   <div class="row"  [ngClass]="{ 'hidden': !loaded}" [@slideIn]="'in'">
 
     <div class="col-sm-5">
-      <form name="form1" action="javascript:{}" #form1="ngForm" novalidate>
+      <form name="form1" action="#0" #form1="ngForm" novalidate>
+
         <div class="form-group">
           <label for="AlbumName">Album Name:</label>
           <input id="AlbumName" type="text" class="form-control input-sm"

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "todo": {
+    "album-viewer": {
       "root": "",
       "projectType": "application",
       "prefix": "app",
@@ -76,18 +76,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "todo:build"
+            "browserTarget": "album-viewer:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "todo:build:production"
+              "browserTarget": "album-viewer:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "todo:build"
+            "browserTarget": "album-viewer:build"
           }
         },
         "test": {
@@ -131,7 +131,7 @@
         }
       }
     },
-    "todo-e2e": {
+    "album-viewer-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
