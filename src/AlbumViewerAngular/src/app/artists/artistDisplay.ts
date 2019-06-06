@@ -17,11 +17,11 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
     //moduleId: module.id,
     selector: 'artist-display',
     templateUrl: './artistDisplay.html',
-  animations: [ slideIn ]
+    animations: [ slideIn ]
 })
 export class ArtistDisplay implements OnInit {
   // reference a child editor component
-  @ViewChild(ArtistEditor) editor:ArtistEditor;
+  @ViewChild(ArtistEditor, {static: false }) editor:ArtistEditor;
 
   artist: Artist = new Artist();
   albums: Album[] = [];
@@ -69,9 +69,9 @@ export class ArtistDisplay implements OnInit {
       this.user.requestedUrl = this.router.url;
       this.router.navigate(["/login"]);
       return;
-    }    
+    }
 
-    this.editor.open();  
+    this.editor.open();
   }
 
   addAlbum() {
@@ -91,6 +91,6 @@ export class ArtistDisplay implements OnInit {
   }
 
   deleteAlbum(album:Album) {
-    
+
   }
 }

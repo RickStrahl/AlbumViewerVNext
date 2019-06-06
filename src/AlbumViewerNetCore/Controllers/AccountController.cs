@@ -14,7 +14,6 @@ using System.Linq;
 using AlbumViewerBusiness.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Westwind.AspNetCore.Security;
-using Westwind.Web;
 
 
 namespace AlbumViewerAspNetCore
@@ -38,7 +37,7 @@ namespace AlbumViewerAspNetCore
             accountRepo = actRepo;
         }
 
-    
+
 
         /// <summary>
         /// Token authentication login
@@ -83,20 +82,18 @@ namespace AlbumViewerAspNetCore
             };
         }
 
-        
 
         [AllowAnonymous]
         [HttpGet]
         [Route("api/logout")]
-        public async Task<bool> Logout()
+        public  bool Logout()
         {
             // Cookie Signout
             //await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-
             if (User.Identity.IsAuthenticated)
                 ExpireToken();
-            
+
             return true;
         }
 

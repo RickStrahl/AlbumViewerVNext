@@ -29,14 +29,14 @@ namespace AlbumViewerNetCore
         public Startup(IHostingEnvironment env)
         {
             HostingEnvironment = env;
-            
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
 
-            Configuration = builder.Build();            
+            Configuration = builder.Build();
         }
 
 
@@ -53,7 +53,7 @@ namespace AlbumViewerNetCore
                 }
                 else
                 {
-                    // Note this path has to have full  access for the Web user in order 
+                    // Note this path has to have full  access for the Web user in order
                     // to create the DB and write to it.
                     var connStr = "Data Source=" +
                                   Path.Combine(HostingEnvironment.ContentRootPath, "AlbumViewerData.sqlite");
@@ -83,9 +83,9 @@ namespace AlbumViewerNetCore
                     builder => builder
                             // required if AllowCredentials is set also
                         .SetIsOriginAllowed(s=> true)
-                        //.AllowAnyOrigin()             
+                        //.AllowAnyOrigin()
                         .AllowAnyMethod()
-                        .AllowAnyHeader()                            
+                        .AllowAnyHeader()
                         .AllowCredentials()
                     );
             });
@@ -100,7 +100,7 @@ namespace AlbumViewerNetCore
             //        o.LogoutPath = "/api/logout";
             //    });
 
-            // set up and configure Bearer Token Security - 
+            // set up and configure Bearer Token Security -
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -114,10 +114,10 @@ namespace AlbumViewerNetCore
                         IssuerSigningKey = new SymmetricSecurityKey(
                             Encoding.UTF8.GetBytes(config.JwtToken.SigningKey))
                     };
-                    
+
                 });
 
-            
+
 
 
 
@@ -126,7 +126,7 @@ namespace AlbumViewerNetCore
             services.AddScoped<AlbumRepository>();
             services.AddScoped<ArtistRepository>();
             services.AddScoped<AccountRepository>();
-            
+
             // Per request injections
             services.AddScoped<ApiExceptionFilter>();
 
@@ -146,38 +146,34 @@ namespace AlbumViewerNetCore
 				        res.NamingStrategy = null;
 			        }
 
-                    if (HostingEnvironment.IsDevelopment())       
+                    if (HostingEnvironment.IsDevelopment())
                         opt.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
 		        });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, 
-            IHostingEnvironment env, 
+        public void Configure(IApplicationBuilder app,
+            IHostingEnvironment env,
             ILoggerFactory loggerFactory,
             AlbumViewerContext albumContext,
             IConfiguration configuration)
         {
 
-            //// Serilog config
+            //// Serilog config -  add logfile output
             Log.Logger = new LoggerConfiguration()
                     .WriteTo.RollingFile(pathFormat: "logs\\log-{Date}.log")
                     .CreateLogger();
 
-            if (env.IsDevelopment())
-			{
-                loggerFactory
-                    .AddDebug()
-                    .AddConsole()
-                    .AddSerilog();
+            loggerFactory
+                .AddSerilog();
 
+
+            if (env.IsDevelopment())
+            {
                 app.UseDeveloperExceptionPage();
 			}
 			else
 			{
-				loggerFactory
-					.AddSerilog();
-
 				app.UseExceptionHandler(errorApp =>
 
 						// Application level exception handler here - this is just a place holder
@@ -215,7 +211,7 @@ namespace AlbumViewerNetCore
 
 
             app.UseAuthentication();
-			
+
 		    app.UseDatabaseErrorPage();
             app.UseStatusCodePages();
 
@@ -232,7 +228,7 @@ namespace AlbumViewerNetCore
             //        var file = Path.Combine(env.WebRootPath, ".well-known","acme-challenge", id);
             //        await response.SendFileAsync(file);
             //    });
-            //});         
+            //});
 
             //// put last so header configs like CORS or Cookies etc can fire
             app.UseMvcWithDefaultRoute();

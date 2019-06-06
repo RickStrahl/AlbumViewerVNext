@@ -5,6 +5,8 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Westwind.Utilities;
 
+// subset from NuGet package: Westwind.Data.EfCore
+
 namespace Westwind.BusinessObjects
 {
 

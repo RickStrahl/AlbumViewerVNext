@@ -17,9 +17,9 @@ declare var $: any;
 })
 export class ArtistEditor implements OnInit {
   @Input() artist: Artist = new Artist();
-  @ViewChild('ModalEditor') public  modalEditor; 
-  @ViewChild('ArtistName') artistName:ElementRef;
-  
+  @ViewChild('ModalEditor', {static: false}) public  modalEditor;
+  @ViewChild('ArtistName', {static: false}) artistName:ElementRef;
+
   albums: Album[] = [];
   formActive = false;
   error: ErrorInfo = new ErrorInfo();
@@ -30,7 +30,7 @@ export class ArtistEditor implements OnInit {
               private modalService: NgbModal) {
     console.log("ArtistEditor ctor");
 
-    
+
   }
 
   ngOnInit() {
@@ -38,12 +38,12 @@ export class ArtistEditor implements OnInit {
   }
 
   open() {
-    
+
      this.modalService.open(this.modalEditor, {ariaLabelledBy: 'modal-basic-title'})
           .result
-          .then((result) => { 
-              
-              
+          .then((result) => {
+
+
           }, (reason) => { });
   }
   close()  {
@@ -63,7 +63,7 @@ export class ArtistEditor implements OnInit {
           this.formActive = true;
         }, 0);
 
-        this.error.info("Artist has been saved");        
+        this.error.info("Artist has been saved");
       },
       err => {
         this.error.error(err);
