@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Reflection;
-using Microsoft.AspNetCore.Hosting.Internal;
 using System.Runtime.Versioning;
 using Microsoft.Extensions.Configuration;
 
@@ -24,11 +23,11 @@ namespace AlbumViewerNetCore.Controllers
     {
         IOptions<ApplicationConfiguration> AppConfiguration;
         IConfigurationRoot RawConfiguration;
-        IHostingEnvironment Host;
+        IWebHostEnvironment Host;
 
         public ConfigurationController(IOptions<ApplicationConfiguration> configuration,
             IConfigurationRoot config,
-            IHostingEnvironment host)
+            IWebHostEnvironment host)
         {
             AppConfiguration = configuration;
             Host = host;

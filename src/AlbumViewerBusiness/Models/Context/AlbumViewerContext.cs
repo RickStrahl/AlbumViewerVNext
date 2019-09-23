@@ -12,6 +12,9 @@ namespace AlbumViewerBusiness
         {         
         }
 
+        public AlbumViewerContext()
+        { }
+
         public DbSet<Album> Albums { get; set; }
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Track> Tracks { get; set; }

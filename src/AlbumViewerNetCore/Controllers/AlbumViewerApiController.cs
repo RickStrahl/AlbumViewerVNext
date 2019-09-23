@@ -30,7 +30,7 @@ namespace AlbumViewerAspNetCore
         IConfiguration Configuration;
         private ILogger<AlbumViewerApiController> Logger;
 
-        private IHostingEnvironment HostingEnv;
+        private IWebHostEnvironment HostingEnv;
 
         public AlbumViewerApiController(
             AlbumViewerContext ctx, 
@@ -39,7 +39,7 @@ namespace AlbumViewerAspNetCore
             AlbumRepository albumRepo, 
             IConfiguration config,
             ILogger<AlbumViewerApiController> logger,
-            IHostingEnvironment env)
+            IWebHostEnvironment env)
         {
             context = ctx;
             serviceProvider = svcProvider;
@@ -121,7 +121,9 @@ namespace AlbumViewerAspNetCore
                 throw new ApiException("You have to be logged in to modify data", 401);
 
             var pks =
-                await context.Albums.Where(alb => alb.Title == name).Select(alb => alb.Id).ToAsyncEnumerable().ToList();
+                await context.Albums
+                    .Where(alb => alb.Title == name)
+                    .Select(alb => alb.Id).ToListAsync();
 
             StringBuilder sb = new StringBuilder();
             foreach (int pk in pks)
@@ -171,8 +173,13 @@ namespace AlbumViewerAspNetCore
             if (!ArtistRepo.Validate(artist))
                 throw new ApiException(ArtistRepo.ValidationErrors.ToString(), 500, ArtistRepo.ValidationErrors);
 
+            //if (artist.Id < 1)
+            //    ArtistRepo.Context.Artists.Add(artist);
+            //else
+            //     ArtistRepo.Context.Artists.Update(artist);
+
             if (!await ArtistRepo.SaveAsync(artist))
-                throw new ApiException("Unable to save artist.");
+                throw new ApiException($"Unable to save artist. {ArtistRepo.ErrorMessage}");
 
             return new ArtistResponse()
             {

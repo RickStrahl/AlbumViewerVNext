@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using AlbumViewerBusiness;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Text.Encodings.Web;
 using AlbumViewerAspNetCore;
@@ -17,6 +18,7 @@ using Newtonsoft.Json.Serialization;
 using Serilog;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Builder;
 
 namespace AlbumViewerNetCore
 {
@@ -130,25 +132,23 @@ namespace AlbumViewerNetCore
             // Per request injections
             services.AddScoped<ApiExceptionFilter>();
 
-            // Add framework services
-	        services
-		        .AddMvc(options =>
-		        {
-			        // options.Filters.Add(new ApiExceptionFilter());
-		        })
-	            .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2)
-		        .AddJsonOptions(opt =>
-		        {
-			        var resolver = opt.SerializerSettings.ContractResolver;
-			        if (resolver != null)
-			        {
-				        var res = resolver as DefaultContractResolver;
-				        res.NamingStrategy = null;
-			        }
+       
+
+            services.AddControllers()
+                // Use classic JSON 
+                .AddNewtonsoftJson(opt =>
+                {
+                    var resolver = opt.SerializerSettings.ContractResolver;
+                    if (resolver != null)
+                    {
+                        var res = resolver as DefaultContractResolver;
+                        res.NamingStrategy = null;
+                    }
 
                     if (HostingEnvironment.IsDevelopment())
                         opt.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
-		        });
+                });
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -207,16 +207,20 @@ namespace AlbumViewerNetCore
             string useSqLite = Configuration["Data:useSqLite"];
 			Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");
 
+            app.UseRouting();
+
             app.UseCors("CorsPolicy");
 
 
             app.UseAuthentication();
+            app.UseAuthorization();
 
-		    app.UseDatabaseErrorPage();
+		    //app.UseDatabaseErrorPage();
             app.UseStatusCodePages();
 
             app.UseDefaultFiles(); // so index.html is not required
             app.UseStaticFiles();
+
 
             // Handle Lets Encrypt Route (before MVC processing!)
             // alternately use an MVC Route (in ConfigurationController)
@@ -231,8 +235,10 @@ namespace AlbumViewerNetCore
             //});
 
             //// put last so header configs like CORS or Cookies etc can fire
-            app.UseMvcWithDefaultRoute();
-
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
             // catch-all handler for HTML5 client routes - serve index.html
             app.Run(async context =>

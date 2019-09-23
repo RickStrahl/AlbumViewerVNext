@@ -282,24 +282,31 @@ namespace Westwind.BusinessObjects
                 var entry = Context.Entry(entity);
                 if (entry.State == EntityState.Detached)
                 {
-                    Context.Attach(entity);
-
                     // see if it exists
-                    TEntity match = null;
-                    try
-                    {
-                        object id = Context.GetEntityKey(entity).FirstOrDefault();
-                        if (id != null)
-                            match = DbSet.Find(id);
-                    }
-                    catch
-                    {
-                    }
+                    bool exists = entry.IsKeySet; 
 
-                    if (match != null)
+
+                    //false;
+                    //try
+                    //{
+                    //    object id = Context.GetEntityKey(entity).FirstOrDefault();
+                    //    if (id != null)
+                    //        exists = 
+                    //}
+                    //catch
+                    //{
+                    //}
+
+                    if (exists)
+                    {
+                        entry = Context.Update(entity);
                         entry.State = EntityState.Modified;
+                    }
                     else
+                    {
+                        Context.Add(entity);
                         entry.State = EntityState.Added;
+                    }
                 }
             }
 
