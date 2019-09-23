@@ -34,7 +34,7 @@ export class UserInfo {
 
 
     private _token = "";
-    get token() {
+    get token() { 
         return this._token
     }
     set token(value) {
@@ -50,7 +50,7 @@ export class UserInfo {
         if(token)
         {
             this._isAuthenticated = true;
-            this.token = token;
+            this.token = token; 
         }
         else{
             this._isAuthenticated = false;

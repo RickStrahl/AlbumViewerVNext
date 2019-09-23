@@ -16,26 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbumViewerNetCore", "src\A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbumViewerBusiness", "src\AlbumViewerBusiness\AlbumViewerBusiness.csproj", "{209EAF20-38E2-4C67-9557-9247A07213E6}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AlbumViewerAngular", "src\AlbumViewerAngular\", "{293C677F-D21F-417A-AC50-7BAB1917AF1C}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_37063"
-		Debug.AspNetCompiler.PhysicalPath = "src\AlbumViewerAngular\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_37063\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_37063"
-		Release.AspNetCompiler.PhysicalPath = "src\AlbumViewerAngular\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_37063\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "37063"
-		SlnRelativePath = "src\AlbumViewerAngular\"
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbumViewerAngular (content-only)", "src\AlbumViewerAngular\AlbumViewerAngular (content-only).csproj", "{76395430-0222-46DF-AF3F-C3EDCBE27C1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,9 +32,9 @@ Global
 		{209EAF20-38E2-4C67-9557-9247A07213E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{209EAF20-38E2-4C67-9557-9247A07213E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{209EAF20-38E2-4C67-9557-9247A07213E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{293C677F-D21F-417A-AC50-7BAB1917AF1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{293C677F-D21F-417A-AC50-7BAB1917AF1C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{293C677F-D21F-417A-AC50-7BAB1917AF1C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{76395430-0222-46DF-AF3F-C3EDCBE27C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76395430-0222-46DF-AF3F-C3EDCBE27C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76395430-0222-46DF-AF3F-C3EDCBE27C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,7 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{00D86129-ADE5-403F-96AE-9263C01BE2E4} = {0A329D36-19A2-4F54-B3C7-17640DDBF44C}
 		{209EAF20-38E2-4C67-9557-9247A07213E6} = {0A329D36-19A2-4F54-B3C7-17640DDBF44C}
-		{293C677F-D21F-417A-AC50-7BAB1917AF1C} = {0A329D36-19A2-4F54-B3C7-17640DDBF44C}
+		{76395430-0222-46DF-AF3F-C3EDCBE27C1A} = {0A329D36-19A2-4F54-B3C7-17640DDBF44C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9FAF684A-A9E1-46AD-8ED6-149D0825737E}
