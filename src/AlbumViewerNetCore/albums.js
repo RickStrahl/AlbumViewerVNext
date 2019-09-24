@@ -1,9 +1,8 @@
-
 [
     {
         "Id": 1,
         "ArtistId": 1,
-        "Title": "Ace of Spades (SQL Server)",
+        "Title": "Ace of Spades (SQLite)",
         "Description": "Motörhead are the founding fathers of speed and thrash metal. Without this band, there would be no Slayer or Sepultura, so you've at least got to give Lemmy and Co. props for being so influential. And \"Aces of Spades\" is an essential, legendary speed metal classic. It's full of fast, meaty riffs, great solos, toe-tapping drums, and catchy, gruff vocals. Almost every song on here (especially the title track, \"Love Me Like a Reptile,\" and \"We Are The Road Crew\") is very catchy. And the album opening title track, which has a speedy, groove-y main riff, is world renowned. Other highlights include the wah-wah solo and shout-along refrain on \"Fire, Fire,\" \"Jailbait,\" \"Dance\" (which has a pair of tasty guitar solos), the X-rated \"The Chase Is Better Than The Catch,\" and the famous, rhythmic, nearly dance-able \"Please Don't Touch.\" All in all, if you're looking for great, groove-y, contagious and exciting speed metal, Motorhead \"aces\" it.",
         "Year": 1978,
         "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/618Zuqc4J5L._SL250_.jpg",
@@ -3084,60 +3083,6 @@
                 "Length": "3:42",
                 "Bytes": 0,
                 "UnitPrice": 0.00
-            }
-        ]
-    },
-    {
-        "Id": 53,
-        "ArtistId": 26,
-        "Title": "Melissa",
-        "Description": "Technically, Mercyful Fate's debut LP is slightly patchy and derivative, particularly of early Black Sabbath and Judas Priest, although in parts it is more ambitious than those bands' major works, in a `proggy' kind of way. It also sounds a bit dated in parts. In terms of originality, craftsmanship, instrumental prowess, and King Diamond's application of his unique and controversial voice and vocal range, it was comprehensively surpassed by Diamond's later solo classics (particularly Them, Conspiracy, and The Eye), and even by Mercyful Fate's 1993 reunion album, In The Shadows (although I prefer the more dynamic rhythm section on Melissa than those on The Eye or In The Shadows).\r\nWhat puts this album in a supreme league of its own is a wickedly powerful aura that builds up throughout the album, which is something that no amount of musica training can achieve, and no review can adequately reflect. Reviewer 'stevex3' gives us a taste when he says 'I'm sure that this CD gets played at every gathering of demons, but you really cannot have any idea what that means unless you experience this album for yourself (preferably played loud in the dark), as different people will experience it differently, and will undoubtedly have a hard time explaining their experience.",
-        "Year": 1982,
-        "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/415gmX9ujaL._SL250_.jpg",
-        "AmazonUrl": "https://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=GHOXSGQGTIORXIBC",
-        "SpotifyUrl": "",
-        "Artist": {
-            "Id": 26,
-            "ArtistName": "Merciful Fate",
-            "Description": "Arguably the most original and critically acclaimed group to come from Denmark was Mercyful Fate. Mercyful Fate's nucleus comprised of the multi-octave vocals of King Diamond aka Kim Bendix Petersen, and the twin lead guitar attack of Hank Sherman aka Rene Krolmark and Michael Denner. 'Melissa' was the group's first formal recording and was a featured LP for Road Runner Records. Although 'Melissa' was originally released in 1983, and re-released in 1997, Roadrunner Records has remastered the songs and released this classic for your listening enjoyment. It includes the highly sought after early 1980's BBC sessions, two extra demo tracks of 'Black Funeral', and 'Curse of the Pharaohs' and a three track DVD featuring live footage of the band during early 1983. A commentary by King Diamond himself narrates the performance and the story of the group during that time frame. Mercyful Fate pioneered a sub genre of ultra heavy and complex music renown for its macabre lyrics, and Satanic/occultism driven imagery and attitude called Black Metal.",
-            "ImageUrl": "http://www.metalblade.com/us/photos/mercyful-fate_photo03.jpg",
-            "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=VAIRVQFRSELFJ7V2"
-        },
-        "Tracks": [
-            {
-                "Id": 263,
-                "AlbumId": 53,
-                "SongName": "Curse of the Pharaohs",
-                "Length": "3:10",
-                "Bytes": 3990994,
-                "UnitPrice": 0.99
-            }
-        ]
-    },
-    {
-        "Id": 54,
-        "ArtistId": 26,
-        "Title": "Melissa",
-        "Description": "Technically, Mercyful Fate's debut LP is slightly patchy and derivative, particularly of early Black Sabbath and Judas Priest, although in parts it is more ambitious than those bands' major works, in a `proggy' kind of way. It also sounds a bit dated in parts. In terms of originality, craftsmanship, instrumental prowess, and King Diamond's application of his unique and controversial voice and vocal range, it was comprehensively surpassed by Diamond's later solo classics (particularly Them, Conspiracy, and The Eye), and even by Mercyful Fate's 1993 reunion album, In The Shadows (although I prefer the more dynamic rhythm section on Melissa than those on The Eye or In The Shadows).\r\nWhat puts this album in a supreme league of its own is a wickedly powerful aura that builds up throughout the album, which is something that no amount of musica training can achieve, and no review can adequately reflect. Reviewer 'stevex3' gives us a taste when he says 'I'm sure that this CD gets played at every gathering of demons, but you really cannot have any idea what that means unless you experience this album for yourself (preferably played loud in the dark), as different people will experience it differently, and will undoubtedly have a hard time explaining their experience.",
-        "Year": 1982,
-        "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/415gmX9ujaL._SL250_.jpg",
-        "AmazonUrl": "https://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=GHOXSGQGTIORXIBC",
-        "SpotifyUrl": "",
-        "Artist": {
-            "Id": 26,
-            "ArtistName": "Merciful Fate",
-            "Description": "Arguably the most original and critically acclaimed group to come from Denmark was Mercyful Fate. Mercyful Fate's nucleus comprised of the multi-octave vocals of King Diamond aka Kim Bendix Petersen, and the twin lead guitar attack of Hank Sherman aka Rene Krolmark and Michael Denner. 'Melissa' was the group's first formal recording and was a featured LP for Road Runner Records. Although 'Melissa' was originally released in 1983, and re-released in 1997, Roadrunner Records has remastered the songs and released this classic for your listening enjoyment. It includes the highly sought after early 1980's BBC sessions, two extra demo tracks of 'Black Funeral', and 'Curse of the Pharaohs' and a three track DVD featuring live footage of the band during early 1983. A commentary by King Diamond himself narrates the performance and the story of the group during that time frame. Mercyful Fate pioneered a sub genre of ultra heavy and complex music renown for its macabre lyrics, and Satanic/occultism driven imagery and attitude called Black Metal.",
-            "ImageUrl": "http://www.metalblade.com/us/photos/mercyful-fate_photo03.jpg",
-            "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=VAIRVQFRSELFJ7V2"
-        },
-        "Tracks": [
-            {
-                "Id": 264,
-                "AlbumId": 54,
-                "SongName": "Curse of the Pharaohs",
-                "Length": "3:10",
-                "Bytes": 3990994,
-                "UnitPrice": 0.99
             }
         ]
     },

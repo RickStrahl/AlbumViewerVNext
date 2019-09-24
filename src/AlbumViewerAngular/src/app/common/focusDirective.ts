@@ -1,16 +1,17 @@
-import { Directive, Input, ElementRef } from '@angular/core';
+import { Directive, Input, ElementRef, OnChanges } from '@angular/core';
 
 @Directive({
-	selector : '[focus]'
+	selector : '[focus]'  // [focus]="true|false"
 })
-export class FocusDirective {
+export class FocusDirective implements OnChanges {
 	@Input() focus : boolean;
 
 	constructor(private element : ElementRef) {
+		
 	}
 	
-	protected ngOnChanges() {
+	ngOnChanges() {
 		if (this.focus)
-			this.element.nativeElement.focus();
+			setTimeout( ()=> this.element.nativeElement.focus() ,200);
 	}
 }

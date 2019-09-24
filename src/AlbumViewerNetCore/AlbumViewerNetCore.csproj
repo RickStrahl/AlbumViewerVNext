@@ -31,5 +31,13 @@
     <EmbeddedResource Remove="logs\**" />
     <None Remove="logs\**" />
   </ItemGroup>
+    <ItemGroup>
+      <None Remove="albums.js" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="albums.js">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
   
 </Project>
