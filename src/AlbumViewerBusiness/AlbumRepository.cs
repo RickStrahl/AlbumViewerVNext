@@ -153,44 +153,40 @@ namespace AlbumViewerBusiness
         }
 
 
-        public async Task<bool> DeleteAlbum(int id, IDbContextTransaction tx = null)
+        public async Task<bool> DeleteAlbum(int id, bool noSaveChanges = false)
         {
-            bool nested = false;
-            if (tx == null)
-                tx = Context.Database.BeginTransaction();
-            else
-                nested = true;
-
-            // manually delete tracks
-            var tracks = await Context.Tracks.Where(t => t.AlbumId == id).ToListAsync();
-            for (int i = tracks.Count - 1; i > -1; i--)
-            {
-                var track = tracks[i];
-                tracks.Remove(track);
-                Context.Tracks.Remove(track);
-            }
-
             var album = await Context.Albums
+                .Include( a=> a.Tracks)
                 .FirstOrDefaultAsync(a => a.Id == id);
 
             if (album == null)
             {
                 SetError("Invalid album id.");
-
                 return false;
+            }
+
+            // explicitly have to remove tracks
+            var tracks = album.Tracks.ToList(); 
+            foreach(var track in tracks) 
+            { 
+            //for (int i = tracks.Count - 1; i > -1; i--)
+            //{
+            //    var track = tracks[i];
+                album.Tracks.Remove(track);
+                Context.Tracks.Remove(track);
             }
 
             Context.Albums.Remove(album);
 
-            var result = await SaveAsync();
 
-            if (result && !nested)
-                tx.Commit();
-            
-            if (!nested)
-                tx.Dispose();
+            if (!noSaveChanges)
+            {
+                var result = await SaveAsync();
 
-            return result;
+                return result;
+            }
+
+            return true;
         }
 
 
