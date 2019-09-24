@@ -54,7 +54,7 @@ namespace AlbumViewerBusiness
                 album.ArtistId = 0;
                 album.Artist.Id = 0;
 
-                var existingArtist = context.Artists.Where(a => a.ArtistName == album.Artist.ArtistName).FirstOrDefault();
+                var existingArtist = context.Artists.FirstOrDefault(a => a.ArtistName == album.Artist.ArtistName);
                 if (existingArtist == null)
                 {
                     context.Artists.Add(album.Artist);
@@ -70,7 +70,7 @@ namespace AlbumViewerBusiness
                     foreach (var track in album.Tracks)
                     {
                         track.Id = 0;
-                        context.Add(track);
+                        context.Tracks.Add(track);
                     }
                 }
                 context.Add(album);

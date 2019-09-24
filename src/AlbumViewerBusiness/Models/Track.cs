@@ -1,5 +1,9 @@
-﻿namespace AlbumViewerBusiness
+﻿using System.Diagnostics;
+
+namespace AlbumViewerBusiness
 {
+
+    [DebuggerDisplay("{SongName}")]
     public class Track
     {
         public int Id { get; set; }

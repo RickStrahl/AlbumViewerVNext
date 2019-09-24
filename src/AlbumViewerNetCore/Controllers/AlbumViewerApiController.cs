@@ -224,6 +224,7 @@ namespace AlbumViewerAspNetCore
             {
                 if (isSqLite != "true")
                 {
+                    // ExecuteSqlRaw // in EF 3.0
                     context.Database.ExecuteSqlCommand(@"
 drop table Tracks;
 drop table Albums;

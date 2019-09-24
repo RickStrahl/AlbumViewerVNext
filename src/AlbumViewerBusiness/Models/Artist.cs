@@ -1,5 +1,8 @@
-﻿namespace AlbumViewerBusiness
+﻿using System.Diagnostics;
+
+namespace AlbumViewerBusiness
 {
+    [DebuggerDisplay("{ArtistName}")]
     public class Artist
     {
         public int Id { get; set; }

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace AlbumViewerBusiness
 {
+    [DebuggerDisplay("{Title} {Artist.ArtistName}")]
     public class Album
     {           
         public int Id { get; set; }

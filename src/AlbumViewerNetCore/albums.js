@@ -3,7 +3,7 @@
     {
         "Id": 1,
         "ArtistId": 1,
-         "Title": "Ace of Spades (SQLite)",
+        "Title": "Ace of Spades (SQL Server)",
         "Description": "Motörhead are the founding fathers of speed and thrash metal. Without this band, there would be no Slayer or Sepultura, so you've at least got to give Lemmy and Co. props for being so influential. And \"Aces of Spades\" is an essential, legendary speed metal classic. It's full of fast, meaty riffs, great solos, toe-tapping drums, and catchy, gruff vocals. Almost every song on here (especially the title track, \"Love Me Like a Reptile,\" and \"We Are The Road Crew\") is very catchy. And the album opening title track, which has a speedy, groove-y main riff, is world renowned. Other highlights include the wah-wah solo and shout-along refrain on \"Fire, Fire,\" \"Jailbait,\" \"Dance\" (which has a pair of tasty guitar solos), the X-rated \"The Chase Is Better Than The Catch,\" and the famous, rhythmic, nearly dance-able \"Please Don't Touch.\" All in all, if you're looking for great, groove-y, contagious and exciting speed metal, Motorhead \"aces\" it.",
         "Year": 1978,
         "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/618Zuqc4J5L._SL250_.jpg",
@@ -11,7 +11,7 @@
         "SpotifyUrl": "https://play.spotify.com/album/2La9yFPh8VZ1VsaVXtHazI",
         "Artist": {
             "Id": 1,
-            "ArtistName": "Motörhead (SqLite)",
+            "ArtistName": "Motörhead (Sql)",
             "Description": "Motörhead have never JUST been the best rock'n'roll band in the world. They've never JUST been the loudest. Or the hardest. Or the toughest. Or the bad-ass-est. No...Motörhead are also a lifestyle.",
             "ImageUrl": "https://www.thewrap.com/wp-content/uploads/2015/11/motorhead-phil-taylor.jpg",
             "AmazonUrl": "5/1/2017 11:59:47 PM"
@@ -827,11 +827,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B0013D8FJG/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0013D8FJG&linkCode=as2&tag=westwindtechn-20&linkId=Q6ECTNHUXDX45GG5",
         "SpotifyUrl": "https://play.spotify.com/album/7kLqk3fireCdZxAZmCud3k",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 8,
+            "ArtistName": "Corrosion of Conformity",
+            "Description": "One of the first punk-metal fusion bands, Corrosion of Conformity were formed in North Carolina by guitarist Woody Weatherman during the early '80s. In their early years, C.O.C. became known for their aggressive sound, intelligent political lyrics, and willingness to break away from both hardcore and metal conventions. In the '90s, their shift to a more stripped-down, deliberate sound -- sort of Black Sabbath filtered through the Deep South -- brought them enough in line with the alt metal Zeitgeist to bring them a measure of mainstream popularity. Then recently they turned back to their hardcore roots with ther 2012 and 2014 releases that mixes the raw",
+            "ImageUrl": "https://theobelisk.net/obelisk/wp-content/uploads/2012/01/coc.jpg",
+            "AmazonUrl": "http://theobelisk.net/obelisk/wp-content/uploads/2012/01/coc.jpg"
         },
         "Tracks": [
             {
@@ -982,11 +982,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B0007ZBG1U/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0007ZBG1U&linkCode=as2&tag=westwindtechn-20&linkId=ZPNI5HMO3ZTBZQJ3",
         "SpotifyUrl": "https://play.spotify.com/album/70lhKu95Wy760ZAZeUaZje",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 12,
+            "ArtistName": "Accept",
+            "Description": "With their brutal, simple riffs and aggressive, fast tempos, Accept were one of the top metal bands of the early '80s, and a major influence on the development of thrash. Led by the unique vocal stylings of screeching banshee Udo Dirkschneider, the band forged an instantly recognizable sound and was notorious as one of the decade's fiercest live acts. Despite recording two of the best heavy metal albums of the decade in Restless & Wild and Balls to the Wall, Accept remained too heavy and extreme for American audiences to embrace -- even when they tried to tone down their act with more melodic songs. Ultimately having conquered the rest of the world, but with their career stalled in the U.S., Accept fell apart, but reunited years later to confront a radically changed music marketplace.",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0001/389/MI0001389322.jpg?partner=allrovi.com",
+            "AmazonUrl": "http://www.amazon.com/Accept/e/B000APZ8S4/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&qid=1412245037&sr=8-3&tag=westwindtechn-20&linkId=KM4RZR3ECUXWBJ6E"
         },
         "Tracks": [
             {
@@ -1460,11 +1460,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00138F16G/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00138F16G&linkCode=as2&tag=westwindtechn-20&linkId=5ZVGYK5HPOB4H4DE",
         "SpotifyUrl": "https://play.spotify.com/album/6zdNTQ1uS2ZzFZkExMqcAh",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 8,
+            "ArtistName": "Corrosion of Conformity",
+            "Description": "One of the first punk-metal fusion bands, Corrosion of Conformity were formed in North Carolina by guitarist Woody Weatherman during the early '80s. In their early years, C.O.C. became known for their aggressive sound, intelligent political lyrics, and willingness to break away from both hardcore and metal conventions. In the '90s, their shift to a more stripped-down, deliberate sound -- sort of Black Sabbath filtered through the Deep South -- brought them enough in line with the alt metal Zeitgeist to bring them a measure of mainstream popularity. Then recently they turned back to their hardcore roots with ther 2012 and 2014 releases that mixes the raw",
+            "ImageUrl": "https://theobelisk.net/obelisk/wp-content/uploads/2012/01/coc.jpg",
+            "AmazonUrl": "http://theobelisk.net/obelisk/wp-content/uploads/2012/01/coc.jpg"
         },
         "Tracks": [
             {
@@ -1931,11 +1931,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00008WT5G/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00008WT5G&linkCode=as2&tag=westwindtechn-20&linkId=SWZZPGAYVCI47LYK",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 25,
+            "ArtistName": "AC/DC",
+            "Description": "AC/DC's mammoth power chord roar became one of the most influential hard rock sounds of the '70s. In its own way, it was a reaction against the pompous art rock and lumbering arena rock of the early '70s. AC/DC's rock was minimalist -- no matter how huge and bludgeoning their guitar chords were, there was a clear sense of space and restraint. Combined with Bon Scott's larynx-shredding vocals, the band spawned countless imitators over the next two decades and enjoyed commercial success well into the 2000s.",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0003/090/MI0003090436.jpg?partner=allrovi.com",
+            "AmazonUrl": "http://www.amazon.com/AC-DC/e/B000AQU2YI/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&qid=1412245004&sr=8-1&tag=westwindtechn-20&linkId=SSZOE52V3EG4M4SW"
         },
         "Tracks": [
             {
@@ -2220,11 +2220,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00O6L3AFQ/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00O6L3AFQ&linkCode=as2&tag=westwindtechn-20&linkId=7NVM4HZJO5LTJNST",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 25,
+            "ArtistName": "AC/DC",
+            "Description": "AC/DC's mammoth power chord roar became one of the most influential hard rock sounds of the '70s. In its own way, it was a reaction against the pompous art rock and lumbering arena rock of the early '70s. AC/DC's rock was minimalist -- no matter how huge and bludgeoning their guitar chords were, there was a clear sense of space and restraint. Combined with Bon Scott's larynx-shredding vocals, the band spawned countless imitators over the next two decades and enjoyed commercial success well into the 2000s.",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0003/090/MI0003090436.jpg?partner=allrovi.com",
+            "AmazonUrl": "http://www.amazon.com/AC-DC/e/B000AQU2YI/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&qid=1412245004&sr=8-1&tag=westwindtechn-20&linkId=SSZOE52V3EG4M4SW"
         },
         "Tracks": [
             {
@@ -2255,11 +2255,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B001MEZK5I/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B001MEZK5I&linkCode=as2&tag=westwindtechn-20&linkId=EBGFDC4NVI2JYQVL",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 11,
+            "ArtistName": "Die Toten Hosen",
+            "Description": "Noted for their irreverent style and tough but hooky tunes, German punk/metal band Die Toten Hosen are one of Germany's most successful rock bands, still commanding a large and loyal following at home and in Australia, South America, and Japan more than three decades after they began. Die Toten Hosen (the name literally translates as \"the Dead Trousers\") was formed in 1982 from the ashes of two Düsseldorf punk bands, ZK and KFC. Considering that three members of the Hosen were named Andreas, they took stage names to avoid confusion: vocalist Campino (b. Andreas Frege; June 22, 1962), guitarist Breiti (b. Andreas Breitkopf; Feb. 6, 1964), rhythm guitarist Kuddel (b. Andreas Von Holst; June 11, 1964), bassist Andi (b. Andreas Meurer; July 24, 1962), and drummer Trini (b. Klaus-Dieter Trimpop; June 10, 1951). Die Toten Hosen self-released their first album, Opel Gang, in 1983, and several months later, EMI signed the group and reissued the LP. EMI soon grew disenchanted with the band (particularly after they were sued by German pop icon Heino after they parodied him in concert), and Virgin released their next album, Unter Falscher Flagge, in 1984; the following year, Trini vacated the drum stool to become the group's manager, and Wölli (b. Wolfgang Rohde; Jan. 9, 1963) took over on percussion. In 1986, the band released Damenwahl, which fared well on the charts and gave them their first taste of corporate sponsorship -- Fromms, a major condom manufacturer, helped promote the Damenwahl tour and provided samples of their products to hand out to fans. A live album followed, 1987's Bis Zum Bitteren Ende, and the group finally moved from cult favorites to a real commercial force in Germany with 1988's Ein Kleines Bisschen Horrorschau, which rose to number seven on the German charts.",
+            "ImageUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSMFuwb2Z8fw2_U3oulFlr9YgGUotbr7gd7yl8MfD_01iS38IFO",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -2365,11 +2365,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00005NQIF/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005NQIF&linkCode=as2&tag=westwindtechn-20&linkId=I3YRQODVGFZ5JE4H",
         "SpotifyUrl": "https://play.spotify.com/album/2TMefJ7gbZBQcOo0e0Lu8P",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 1,
+            "ArtistName": "Motörhead (Sql)",
+            "Description": "Motörhead have never JUST been the best rock'n'roll band in the world. They've never JUST been the loudest. Or the hardest. Or the toughest. Or the bad-ass-est. No...Motörhead are also a lifestyle.",
+            "ImageUrl": "https://www.thewrap.com/wp-content/uploads/2015/11/motorhead-phil-taylor.jpg",
+            "AmazonUrl": "5/1/2017 11:59:47 PM"
         },
         "Tracks": [
             {
@@ -2499,11 +2499,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00EBDXYVO/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00EBDXYVO&linkCode=as2&tag=westwindtechn-20&linkId=KZBTMSUE6QBMXBBR",
         "SpotifyUrl": "https://play.spotify.com/album/6FMPDVTm8l5IrEQla46VQl",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 32,
+            "ArtistName": "Metallica",
+            "Description": "Metallica were easily the best, most influential heavy metal band of the '80s and '90s. Responsible for bringing the genre back to Earth, the bandmates looked and talked like they were from the street, shunning the usual rock star games of metal musicians during the mid-'80s pop-metal renaissance. Metallica also expanded the limits of thrash, using speed and volume not for their own sake, but to enhance their intricately structured compositions. The release of 1983's Kill 'Em All marked the beginning of the legitimization of heavy metal's underground, bringing new complexity and depth to thrash metal. With each album, the band's playing and writing improved; James Hetfield developed a signature rhythm playing that matched his growl, while lead guitarist Kirk Hammett became one of the most copied guitarists in metal. To complete the package, Lars Ulrich's thunderous (yet complex) drumming clicked in perfectly with Cliff Burton's innovative bass playing.",
+            "ImageUrl": "https://ksassets.timeincuk.net/wp/uploads/sites/55/2016/11/Getty84896292_10250714_cliff_burton_metallica_React_630.jpg",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -2700,11 +2700,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B000000ERQ/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000000ERQ&linkCode=as2&tag=westwindtechn-20&linkId=VOCZSREPJ5LMFC7G",
         "SpotifyUrl": "https://play.spotify.com/album/2TuOFdm87pAnsXHaweOEpX",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 31,
+            "ArtistName": "Poison Idea",
+            "Description": "Poison Idea was formed in 1980 by vocalist Jerry A. (aka Jerry Lang). The initial lineup consisted of Jerry A., Chris Tense (guitar), Glen Estes (bass), and Dean Johnson (drums). Inspired by Black Flag and other early Southern California hardcore acts, they were further influenced by Discharge and Los Angeles's the Germs. Germs singer Darby Crash's influence on singer Jerry A., vocally, lyrically, and philosophically, was considerable, and Poison Idea followed the Germs’ extremist punk ethic. Tense, who previously had played with Jerry in a group called the Stand, was replaced within a year by Tom \"Pig Champion\" Roberts (guitar), formerly of the Imperialist Pigs.\r\n\r\nPoison Idea’s debut, 1983's Pick Your King EP was a short, lo-fi blast of hardcore fury. The jacket featured a \"choice\" of two kings, Jesus (front cover) and Elvis Presley (back cover).\r\n\r\nIn 1984, Chris Tense returned to the band, this time on bass, replacing Glen Estes (later of Portland, Oregon punk/metal band Final Warning), and the group released the Record Collectors Are Pretentious Assholes 12” (the cover features Pig Champion’s substantial vinyl collection). The record found the band incorporating subtle rock elements into their music, which was further honed on their contributions to two 1985 compilations, “Laughing Boy” on the Drinking is Great EP (on which appeared other Oregon punk bands Final Warning, Lockjaw and E-13), and “Typical” and “Die on Your Knees” on the legendary Cleanse the Bacteria LP (compiled by Pushead for his own Pusmort label).\r\n\r\nWith the release of 1986’s Kings of Punk LP, Poison Idea had fully moved beyond the breakneck hardcore of their early records to a potent, driving and ultimately more intricate and sophisticated hardcore/hard rock fusion that incorporated the accessibility of hard rock without sacrificing the power of hardcore.\r\n\r\nFollowing the release of Kings of Punk, the band went through several rapid lineup changes (mostly in the rhythm section), and then added lead guitarist Eric \"Vegetable\" Olson, a gifted musician who wrote many PI tunes during his tenure in the band (even contributing a piano vamp on one track). The band then released War All the Time (named for the Charles Bukowski book) in 1987. War All the Time and the EPs that followed (the Getting the Fear 12\" and the Filthkick 7\") found them further developing the rock/hardcore sound first established on Kings of Punk, which they would hone in 1990 with Feel the Darkness.\r\n\r\nAround this time, after numerous lineup changes, PI had convened one of their more stable lineups in Jerry A., Tom \"Pig Champion\" Roberts, Charley \"Myrtle Tickner\" Nims (bass) and Steve \"Thee Slayer Hippy\" Hanford (drums), with Kid Cocksman and then Aldine Strichnine on second guitar. By this time, their drinking habits and hard living were beginning to catch up with them: the band weighed in at about 1,300 lb. collectively, and Pig Champion in particular was very fat, often having to play sitting down. They also established their own record label in 1989, American Leather (named for the Germs song), and released two records the same year: a reissue of their 1982 demo Darby Crash Rides Again and the Discontent 7”.\r\n\r\nIn 1990, the band released Feel the Darkness. After the release of Feel the Darkness, Aldine Strychnine was thrown out of the band, and Mondo returned this time on guitar, for the 1991 tour. PI then released Blank Blackout Vacant in 1992, and, before seemingly splitting in 1993, they released We Must Burn.\r\n\r\nWhen Pig Champion left the band in 1993, shortly before the recording and release of the live album on Your Choice Records produced by Tobby Holzinger, PI effectively called it quits. Jerry A pursued a solo project called Gift with his wife and Thee Slayer Hippy, and in 1998 the original line-up reunited for a 7\" EP on released on Taang! (who reissued their early catalogue), but broke up following an aborted tour.\r\n\r\nReflex/Wolfpack Records also did two vinyl reissues of the band. First Kings of Punk in 2003. Then later in 2005 a compilation 12\" containing the Pick Your King EP and the 'Learning To Scream' EP.",
+            "ImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1wq3uOcHeJzwcucKu5PYLF7pNUrv5r06g34zee9SoKNgY6S64bA",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -2810,11 +2810,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00005B36H/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005B36H&linkCode=as2&tag=westwindtechn-20&linkId=YXBBGETMZWRWWQ63",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 3,
+            "ArtistName": "Tool",
+            "Description": "Tool's greatest breakthrough was to meld dark underground metal with the ambition of art rock. Although Metallica wrote their multi-sectioned, layered songs as if they were composers, they kept their musical attack ferociously at street level. Tool didn't. They embraced the artsy, bohemian preoccupations of Jane's Addiction while they simultaneously paid musical homage to the relentlessly bleak visions of grindcore, death metal, and thrash. Even with their post-punk influences, they executed their music with the aesthetic of prog rock, alternating between long, detailed instrumental interludes and lyrical rants in their songs.\r\n\r\nUndertowTool had a knack for conveying the strangled, oppressive angst that the alternative nation of the early '90s claimed as its own. So, Tool were able to slip into the definition of alternative rock during the post-Nirvana era, landing a slot on the third Lollapalooza tour in 1993, which helped their first full-length debut album, Undertow, rocket to platinum status. By the time the band delivered its belated follow-up, Ænima, in 1996, alternative rock had lost its grip on the mainstream of America, and Tool's audience had shaped up as essentially metal-oriented, which meant that the group and the record didn't capture as big an audience as their first album, despite debuting at number two on the charts. After a co-headlining slot with Korn on Lollapalooza '97 wrapped up, Tool remained on the road, supporting Ænima until well into the next year.",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0003/371/MI0003371431.jpg?partner=allrovi.com",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -2869,11 +2869,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00008WT5C/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00008WT5C&linkCode=as2&tag=westwindtechn-20&linkId=UUOA6PIXN72MNU6E",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 25,
+            "ArtistName": "AC/DC",
+            "Description": "AC/DC's mammoth power chord roar became one of the most influential hard rock sounds of the '70s. In its own way, it was a reaction against the pompous art rock and lumbering arena rock of the early '70s. AC/DC's rock was minimalist -- no matter how huge and bludgeoning their guitar chords were, there was a clear sense of space and restraint. Combined with Bon Scott's larynx-shredding vocals, the band spawned countless imitators over the next two decades and enjoyed commercial success well into the 2000s.",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0003/090/MI0003090436.jpg?partner=allrovi.com",
+            "AmazonUrl": "http://www.amazon.com/AC-DC/e/B000AQU2YI/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&qid=1412245004&sr=8-1&tag=westwindtechn-20&linkId=SSZOE52V3EG4M4SW"
         },
         "Tracks": [
             {
@@ -2960,11 +2960,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B000001EUL/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000001EUL&linkCode=as2&tag=westwindtechn-20&linkId=GJHBWLEWMEBI6CND",
         "SpotifyUrl": "https://play.spotify.com/album/7aIgGWlHdcPXOfONtXVliK/6Wse1ZMA9PbbTqZNvz4C2t",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 14,
+            "ArtistName": "Scorpions",
+            "Description": "The Scorprions are good old fashioned German Hard Rock from the 80s and beyond.",
+            "ImageUrl": "https://media.gettyimages.com/photos/german-band-scorpions-on-stage-1982-picture-id467332921?s=612x612",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -3011,11 +3011,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00EBDXTJG/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00EBDXTJG&linkCode=as2&tag=westwindtechn-20&linkId=CYDRTLQJJPSYCUSF",
         "SpotifyUrl": "https://play.spotify.com/album/5bqtZRbUZUxUps8mrO9tGY",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 32,
+            "ArtistName": "Metallica",
+            "Description": "Metallica were easily the best, most influential heavy metal band of the '80s and '90s. Responsible for bringing the genre back to Earth, the bandmates looked and talked like they were from the street, shunning the usual rock star games of metal musicians during the mid-'80s pop-metal renaissance. Metallica also expanded the limits of thrash, using speed and volume not for their own sake, but to enhance their intricately structured compositions. The release of 1983's Kill 'Em All marked the beginning of the legitimization of heavy metal's underground, bringing new complexity and depth to thrash metal. With each album, the band's playing and writing improved; James Hetfield developed a signature rhythm playing that matched his growl, while lead guitarist Kirk Hammett became one of the most copied guitarists in metal. To complete the package, Lars Ulrich's thunderous (yet complex) drumming clicked in perfectly with Cliff Burton's innovative bass playing.",
+            "ImageUrl": "https://ksassets.timeincuk.net/wp/uploads/sites/55/2016/11/Getty84896292_10250714_cliff_burton_metallica_React_630.jpg",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -3054,11 +3054,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=GHOXSGQGTIORXIBC",
         "SpotifyUrl": "https://play.spotify.com/album/6Ig4BhZgma0ubEVgNaMpeo",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 26,
+            "ArtistName": "Merciful Fate",
+            "Description": "Arguably the most original and critically acclaimed group to come from Denmark was Mercyful Fate. Mercyful Fate's nucleus comprised of the multi-octave vocals of King Diamond aka Kim Bendix Petersen, and the twin lead guitar attack of Hank Sherman aka Rene Krolmark and Michael Denner. 'Melissa' was the group's first formal recording and was a featured LP for Road Runner Records. Although 'Melissa' was originally released in 1983, and re-released in 1997, Roadrunner Records has remastered the songs and released this classic for your listening enjoyment. It includes the highly sought after early 1980's BBC sessions, two extra demo tracks of 'Black Funeral', and 'Curse of the Pharaohs' and a three track DVD featuring live footage of the band during early 1983. A commentary by King Diamond himself narrates the performance and the story of the group during that time frame. Mercyful Fate pioneered a sub genre of ultra heavy and complex music renown for its macabre lyrics, and Satanic/occultism driven imagery and attitude called Black Metal.",
+            "ImageUrl": "http://www.metalblade.com/us/photos/mercyful-fate_photo03.jpg",
+            "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=VAIRVQFRSELFJ7V2"
         },
         "Tracks": [
             {
@@ -3097,11 +3097,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=GHOXSGQGTIORXIBC",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 26,
+            "ArtistName": "Merciful Fate",
+            "Description": "Arguably the most original and critically acclaimed group to come from Denmark was Mercyful Fate. Mercyful Fate's nucleus comprised of the multi-octave vocals of King Diamond aka Kim Bendix Petersen, and the twin lead guitar attack of Hank Sherman aka Rene Krolmark and Michael Denner. 'Melissa' was the group's first formal recording and was a featured LP for Road Runner Records. Although 'Melissa' was originally released in 1983, and re-released in 1997, Roadrunner Records has remastered the songs and released this classic for your listening enjoyment. It includes the highly sought after early 1980's BBC sessions, two extra demo tracks of 'Black Funeral', and 'Curse of the Pharaohs' and a three track DVD featuring live footage of the band during early 1983. A commentary by King Diamond himself narrates the performance and the story of the group during that time frame. Mercyful Fate pioneered a sub genre of ultra heavy and complex music renown for its macabre lyrics, and Satanic/occultism driven imagery and attitude called Black Metal.",
+            "ImageUrl": "http://www.metalblade.com/us/photos/mercyful-fate_photo03.jpg",
+            "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=VAIRVQFRSELFJ7V2"
         },
         "Tracks": [
             {
@@ -3124,11 +3124,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=GHOXSGQGTIORXIBC",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 26,
+            "ArtistName": "Merciful Fate",
+            "Description": "Arguably the most original and critically acclaimed group to come from Denmark was Mercyful Fate. Mercyful Fate's nucleus comprised of the multi-octave vocals of King Diamond aka Kim Bendix Petersen, and the twin lead guitar attack of Hank Sherman aka Rene Krolmark and Michael Denner. 'Melissa' was the group's first formal recording and was a featured LP for Road Runner Records. Although 'Melissa' was originally released in 1983, and re-released in 1997, Roadrunner Records has remastered the songs and released this classic for your listening enjoyment. It includes the highly sought after early 1980's BBC sessions, two extra demo tracks of 'Black Funeral', and 'Curse of the Pharaohs' and a three track DVD featuring live footage of the band during early 1983. A commentary by King Diamond himself narrates the performance and the story of the group during that time frame. Mercyful Fate pioneered a sub genre of ultra heavy and complex music renown for its macabre lyrics, and Satanic/occultism driven imagery and attitude called Black Metal.",
+            "ImageUrl": "http://www.metalblade.com/us/photos/mercyful-fate_photo03.jpg",
+            "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=VAIRVQFRSELFJ7V2"
         },
         "Tracks": [
             {
@@ -3218,11 +3218,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B000QZZBB2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000QZZBB2&linkCode=as2&tag=westwindtechn-20&linkId=SHL3VCKDT4A66C52",
         "SpotifyUrl": "https://play.spotify.com/album/6wx6UUBEUt8SFNzh6Nc3k3",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 1,
+            "ArtistName": "Motörhead (Sql)",
+            "Description": "Motörhead have never JUST been the best rock'n'roll band in the world. They've never JUST been the loudest. Or the hardest. Or the toughest. Or the bad-ass-est. No...Motörhead are also a lifestyle.",
+            "ImageUrl": "https://www.thewrap.com/wp-content/uploads/2015/11/motorhead-phil-taylor.jpg",
+            "AmazonUrl": "5/1/2017 11:59:47 PM"
         },
         "Tracks": [
             {
@@ -3285,11 +3285,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00097DX3U/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00097DX3U&linkCode=as2&tag=westwindtechn-20&linkId=BXY6AP6WL7IXPVUQ",
         "SpotifyUrl": "https://play.spotify.com/album/0HQhToIjonHnJRRPN4jeJU",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 10,
+            "ArtistName": "Audioslave",
+            "Description": "When Zack de la Rocha left Rage Against the Machine in October 2000, the band's future was put into question. Within months rumors flew that ex-Soundgarden frontman Chris Cornell would replace de la Rocha. And gossip fueled truth, for Cornell joined the rest of Rage in the studio in May 2001. The mix was great and a musical bond was in the making: Cornell, Tim Commerford, Brad Wilk, and Tom Morello spent the next year writing and recording. By spring 2002, the foursome were no longer going by the Rage Against the Machine name and signed on for Ozzfest. But before the summer tour even got underway, Cornell quit the new project. \r\nHe claimed it wasn't moving forward in the direction he'd hoped for. The breakdown didn't last, for Cornell rejoined by early fall. After tossing around the idea of being called Civilian, they settled on Audioslave. The single \"Cochise,\" named for the great American Indian chief who died free and unconquered, hit radio in September 2002, and Audioslave's Epic full-length debut was released that November. The self-titled album eventually went multi-platinum on the strength of \"Cochise\" and the moody rocker \"Like a Stone,\" and Audioslave supported it with gigs that included 2003 Lollapalooza dates. Cornell, Morello, Wilk, and Commerford returned in May 2005 with Out of Exile, which debuted at number one on Billboard. That same month they played an historic show in Havana, Cuba, that marked that country's first outdoor show by an American rock band (that fall releasing the whole shebang on the Live in Cuba DVD). Exile continued the band's platinum-selling ways -- singles like \"Be Yourself\" and \"Doesn't Remind Me\" went to the top of the charts -- and the guys wasted no time following up with album number three, Revelations, in early September 2006. Work on the album took only five weeks, since most of the songs had been fleshed out live over the previous year. In 2007, shortly after the members of Rage announced that they would reunite for that year's Coachella festival, Cornell left Audioslave, citing both personal and musical differences, and leaving the state of Audioslave uncertain.",
+            "ImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmQHF8XC3aoteCNFsD8de438XX6WVg0xoULNctz0Wj-fOJv-YR",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -3451,11 +3451,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00O75S240/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00O75S240&linkCode=as2&tag=westwindtechn-20&linkId=YLC4XQ4SNDDC5YVW",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 25,
+            "ArtistName": "AC/DC",
+            "Description": "AC/DC's mammoth power chord roar became one of the most influential hard rock sounds of the '70s. In its own way, it was a reaction against the pompous art rock and lumbering arena rock of the early '70s. AC/DC's rock was minimalist -- no matter how huge and bludgeoning their guitar chords were, there was a clear sense of space and restraint. Combined with Bon Scott's larynx-shredding vocals, the band spawned countless imitators over the next two decades and enjoyed commercial success well into the 2000s.",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0003/090/MI0003090436.jpg?partner=allrovi.com",
+            "AmazonUrl": "http://www.amazon.com/AC-DC/e/B000AQU2YI/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&qid=1412245004&sr=8-1&tag=westwindtechn-20&linkId=SSZOE52V3EG4M4SW"
         },
         "Tracks": [
             {
@@ -3679,11 +3679,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B001NS09I6/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B001NS09I6&linkCode=as2&tag=westwindtechn-20&linkId=GNUD3IVTDJUUBAO2",
         "SpotifyUrl": "https://play.spotify.com/album/7scx6uSQSkcc0steQpvqRc",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 34,
+            "ArtistName": "GrunTruck",
+            "Description": "Gruntruck was an American rock band formed in 1989 in Seattle, Washington by Ben McMillan and Scott McCullum, both previously from Skin Yard. Tommy Niemeyer from The Accüsed and Tim Paul, previously of Final Warning, rounded out the initial, classic line-up. Their sound was described as grunge, and the band focused more on the metal side of the genre.",
+            "ImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoZZhO13muJU5BNlziPeNrthF4XLgzGe0wyDCJSa3ouVwZHXDA",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -3746,11 +3746,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00138KCC4/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00138KCC4&linkCode=as2&tag=westwindtechn-20&linkId=ORQKO3HAD6MS3RWG",
         "SpotifyUrl": "https://play.spotify.com/album/4Io5vWtmV1rFj4yirKb4y4",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 13,
+            "ArtistName": "Rage Against the Machine",
+            "Description": "Rage Against the Machine, commonly abbreviated as RATM, is an American rap metal band from Los Angeles, California. Formed in 1991, the group consists of rapper/vocalist Zack de la Rocha, bassist and backing vocalist Tim Commerford, guitarist Tom Morello and drummer Brad Wilk. They draw inspiration from early heavy metal instrumentation, as well as hip hop acts such as Afrika Bambaataa,[1] Public Enemy, the Beastie Boys and Dutch crossover band Urban Dance Squad.[2] Rage Against the Machine is best known for its leftist political views, which are expressed in many of its songs. As of 2010, they have sold over 16 million records worldwide.[3]\r\n\r\nIn 1992, the band released its self-titled debut album, which became a commercial and critical success, leading to a slot in the 1993 Lollapalooza festival. In 2003, the album was ranked number 368 on Rolling Stone magazine's list of the 500 greatest albums of all time. The band did not release a follow-up record until 1996, with Evil Empire. The band's third album, The Battle of Los Angeles, followed in 1999, and in 2003, the album was ranked number 426 on the same list. During their initial nine-year run, they became one of the most popular and influential bands in music history, according to music journalist Colin Devenish.[4] They were also ranked No. 33 on VH1's 100 Greatest Artists of Hard Rock. The band had a large influence on the nu metal genre which emerged during the late 1990s.\r\n\r\nIn 2000, the band released the cover album, Renegades. The same year, growing tensions over the direction of the band prompted de la Rocha to quit, leading to the band's breakup. De la Rocha started a low-key solo career, while the rest of the band formed the rock supergroup Audioslave with Chris Cornell, then-former frontman of Soundgarden; Audioslave recorded three albums before disbanding in 2007. The same year, Rage Against the Machine announced a reunion and performed together for the first time in seven years at the Coachella Valley Music and Arts Festival in April 2007. Up until 2011, the band continued to perform at more live venues and festivals around the world. As of 2014, the group has no plans to record new material.[5]",
+            "ImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Rage_Against_The_Machine.jpg/1280px-Rage_Against_The_Machine.jpg",
+            "AmazonUrl": "http://wac.450f.edgecastcdn.net/80450F/loudwire.com/files/2012/11/Rage-Against-the-Machine.jpg"
         },
         "Tracks": [
             {
@@ -3813,11 +3813,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B001EWKPNA/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B001EWKPNA&linkCode=as2&tag=westwindtechn-20&linkId=2EK2VYMEMARJU4GU",
         "SpotifyUrl": "https://play.spotify.com/album/1L8Ph3LqqUvn9PgEUJRTtW",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 41,
+            "ArtistName": "Trust",
+            "Description": "Not only was Trust one of the few French bands able to cross their country's frontiers, but they also made it without having to drop their native language or their half-punk, half-heavy metal ethics along the way. And that's saying something. Formed in 1977 around Bernard \"Bernie\" Bonvoisin (vocals), Nobert \"Nono\" Krief (guitars), Yves \"Vivi\" Brusco (bass), and an ever-changing set of drummers (including Iron Maiden's Clive Burr and Nicko McBrain), the band came up up a mix of influences, the most obvious of which might be AC/DC (with whom they toured a bit) and early Iron Maiden. But if Trust was musically a shiny killing machine (thanks, mainly, to Nono's guitar playing abilities and firepower), a large part of their appeal came from Bernie's energy and socially concerned lyrics, which earned them occasional censorship. If their most famous hit remains \"Antisocial\" (covered in 1988 by New York thrashers Anthrax on their State of Euphoria LP), the early days Trust actually came up with a whole bunch of molotov cocktails. It was all about fingerpointing the greedy boss, the abusive policeman, the broadcasted lesson-giver, the hypocrisy-driven religious man, and singing for the weak, the poor, the abused. That may have been the key to their success, but it was sincere. The '80s quickly saw their popularity drop after the heights of 1979's eponymous album, 1980's Repression, and 1981's Marche ou Crève. Nono went on to became Johnny Hallyday's stage guitarist, and Bernie became a comedian and director (1997's Les Démons de Jésus being his most striking, cruelly funny effort). The band re-formed from time to time, to tour a little, release new tracks, and/or live albums. (Note: some of their LPs are available with English-sung lyrics, including 1980's classic Repression).",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0003/749/MI0003749440.jpg?partner=allrovi.com",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -3872,11 +3872,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00138KM1U/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00138KM1U&linkCode=as2&tag=westwindtechn-20&linkId=AQAYEWNVF5Z36AZB",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 12,
+            "ArtistName": "Accept",
+            "Description": "With their brutal, simple riffs and aggressive, fast tempos, Accept were one of the top metal bands of the early '80s, and a major influence on the development of thrash. Led by the unique vocal stylings of screeching banshee Udo Dirkschneider, the band forged an instantly recognizable sound and was notorious as one of the decade's fiercest live acts. Despite recording two of the best heavy metal albums of the decade in Restless & Wild and Balls to the Wall, Accept remained too heavy and extreme for American audiences to embrace -- even when they tried to tone down their act with more melodic songs. Ultimately having conquered the rest of the world, but with their career stalled in the U.S., Accept fell apart, but reunited years later to confront a radically changed music marketplace.",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0001/389/MI0001389322.jpg?partner=allrovi.com",
+            "AmazonUrl": "http://www.amazon.com/Accept/e/B000APZ8S4/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&qid=1412245037&sr=8-3&tag=westwindtechn-20&linkId=KM4RZR3ECUXWBJ6E"
         },
         "Tracks": [
             {
@@ -3923,11 +3923,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B000GW8B08/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000GW8B08&linkCode=as2&tag=westwindtechn-20&linkId=GLCSEGCHUNOKTW22",
         "SpotifyUrl": "https://play.spotify.com/album/6Ys6uRTMti54CH8VEo2xEt",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 10,
+            "ArtistName": "Audioslave",
+            "Description": "When Zack de la Rocha left Rage Against the Machine in October 2000, the band's future was put into question. Within months rumors flew that ex-Soundgarden frontman Chris Cornell would replace de la Rocha. And gossip fueled truth, for Cornell joined the rest of Rage in the studio in May 2001. The mix was great and a musical bond was in the making: Cornell, Tim Commerford, Brad Wilk, and Tom Morello spent the next year writing and recording. By spring 2002, the foursome were no longer going by the Rage Against the Machine name and signed on for Ozzfest. But before the summer tour even got underway, Cornell quit the new project. \r\nHe claimed it wasn't moving forward in the direction he'd hoped for. The breakdown didn't last, for Cornell rejoined by early fall. After tossing around the idea of being called Civilian, they settled on Audioslave. The single \"Cochise,\" named for the great American Indian chief who died free and unconquered, hit radio in September 2002, and Audioslave's Epic full-length debut was released that November. The self-titled album eventually went multi-platinum on the strength of \"Cochise\" and the moody rocker \"Like a Stone,\" and Audioslave supported it with gigs that included 2003 Lollapalooza dates. Cornell, Morello, Wilk, and Commerford returned in May 2005 with Out of Exile, which debuted at number one on Billboard. That same month they played an historic show in Havana, Cuba, that marked that country's first outdoor show by an American rock band (that fall releasing the whole shebang on the Live in Cuba DVD). Exile continued the band's platinum-selling ways -- singles like \"Be Yourself\" and \"Doesn't Remind Me\" went to the top of the charts -- and the guys wasted no time following up with album number three, Revelations, in early September 2006. Work on the album took only five weeks, since most of the songs had been fleshed out live over the previous year. In 2007, shortly after the members of Rage announced that they would reunite for that year's Coachella festival, Cornell left Audioslave, citing both personal and musical differences, and leaving the state of Audioslave uncertain.",
+            "ImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmQHF8XC3aoteCNFsD8de438XX6WVg0xoULNctz0Wj-fOJv-YR",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -4054,11 +4054,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00EBDXSOW/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00EBDXSOW&linkCode=as2&tag=westwindtechn-20&linkId=GR6BCTOMNFJF6JCE",
         "SpotifyUrl": "https://play.spotify.com/album/7a1dlwArQK6OCHkr2SNlZR",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 32,
+            "ArtistName": "Metallica",
+            "Description": "Metallica were easily the best, most influential heavy metal band of the '80s and '90s. Responsible for bringing the genre back to Earth, the bandmates looked and talked like they were from the street, shunning the usual rock star games of metal musicians during the mid-'80s pop-metal renaissance. Metallica also expanded the limits of thrash, using speed and volume not for their own sake, but to enhance their intricately structured compositions. The release of 1983's Kill 'Em All marked the beginning of the legitimization of heavy metal's underground, bringing new complexity and depth to thrash metal. With each album, the band's playing and writing improved; James Hetfield developed a signature rhythm playing that matched his growl, while lead guitarist Kirk Hammett became one of the most copied guitarists in metal. To complete the package, Lars Ulrich's thunderous (yet complex) drumming clicked in perfectly with Cliff Burton's innovative bass playing.",
+            "ImageUrl": "https://ksassets.timeincuk.net/wp/uploads/sites/55/2016/11/Getty84896292_10250714_cliff_burton_metallica_React_630.jpg",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -4239,11 +4239,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B0186SDOP0/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0186SDOP0&linkCode=as2&tag=westwindtechn-20&linkId=J63NS2LRBDCQUUEQ",
         "SpotifyUrl": "https://play.spotify.com/album/6wGcuJq8QjSeoYMJWgW7Wo",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 27,
+            "ArtistName": "Foo Fighters",
+            "Description": "The Foo Fighters is an American rock band, formed in Seattle in 1994. It was founded by Nirvana drummer Dave Grohl as a one-man project following the death of Kurt Cobain and the resulting dissolution of his previous band. The group got its name from the UFOs and various aerial phenomena that were reported by Allied aircraft pilots in World War II, which were known collectively as foo fighters. Prior to the release of Foo Fighters' 1995 debut album Foo Fighters, which featured Grohl as the only official member, Grohl recruited bassist Nate Mendel and drummer William Goldsmith, both formerly of Sunny Day Real Estate, as well as fellow Nirvana touring bandmate Pat Smear as guitarist to complete the lineup. The band began with performances in Portland, Oregon. Goldsmith quit during the recording of the group's second album, The Colour and the Shape (1997) when most of the drum parts were re-recorded by Grohl himself. Smear's departure followed soon afterward.\r\n\r\nThey were replaced by Taylor Hawkins and Franz Stahl, respectively, although Stahl was fired before the recording of the group's third album, There Is Nothing Left to Lose (1999). The band briefly continued as a trio until Chris Shiflett joined as the band's lead guitarist after the completion of There Is Nothing Left to Lose. The band released its fourth album, One by One, in 2002. The group followed that release with the two-disc In Your Honor (2005), which was split between acoustic songs and heavier material. Foo Fighters released its sixth album, Echoes, Silence, Patience & Grace, in 2007. In 2010, it was confirmed that Smear had officially rejoined the band after touring with Foo Fighters as an unofficial member between 2006 and 2009. Over the course of the band's career, four of its albums have won Grammy Awards for Best Rock Album. The band's seventh studio album, Wasting Light, produced by Butch Vig was released in 2011. The band's eight studio album, Sonic Highways, and their second recorded with Butch Vig, will be released in November 2014.[5] As of May 2014, the band's seven albums have sold a combined 11.1 million copies, according to Nielsen SoundScan.[6]",
+            "ImageUrl": "https://media.tumblr.com/tumblr_mb76f02FkJ1qfo293.jpg",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -4375,11 +4375,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B001A3AA5Q/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B001A3AA5Q&linkCode=as2&tag=westwindtechn-20&linkId=R3RIBWGECJRC3RLY",
         "SpotifyUrl": "https://play.spotify.com/album/59OB25QMZLjQCQ2LEs4npB",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 29,
+            "ArtistName": "Neurosis",
+            "Description": "Neurosis is a post-metal band, based in Oakland, California. They formed in 1985 as a hardcore punk band, and their sound progressed towards a doom metal style that also included influences from dark ambient and industrial music as well as incorporating elements of folk music. Terrorizer Magazine described Neurosis as \"arguably the most influential band of the past two decades.\"[1]",
+            "ImageUrl": "http://www.invisibleoranges.com/files/2016/04/Neurosis1.jpg",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -4434,11 +4434,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B0018C2W7S/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0018C2W7S&linkCode=as2&tag=westwindtechn-20&linkId=KGLFNCPFU4F2ZAJG",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 6,
+            "ArtistName": "Anthrax",
+            "Description": "Anthrax is an American thrash metal band from New York, formed in 1981 by guitarist Scott Ian and bassist Dan Lilker. The group was considered one of the leaders of the thrash metal scene during the 1980s. When the genre's popularity increased, Anthrax was one of its \"big four\" with Metallica, Megadeth and Slayer. As of 2014 the band has released ten studio albums, a number of singles and an EP with American hip hop group Public Enemy. According to Nielsen SoundScan Anthrax sold 2.5 million records in the United States from 1991 to 2004, with worldwide sales of over 15 million.",
+            "ImageUrl": "https://static01.nyt.com/images/2016/09/19/arts/19ANTHRAX1/19ANTHRAX1-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -4595,11 +4595,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B000YQUOGU/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000YQUOGU&linkCode=as2&tag=westwindtechn-20&linkId=C3TBDOJ5XA5QLDW2",
         "SpotifyUrl": "https://play.spotify.com/album/3SsWXUMMsBgqmACSGh25Ak",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 48,
+            "ArtistName": "Bad Religion",
+            "Description": "Bad Religion is a punk rock band that formed in Los Angeles, California in 1979. The band makes extensive use of soaring 3-part vocal harmonies (which they refer to in their album liner notes as the \"oozin' aahs\"), guitar solos and lyrics that often contain political commentary. Their lyrics often relate to matters of social responsibility. The band's lineup has changed several times over its lifespan, with lead vocalist Greg Graffin being the only consistent member; the current lineup, however, features three out of four of the band's original members (Graffin, Brett Gurewitz and Jay Bentley). Bad Religion has released sixteen studio albums, two live albums, three compilation albums, three EPs (one of which is composed of covers of Christmas songs), and two DVDs (which were both recorded live).\r\n\r\nAlthough they gained a cult following with many of their early albums, Bad Religion did not experience major worldwide commercial success until the 1994 release of their eighth studio album Stranger Than Fiction, which spawned their biggest hits \"Infected\" and a re-recorded version of \"21st Century (Digital Boy)\", and was certified gold in both the United States and Canada. Their latest album, True North, was released on January 22, 2013. Bad Religion is one of the best-selling punk rock acts of all time,[4] having sold over 5 million albums worldwide.",
+            "ImageUrl": "http://www.thehollywoodpalladium.com/wp-content/uploads/2016/11/bad-religion-live-in-montreal.jpg",
+            "AmazonUrl": "http://www.amazon.com/Bad-Religion/e/B000APVNBA/digital/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&sn=d&tag=westwindtechn-20&linkId=YOVVU6XHUYGAA6GY"
         },
         "Tracks": [
             {
@@ -4680,11 +4680,11 @@
         "AmazonUrl": "n/a",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 35,
+            "ArtistName": "Attitude",
+            "Description": "Attitude was founded by members from Attitude Adjustment including Andy Anderson, Chris Scapparo and Rick Strahl and joined by Keith Chattam of Condemned after a short stint as Condemned Attitude. Attitude play heavy cross-over punk/metal that was a favorite in the San Francisco Bay area but sadly never reach much visibility outside of it due to a lack of touring. \n\nThe band produced three EPs that were well received by critics but didn't manage to ignite a more mainstream following. The band's heavy cross over style and energetic stage show made for exciting shows around the Bay Area as well as on their one and only European tour. The band didn't last very long and in 1988 dissolved to form a new band Two Bit Thief which had a more rock'n roll leaning sound.",
+            "ImageUrl": "https://west-wind.com/rick/photoalbum/band/ruthiesjumpwithandy.jpg",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -4798,11 +4798,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B000X6ZBGO/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000X6ZBGO&linkCode=as2&tag=westwindtechn-20&linkId=ER5ONY3THHADNM4C",
         "SpotifyUrl": "https://play.spotify.com/album/5IgYdDyLSWN0AnUaCHomRE",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 48,
+            "ArtistName": "Bad Religion",
+            "Description": "Bad Religion is a punk rock band that formed in Los Angeles, California in 1979. The band makes extensive use of soaring 3-part vocal harmonies (which they refer to in their album liner notes as the \"oozin' aahs\"), guitar solos and lyrics that often contain political commentary. Their lyrics often relate to matters of social responsibility. The band's lineup has changed several times over its lifespan, with lead vocalist Greg Graffin being the only consistent member; the current lineup, however, features three out of four of the band's original members (Graffin, Brett Gurewitz and Jay Bentley). Bad Religion has released sixteen studio albums, two live albums, three compilation albums, three EPs (one of which is composed of covers of Christmas songs), and two DVDs (which were both recorded live).\r\n\r\nAlthough they gained a cult following with many of their early albums, Bad Religion did not experience major worldwide commercial success until the 1994 release of their eighth studio album Stranger Than Fiction, which spawned their biggest hits \"Infected\" and a re-recorded version of \"21st Century (Digital Boy)\", and was certified gold in both the United States and Canada. Their latest album, True North, was released on January 22, 2013. Bad Religion is one of the best-selling punk rock acts of all time,[4] having sold over 5 million albums worldwide.",
+            "ImageUrl": "http://www.thehollywoodpalladium.com/wp-content/uploads/2016/11/bad-religion-live-in-montreal.jpg",
+            "AmazonUrl": "http://www.amazon.com/Bad-Religion/e/B000APVNBA/digital/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&sn=d&tag=westwindtechn-20&linkId=YOVVU6XHUYGAA6GY"
         },
         "Tracks": [
             {
@@ -4892,10 +4892,10 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B0085LIBUW/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0085LIBUW&linkCode=as2&tag=westwindtechn-20&linkId=NERVFTIHTBJTBWLX",
         "SpotifyUrl": "https://play.spotify.com/album/35flmem6J4bq04Kvib1ghA",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
+            "Id": 2,
+            "ArtistName": "Death Angel",
+            "Description": "Death Angel is a thrash metal band from Concord, California, initially active from 1982 to 1991 and again since 2001. Death Angel has released seven studio albums, two demo tapes, one box set and two live albums.\r\n\r\nTwo independent releases, The Ultra-Violence (1987) and Frolic Through the Park (1988), attracted the attention of Geffen Records, which signed the quintet in 1989 and released their next album, Act III, one year later. While Death Angel was touring in support of Act III, drummer Andy Galeon was injured in a tour bus accident and needed more than a year to fully recover. This resulted in the band's break up in 1991. However, Death Angel reformed in 2001 (without original guitarist Gus Pepa) at the Thrash of the Titans benefit concert for Testament singer Chuck Billy. The band continues to record and perform today.",
+            "ImageUrl": "https://1.bp.blogspot.com/_uiTrE4Nd4kg/S2XPYowzYjI/AAAAAAAAK0M/qnu-CmKEnHA/s400/f_7m_3758f17.jpg",
             "AmazonUrl": null
         },
         "Tracks": [
@@ -4959,11 +4959,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00005B8O2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00005B8O2&linkCode=as2&tag=westwindtechn-20&linkId=N4TOMIS3YGBZP5ON",
         "SpotifyUrl": "https://play.spotify.com/album/1ifZw7Hhx71MUPqXBfM9A9",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 46,
+            "ArtistName": "Rise Against",
+            "Description": "Rise Against is an American melodic hardcore band from Chicago, Illinois, formed in 1999. The band's current line-up comprises vocalist/rhythm guitarist Tim McIlrath, lead guitarist Zach Blair, bassist Joe Principe and drummer Brandon Barnes. Former members are guitarists Dan Wlekinski, Kevin White, Todd Mohney and Chris Chasse, and drummers Toni Tintari and Dan Lumley.\r\n\r\nThe band spent its first four years signed to the independent record label Fat Wreck Chords, on which it released two studio albums, The Unraveling (2001) and Revolutions per Minute (2003). Both the albums met with considerable underground success, and in 2003 the band signed with the major label Geffen. Their major label debut Siren Song of the Counter Culture (2004) brought the band mainstream success, producing several successful singles. Their next two albums, The Sufferer & the Witness (2006) and Appeal to Reason (2008), were also successful and peaked at number ten and number three on the Billboard 200 chart, respectively. Appeal to Reason was followed three years later by Endgame (2011).[1] All four albums released via Geffen were certified platinum in Canada, while three of these albums were certified gold in the United States.\r\n\r\nRise Against is also known for their advocacy of progressivism, supporting organisations such as Amnesty International and the It Gets Better Project. The band actively promotes animal rights and most of the members are straight edge (excluding Barnes), PETA supporters and vegetarians.",
+            "ImageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Rise_Against_at_RAMFest_2013_in_Johannesburg%2C_South_Africa.jpg",
+            "AmazonUrl": "http://amzn.to/1f4tMyQ"
         },
         "Tracks": [
             {
@@ -5026,11 +5026,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B000000993/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B000000993&linkCode=as2&tag=westwindtechn-20",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 3,
+            "ArtistName": "Tool",
+            "Description": "Tool's greatest breakthrough was to meld dark underground metal with the ambition of art rock. Although Metallica wrote their multi-sectioned, layered songs as if they were composers, they kept their musical attack ferociously at street level. Tool didn't. They embraced the artsy, bohemian preoccupations of Jane's Addiction while they simultaneously paid musical homage to the relentlessly bleak visions of grindcore, death metal, and thrash. Even with their post-punk influences, they executed their music with the aesthetic of prog rock, alternating between long, detailed instrumental interludes and lyrical rants in their songs.\r\n\r\nUndertowTool had a knack for conveying the strangled, oppressive angst that the alternative nation of the early '90s claimed as its own. So, Tool were able to slip into the definition of alternative rock during the post-Nirvana era, landing a slot on the third Lollapalooza tour in 1993, which helped their first full-length debut album, Undertow, rocket to platinum status. By the time the band delivered its belated follow-up, Ænima, in 1996, alternative rock had lost its grip on the mainstream of America, and Tool's audience had shaped up as essentially metal-oriented, which meant that the group and the record didn't capture as big an audience as their first album, despite debuting at number two on the charts. After a co-headlining slot with Korn on Lollapalooza '97 wrapped up, Tool remained on the road, supporting Ænima until well into the next year.",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0003/371/MI0003371431.jpg?partner=allrovi.com",
+            "AmazonUrl": ""
         },
         "Tracks": []
     },
@@ -5044,11 +5044,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B00138J9HI/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00138J9HI&linkCode=as2&tag=westwindtechn-20&linkId=C4TY6NJL2K6252UM",
         "SpotifyUrl": "https://play.spotify.com/album/2NDFw84v8oUouELMdzeYsb",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 18,
+            "ArtistName": "Judas Priest",
+            "Description": "Judas Priest was one of the most influential heavy metal bands of the '70s, spearheading the New Wave of British Heavy Metal late in the decade. Decked out in leather and chains, the band fused the gothic doom of Black Sabbath with the riffs and speed of Led Zeppelin, as well as adding a vicious two-lead guitar attack; in doing so, they set the pace for much popular heavy metal from 1975 until 1985, as well as laying the groundwork for the speed and death metal of the '80s.\r\n\r\nFormed in Birmingham, England, in 1970, the group's core members were guitarist K.K. Downing and bassist Ian Hill. Joined by Alan Atkins and drummer John Ellis, the band played their first concert in 1971. Atkins' previous band was called Judas Priest, yet the members decided it was the best name for the new group. The band played numerous shows throughout 1971; during the year, Ellis was replaced by Alan Moore; by the end of the year, Chris Campbell replaced Moore. After a solid year of touring the U.K., Atkins and Campbell left the band in 1973 and were replaced by vocalist Rob Halford and drummer John Hinch. They continued touring, including a visit to Germany and the Netherlands in 1974. By the time the tour was completed, they had secured a record contract with Gull, an independent U.K. label. Before recording their debut album, Judas Priest added guitarist Glenn Tipton.\r\n\r\nRocka RollaRocka Rolla was released in September of 1974 to almost no attention. The following year, they gave a well-received performance at the Reading Festival and Hinch departed the band; he was replaced by Alan Moore. Later that year, the group released Sad Wings of Destiny, which earned some positive reviews. However, the lack of sales was putting the band in a dire financial situation, which was remedied by an international contract with CBS Records. Sin After Sin (1977) was the first album released under that contract; it was recorded with Simon Phillips, who replaced Moore. The record received positive reviews and the band departed for their first American tour, with Les Binks on drums.",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0003/369/MI0003369318.jpg?partner=allrovi.com",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -5154,11 +5154,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B004UXXVQS/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B004UXXVQS&linkCode=as2&tag=westwindtechn-20&linkId=QBDUHMATLFROQPZQ",
         "SpotifyUrl": "https://play.spotify.com/album/5lnQLEUiVDkLbFJHXHQu9m",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 27,
+            "ArtistName": "Foo Fighters",
+            "Description": "The Foo Fighters is an American rock band, formed in Seattle in 1994. It was founded by Nirvana drummer Dave Grohl as a one-man project following the death of Kurt Cobain and the resulting dissolution of his previous band. The group got its name from the UFOs and various aerial phenomena that were reported by Allied aircraft pilots in World War II, which were known collectively as foo fighters. Prior to the release of Foo Fighters' 1995 debut album Foo Fighters, which featured Grohl as the only official member, Grohl recruited bassist Nate Mendel and drummer William Goldsmith, both formerly of Sunny Day Real Estate, as well as fellow Nirvana touring bandmate Pat Smear as guitarist to complete the lineup. The band began with performances in Portland, Oregon. Goldsmith quit during the recording of the group's second album, The Colour and the Shape (1997) when most of the drum parts were re-recorded by Grohl himself. Smear's departure followed soon afterward.\r\n\r\nThey were replaced by Taylor Hawkins and Franz Stahl, respectively, although Stahl was fired before the recording of the group's third album, There Is Nothing Left to Lose (1999). The band briefly continued as a trio until Chris Shiflett joined as the band's lead guitarist after the completion of There Is Nothing Left to Lose. The band released its fourth album, One by One, in 2002. The group followed that release with the two-disc In Your Honor (2005), which was split between acoustic songs and heavier material. Foo Fighters released its sixth album, Echoes, Silence, Patience & Grace, in 2007. In 2010, it was confirmed that Smear had officially rejoined the band after touring with Foo Fighters as an unofficial member between 2006 and 2009. Over the course of the band's career, four of its albums have won Grammy Awards for Best Rock Album. The band's seventh studio album, Wasting Light, produced by Butch Vig was released in 2011. The band's eight studio album, Sonic Highways, and their second recorded with Butch Vig, will be released in November 2014.[5] As of May 2014, the band's seven albums have sold a combined 11.1 million copies, according to Nielsen SoundScan.[6]",
+            "ImageUrl": "https://media.tumblr.com/tumblr_mb76f02FkJ1qfo293.jpg",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -5205,11 +5205,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B008V0OKMA/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B008V0OKMA&linkCode=as2&tag=westwindtechn-20&linkId=VJB4PBUQZQCV2EPB",
         "SpotifyUrl": "https://play.spotify.com/album/64aEErWzw99Ceaf93kZzpf",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 17,
+            "ArtistName": "Danko Jones",
+            "Description": "Named after their bandleader, Danko Jones are a Canadian hard rock trio whose bluesy style is rooted in the tradition of Thin Lizzy and AC/DC and whose popularity in Western Europe compensates for their lack of recognition in the neighboring United States. Comprised of band namesake Danko Jones (vocals/guitar), John Calabrese (aka JC; bass guitar), and Dan Cornelius (drums), the band was founded in Toronto, Ontario, in 1996 and made its recording debut in 1998 with a five-track self-titled EP on Sonic Unyon. A follow-up EP on Sound King Records, My Love Is Bold (1999), garnered airplay on Canadian hard rock radio, setting the stage for I'm Alive and on Fire (2001), a 13-track compilation of the band's recording output from 1996 to 1999.",
+            "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0003/439/MI0003439735.jpg?partner=allrovi.com",
+            "AmazonUrl": ""
         },
         "Tracks": []
     },
@@ -5223,11 +5223,11 @@
         "AmazonUrl": "https://www.amazon.com/Weight-Rollins-Band/dp/B0000040P3/ref=sr_1_1?ie=UTF8&s=music&qid=1302232341&sr=8-1",
         "SpotifyUrl": "https://play.spotify.com/album/0ojibvFQvx5EH53qEGnkAw",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 28,
+            "ArtistName": "Henry Rollins Band",
+            "Description": "Rollins Band was an American rock band led by singer and songwriter Henry Rollins.\r\n\r\nThey are best known for the songs \"Low Self Opinion\" and \"Liar\", which both earned heavy airplay on MTV in the mid-late 1990s. Critic Steve Huey describes their music as \"uncompromising, intense, cathartic fusions of hard rock, funk, post-punk noise, and jazz experimentalism, with Rollins shouting angry, biting self-examinations and accusations over the grind.\r\n\r\nThe band have been categorized under the alternative metal, hard rock and post-hardcore genres.[8][9][10] They were part of the early 90s LA alternative metal scene, alongside bands such as Tool, Jane's Addiction, Rage Against the Machine and Green Jellÿ.[10] Their influences include 70s metal and rock bands, such as Black Sabbath, The Velvet Underground, Pink Fairies and Thin Lizzy.[8] Rollins' shout-singing style proved influential to later nu metal and alternative metal artists such as Coal Chamber, Korn, Chevelle, Godsmack and System of a Down.[8] Rollins Band have been covered by Pearl Jam.[11]",
+            "ImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Henry_Rollins_2.jpg",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -5274,11 +5274,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B002760ABE/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B002760ABE&linkCode=as2&tag=westwindtechn-20&linkId=V265TY3CJOVS5ZV6",
         "SpotifyUrl": "https://play.spotify.com/album/6EGEGr4oY0PsV6yGBxeQ8J",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 49,
+            "ArtistName": "Saxon",
+            "Description": "Saxon was one of the early leaders of the New Wave of British Heavy Metal, alongside Iron Maiden and Def Leppard, even outdistancing them at the onset, only to see their career slide into comparative obscurity within a few years, due to a series of bad decisions and bad breaks. Internal strife also severely stunted the band's momentum toward the end of the '80s, yet Saxon somehow persevered, recording and performing consistently into the 21st century, and ultimately attaining a semblance of second-tier respectability from the loyal heavy metal community, particularly in mainland Europe.",
+            "ImageUrl": "https://2fast2die.com/wp-content/uploads/2011/11/Saxon-vintage-BW.jpg",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {
@@ -5325,11 +5325,11 @@
         "AmazonUrl": "https://www.amazon.com/gp/product/B001MFH9T2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B001MFH9T2&linkCode=as2&tag=westwindtechn-20&linkId=U4D57VKO3JS4WBJI",
         "SpotifyUrl": "",
         "Artist": {
-            "Id": 0,
-            "ArtistName": null,
-            "Description": null,
-            "ImageUrl": null,
-            "AmazonUrl": null
+            "Id": 11,
+            "ArtistName": "Die Toten Hosen",
+            "Description": "Noted for their irreverent style and tough but hooky tunes, German punk/metal band Die Toten Hosen are one of Germany's most successful rock bands, still commanding a large and loyal following at home and in Australia, South America, and Japan more than three decades after they began. Die Toten Hosen (the name literally translates as \"the Dead Trousers\") was formed in 1982 from the ashes of two Düsseldorf punk bands, ZK and KFC. Considering that three members of the Hosen were named Andreas, they took stage names to avoid confusion: vocalist Campino (b. Andreas Frege; June 22, 1962), guitarist Breiti (b. Andreas Breitkopf; Feb. 6, 1964), rhythm guitarist Kuddel (b. Andreas Von Holst; June 11, 1964), bassist Andi (b. Andreas Meurer; July 24, 1962), and drummer Trini (b. Klaus-Dieter Trimpop; June 10, 1951). Die Toten Hosen self-released their first album, Opel Gang, in 1983, and several months later, EMI signed the group and reissued the LP. EMI soon grew disenchanted with the band (particularly after they were sued by German pop icon Heino after they parodied him in concert), and Virgin released their next album, Unter Falscher Flagge, in 1984; the following year, Trini vacated the drum stool to become the group's manager, and Wölli (b. Wolfgang Rohde; Jan. 9, 1963) took over on percussion. In 1986, the band released Damenwahl, which fared well on the charts and gave them their first taste of corporate sponsorship -- Fromms, a major condom manufacturer, helped promote the Damenwahl tour and provided samples of their products to hand out to fans. A live album followed, 1987's Bis Zum Bitteren Ende, and the group finally moved from cult favorites to a real commercial force in Germany with 1988's Ein Kleines Bisschen Horrorschau, which rose to number seven on the German charts.",
+            "ImageUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSMFuwb2Z8fw2_U3oulFlr9YgGUotbr7gd7yl8MfD_01iS38IFO",
+            "AmazonUrl": ""
         },
         "Tracks": [
             {

@@ -7,7 +7,6 @@ using Microsoft.Extensions.Logging;
 using AlbumViewerBusiness;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
-using System.Reflection;
 using System.Text;
 using System.Text.Encodings.Web;
 using AlbumViewerAspNetCore;
@@ -18,17 +17,17 @@ using Newtonsoft.Json.Serialization;
 using Serilog;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
 
 namespace AlbumViewerNetCore
 {
     public class Startup
     {
-        readonly IHostingEnvironment HostingEnvironment;
+        readonly IWebHostEnvironment HostingEnvironment;
 
         IConfigurationRoot Configuration { get; }
 
-        public Startup(IHostingEnvironment env)
+        public Startup(IWebHostEnvironment env)
         {
             HostingEnvironment = env;
 
@@ -153,7 +152,7 @@ namespace AlbumViewerNetCore
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app,
-            IHostingEnvironment env,
+            IWebHostEnvironment env,
             ILoggerFactory loggerFactory,
             AlbumViewerContext albumContext,
             IConfiguration configuration)
