@@ -85,9 +85,12 @@ namespace AlbumViewerNetCore
                             // required if AllowCredentials is set also
                         .SetIsOriginAllowed(s=> true)
                         //.AllowAnyOrigin()
-                        .AllowAnyMethod()
+                        //.AllowAnyMethod()  // doesn't work for DELETE!
+                        .WithMethods("GET","POST","DELETE","OPTIONS","PUT")
                         .AllowAnyHeader()
                         .AllowCredentials()
+                        
+                    
                     );
             });
 
@@ -237,6 +240,7 @@ namespace AlbumViewerNetCore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                // .RequireCors("CorsPolicy"); // doesn't seem to work - .UseCors("CorsPolicy") still required
             });
 
             // catch-all handler for HTML5 client routes - serve index.html
