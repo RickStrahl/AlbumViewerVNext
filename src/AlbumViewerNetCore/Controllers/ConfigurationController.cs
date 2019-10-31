@@ -68,8 +68,6 @@ namespace AlbumViewerNetCore.Controllers
                 DataMode = useSqLite == "true" ? "SqLite" : "Sql Server"
             };
 
-            
-
             return stats;
         }
 

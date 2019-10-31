@@ -85,13 +85,11 @@ namespace AlbumViewerNetCore
                             // required if AllowCredentials is set also
                         .SetIsOriginAllowed(s=> true)
                         //.AllowAnyOrigin()
-                        //.AllowAnyMethod()  // doesn't work for DELETE!
-                        .WithMethods("GET","POST","DELETE","OPTIONS","PUT")
+                        .AllowAnyMethod()  // doesn't work for DELETE!
+                        .WithMethods("DELETE")
                         .AllowAnyHeader()
                         .AllowCredentials()
-                        
-                    
-                    );
+                );
             });
 
 

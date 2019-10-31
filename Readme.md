@@ -29,9 +29,9 @@ The **ASP.NET Core** Backend demonstrates:
 The sample also includes a few Server Side Rendered MVC pages for browsing and viewing of albums and artists. I'll be adding the edit pages at a later point.
 
 Version supported:  
-* **.NET Core 2.2**
-* **2.2 SDK or later**
-* **Visual Studio 2017.7 or later**
+* **.NET Core 3.0**
+* **3.0 SDK or later**
+* **Visual Studio 2019.3 or later**
 
 ### Angular Features
 The **Angular** front end application demonstrates:
@@ -46,8 +46,8 @@ The **Angular** front end application demonstrates:
 * Angular CLI Project
 
 Version supported:  
-* **Angular 8.0.0-rc2**  
-* **Angular CLI 8.0.0-rc2**
+* **Angular 8.0.0**  
+* **Angular CLI 8.0.02**
 
 
 ### Getting Started
@@ -94,14 +94,25 @@ SqLite will automatically create the database file in the content content root o
 ##### Using Sql Server
 To use Sql Server create a new empty database and then point the connection string at the new database. Make sure the account the Web server is running under has rights to create tables and then read/write data.
 
-#### To develop the AlbumViewer Angular 2 example
+In `appsettings.json` (or other configuration settings) set `Data.useSqLite: false` and set the `Data.SqlServerConnectionString` to a valid connection string to your database.
+
+```json
+{
+    "Data": {
+        "useSqLite": "false",
+        "SqlServerConnectionString": "server=.;database=AlbumViewer;integrated security=true;MultipleActiveResultSets=true;App=AlbumViewer"
+    },
+    ...
+```    
+
+#### To develop the AlbumViewer Angular example
 The Angular front end sits in a separate AlbumViewerAngular project folder and is built separately from the ASP.NET Core application.
 
 The sample however, does ship with pre-compiled .js files for the sample that have been copied into the Web project's **wwwroot** folder so the application will just run through IIS Express/IIS or Kestrel.
 
-Making changes to the Angular 2.0 application requires transpiling of the typescript source files. In order to make changes to the Angular 2 client sample run the following from a command window:
+Making changes to the Angular application requires transpiling of the typescript source files. In order to make changes to the Angular 2 client sample run the following from a command window:
 
-```
+```ps
 cd <installFolder>\src\AlbumViewerAngular
 npm install
 ng serve
@@ -119,9 +130,9 @@ Run:
 ng build --prod
 ```
 
-which creates the final transpiled bundles you can use to run through the ASP.NET Core application on http://localhost:5000/.
+which creates the final transpiled bundles you can use to run through the ASP.NET Core application on http://localhost:5000/. 
 
-I've changed the default output folder in `angular-cli.json` from the `.\dist` folder to the ASP.NET `wwwroot` folder so that the application can run entirely served by Kestrel or IIS. It also still works using `ng serve` which uses whatever path is used in `angular-cli.json`.
+I've changed the default output folder in `angular-cli.json` from the `.\dist` folder to the ASP.NET Core app's `wwwroot` folder so that the application can run entirely served by Kestrel or IIS. It also still works using `ng serve` which uses whatever path is used in `angular-cli.json`.
 
 #### Run in Docker
 If you just want to run the application from a docker file, you can use the following from a command line if Docker is installed:

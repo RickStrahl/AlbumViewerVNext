@@ -46,9 +46,6 @@ export class ArtistList implements OnInit {
     return this.artistList;
   }
 
-
-
-
   getArtists() {
     this.artistService.getArtists()
       .subscribe( artists => {
