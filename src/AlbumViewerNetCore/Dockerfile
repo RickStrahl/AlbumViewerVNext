@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore:2.2.1
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 
 MAINTAINER Rick Strahl
 
@@ -11,7 +11,7 @@ EXPOSE 1433
 WORKDIR /var/www/albumviewer
 
 # copy publish folder contents to web root
-COPY ./bin/Release/netcoreapp2.2/publish .
+COPY ./bin/Release/netcoreapp3.1/publish .
 
 # Run out of Publish Folder
 CMD ["/bin/sh", "-c", "dotnet 'AlbumViewerNetCore.dll'"]

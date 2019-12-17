@@ -53,7 +53,7 @@ Version supported:
 ### Getting Started
 To check out the application you can:
 
-* ~~Run the Docker Image~~
+* Run the Docker Image
 * Run everything local
 
 #### .NET Core API Configuration
