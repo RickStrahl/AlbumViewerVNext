@@ -1,4 +1,4 @@
-﻿# West Wind Album Viewer ASP.NET Core Sample
+# West Wind Album Viewer ASP.NET Core Sample
 
 **Sample Angular application demonstrating ASP.NET Core API features**
 
@@ -29,9 +29,9 @@ The **ASP.NET Core** Backend demonstrates:
 The sample also includes a few Server Side Rendered MVC pages for browsing and viewing of albums and artists. I'll be adding the edit pages at a later point.
 
 Version supported:  
-* **.NET Core 3.0**
-* **3.0 SDK or later**
-* **Visual Studio 2019.3 or later**
+* **.NET Core 3.1**
+* **3.1 SDK or later**
+* **Visual Studio 2019.4 or later**
 
 ### Angular Features
 The **Angular** front end application demonstrates:
@@ -53,7 +53,7 @@ Version supported:
 ### Getting Started
 To check out the application you can:
 
-* Run the Docker Image
+* ~~Run the Docker Image~~
 * Run everything local
 
 #### .NET Core API Configuration
