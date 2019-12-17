@@ -46,8 +46,8 @@ The **Angular** front end application demonstrates:
 * Angular CLI Project
 
 Version supported:  
-* **Angular 8.0.0**  
-* **Angular CLI 8.0.02**
+* **Angular 8.2.14**  
+* **Angular CLI 8.3.20**
 
 
 ### Getting Started
