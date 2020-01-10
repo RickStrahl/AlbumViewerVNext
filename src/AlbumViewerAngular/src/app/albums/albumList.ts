@@ -45,11 +45,19 @@ export class AlbumList implements OnInit {
   get filteredAlbumList() {
     if (this.config.searchText && this.config.searchText.length > 1) {
       var lsearchText = this.config.searchText.toLowerCase();
-      return this.albumList.filter((a) =>
-        a.Title.toLowerCase().includes(lsearchText) ||
-        a.Artist.ArtistName.toLowerCase().includes(lsearchText)
-      );
+
+      return this.albumList.filter((a) => {
+          const title = a.Title;
+          const artist = a.Artist;
+          let artistName = null;
+          if (artist)
+              artistName = artist.ArtistName;
+
+          return (title && title.toLowerCase().includes(lsearchText)) ||
+              (artistName && artistName.toLowerCase().includes(lsearchText));
+      });
     }
+
     return this.albumList;
   }
 
