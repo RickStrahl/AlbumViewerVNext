@@ -172,21 +172,23 @@ export class ErrorInfo {
 
         // HttpClient has an `error` property for raw JSON response
         if (response.hasOwnProperty("error")) {
-
             try {
-                err = JSON.parse(response.error);
+                if (typeof response.error === 'object' && response.error.message)
+                    err = response.error;
+                else
+                    err = JSON.parse(response.error);
             } catch(ex) { }
 
-            if(err.hasOwnProperty("message"))
+            if(err.hasOwnProperty("message") && err.message)
                 return throwError(err);
-            if (err.hasOwnProperty("Message"))
+            if (err.hasOwnProperty("Message") && err['Message'])
             {
                 err.message = err["Message"];
                 return throwError(err);
             }
         }
         if (response.hasOwnProperty("message"))
-            return Observable.throw(response);
+            return throwError(response);
         if (response.hasOwnProperty("Message")) {
             response.message = response.Message;
             return throwError(response);

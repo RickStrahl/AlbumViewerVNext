@@ -65,7 +65,7 @@ export class AlbumService {
                 this.updateAlbum(this.album);
                 return this.album;
             }),
-            catchError(new ErrorInfo().parseObservableResponseError)
+            catchError(  new ErrorInfo().parseObservableResponseError)
         );
     }
 
@@ -76,7 +76,7 @@ export class AlbumService {
                     if (result)
                         this.removeAlbum(album); // client side remove
                 }),
-                catchError(new ErrorInfo().parsePromiseResponseError)
+                catchError(new ErrorInfo().parseObservableResponseError)
             );
     }
 

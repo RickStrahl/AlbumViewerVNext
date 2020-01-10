@@ -17,6 +17,13 @@ namespace AlbumViewerBusiness
             : base(context)
         { }
 
+        protected override void OnAfterCreated(Album entity)
+        {
+            base.OnAfterCreated(entity);
+
+            entity.Artist = new Artist();
+            entity.Tracks = new List<Track>();
+        }
 
         /// <summary>
         /// Loads and individual album.
@@ -89,7 +96,11 @@ namespace AlbumViewerBusiness
             Album album;
 
             if (id < 1)
+            {
                 album = Create();
+                album.Artist = new Artist();
+
+            }
             else
             {
                 album = await Load(id);
