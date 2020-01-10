@@ -207,21 +207,6 @@ Websurge-Request-Name: Login
    Username: "test",
    Password: "test"
 }
-HTTP/1.1  
-Transfer-Encoding: chunked
-X-SourceFiles: =?UTF-8?B?QzpccHJvamVjdHMyMDEwXEFsYnVtVmlld2VyVk5leHRcc3JjXEFsYnVtVmlld2VyTmV0Q29yZVxhcGlcbG9naW4=?=
-Content-Type: application/json; charset=utf-8
-Date: Thu, 02 May 2019 10:16:10 GMT
-Server: Microsoft-IIS/10.0
-X-Powered-By: ASP.NET
-
-{
-  "message": "No sign-in authentication handlers are registered. Did you forget to call AddAuthentication().AddCookies(\"Cookies\",...)?",
-  "isError": true,
-  "detail": "   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignInAsync(HttpContext context, String scheme, ClaimsPrincipal principal, AuthenticationProperties properties)\r\n   at AlbumViewerAspNetCore.AccountController.Login(User loginUser) in C:\\projects2010\\AlbumViewerVNext\\src\\AlbumViewerNetCore\\Controllers\\AccountController.cs:line 60\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()\r\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()\r\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)\r\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()",
-  "data": null,
-  "errors": null
-}
 
 ------------------------------------------------------------------
 
@@ -242,16 +227,14 @@ Websurge-Request-Name: Authenticate
    Password: "test"
 }
 HTTP/1.1  
-Transfer-Encoding: chunked
-X-SourceFiles: =?UTF-8?B?QzpccHJvamVjdHMyMDEwXEFsYnVtVmlld2VyVk5leHRcc3JjXEFsYnVtVmlld2VyTmV0Q29yZVxhcGlcYXV0aGVudGljYXRl?=
+Content-Length: 452
 Content-Type: application/json; charset=utf-8
-Date: Thu, 02 May 2019 10:16:20 GMT
-Server: Microsoft-IIS/10.0
-X-Powered-By: ASP.NET
+Date: Fri, 10 Jan 2020 11:33:16 GMT
+Server: Kestrel
 
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiY2NlNTgzOWUtZmIwMy00MzEzLTgzNTItYmNmOGVhYmY3YzNkIiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxhMjg1NTExMiIsImV4cCI6MTU1Njc5NTc4MCwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.6lwk_boQFA4pWk2O6BTGmLN3hJ4-xNCGR-xalHASs-E",
-  "expires": "2019-05-02T11:16:20Z",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiNzkzMDNiMTQtZTBiZS00ZDFkLTljYTktMDllMGMwOTIxOWY0IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxhMzkzMjM4ZSIsImV4cCI6MTU3ODY1OTU5NywiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.VLw6M3LIJkjlVGPPmtmc3WVLMzomxD4pICGHXtUfEk4",
+  "expires": "2020-01-10T12:33:17Z",
   "displayName": "Test User"
 }
 
@@ -289,17 +272,36 @@ Accept: application/json
 
 GET http://localhost:5005/api/isauthenticated HTTP/1.1
 Accept-Encoding: gzip,deflate
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiMTVjZjBiM2YtNjllMi00NjQwLWEyNTMtMmQ1YmU5N2Q5NjU5IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxlNDdkYjkzMCIsImV4cCI6MTU1Njc5MTcxMSwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.XRs1rT4nfdNemDEnLc3Q5W72x2daAdLmp8KdTIoM-HQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiNzkzMDNiMTQtZTBiZS00ZDFkLTljYTktMDllMGMwOTIxOWY0IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxhMzkzMjM4ZSIsImV4cCI6MTU3ODY1OTU5NywiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.VLw6M3LIJkjlVGPPmtmc3WVLMzomxD4pICGHXtUfEk4
 Websurge-Request-Name: Is Authenticated
 HTTP/1.1  
-X-SourceFiles: =?UTF-8?B?QzpccHJvamVjdHMyMDEwXEFsYnVtVmlld2VyVk5leHRcc3JjXEFsYnVtVmlld2VyTmV0Q29yZVxhcGlcaXNhdXRoZW50aWNhdGVk?=
 Content-Length: 4
 Content-Type: application/json; charset=utf-8
-Date: Thu, 02 May 2019 09:13:06 GMT
-Server: Microsoft-IIS/10.0
-X-Powered-By: ASP.NET
+Date: Fri, 10 Jan 2020 11:33:33 GMT
+Server: Kestrel
 
 true
+
+------------------------------------------------------------------
+
+POST http://localhost:5000/api/album HTTP/1.1
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+Accept: application/json, text/plain, */*
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiZTU5NjkwYWYtZmE0NS00YTA5LTljOTQtZDliMTYzYTUxODgyIiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHw2ZjAzZjE3OSIsImV4cCI6MTU3ODY1ODQ0OCwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.9hq_KECvaW_3U_JrSAYdE3p_waW3XiX2x8W3HGk7zl4
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4003.0 Safari/537.36 Edg/81.0.381.0
+Content-Type: application/json
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:4200/album/edit/0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: __utmz=111872281.1557000280.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); WebStoreUser=; _ga=GA1.1.1593582071.1557000280; weblog_user=Rick Strahl; weblog_email=rstrahl@west-wind.com; ww_wl=EMmL0YXjCIwLIywM; __utma=111872281.1593582071.1557000280.1575622517.1576662402.31; testvalue=NewValue; ftdb-state=1
+
+{"Id":0,"ArtistId":0,"Title":"adasd","Description":"sdasdadsadsasd asddda dasdasda sdasdasdaasdasdddasdsd","Year":1983,"ImageUrl":"asdasd","AmazonUrl":"asdasd","SpotifyUrl":"aadsasd","Artist":{"Id":0,"ArtistName":"asdasda","Description":null,"ImageUrl":null,"AmazonUrl":null,"AlbumCount":0,"Albums":[]},"Tracks":[]}
 
 ------------------------------------------------------------------
 
@@ -313,9 +315,9 @@ true
   "CaptureMinimalResponseData": false,
   "MaxResponseSize": 0,
   "ReplaceQueryStringValuePairs": null,
-  "ReplaceDomain": "localhost:26448",
+  "ReplaceDomain": "localhost:5000",
   "ReplaceCookieValue": null,
-  "ReplaceAuthorization": "Bearer IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxhMjg1NTExMiIsImV4cCI6MTU1Njc5NTc4MCwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.6lwk_boQFA4pWk2O6BTGmLN3hJ4-xNCGR-xalHASs-E",
+  "ReplaceAuthorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiNzkzMDNiMTQtZTBiZS00ZDFkLTljYTktMDllMGMwOTIxOWY0IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxhMzkzMjM4ZSIsImV4cCI6MTU3ODY1OTU5NywiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.VLw6M3LIJkjlVGPPmtmc3WVLMzomxD4pICGHXtUfEk4",
   "Username": null,
   "Password": "",
   "Users": [],
