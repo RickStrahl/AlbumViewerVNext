@@ -3,7 +3,7 @@ import {Album, Artist, Track} from '../business/entities';
 import {AppConfiguration} from "../business/appConfiguration";
 import {ErrorInfo} from "../common/errorDisplay";
 import {Observable} from "rxjs";
-import {map, catchError} from "rxjs/operators";
+import {map, catchError, tap} from "rxjs/operators";
 
 import {HttpClient} from "@angular/common/http";
 
@@ -123,9 +123,12 @@ export class AlbumService {
 
     artistLookup(searchTerm: String):Observable<any> {
         let url = this.config.urls.url("artistLookup") + searchTerm;
-        return this.httpClient.get<any>( url).pipe(            
-            catchError(new ErrorInfo().parseObservableResponseError)              
-        );
+        return this.httpClient.get<any>( url)
+            .pipe(
+                // return only .name rather than id and name since we're not using it here
+                map( kv=> kv.map( k=> k.name)),
+                catchError(new ErrorInfo().parseObservableResponseError)
+            );
     }
 
 }

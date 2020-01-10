@@ -33,12 +33,12 @@
                      class="form-control"                     
                      [(ngModel)]="album.Artist.ArtistName"
                      [ngbTypeahead]="search"                     
-                     [resultFormatter]="resultFormatBandListValue"
-                     [inputFormatter]="inputFormatBandListValue"
+
                      #instance="ngbTypeahead"                     
                      />
           </div>
-
+<!--          [resultFormatter]="resultFormatBandListValue"-->
+<!--          [inputFormatter]="inputFormatBandListValue"-->
 
           <div class="form-group">
           <label for="Description">Album Description:</label>

@@ -103,7 +103,7 @@ export class AlbumEditor implements OnInit {
       return text$.pipe(      
           debounceTime(200), 
           distinctUntilChanged(),
-          // switchMap allows returning an observable rather than maps array
+          // switchMap allows returning an observable rather than the final array instance
           switchMap( (searchText) =>  this.albumService.artistLookup(searchText) ),
           catchError(new ErrorInfo().parseObservableResponseError)              
       );                 
@@ -114,12 +114,12 @@ export class AlbumEditor implements OnInit {
      * display and list values
      * @param value For
      */
-    resultFormatBandListValue(value: any) {            
+    resultFormatBandListValue(value: any) {
       return value.name;
     } 
     inputFormatBandListValue(value: any)   {
-      if(value.name)
-        return value.name
+        if(value.name)
+            return value.name;
       return value;
     }
 }
