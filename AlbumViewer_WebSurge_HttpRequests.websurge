@@ -250,6 +250,27 @@ Websurge-Request-Name: Artist Lookup (Typeahead)
 
 ------------------------------------------------------------------
 
+POST http://localhost:5000/api/album HTTP/1.1
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+Accept: application/json, text/plain, */*
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiZTBjODAzYmEtNzg4ZS00ZjEyLTgxYmYtMTQ5NGEyYzQ5YjcyIiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxkZjQ3MjNmNCIsImV4cCI6MTU3ODY1MDg0MywiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.aomnMW0YZEM8n_vVfxjLghAsAs0N1UL06yxBrWuEZTQ
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4003.0 Safari/537.36 Edg/81.0.381.0
+Content-Type: application/json
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:4200/album/edit/15
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: __utmz=111872281.1557000280.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); WebStoreUser=; _ga=GA1.1.1593582071.1557000280; weblog_user=Rick Strahl; weblog_email=rstrahl@west-wind.com; ww_wl=EMmL0YXjCIwLIywM; __utma=111872281.1593582071.1557000280.1575622517.1576662402.31; testvalue=NewValue; ftdb-state=1
+
+{"Id":15,"Title":"Blind","Description":"To call this album a rock album would almost be an insult. Some people call it punk/hardcore, but to me it will always be metal. And now that I've pigeonholed this CD to death, I'll move on to the music. Corrosion Of Conformity serves up some unforgiving, politically motivated anger with Blind. The guitar tone has a punishing crunch that has been hard to parallel in my mind. With the bass pushing that crunch, this is one heavy listen... I love it! Nothing will guarantee you a speeding ticket quicker than 'Dance Of The Dead' or 'Mine Are The Eyes Of God'. 'Vote With A Bullet' spells out COC's political views very clearly, and also manages to wrap it up in one awesome tune! Even the slowest song on the CD, 'Echoes In The Well', manages to churn out some dark and brooding overtones. Every single song on here is heavy and uncompromising. The lyrics are very poignant and intelligent. Amidst so many bands who, lately like to pose as revolutionary, Corrosion Of Conformity take a shot at 'The Man' that is, without dispute, the most real and profound yet. A lot of bands have come and gone, taking some inspiration from Corrosion Of Conformity, yet these guys continue to go on (granted under a different style). This CD represents the high point of their songwriting and musical career.","Year":1986,"ImageUrl":"https://images-na.ssl-images-amazon.com/images/I/41rsmZTWh9L._SL250_.jpg","AmazonUrl":"https://www.amazon.com/gp/product/B0013D8FJG/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0013D8FJG&linkCode=as2&tag=westwindtechn-20&linkId=Q6ECTNHUXDX45GG5","SpotifyUrl":"https://play.spotify.com/album/7kLqk3fireCdZxAZmCud3k","ArtistId":8,"Artist":{"Id":8,"ArtistName":{"name":"Corrosion of Conformity","id":"Corrosion of Conformity"},"Description":"One of the first punk-metal fusion bands, Corrosion of Conformity were formed in North Carolina by guitarist Woody Weatherman during the early '80s. In their early years, C.O.C. became known for their aggressive sound, intelligent political lyrics, and willingness to break away from both hardcore and metal conventions. In the '90s, their shift to a more stripped-down, deliberate sound -- sort of Black Sabbath filtered through the Deep South -- brought them enough in line with the alt metal Zeitgeist to bring them a measure of mainstream popularity. Then recently they turned back to their hardcore roots with ther 2012 and 2014 releases that mixes the raw","ImageUrl":"https://theobelisk.net/obelisk/wp-content/uploads/2012/01/coc.jpg","AmazonUrl":"http://theobelisk.net/obelisk/wp-content/uploads/2012/01/coc.jpg"},"Tracks":[{"Id":70,"AlbumId":15,"SongName":"The Shrouded Temples","Length":"2:36","Bytes":0,"UnitPrice":0},{"Id":71,"AlbumId":15,"SongName":"Damned for all Time","Length":"2:36","Bytes":0,"UnitPrice":0},{"Id":72,"AlbumId":15,"SongName":"Dance of the Dead","Length":"4:29","Bytes":0,"UnitPrice":0},{"Id":73,"AlbumId":15,"SongName":"Buried","Length":"5:16","Bytes":0,"UnitPrice":0}]}
+
+------------------------------------------------------------------
+
 
 ----- Start WebSurge Options -----
 
