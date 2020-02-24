@@ -5,7 +5,6 @@ import {AppComponent} from "./app.component";
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpModule} from '@angular/http';  // legacy
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';   // use this
 
 
@@ -57,10 +56,9 @@ import { NgbTypeaheadModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
-        HttpModule,
         HttpClientModule,
         AppRoutingModule,
-        
+
         // ng-bootstrap
         //NgbModule
         NgbTypeaheadModule, NgbModalModule
@@ -81,13 +79,13 @@ import { NgbTypeaheadModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
         ArtistList,
         ArtistDisplay,
         ArtistEditor,
-        ErrorDisplay,        
+        ErrorDisplay,
         LoginComponent,
-        
+
         FocusDirective
     ],
     // services, pipes and providers
-    providers: [            
+    providers: [
         //Album, Artist, Track
 
         // make sure you use this for Hash Urls rather than HTML 5 routing

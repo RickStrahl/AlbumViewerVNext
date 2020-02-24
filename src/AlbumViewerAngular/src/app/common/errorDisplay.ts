@@ -1,6 +1,6 @@
 
 import {Injectable, Component, OnInit, Input} from '@angular/core';
-import {Response} from "@angular/http";
+import {HttpResponse} from "@angular/common/http";
 import {Observable, throwError}  from 'rxjs';
 
 /**
@@ -208,6 +208,6 @@ export class ErrorInfo {
         if (!err.message)
             err.message = "Unknown server failure.";
 
-        return throwError(err);        
+        return throwError(err);
     }
 }
