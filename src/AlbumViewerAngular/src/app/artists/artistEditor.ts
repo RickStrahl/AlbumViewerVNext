@@ -17,8 +17,8 @@ declare var $: any;
 })
 export class ArtistEditor implements OnInit {
   @Input() artist: Artist = new Artist();
-  @ViewChild('ModalEditor', {static: false}) public  modalEditor;
-  @ViewChild('ArtistName', {static: false}) artistName:ElementRef;
+  @ViewChild('ModalEditor') public  modalEditor;
+  @ViewChild('ArtistName') artistName:ElementRef;
 
   albums: Album[] = [];
   formActive = false;
