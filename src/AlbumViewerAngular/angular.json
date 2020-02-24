@@ -39,18 +39,18 @@
               }
             ],
             "styles": [
-	        {"input": "node_modules/bootstrap/dist/css/bootstrap.css"},                
+	        {"input": "node_modules/bootstrap/dist/css/bootstrap.css"},
                 {"input": "node_modules/font-awesome/css/font-awesome.css" },
                 {"input": "node_modules/toastr/build/toastr.css" },
                 {"input": "src/css/albumviewer.css" }
-            ],            
+            ],
             "scripts": [
               {
                 "input": "node_modules/jquery/dist/jquery.js"
               },
               {
                 "input": "node_modules/toastr/toastr.js"
-              }            
+              }
             ]
           },
           "configurations": {
