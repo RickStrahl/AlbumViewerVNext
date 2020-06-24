@@ -30,7 +30,7 @@ Websurge-Request-Name: Single Album
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/album HTTP/1.1
+POST https://localhost:5005/api/album HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Content-Type: application/json
@@ -38,59 +38,104 @@ Websurge-Request-Inactive: 1
 Websurge-Request-Name: Update Album
 
 {
-  "Id": 3,
-  "ArtistId": 2,
-  "Title": "Restless and Wild sss",
-  "Description": "An all time classic. At the time Fast as a Shark was THE heaviest thing made to that date and while the rest of this album can't really live up to that song, it's still an excellent specimen of 80's metal. Clean, fast heavy.",
-  "Year": 1982,
-  "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51aInWlHfgL._SL250_.jpg",
-  "AmazonUrl": "http://www.amazon.com/gp/product/B00138KM1U/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00138KM1U&linkCode=as2&tag=westwindtechn-20&linkId=AQAYEWNVF5Z36AZB",
+  "Id": 49,
+  "Title": "Let There Be Rock 2",
+  "Description": "This album came screaming out of Australia in 1977! AC/DC's first stab at a \"real\" album - a break from the early \"novelty\" approach to songwriting and a move to the more focused album-oriented view that the band would perfect.\r\n\r\nLet There Be Rock, the fourth AC/DC album -- and first to see simultaneous international release -- is as lean and mean as the original lineup ever got. Shaved down to the bone -- there are only eight tracks, giving this a lethal efficiency even with a couple of meandering jams -- this is a high-voltage, brutal record, filled with \"Bad Boy Boogie.\" It has a bit of a bluesier edge than other AC/DC records, but this is truly the sound of the band reaching its peak. There's the near majesty of \"Let There Be Rock,\" there's Bon Scott acknowledging with a wink that \"Hell Ain't a Bad Place to Be,\" and then there's the monumental \"Whole Lotta Rosie.\" Which gets down to a key thing about AC/DC. If Led Zeppelin were celebrating a \"Whole Lotta Love,\" AC/DC got down to the grimy details in their leering tribute to the joys of sex with a plus-sized woman. And that's AC/DC's allure in a nutshell -- it's sweaty, dirty, nasty rock, music that is played to the last call and beyond, and they've rarely done that kind of rock better than they did here.",
+  "Year": 1977,
+  "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/51ndkC4IocL._SL250_.jpg",
+  "AmazonUrl": "https://www.amazon.com/gp/product/B00008WT5C/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00008WT5C&linkCode=as2&tag=westwindtechn-20&linkId=UUOA6PIXN72MNU6E",
+  "SpotifyUrl": "",
+  "ArtistId": 25,
   "Artist": {
-    "Id": 2,
-    "ArtistName": "Accept",
-    "Description": "With their brutal, simple riffs and aggressive, fast tempos, Accept were one of the top metal bands of the early '80s, and a major influence on the development of thrash. Led by the unique vocal stylings of screeching banshee Udo Dirkschneider, the band forged an instantly recognizable sound and was notorious as one of the decade's fiercest live acts. Despite recording two of the best heavy metal albums of the decade in Restless & Wild and Balls to the Wall, Accept remained too heavy and extreme for American audiences to embrace -- even when they tried to tone down their act with more melodic songs. Ultimately having conquered the rest of the world, but with their career stalled in the U.S., Accept fell apart, but reunited years later to confront a radically changed music marketplace.",
-    "ImageUrl": "http://cps-static.rovicorp.com/3/JPG_400/MI0001/389/MI0001389322.jpg?partner=allrovi.com",
-    "AmazonUrl": "http://www.amazon.com/Accept/e/B000APZ8S4/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&qid=1412245037&sr=8-3&tag=westwindtechn-20&linkId=KM4RZR3ECUXWBJ6E"
+    "Id": 25,
+    "ArtistName": "AC/DC",
+    "Description": "AC/DC's mammoth power chord roar became one of the most influential hard rock sounds of the '70s. In its own way, it was a reaction against the pompous art rock and lumbering arena rock of the early '70s. AC/DC's rock was minimalist -- no matter how huge and bludgeoning their guitar chords were, there was a clear sense of space and restraint. Combined with Bon Scott's larynx-shredding vocals, the band spawned countless imitators over the next two decades and enjoyed commercial success well into the 2000s.",
+    "ImageUrl": "https://cps-static.rovicorp.com/3/JPG_400/MI0003/090/MI0003090436.jpg?partner=allrovi.com",
+    "AmazonUrl": "http://www.amazon.com/AC-DC/e/B000AQU2YI/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&qid=1412245004&sr=8-1&tag=westwindtechn-20&linkId=SSZOE52V3EG4M4SW"
   },
   "Tracks": [
     {
-      "Id": 3,
-      "AlbumId": 3,
-      "ArtistId": 0,
-      "SongName": "Fast As a Shark",
-      "Length": "3:10",
-      "Bytes": 3990994,
+      "Id": 245,
+      "AlbumId": 49,
+      "SongName": "Whole Lotta Rosie",
+      "Length": "5:03",
+      "Bytes": 10547154,
       "UnitPrice": 0.99
     },
     {
-      "Id": 4,
-      "AlbumId": 3,
-      "ArtistId": 0,
-      "SongName": "Restless and Wild",
-      "Length": "4:12",
-      "Bytes": 4331779,
+      "Id": 246,
+      "AlbumId": 49,
+      "SongName": "Hell Ain't A Bad Place To Be",
+      "Length": "4:14",
+      "Bytes": 8331286,
       "UnitPrice": 0.99
     },
     {
-      "Id": 5260,
-      "AlbumId": 3,
-      "ArtistId": 0,
-      "SongName": "Princess of the Dawn",
-      "Length": "6:15",
-      "Bytes": 6290521,
+      "Id": 247,
+      "AlbumId": 49,
+      "SongName": "Overdose",
+      "Length": "6:09",
+      "Bytes": 12066294,
       "UnitPrice": 0.99
     },
     {
-      "Id":0,
-      "AlbumId": 3,
-      "ArtistId": 0,
-      "SongName": "New One",
-      "Length": "6:15",
-      "Bytes": 6290521,
+      "Id": 248,
+      "AlbumId": 49,
+      "SongName": "Problem Child",
+      "Length": "5:05",
+      "Bytes": 10617116,
       "UnitPrice": 0.99
+    },
+    {
+      "Id": 249,
+      "AlbumId": 49,
+      "SongName": "Bad Boy Boogie",
+      "Length": "4:07",
+      "Bytes": 8776140,
+      "UnitPrice": 0.99
+    },
+    {
+      "Id": 250,
+      "AlbumId": 49,
+      "SongName": "Let There Be Rock",
+      "Length": "6:06",
+      "Bytes": 12021261,
+      "UnitPrice": 0.99
+    },
+    {
+      "Id": 251,
+      "AlbumId": 49,
+      "SongName": "Dog Eat Dog",
+      "Length": "3:15",
+      "Bytes": 7032162,
+      "UnitPrice": 0.99
+    },
+    {
+      "Id": 252,
+      "AlbumId": 49,
+      "SongName": "Go Down",
+      "Length": "5:11",
+      "Bytes": 10847611,
+      "UnitPrice": 0.99
+    },
+    {
+      "Id": 253,
+      "AlbumId": 49,
+      "SongName": "Blue Eyed Sleeker",
+      "Length": "3:12",
+      "Bytes": 0,
+      "UnitPrice": 0
     }
   ]
 }
+HTTP/1.1  
+Transfer-Encoding: chunked
+Content-Type: application/json; charset=utf-8
+Date: Mon, 30 Mar 2020 21:01:40 GMT
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+
+{"message":"You have to be logged in to modify data","isError":true,"detail":null,"data":null,"errors":null}
 
 ------------------------------------------------------------------
 
@@ -104,8 +149,66 @@ Websurge-Request-Name: Update Track
 {
   "Id": 1,
   "SongName": "End of the Silence",
-  "ArtistId":  10
+  "ArtistId": 10
 }
+HTTP/1.1  
+Transfer-Encoding: chunked
+Content-Type: text/html
+Date: Mon, 30 Mar 2020 21:01:52 GMT
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/" >
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Web Connection Albumviewer Sample Application">
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon" href="touch-icon.png" />
+
+  <link rel="icon" href="touch-icon.png" />
+  <meta name="msapplication-TileImage" content="touch-icon.png">
+  <title>West Wind Album Viewer</title>
+  <style>
+    /* put here to avoid delay loaded css stylesheet for loading image */
+    #Loader-Block {
+      font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      position: absolute;
+      width: 300px;
+      margin-left: -135px;
+      top: 30%;
+      left: 50%;
+      background: #444;
+      color: white;
+      padding: 20px;
+      border-radius: 4px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 4px 4px 6px #535353;
+    }
+  </style>
+<link rel="stylesheet" href="styles.a35f2ac060eeb9d8a09a.css"></head>
+<body>
+
+<app-root>
+  <div id="Loader-Block" class="center-block">
+    <img src="touch-icon.png" style="height: 65px" class="pull-left"/>
+    <i class="fa fa-circle-o-notch fa-5x fa-spin"></i>
+
+    <p style="clear: both;font-size: 1.5em; margin-top: 20px;">Getting things ready...</p>
+  </div>
+</app-root>
+
+<script src="runtime.a8ef3a8272419c2e2c66.js" defer></script><script src="polyfills-es5.89d26f178be05ba2e3cb.js" nomodule defer></script><script src="polyfills.312b52cb27b220c62ec1.js" defer></script><script src="scripts.7bd68d4423a1ac627fe9.js" defer></script><script src="main.f5a2ea3ed905c32893cd.js" defer></script></body>
+</html>
 
 ------------------------------------------------------------------
 
@@ -154,9 +257,11 @@ Websurge-Request-Name: Update Album
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/artist HTTP/1.1
+POST https://localhost:5005/api/artist HTTP/1.1
 Accept: application/json
+User-Agent: West Wind HTTP .NET Client
 Content-Type: application/json
+Accept-Encoding: gzip, deflate
 Websurge-Request-Inactive: 1
 Websurge-Request-Name: Update Artist
 
@@ -281,9 +386,9 @@ Cookie: __utmz=111872281.1557000280.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(
   "CaptureMinimalResponseData": false,
   "MaxResponseSize": 0,
   "ReplaceQueryStringValuePairs": null,
-  "ReplaceDomain": "localhost:5000",
+  "ReplaceDomain": "albumviewer.west-wind.com",
   "ReplaceCookieValue": null,
-  "ReplaceAuthorization": null,
+  "ReplaceAuthorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiNjgxMDU0NTctOGUwMi00ZThiLWEyZDYtNDkzNTY2MzExZjAxIiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHw2MGJmZmExOCIsImV4cCI6MTU4NTYwNTMxMiwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.ODZ2a5dF1XGxizvucdUfnjVE39z4v-ytdUMiU3_BFEc",
   "Username": null,
   "Password": "",
   "Users": [],
