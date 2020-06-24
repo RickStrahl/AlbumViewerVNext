@@ -41,6 +41,7 @@ import {HttpRequestInterceptor} from './business/httpRequestInterceptor'
 import { FocusDirective } from './common/focusDirective';
 import { NgbTypeaheadModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from "ngx-toastr";
+import {cachingDisabled} from "@angular-devkit/build-angular/src/utils/environment-options";
 
 // Enable production mode
 // import { enableProdMode } from '@angular/core';

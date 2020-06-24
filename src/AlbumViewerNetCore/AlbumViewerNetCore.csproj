@@ -9,16 +9,16 @@
   </PropertyGroup>
 
 
-	<ItemGroup>		
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
-		<PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
-		<PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-		<PackageReference Include="Westwind.AspNetCore" Version="3.2.9" />
+    <ItemGroup>		
+	    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.5" />
+	    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
+	    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5" />
+	    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+	    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
+	    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+	    <PackageReference Include="Westwind.AspNetCore" Version="3.2.15" />
 	    <ProjectReference Include="..\AlbumViewerBusiness\AlbumViewerBusiness.csproj" />
-	</ItemGroup>
+    </ItemGroup>
 
   <ItemGroup>
     <Content Update="wwwroot\**\*;Areas\**\Views;appsettings.json;albums.js;web.config">
@@ -31,9 +31,6 @@
     <EmbeddedResource Remove="logs\**" />
     <None Remove="logs\**" />
   </ItemGroup>
-    <ItemGroup>
-      <None Remove="albums.js" />
-    </ItemGroup>
     <ItemGroup>
       <Content Include="albums.js">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

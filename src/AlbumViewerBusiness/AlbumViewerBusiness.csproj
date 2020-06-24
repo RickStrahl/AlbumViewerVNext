@@ -6,9 +6,9 @@
     <!--<ProjectReference Include="..\Westwind.Utilities\Westwind.Utilities.csproj" />-->
   </ItemGroup>
   <ItemGroup>    
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Westwind.Utilities" Version="3.0.32" />
+    <PackageReference Include="Westwind.Utilities" Version="3.0.41" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
