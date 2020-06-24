@@ -21,7 +21,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class ArtistDisplay implements OnInit {
   // reference a child editor component
-  @ViewChild(ArtistEditor, {static: false }) editor:ArtistEditor;
+  @ViewChild(ArtistEditor) editor:ArtistEditor;
 
   artist: Artist = new Artist();
   albums: Album[] = [];

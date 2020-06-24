@@ -39,13 +39,8 @@ import { OptionsComponent } from './options/options';
 /* Custom Components or overrides */
 import {HttpRequestInterceptor} from './business/httpRequestInterceptor'
 import { FocusDirective } from './common/focusDirective';
-
-
 import { NgbTypeaheadModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-
-
-//declare var $:any;
-//declare var toastr:any;
+import {ToastrModule} from "ngx-toastr";
 
 // Enable production mode
 // import { enableProdMode } from '@angular/core';
@@ -61,7 +56,12 @@ import { NgbTypeaheadModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
         // ng-bootstrap
         //NgbModule
-        NgbTypeaheadModule, NgbModalModule
+        NgbTypeaheadModule, NgbModalModule,
+        ToastrModule.forRoot({
+            timeOut: 5000,
+            closeButton: true,
+            positionClass: 'toast-bottom-right'
+        }),
     ],
 
     // components

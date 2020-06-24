@@ -15,6 +15,7 @@ declare var toastr:any;
 declare var window:any;
 
 import { slideInLeft, slideIn } from "../common/animations";
+import {ToastrService} from "ngx-toastr";
 
 
 
@@ -29,6 +30,7 @@ export class AlbumEditor implements OnInit {
               private albumService: AlbumService,
               private config:AppConfiguration,
               private user: UserInfo,
+              private toastr:ToastrService
          ) {  }
 
   album: Album = new Album();
@@ -66,13 +68,13 @@ export class AlbumEditor implements OnInit {
         });
   }
 
-  
+
   saveAlbum(album) {
     return this.albumService.saveAlbum(album)
       .subscribe((album: Album) => {
           var msg = album.Title + " has been saved.";
           this.error.info(msg);
-          toastr.success(msg);
+          this.toastr.success(msg);
           window.document.getElementById("MainView").scrollTop = 0;
 
           setTimeout(()=> {
@@ -82,7 +84,7 @@ export class AlbumEditor implements OnInit {
         err => {
           let msg = `Unable to save album: ${err.message}`;
           this.error.error(msg);
-          toastr.error(msg);
+          this.toastr.error(msg);
 
           if (err.response && err.response.status == 401) {
             this.user.isAuthenticated = false;
@@ -91,22 +93,22 @@ export class AlbumEditor implements OnInit {
         });
     };
 
-  
+
     /**
-     * Returns a list of Artist Lookup items and pipes them 
+     * Returns a list of Artist Lookup items and pipes them
      * into the look up list. Result format is:
      * [ {name: "band", id: "band"}]
-     * 
+     *
      * Called from ngb-TypeAhead with the search term observable
      */
     search = (text$: Observable<string>) => {
-      return text$.pipe(      
-          debounceTime(200), 
+      return text$.pipe(
+          debounceTime(200),
           distinctUntilChanged(),
           // switchMap allows returning an observable rather than the final array instance
           switchMap( (searchText) =>  this.albumService.artistLookup(searchText) ),
-          catchError(new ErrorInfo().parseObservableResponseError)              
-      );                 
+          catchError(new ErrorInfo().parseObservableResponseError)
+      );
     }
 
     /**
@@ -116,7 +118,7 @@ export class AlbumEditor implements OnInit {
      */
     resultFormatBandListValue(value: any) {
       return value.name;
-    } 
+    }
     inputFormatBandListValue(value: any)   {
         if(value.name)
             return value.name;

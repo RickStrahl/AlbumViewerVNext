@@ -11,7 +11,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath":  "../AlbumViewerNetCore/wwwroot",
+            "aot": true,
+            "outputPath": "../AlbumViewerNetCore/wwwroot",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -39,22 +40,36 @@
               }
             ],
             "styles": [
-	        {"input": "node_modules/bootstrap/dist/css/bootstrap.css"},                
-                {"input": "node_modules/font-awesome/css/font-awesome.css" },
-                {"input": "node_modules/toastr/build/toastr.css" },
-                {"input": "src/css/albumviewer.css" }
-            ],            
+              {
+                "input": "node_modules/bootstrap/dist/css/bootstrap.css"
+              },
+              {
+                "input": "node_modules/font-awesome/css/font-awesome.css"
+              },
+              {
+                "input": "node_modules/toastr/build/toastr.css"
+              },
+              {
+                "input": "src/css/albumviewer.css"
+              }
+            ],
             "scripts": [
               {
                 "input": "node_modules/jquery/dist/jquery.js"
               },
               {
                 "input": "node_modules/toastr/toastr.js"
-              }            
+              }
             ]
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -153,5 +168,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
