@@ -75,7 +75,7 @@ img {
     position: absolute;
     top: 10px;
     left: 8px;
-    z-index: 11;    
+    z-index: 11;
 }
 #Toolbar {
     display: none;
@@ -129,7 +129,7 @@ img {
 
 .banner {
 
-    background: #535353;    
+    background: #535353;
     color: #e1e1e1;
     border-bottom: solid 1px black;
     position: fixed;
@@ -253,7 +253,7 @@ img {
 
 .album-title {
     font-weight: bold;
-    color: #444;    
+    color: #444;
 }
 
 .album-title-big {
