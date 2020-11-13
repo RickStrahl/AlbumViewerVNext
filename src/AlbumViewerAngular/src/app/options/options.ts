@@ -11,7 +11,7 @@ declare var window: any;
 
 @Component({
     selector: 'options',
-    templateUrl: 'options.html'    
+    templateUrl: 'options.html'
 })
 export class OptionsComponent implements OnInit {
     error: ErrorInfo = new ErrorInfo();
@@ -28,11 +28,11 @@ export class OptionsComponent implements OnInit {
             this.http.get<ApplicationStats>(this.config.urls.url("applicationStats"))
 				.subscribe(stats => {
                         this.config.applicationStats = stats;
-                        
+
                         var $ngv = $("[ng-version]");
                         if ($ngv.length > 0)
                             this.config.applicationStats.AngularVersion = $ngv.attr("ng-version");
-                    
+
                 },response=> {
 					let obsErr = new ErrorInfo().parseObservableResponseError(response);
 					let msg = (<any> obsErr).error.message;
@@ -47,7 +47,7 @@ export class OptionsComponent implements OnInit {
 
         this.http.get<boolean>(this.config.urls.url("reloadData") )
 			.subscribe(
-                success => {                    
+                success => {
                     if (success)
                         toastr.success("Data has been reloaded.");
                     else

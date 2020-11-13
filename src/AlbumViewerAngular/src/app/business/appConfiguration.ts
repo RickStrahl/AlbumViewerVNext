@@ -16,7 +16,7 @@ export class AppConfiguration {
           this.setToastrOptions();
 
           if(location.port && (location.port == "3000") || (location.port== "4200") || (location.port == 5200) ) {
-              this.urls.baseUrl = "http://localhost:5000/"; // kestrel
+              this.urls.baseUrl = "http://localhost:5000/"; // local kestrel
           }
           else {
               //this.urls.baseUrl = "http://localhost:5001/"; // kestrel
@@ -26,7 +26,7 @@ export class AppConfiguration {
           }
 
           // always online
-          this.urls.baseUrl = "https://albumviewer.west-wind.com/";  // online
+          //this.urls.baseUrl = "https://albumviewer.west-wind.com/";  // online
       }
 
       // top level search text

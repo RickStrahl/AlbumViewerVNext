@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {ErrorInfo} from "../common/errorDisplay";
 import {Observable, of} from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import {ArtistEditor} from "./artistEditor";
 
 @Injectable({
   providedIn: 'root'
@@ -86,8 +87,9 @@ export class ArtistService {
     }
   }
 
-  deleteArtist(artist:Artist):Observable<boolean> {
-    return this.httpClient.delete<boolean>(this.config.urls.url("artist",artist.Id),
+  deleteArtist(artist:ArtistEditor):Observable<boolean> {
+      let url = this.config.urls.url("artist",artist.artist.Id);
+     return this.httpClient.delete<boolean>(url,
                             this.config.requestHeaders)
                             .pipe(catchError( new ErrorInfo().parseObservableResponseError) );
   }
