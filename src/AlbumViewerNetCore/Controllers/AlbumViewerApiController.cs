@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.IO;
 using System.Text;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Http;
+
 
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -225,7 +224,7 @@ namespace AlbumViewerAspNetCore
                 if (isSqLite != "true")
                 {
                     // ExecuteSqlRaw // in EF 3.0
-                    context.Database.ExecuteSqlCommand(@"
+                    context.Database.ExecuteSqlRaw(@"
 drop table Tracks;
 drop table Albums;
 drop table Artists;
