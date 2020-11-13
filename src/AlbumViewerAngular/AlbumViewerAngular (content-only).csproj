@@ -2,9 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        
         <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
         <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
         <EnableDefaultContentItems>false</EnableDefaultContentItems>
+
+        <IncludeBuildOutput>false</IncludeBuildOutput>
     </PropertyGroup>
 
 </Project>

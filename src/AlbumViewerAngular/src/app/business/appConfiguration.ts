@@ -11,17 +11,22 @@ declare var location: any;
   providedIn: 'root'
 })
 export class AppConfiguration {
-      constructor(){        
+      constructor(){
           console.log("AppConfiguration ctor");
           this.setToastrOptions();
-          
-          if(location.port && (location.port == "3000") || (location.port== "4200") )
-            this.urls.baseUrl = "http://localhost:5000/"; // kestrel
 
-          //this.urls.baseUrl = "http://localhost:5001/"; // kestrel
-          //this.urls.baseUrl = "http://localhost:26448/"; // iis Express
-          //this.urls.baseUrl = "http://localhost/albumviewer/"; // iis          
-          //this.urls.baseUrl = "https://albumviewer.west-wind.com/";  // online          
+          if(location.port && (location.port == "3000") || (location.port== "4200") || (location.port == 5200) ) {
+              this.urls.baseUrl = "http://localhost:5000/"; // kestrel
+          }
+          else {
+              //this.urls.baseUrl = "http://localhost:5001/"; // kestrel
+              //this.urls.baseUrl = "http://localhost:26448/"; // iis Express
+              //this.urls.baseUrl = "http://localhost/albumviewer/"; // iis
+              this.urls.baseUrl = "https://albumviewer.west-wind.com/";  // online
+          }
+
+          // always online
+          this.urls.baseUrl = "https://albumviewer.west-wind.com/";  // online
       }
 
       // top level search text
@@ -69,9 +74,9 @@ export class AppConfiguration {
   /**
    * Http Request options to for requests
    * @type {RequestOptions}
-   */  
+   */
   requestHeaders =  {
-    withCredentials: true,  
+    withCredentials: true,
   }
 }
 

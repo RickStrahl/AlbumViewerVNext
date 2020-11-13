@@ -91,7 +91,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "album-viewer:build"
+            "browserTarget": "album-viewer:build",
+              "port": 4200,
+              "host": "0.0.0.0"
           },
           "configurations": {
             "production": {

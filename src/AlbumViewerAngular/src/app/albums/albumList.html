@@ -2,10 +2,10 @@
 
     <error-display [error]="error"></error-display>
 
-    <a routerLink="/album/edit/0" class="btn btn-sm btn-success pull-right" (sclick)="addAlbum()"><i class="fa fa-plus"></i> Add Album</a>
+    <a routerLink="/album/edit/0" class="btn btn-sm btn-success pull-right" (click)="addAlbum()"><i class="fa fa-plus"></i> Add Album</a>
     <div class="page-header-text">
         <i class="fa fa-list">
-        </i> Albums <span class="badge badge-danger badge-small">{{filteredAlbumList.length}}</span>
+        </i>Album <span class="badge badge-danger badge-small">{{filteredAlbumList.length}}</span>
     </div>
 
     <div class="container" *ngIf="busy">

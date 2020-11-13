@@ -9,8 +9,6 @@ import {slideIn, slideInLeft} from "../common/animations";
 import { UserInfo } from "../business/userInfo";
 
 declare var $:any;
-declare var toastr:any;
-
 
 @Component({
   selector: 'album-list',
@@ -37,7 +35,7 @@ export class AlbumList implements OnInit {
     this.config.searchText = "";
 
     // ??? Non-DOM way to do this?
-    setTimeout(() => {        
+    setTimeout(() => {
       $("#SearchBox").focus();
     },200);
   }
