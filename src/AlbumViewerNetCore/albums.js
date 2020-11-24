@@ -1,3 +1,4 @@
+
 [
   {
     "Id": 1,
@@ -915,7 +916,7 @@
       "Id": 16,
       "ArtistName": "Exodus",
       "Description": "nce the kings of the Bay Area metal scene -- the birthplace of thrash -- Exodus were unceremoniously demoted from their post with the arrival of Los Angeles' Metallica in 1982. And while they proceeded to eke out a hit-and-miss career of their own over the next few decades, all the while influencing at least two separate generations of younger thrash bands, Exodus were ultimately fated to be the ultimate also-rans of the genre they helped spawn.\r\n\r\nFormed in 1981 by singer Paul Baloff, guitarists Gary Holt and Kirk Hammett, bassist Geoff Andrews, and drummer Tom Hunting, Exodus were heavily influenced by Motörhead and New Wave of British Heavy Metal bands like Iron Maiden and Raven, whose lessons they combined with the raw, D.I.Y. aesthetic of the prolific Bay Area punk scene to create thrash metal. Their handful of demos recorded between 1982-1984 became wildly popular on the all-important underground tape-trading circuit of the time, and solidified the band's standing as the Bay Area's first thrash champions. But they would soon lose their numero uno standing as well as their guitarist Hammett to the aforementioned Metallica, who then raced ahead of all competitors in their mission to bring thrash to the world. Wounded but undaunted, Exodus drafted guitarist Rick Hunolt and replaced bassist Andrews with Rob McKillop before signing with Torrid Records, for whom they recorded their Bonded by Blood debut in 1984. But the album languished unreleased for over a year due to business problems, and by the time it was finally unveiled by Combat Records in 1985, the would-be genre benchmark already sounded dated and its impact was severely dulled by the quick evolution of their peers.\r\n\r\nThese hardships also led to the ousting of vocalist Baloff, whose carefree, larger-than-life attitude (and often drunken behavior) made him an easy scapegoat for his more driven bandmates. His replacement was ex-Testament singer Steve \"Zetro\" Souza, who arrived in time for 1987's disappointing Pleasures of the Flesh -- an inconsistent album which did nothing to advance Exodus' cause. Incessant touring served to strengthen the band's new lineup, though, and 1989's meticulously conceived Fabulous Disaster was a critical triumph, bringing the group to their commercial peak. The successful world tour which followed brought another dramatic setback, however, when drummer Hunting was diagnosed with an irregular heartbeat which first sidelined, then forced him to quit the band at tour's end. Still, Exodus was on a roll, and their momentum led to a new contract with Capitol Records, which immediately rushed them back into the studio with former Anthrax drum tech John Tempesta manning the skins, to lay down tracks for 1990's Impact Is Imminent. But the absence of a competent producer and a carelessly assembled collection of songs resulted in a dull, forgettable album that was doomed to commercial failure from day one, squandering the group's recent accomplishments and pretty much closing their window to success. Longtime bassist McKillop left soon after (replaced by Mike Butler) and despite the renewed quality of 1992's Force of Habit (certainly their most diverse album ever), the members of Exodus decided to go their separate ways when the grunge revolution sidelined heavy metal bands of most any stripe.",
-      "ImageUrl": "http://pm1.narvii.com/7038/2853403b376eb1d8d0f19e6c35b0e6e764eecb00r1-682-350v2_00.jpg",
+      "ImageUrl": "https://pm1.narvii.com/7038/2853403b376eb1d8d0f19e6c35b0e6e764eecb00r1-682-350v2_00.jpg",
       "AmazonUrl": ""
     },
     "Tracks": [
@@ -1184,15 +1185,15 @@
     "Title": "Condemned 2 Death",
     "Description": "Rocking out after a hefty hiatus for a release on Nuclear Blast Records, CONDEMNED? is proving that although the years may have passed, they can still thrash with the best of them.\r\n\r\nCondemned 2 Death is a collection of songs new and old that cover 25 years of time. The music has much more of a metal feel, while paying plenty of tribute to Condemned's hardcore punk rock roots. This record has moments of genius with various complex riff arrangements mixed with tap your foot catchy sections. Standouts are Aggressive System with it's old school Discharge, Anti-social with it's punky and catchy chorus, Cavern in Time and Emotional Blurr with their intensly heavy riffs. \r\n\r\nOverall this album is a delightful mix of Metal and Punk Rock lore that got not nearly enough attention from fans or press.",
     "Year": 0,
-    "ImageUrl": "http://e-cdn-images.deezer.com/images/cover/70509a7742713f83aa09b23c4b2c64b2/500x500.jpg",
-    "AmazonUrl": "http://e-cdn-images.deezer.com/images/cover/70509a7742713f83aa09b23c4b2c64b2/500x500.jpg",
+    "ImageUrl": "https://anti-trust.rocks/CondemnedAlbum.jpg",
+    "AmazonUrl": "",
     "SpotifyUrl": "",
     "ArtistId": 23,
     "Artist": {
       "Id": 23,
       "ArtistName": "Condemned?",
       "Description": "Born-again crossover agents Condemned joined a long list of unlikely reunions mitigated by the Nuclear Blast label with 2011's Condemned 2 Death CD, their first release in almost two decades! You see, once upon a time in the mid-'80s, the San Francisco natives figured alongside D.R.I., the Dicks, M.D.C., and other fledgling groups in the now legendary Vat's scene, so there's no questioning Condemned's credentials -- just the wisdom of their return, should it go pear-shaped. Yet, by and large, those worries evaporate just as soon as Condemned 2 Death gets underway, launched by a Motörhead-like bassline from band lynchpin Keith Chatham on \"Big Time Game Hunting,\" which paves the way for a rarely surprising but consistently engaging and oftentimes euphoric collection of timeless hardcore anthems. Purists looking to simply pump their fists and shout along need look no further than infectious calls-to-arms like \"Aggressive System\" and \"Anti-Social\"; crossover fans looking to satisfy their metallic speed-riffing kinks can dive into \"Thoughts of Equality\" and \"Emotional Blurr\"; attention-deficit-disorder listeners will get just what they crave in sub-minute blasts like \"Practicing for War\" and \"D-Day\"; then everyone can catch their breath during slower numbers like \"Thoughts of Equality,\" \"Crucified,\" and \"Cleansing Pool.\" The lyrics, like the music, also stick with the classic hardcore program (socio-political messages, railing against the system, etc.), harking back to simpler times and familiar hallmarks rather than experimenting with new millennium chicanery. But one feels this is ultimately for the better, and the authentic results show Condemned validating their belated comeback by remembering where they come from, and their fans surely wouldn't want it any other way.",
-      "ImageUrl": "http://e-cdn-images.deezer.com/images/cover/70509a7742713f83aa09b23c4b2c64b2/500x500.jpg",
+      "ImageUrl": "https://anti-trust.rocks/CondemnedAlbum.jpg",
       "AmazonUrl": null
     },
     "Tracks": [
@@ -1604,7 +1605,7 @@
       "Id": 26,
       "ArtistName": "Merciful Fate",
       "Description": "Arguably the most original and critically acclaimed group to come from Denmark was Mercyful Fate. Mercyful Fate's nucleus comprised of the multi-octave vocals of King Diamond aka Kim Bendix Petersen, and the twin lead guitar attack of Hank Sherman aka Rene Krolmark and Michael Denner. 'Melissa' was the group's first formal recording and was a featured LP for Road Runner Records. Although 'Melissa' was originally released in 1983, and re-released in 1997, Roadrunner Records has remastered the songs and released this classic for your listening enjoyment. It includes the highly sought after early 1980's BBC sessions, two extra demo tracks of 'Black Funeral', and 'Curse of the Pharaohs' and a three track DVD featuring live footage of the band during early 1983. A commentary by King Diamond himself narrates the performance and the story of the group during that time frame. Mercyful Fate pioneered a sub genre of ultra heavy and complex music renown for its macabre lyrics, and Satanic/occultism driven imagery and attitude called Black Metal.",
-      "ImageUrl": "http://www.metalblade.com/us/photos/mercyful-fate_photo03.jpg",
+      "ImageUrl": "https://www.metalblade.com/us/photos/mercyful-fate_photo03.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=VAIRVQFRSELFJ7V2"
     },
     "Tracks": [
@@ -1765,7 +1766,7 @@
       "Id": 29,
       "ArtistName": "Neurosis",
       "Description": "Neurosis is a post-metal band, based in Oakland, California. They formed in 1985 as a hardcore punk band, and their sound progressed towards a doom metal style that also included influences from dark ambient and industrial music as well as incorporating elements of folk music. Terrorizer Magazine described Neurosis as \"arguably the most influential band of the past two decades.\"[1]",
-      "ImageUrl": "http://www.invisibleoranges.com/files/2016/04/Neurosis1.jpg",
+      "ImageUrl": "https://www.invisibleoranges.com/files/2016/04/Neurosis1.jpg",
       "AmazonUrl": ""
     },
     "Tracks": []
@@ -3072,7 +3073,7 @@
       "Id": 26,
       "ArtistName": "Merciful Fate",
       "Description": "Arguably the most original and critically acclaimed group to come from Denmark was Mercyful Fate. Mercyful Fate's nucleus comprised of the multi-octave vocals of King Diamond aka Kim Bendix Petersen, and the twin lead guitar attack of Hank Sherman aka Rene Krolmark and Michael Denner. 'Melissa' was the group's first formal recording and was a featured LP for Road Runner Records. Although 'Melissa' was originally released in 1983, and re-released in 1997, Roadrunner Records has remastered the songs and released this classic for your listening enjoyment. It includes the highly sought after early 1980's BBC sessions, two extra demo tracks of 'Black Funeral', and 'Curse of the Pharaohs' and a three track DVD featuring live footage of the band during early 1983. A commentary by King Diamond himself narrates the performance and the story of the group during that time frame. Mercyful Fate pioneered a sub genre of ultra heavy and complex music renown for its macabre lyrics, and Satanic/occultism driven imagery and attitude called Black Metal.",
-      "ImageUrl": "http://www.metalblade.com/us/photos/mercyful-fate_photo03.jpg",
+      "ImageUrl": "https://www.metalblade.com/us/photos/mercyful-fate_photo03.jpg",
       "AmazonUrl": "http://www.amazon.com/gp/product/B0011ZVVJ2/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0011ZVVJ2&linkCode=as2&tag=westwindtechn-20&linkId=VAIRVQFRSELFJ7V2"
     },
     "Tracks": [
@@ -3115,7 +3116,7 @@
       "Id": 39,
       "ArtistName": "Discharge",
       "Description": "Discharge are a British hardcore punk band formed in 1977 by Terence \"Tezz\" Roberts and Royston \"Rainy\" Wainwright. While the band had substantial line-up changes over its history, the classic line-up from the early 1980s featured bassist Wainwright, drummer Roberts, his brother Anthony \"Bones\" Roberts playing guitar, and vocalist Kelvin \"Cal\" Morris.[1]\r\n\r\nThe band is characterized by a minimalistic approach of music and lyrics, a heavy, distorted, and grinding guitar-driven sound and raw, shouted vocals similar to a political speech, with lyrics on anarchist and pacifist themes. AllMusic calls the band's sound a \"high-speed noise overload\" characterized by \"ferocious noise blasts\" [2] The band's 1982 debut album, Hear Nothing See Nothing Say Nothing, went to number two on the UK Indie Charts and number 40 in the UK Album Chart. In the early 1980s, numerous singles and EPs placed in the top 10 of the UK Indie Charts, including the 1981 EP Why? (#1) and the 1982 single State Violence State Control.\r\n\r\nHear Nothing See Nothing Say Nothing paved the way for thrash metal, black metal, crust punk, grindcore and various extreme metal subgenres. The musical genre of d-beat is named after Discharge and their distinctive drumbeat.",
-      "ImageUrl": "http://www.foadrecords.it/blog/wp-content/uploads/discharge_noisenotmusic_trifold_jacket_post.jpg",
+      "ImageUrl": "https://www.foadrecords.it/blog/wp-content/uploads/discharge_noisenotmusic_trifold_jacket_post.jpg",
       "AmazonUrl": ""
     },
     "Tracks": [
@@ -4339,7 +4340,7 @@
       "Id": 29,
       "ArtistName": "Neurosis",
       "Description": "Neurosis is a post-metal band, based in Oakland, California. They formed in 1985 as a hardcore punk band, and their sound progressed towards a doom metal style that also included influences from dark ambient and industrial music as well as incorporating elements of folk music. Terrorizer Magazine described Neurosis as \"arguably the most influential band of the past two decades.\"[1]",
-      "ImageUrl": "http://www.invisibleoranges.com/files/2016/04/Neurosis1.jpg",
+      "ImageUrl": "https://www.invisibleoranges.com/files/2016/04/Neurosis1.jpg",
       "AmazonUrl": ""
     },
     "Tracks": [
@@ -4449,7 +4450,7 @@
       "Id": 48,
       "ArtistName": "Bad Religion",
       "Description": "Bad Religion is a punk rock band that formed in Los Angeles, California in 1979. The band makes extensive use of soaring 3-part vocal harmonies (which they refer to in their album liner notes as the \"oozin' aahs\"), guitar solos and lyrics that often contain political commentary. Their lyrics often relate to matters of social responsibility. The band's lineup has changed several times over its lifespan, with lead vocalist Greg Graffin being the only consistent member; the current lineup, however, features three out of four of the band's original members (Graffin, Brett Gurewitz and Jay Bentley). Bad Religion has released sixteen studio albums, two live albums, three compilation albums, three EPs (one of which is composed of covers of Christmas songs), and two DVDs (which were both recorded live).\r\n\r\nAlthough they gained a cult following with many of their early albums, Bad Religion did not experience major worldwide commercial success until the 1994 release of their eighth studio album Stranger Than Fiction, which spawned their biggest hits \"Infected\" and a re-recorded version of \"21st Century (Digital Boy)\", and was certified gold in both the United States and Canada. Their latest album, True North, was released on January 22, 2013. Bad Religion is one of the best-selling punk rock acts of all time,[4] having sold over 5 million albums worldwide.",
-      "ImageUrl": "http://www.thehollywoodpalladium.com/wp-content/uploads/2016/11/bad-religion-live-in-montreal.jpg",
+      "ImageUrl": "https://www.thehollywoodpalladium.com/wp-content/uploads/2016/11/bad-religion-live-in-montreal.jpg",
       "AmazonUrl": "http://www.amazon.com/Bad-Religion/e/B000APVNBA/digital/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&sn=d&tag=westwindtechn-20&linkId=YOVVU6XHUYGAA6GY"
     },
     "Tracks": [
@@ -4559,7 +4560,7 @@
       "Id": 48,
       "ArtistName": "Bad Religion",
       "Description": "Bad Religion is a punk rock band that formed in Los Angeles, California in 1979. The band makes extensive use of soaring 3-part vocal harmonies (which they refer to in their album liner notes as the \"oozin' aahs\"), guitar solos and lyrics that often contain political commentary. Their lyrics often relate to matters of social responsibility. The band's lineup has changed several times over its lifespan, with lead vocalist Greg Graffin being the only consistent member; the current lineup, however, features three out of four of the band's original members (Graffin, Brett Gurewitz and Jay Bentley). Bad Religion has released sixteen studio albums, two live albums, three compilation albums, three EPs (one of which is composed of covers of Christmas songs), and two DVDs (which were both recorded live).\r\n\r\nAlthough they gained a cult following with many of their early albums, Bad Religion did not experience major worldwide commercial success until the 1994 release of their eighth studio album Stranger Than Fiction, which spawned their biggest hits \"Infected\" and a re-recorded version of \"21st Century (Digital Boy)\", and was certified gold in both the United States and Canada. Their latest album, True North, was released on January 22, 2013. Bad Religion is one of the best-selling punk rock acts of all time,[4] having sold over 5 million albums worldwide.",
-      "ImageUrl": "http://www.thehollywoodpalladium.com/wp-content/uploads/2016/11/bad-religion-live-in-montreal.jpg",
+      "ImageUrl": "https://www.thehollywoodpalladium.com/wp-content/uploads/2016/11/bad-religion-live-in-montreal.jpg",
       "AmazonUrl": "http://www.amazon.com/Bad-Religion/e/B000APVNBA/digital/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&sn=d&tag=westwindtechn-20&linkId=YOVVU6XHUYGAA6GY"
     },
     "Tracks": [
@@ -4626,7 +4627,7 @@
       "Id": 50,
       "ArtistName": "Soundgarden",
       "Description": "Soundgarden is an American rock band formed in Seattle, Washington, in 1984 by singer and rhythm guitarist Chris Cornell, lead guitarist Kim Thayil, and bassist Hiro Yamamoto. Matt Cameron became the band's full-time drummer in 1986, while bassist Ben Shepherd became a permanent replacement for Yamamoto in 1990.\r\n\r\nSoundgarden was one of the seminal bands in the creation of grunge, a style of alternative rock that developed in Seattle, and was one of a number of grunge bands signed to the record label Sub Pop. Soundgarden was the first grunge band to sign to a major label (A&M Records, in 1988), though the band did not achieve commercial success until they popularized the genre in the early 1990s with Seattle contemporaries Pearl Jam, Nirvana, and Alice in Chains.\r\n\r\nSoundgarden achieved its biggest success with the 1994 album Superunknown, which debuted at number one on the Billboard charts and yielded the Grammy Award-winning singles \"Black Hole Sun\" and \"Spoonman\". In 1997, the band broke up due to internal strife over its creative direction. After several years working on projects and other bands, Soundgarden reunited in 2010 and their sixth studio album, King Animal, was released two years later.[1]\r\n\r\nAs of 2012, Soundgarden had sold more than 10.5 million records in the United States,[2] and an estimated 22.5 million worldwide.",
-      "ImageUrl": "http://musicfeeds.com.au/assets/uploads/Soundgarden-tbt-671x377-1.jpg",
+      "ImageUrl": "https://musicfeeds.com.au/assets/uploads/Soundgarden-tbt-671x377-1.jpg",
       "AmazonUrl": ""
     },
     "Tracks": []
@@ -4695,7 +4696,7 @@
       "Id": 35,
       "ArtistName": "Attitude",
       "Description": "Attitude was founded by members from Attitude Adjustment including Andy Anderson, Chris Scapparo and Rick Strahl and joined by Keith Chattam of Condemned after a short stint as Condemned Attitude. Attitude play heavy cross-over punk/metal that was a favorite in the San Francisco Bay area but sadly never reach much visibility outside of it due to a lack of touring. \n\nThe band produced three EPs that were well received by critics but didn't manage to ignite a more mainstream following. The band's heavy cross over style and energetic stage show made for exciting shows around the Bay Area as well as on their one and only European tour. The band didn't last very long and in 1988 dissolved to form a new band Two Bit Thief which had a more rock'n roll leaning sound.",
-      "ImageUrl": "https:/anti-trust.rocks/Photo5.jpg",
+      "ImageUrl": "https://anti-trust.rocks/Photo5.jpg",
       "AmazonUrl": ""
     },
     "Tracks": [
@@ -4813,7 +4814,7 @@
       "Id": 48,
       "ArtistName": "Bad Religion",
       "Description": "Bad Religion is a punk rock band that formed in Los Angeles, California in 1979. The band makes extensive use of soaring 3-part vocal harmonies (which they refer to in their album liner notes as the \"oozin' aahs\"), guitar solos and lyrics that often contain political commentary. Their lyrics often relate to matters of social responsibility. The band's lineup has changed several times over its lifespan, with lead vocalist Greg Graffin being the only consistent member; the current lineup, however, features three out of four of the band's original members (Graffin, Brett Gurewitz and Jay Bentley). Bad Religion has released sixteen studio albums, two live albums, three compilation albums, three EPs (one of which is composed of covers of Christmas songs), and two DVDs (which were both recorded live).\r\n\r\nAlthough they gained a cult following with many of their early albums, Bad Religion did not experience major worldwide commercial success until the 1994 release of their eighth studio album Stranger Than Fiction, which spawned their biggest hits \"Infected\" and a re-recorded version of \"21st Century (Digital Boy)\", and was certified gold in both the United States and Canada. Their latest album, True North, was released on January 22, 2013. Bad Religion is one of the best-selling punk rock acts of all time,[4] having sold over 5 million albums worldwide.",
-      "ImageUrl": "http://www.thehollywoodpalladium.com/wp-content/uploads/2016/11/bad-religion-live-in-montreal.jpg",
+      "ImageUrl": "https://www.thehollywoodpalladium.com/wp-content/uploads/2016/11/bad-religion-live-in-montreal.jpg",
       "AmazonUrl": "http://www.amazon.com/Bad-Religion/e/B000APVNBA/digital/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&sn=d&tag=westwindtechn-20&linkId=YOVVU6XHUYGAA6GY"
     },
     "Tracks": [
@@ -5273,7 +5274,7 @@
     "Title": "Weight",
     "Description": "Weight was the Rollins Band's breakthrough into the mainstream and remains their best album. This albums is more polished than previous efforts, yet retains the raw Rollins energy.",
     "Year": 0,
-    "ImageUrl": "http://www.metalsucks.net/wp-content/uploads/2014/09/rollinsband-weight.jpg",
+    "ImageUrl": "https://www.metalsucks.net/wp-content/uploads/2014/09/rollinsband-weight.jpg",
     "AmazonUrl": "https://www.amazon.com/Weight-Rollins-Band/dp/B0000040P3/ref=sr_1_1?ie=UTF8&s=music&qid=1302232341&sr=8-1",
     "SpotifyUrl": "https://play.spotify.com/album/0ojibvFQvx5EH53qEGnkAw",
     "ArtistId": 28,

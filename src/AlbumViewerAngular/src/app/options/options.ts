@@ -24,6 +24,8 @@ export class OptionsComponent implements OnInit {
     ngOnInit() {
         this.config.isSearchAllowed = false;
 
+        console.dir(location)
+
         if (this.config.applicationStats.OsPlatform == null) {
             this.http.get<ApplicationStats>(this.config.urls.url("applicationStats"))
 				.subscribe(stats => {

@@ -11,7 +11,7 @@
       Edit
     </button>
 
-    <button (click)="deleteArtist(ArtistEditor)"
+    <button (click)="deleteArtist(ArtistEditor.artist)"
             class="btn btn-sm btn-primary">
       <i class="fa fa-remove"></i>
       Delete
@@ -33,7 +33,7 @@
     <div class="col-sm-8">
       <div class="line-breaks">{{artist.Description }}</div>
 
-      <a class="small" *ngIf="artist.AmazonUrl" href="{{artist.AmazonUrl}}">{{artist.ArtistName}} on Amazon</a>
+      <a class="small" *ngIf="artist.AmazonUrl" href="{{artist.AmazonUrl}}">{{artist.ArtistName}} on the Web</a>
     </div>
   </div>
 

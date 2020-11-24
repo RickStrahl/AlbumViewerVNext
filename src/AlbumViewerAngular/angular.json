@@ -41,24 +41,30 @@
             ],
             "styles": [
               {
-                "input": "node_modules/bootstrap/dist/css/bootstrap.css"
+                "input": "node_modules/bootstrap/dist/css/bootstrap.css",
+                "inject": true
               },
               {
-                "input": "node_modules/font-awesome/css/font-awesome.css"
+                "input": "node_modules/font-awesome/css/font-awesome.css",
+                "inject": true
               },
               {
-                "input": "node_modules/toastr/build/toastr.css"
+                "input": "node_modules/toastr/build/toastr.css",
+                "inject": true
               },
               {
-                "input": "src/css/albumviewer.css"
+                "input": "src/css/albumviewer.css",
+                "inject": true
               }
             ],
             "scripts": [
               {
-                "input": "node_modules/jquery/dist/jquery.js"
+                "input": "node_modules/jquery/dist/jquery.js",
+                "inject": true
               },
               {
-                "input": "node_modules/toastr/toastr.js"
+                "input": "node_modules/toastr/toastr.js",
+                "inject": true
               }
             ]
           },
@@ -79,7 +85,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -116,7 +121,8 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               {
-                "input": "styles.css"
+                "input": "styles.css",
+                "inject": true
               }
             ],
             "scripts": [],

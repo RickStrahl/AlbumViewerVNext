@@ -87,8 +87,8 @@ export class ArtistService {
     }
   }
 
-  deleteArtist(artist:ArtistEditor):Observable<boolean> {
-      let url = this.config.urls.url("artist",artist.artist.Id);
+  deleteArtist(artist:Artist):Observable<boolean> {
+      let url = this.config.urls.url("artist",artist.Id);
      return this.httpClient.delete<boolean>(url,
                             this.config.requestHeaders)
                             .pipe(catchError( new ErrorInfo().parseObservableResponseError) );
