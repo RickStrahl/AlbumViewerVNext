@@ -1,8 +1,7 @@
-
 [
   {
     "Id": 1,
-    "Title": "Ace of Spades (SQL Server)",
+    "Title": "Ace of Spades (SQLite)",
     "Description": "Motörhead are the founding fathers of speed and thrash metal. Without this band, there would be no Slayer or Sepultura, so you've at least got to give Lemmy and Co. props for being so influential. And \"Aces of Spades\" is an essential, legendary speed metal classic. It's full of fast, meaty riffs, great solos, toe-tapping drums, and catchy, gruff vocals. Almost every song on here (especially the title track, \"Love Me Like a Reptile,\" and \"We Are The Road Crew\") is very catchy. And the album opening title track, which has a speedy, groove-y main riff, is world renowned. Other highlights include the wah-wah solo and shout-along refrain on \"Fire, Fire,\" \"Jailbait,\" \"Dance\" (which has a pair of tasty guitar solos), the X-rated \"The Chase Is Better Than The Catch,\" and the famous, rhythmic, nearly dance-able \"Please Don't Touch.\" All in all, if you're looking for great, groove-y, contagious and exciting speed metal, Motorhead \"aces\" it.",
     "Year": 1978,
     "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/618Zuqc4J5L._SL250_.jpg",
@@ -233,7 +232,7 @@
       "Id": 5,
       "ArtistName": "Attitude Adjustment",
       "Description": "Attitude Adjustment is a crossover thrash band originally formed in the early 1980s in the San Francisco Bay Area.\r\n\r\nThe band was formed by Chris Kontos, Eric Smith and Rick Strahl in early 1985, with Nick Koljian briefly on vocals. The lineup was changed with the addition of Kevin Reed on vocals. This lineup played a number of initial shows at Ruthies Inn, the New Method, the Mabuhay Gardens and other Bay Area venues. Several months later, Kevin Reed was replaced by Andy Andersen on vocals and Chris Scapparo joined as a second guitarist. They shortly went into the studio to record the \"Dead Serious Demo\" in 1985. The demo was recorded at Peter Miller Studios and engineered by Eric Kauschen.\r\n\r\nIn 1986 and 1987, Attitude Adjustment played frequent gigs throughout California. They played alongside bands like Forbidden (Known as Forbidden Evil at that time), Vio-Lence, Sacrilege, Possessed, Hirax, Death Angel, R.K.L., Dr. Know, Suicidal Tendencies, Corrosion of Conformity, D.R.I., Discharge, UK Subs, Neurosis, The Exploited and Operation Ivy, among others. The band finally released their debut album, American Paranoia released by Pusmort Records. This album is considered to be a \"crossover\" between hardcore and thrash metal and was one of the first in this genre.\r\n\r\nAt the end of 1987, Andy Andersen, Chris Scaparro and Rick Strahl joined up with former Condemned to Death guitarist Keith Chatham, to form Condemned Attitude, which would later be renamed Attitude.\r\n\r\nAttitude released an LP and an EP, taking a more thrash metal-like style, with Andy Andersen returning to his initial style of singing. Rick Strahl and Chris Scaparro became the new guitarists with Eric Brecht (formerly of DRI) on drums during this time.\r\n\r\nChris Kontos, Eric Smith and Kevin Reed continued on with Attitude Adjustment and in 1988, this new lineup released the EP No More Mr. Nice Guy, again on Pusmort Records, which is very different from American Paranoia.\r\n\r\nBy 1990, former members Andy Anderson, Chris Scaparro, and Rick Strahl formed a new band with a more hard rock direction. The band was called Two Bit Thief and they kept it alive until 1995.\r\n\r\nKontos and Reed returned to the name \"Attitude Adjustment\" in 1991, but with another new lineup to record their last studio album, Out Of Hand, again mixing hardcore with thrash metal. In 1993, the American Paranoia LP and the No More Mr. Nice Guy EP were re-issued on CD. The LP version includes the \"Dead Serious\" demo.\r\n\r\nChris Kontos joined Robb Flynn (who left Vio-Lence) in 1993 to form the post thrash band Machine Head.",
-      "ImageUrl": "https://anti-trust.rocks/Photo3.jpg",
+      "ImageUrl": "https://anti-trust.rocks/images/Photo3.jpg",
       "AmazonUrl": ""
     },
     "Tracks": [
@@ -2130,7 +2129,7 @@
   {
     "Id": 37,
     "Title": "Guilty",
-    "Description": "Old school hardcore with mixed in metal roots, kicked out in good old garage style. Garage recorded by ex-Attitude Adjustment members Rick Strahl and Chris Kontos this short EP features toe tapping rythms and catchy choruses with high intensity, in-your-face punk rock that brings back memories of the mid-80's punk and cross over scene.",
+    "Description": "Old school hardcore punk with mixed in metal roots, kicked out in good old garage style. Garage recorded by ex-Attitude Adjustment members Rick Strahl and Chris Kontos, with a bonus appearance by Andy Andersen, this short EP features toe tapping rythms and catchy choruses with high intensity, in-your-face punk rock that brings back memories of the mid-80's punk and cross over scene.",
     "Year": 2020,
     "ImageUrl": "https://anti-trust.rocks/Guilty-Cover.png",
     "AmazonUrl": "https://store.west-wind.com/product/order/antitrust_guilty",
@@ -2140,7 +2139,7 @@
       "Id": 33,
       "ArtistName": "Anti-Trust",
       "Description": "Anti-Trust is a side project by ex-Attitude Adjustment members Chris Kontos and Rick Strahl. This collaboration produced a handful of songs that were garage recorded in Oakland, CA and Maui, HI in 2001 and 2002. The music features old school hardcore and metal cross over, driven by catchy guitar driven rythms and catchy choruses with an overall edgy sound.",
-      "ImageUrl": "https://anti-trust.rocks/Photo1.jpg",
+      "ImageUrl": "https://anti-trust.rocks/images/Photo6.jpg",
       "AmazonUrl": "https://anti-trust.rocks"
     },
     "Tracks": [
@@ -2427,7 +2426,7 @@
       "Id": 35,
       "ArtistName": "Attitude",
       "Description": "Attitude was founded by members from Attitude Adjustment including Andy Anderson, Chris Scapparo and Rick Strahl and joined by Keith Chattam of Condemned after a short stint as Condemned Attitude. Attitude play heavy cross-over punk/metal that was a favorite in the San Francisco Bay area but sadly never reach much visibility outside of it due to a lack of touring. \n\nThe band produced three EPs that were well received by critics but didn't manage to ignite a more mainstream following. The band's heavy cross over style and energetic stage show made for exciting shows around the Bay Area as well as on their one and only European tour. The band didn't last very long and in 1988 dissolved to form a new band Two Bit Thief which had a more rock'n roll leaning sound.",
-      "ImageUrl": "https://anti-trust.rocks/Photo5.jpg",
+      "ImageUrl": "https://anti-trust.rocks/images/Photo5.jpg",
       "AmazonUrl": ""
     },
     "Tracks": [
@@ -3116,7 +3115,7 @@
       "Id": 39,
       "ArtistName": "Discharge",
       "Description": "Discharge are a British hardcore punk band formed in 1977 by Terence \"Tezz\" Roberts and Royston \"Rainy\" Wainwright. While the band had substantial line-up changes over its history, the classic line-up from the early 1980s featured bassist Wainwright, drummer Roberts, his brother Anthony \"Bones\" Roberts playing guitar, and vocalist Kelvin \"Cal\" Morris.[1]\r\n\r\nThe band is characterized by a minimalistic approach of music and lyrics, a heavy, distorted, and grinding guitar-driven sound and raw, shouted vocals similar to a political speech, with lyrics on anarchist and pacifist themes. AllMusic calls the band's sound a \"high-speed noise overload\" characterized by \"ferocious noise blasts\" [2] The band's 1982 debut album, Hear Nothing See Nothing Say Nothing, went to number two on the UK Indie Charts and number 40 in the UK Album Chart. In the early 1980s, numerous singles and EPs placed in the top 10 of the UK Indie Charts, including the 1981 EP Why? (#1) and the 1982 single State Violence State Control.\r\n\r\nHear Nothing See Nothing Say Nothing paved the way for thrash metal, black metal, crust punk, grindcore and various extreme metal subgenres. The musical genre of d-beat is named after Discharge and their distinctive drumbeat.",
-      "ImageUrl": "https://www.foadrecords.it/blog/wp-content/uploads/discharge_noisenotmusic_trifold_jacket_post.jpg",
+      "ImageUrl": "https://i.ytimg.com/vi/h265X7DkxAU/hqdefault.jpg",
       "AmazonUrl": ""
     },
     "Tracks": [
@@ -4696,7 +4695,7 @@
       "Id": 35,
       "ArtistName": "Attitude",
       "Description": "Attitude was founded by members from Attitude Adjustment including Andy Anderson, Chris Scapparo and Rick Strahl and joined by Keith Chattam of Condemned after a short stint as Condemned Attitude. Attitude play heavy cross-over punk/metal that was a favorite in the San Francisco Bay area but sadly never reach much visibility outside of it due to a lack of touring. \n\nThe band produced three EPs that were well received by critics but didn't manage to ignite a more mainstream following. The band's heavy cross over style and energetic stage show made for exciting shows around the Bay Area as well as on their one and only European tour. The band didn't last very long and in 1988 dissolved to form a new band Two Bit Thief which had a more rock'n roll leaning sound.",
-      "ImageUrl": "https://anti-trust.rocks/Photo5.jpg",
+      "ImageUrl": "https://anti-trust.rocks/images/Photo5.jpg",
       "AmazonUrl": ""
     },
     "Tracks": [
