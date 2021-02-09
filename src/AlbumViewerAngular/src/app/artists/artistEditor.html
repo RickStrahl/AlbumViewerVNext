@@ -1,16 +1,17 @@
-<ng-template #ModalEditor let-modal>
+<ng-template #ModalEditorTemplate let-modal>
 <form name="form1"
     action="javascript:{}" novalidate
-    #form1="ngForm">  
+    #form1="ngForm">
+
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Edit Artist</h4>
-    <button type="button" class="close" aria-label="Close" 
-            (click)="modal.dismiss('Cross click')"  >
+    <button type="button" class="close" aria-label="Close"
+            (click)="close()"  >
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-   
+
       <div class="modal-body">
          <div class="form-group">
             <label for="ArtistName">Artist Name:</label>
@@ -28,7 +29,7 @@
                       required
                       style="height: 110px;"
                       minlength="20"
-                      placeholder="Band Bio" 
+                      placeholder="Band Bio"
                       [(ngModel)]="artist.Description"></textarea>
           </div>
           <div class="form-group">
@@ -51,7 +52,7 @@
       <i class="fa fa-remove"></i>
       Cancel
     </button>
-  
+
     <button type="button" class="btn btn-primary"
                 [disabled]="form1.pristine || form1.invalid" accesskey="S"
                 (click)="saveArtist(artist)">

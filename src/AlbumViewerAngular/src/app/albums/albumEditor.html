@@ -30,11 +30,13 @@
               <label for="ArtistName">Band Name:</label>
               <input id="ArtistName" type="text"
                      name="ArtistName"
-                     class="form-control"                     
+                     class="form-control"
                      [(ngModel)]="album.Artist.ArtistName"
-                     [ngbTypeahead]="search"                     
+                     [typeahead]="searchResults"
+                     [typeaheadAsync]="true"
+                     typeaheadWaitMs="200"
+                     (typeaheadLoading)="changeTypeaheadLoading($event)"
 
-                     #instance="ngbTypeahead"                     
                      />
           </div>
 <!--          [resultFormatter]="resultFormatBandListValue"-->

@@ -42,6 +42,8 @@ import { FocusDirective } from './common/focusDirective';
 import { NgbTypeaheadModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from "ngx-toastr";
 import {cachingDisabled} from "@angular-devkit/build-angular/src/utils/environment-options";
+import {ModalModule} from "ngx-bootstrap/modal";
+import {TypeaheadModule} from "ngx-bootstrap/typeahead";
 
 // Enable production mode
 // import { enableProdMode } from '@angular/core';
@@ -55,14 +57,15 @@ import {cachingDisabled} from "@angular-devkit/build-angular/src/utils/environme
         HttpClientModule,
         AppRoutingModule,
 
-        // ng-bootstrap
-        //NgbModule
-        NgbTypeaheadModule, NgbModalModule,
         ToastrModule.forRoot({
             timeOut: 5000,
             closeButton: true,
             positionClass: 'toast-bottom-right'
         }),
+
+        // ngx-bootstrap components
+        ModalModule.forRoot(),
+        TypeaheadModule.forRoot()
     ],
 
     // components

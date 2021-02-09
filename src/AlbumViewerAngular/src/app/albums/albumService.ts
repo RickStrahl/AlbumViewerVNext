@@ -32,7 +32,7 @@ export class AlbumService {
                         map(albumList => this.albumList = albumList),
                         catchError( new ErrorInfo().parseObservableResponseError)
                     );
-                    
+
     }
 
     getAlbum(id): Observable<Album> {
@@ -121,14 +121,18 @@ export class AlbumService {
             this.album.Tracks.splice(idx, 1);
     }
 
-    artistLookup(searchTerm: String):Observable<any> {
+    artistLookup(searchTerm: String):Observable<string[]> {
         let url = this.config.urls.url("artistLookup") + searchTerm;
-        return this.httpClient.get<any>( url)
+        return this.httpClient.get<any[]>( url)
             .pipe(
                 // return only .name rather than id and name since we're not using it here
-                map( kv=> kv.map( k=> k.name)),
+                map( kv=> kv.map( k=> k.name) ),
                 catchError(new ErrorInfo().parseObservableResponseError)
             );
     }
+
+}
+
+export class ArtistSearchResult {
 
 }

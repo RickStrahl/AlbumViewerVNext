@@ -1,13 +1,15 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
-import {Album} from "../business/entities";
+import {Album, Artist} from "../business/entities";
 import {AlbumService} from "./albumService";
 import {Router, ActivatedRoute} from "@angular/router";
 import {ErrorInfo} from "../common/errorDisplay";
 import {AppConfiguration} from "../business/appConfiguration";
 import { UserInfo } from "../business/userInfo";
 
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap, catchError  } from 'rxjs/operators';
+import {Observable, of, Subscriber} from 'rxjs';
+import {debounceTime, distinctUntilChanged, switchMap, catchError, mergeMap} from 'rxjs/operators';
+
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
 //declare var $:any ;
 declare var $:any;
@@ -38,9 +40,10 @@ export class AlbumEditor implements OnInit {
   loaded =  false;
   aniFrame = 'in';
 
+  searchTerm: string;
+  searchResults:Observable<string[]>;
+
   public searchData: any  = {};
-
-
 
   ngOnInit() {
     if (!this.user.isAuthenticated) {
@@ -66,8 +69,28 @@ export class AlbumEditor implements OnInit {
         err => {
           this.error.error(err);
         });
+
+      this.configureTypeAhead();
   }
 
+  configureTypeAhead() {
+      // https://valor-software.com/ngx-bootstrap/#/typeahead
+      // set up the observable for type ahead
+      this.searchResults = new Observable((observer: Subscriber<string>) => {
+          // search term comes from artist name typed
+          var searchTerm  = this.album.Artist.ArtistName;
+
+          // Min Lookup for 2 characters - list is small so allow
+          // if (!searchTerm || searchTerm.length < 3)
+          //     return;
+
+          observer.next(searchTerm);
+      })
+      .pipe(
+          // retrieve from service and map result to observable
+          mergeMap((searchTerm: string) =>this.albumService.artistLookup(searchTerm))
+      );
+  }
 
   saveAlbum(album) {
     return this.albumService.saveAlbum(album)
@@ -111,6 +134,14 @@ export class AlbumEditor implements OnInit {
       );
     }
 
+    getArtistsAsObservable(searchText: string): Observable<string[]> {
+        this.searchText = searchText;
+        this.searchResults = of( [ "item1", "item2" ]);
+    }
+
+    changeTypeaheadLoading(e: boolean): void {
+
+    }
     /**
      * Used to format the result data from the lookup into the
      * display and list values
