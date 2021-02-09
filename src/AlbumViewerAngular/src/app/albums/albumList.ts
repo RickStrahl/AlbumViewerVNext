@@ -67,7 +67,7 @@ export class AlbumList implements OnInit {
         this.albumList = albums;
         this.busy = false;
 
-        // reset scroll position of the list
+        // reset to last scroll position of the list
         setTimeout(()=> $("#MainView").scrollTop(this.albumService.listScrollPos), 100);
       }, err => {
         if (!err.message)
@@ -79,7 +79,9 @@ export class AlbumList implements OnInit {
   }
 
   albumClick(album: Album) {
+    // save scroll position before navigation
     this.albumService.listScrollPos = $("#MainView").scrollTop();
+
     this.router.navigate(['/album', album.Id]);
   }
 

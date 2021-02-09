@@ -18,13 +18,6 @@ import {AlbumEditor} from './albums/albumEditor';
 import {ArtistList} from './artists/artistList';
 import {ArtistDisplay} from './artists/artistDisplay';
 
-// services
-import {Album, Artist, Track} from './business/entities';
-import {AlbumService} from './albums/albumService';
-import {ArtistService} from './artists/artistService';
-import {AppConfiguration} from './business/appConfiguration';
-import {UserInfo} from "./business/userInfo";
-
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {AlbumSongList} from "./albums/albumSongList";
 
@@ -39,9 +32,7 @@ import { OptionsComponent } from './options/options';
 /* Custom Components or overrides */
 import {HttpRequestInterceptor} from './business/httpRequestInterceptor'
 import { FocusDirective } from './common/focusDirective';
-import { NgbTypeaheadModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from "ngx-toastr";
-import {cachingDisabled} from "@angular-devkit/build-angular/src/utils/environment-options";
 import {ModalModule} from "ngx-bootstrap/modal";
 import {TypeaheadModule} from "ngx-bootstrap/typeahead";
 
@@ -90,7 +81,6 @@ import {TypeaheadModule} from "ngx-bootstrap/typeahead";
     ],
     // services, pipes and providers
     providers: [
-        //Album, Artist, Track
 
         // make sure you use this for Hash Urls rather than HTML 5 routing
         //{ provide: LocationStrategy, useClass: HashLocationStrategy },

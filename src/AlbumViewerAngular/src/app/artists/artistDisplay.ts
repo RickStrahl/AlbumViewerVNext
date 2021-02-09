@@ -9,10 +9,6 @@ import {ErrorInfo} from "../common/errorDisplay";
 import { ArtistEditor } from "./artistEditor";
 import {slideIn} from "../common/animations";
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
-
-
 @Component({
     //moduleId: module.id,
     selector: 'artist-display',
@@ -34,8 +30,7 @@ export class ArtistDisplay implements OnInit {
               private artistService: ArtistService,
               private config: AppConfiguration,
               private router: Router,
-              private user: UserInfo,
-              private modalService: NgbModal) {
+              private user: UserInfo) {
   }
 
 
