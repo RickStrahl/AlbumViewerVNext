@@ -134,11 +134,6 @@ export class AlbumEditor implements OnInit {
       );
     }
 
-    getArtistsAsObservable(searchText: string): Observable<string[]> {
-        this.searchText = searchText;
-        this.searchResults = of( [ "item1", "item2" ]);
-    }
-
     changeTypeaheadLoading(e: boolean): void {
 
     }
