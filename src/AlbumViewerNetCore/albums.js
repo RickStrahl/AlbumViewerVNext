@@ -1,7 +1,8 @@
+
 [
   {
     "Id": 1,
-    "Title": "Ace of Spades (SQLite)",
+    "Title": "Ace of Spades (SQL Server)",
     "Description": "Motörhead are the founding fathers of speed and thrash metal. Without this band, there would be no Slayer or Sepultura, so you've at least got to give Lemmy and Co. props for being so influential. And \"Aces of Spades\" is an essential, legendary speed metal classic. It's full of fast, meaty riffs, great solos, toe-tapping drums, and catchy, gruff vocals. Almost every song on here (especially the title track, \"Love Me Like a Reptile,\" and \"We Are The Road Crew\") is very catchy. And the album opening title track, which has a speedy, groove-y main riff, is world renowned. Other highlights include the wah-wah solo and shout-along refrain on \"Fire, Fire,\" \"Jailbait,\" \"Dance\" (which has a pair of tasty guitar solos), the X-rated \"The Chase Is Better Than The Catch,\" and the famous, rhythmic, nearly dance-able \"Please Don't Touch.\" All in all, if you're looking for great, groove-y, contagious and exciting speed metal, Motorhead \"aces\" it.",
     "Year": 1978,
     "ImageUrl": "https://images-na.ssl-images-amazon.com/images/I/618Zuqc4J5L._SL250_.jpg",
@@ -2129,7 +2130,7 @@
   {
     "Id": 37,
     "Title": "Guilty",
-    "Description": "Old school hardcore punk with mixed in metal roots, kicked out in good old garage style. Garage recorded by ex-Attitude Adjustment members Rick Strahl and Chris Kontos, with a bonus appearance by Andy Andersen, this short EP features toe tapping rythms and catchy choruses with high intensity, in-your-face punk rock that brings back memories of the mid-80's punk and cross over scene.",
+    "Description": "Old school hardcore punk with metal roots, kicked out in good old garage style. Garage recorded by ex-Attitude Adjustment members Rick Strahl and Chris Kontos early in 2001-2002 and then newer tracks in 2020-20210. There's  also a bonus appearance by Andy Andersen.\n\nThis EP features toe tapping rythms and catchy choruses with high intensity, in-your-face punk rock that brings back memories of the mid-80's punk and CrossOver scenes.",
     "Year": 2020,
     "ImageUrl": "https://anti-trust.rocks/Guilty-Cover.png",
     "AmazonUrl": "https://store.west-wind.com/product/order/antitrust_guilty",
@@ -2138,7 +2139,7 @@
     "Artist": {
       "Id": 33,
       "ArtistName": "Anti-Trust",
-      "Description": "Anti-Trust is a side project by ex-Attitude Adjustment members Chris Kontos and Rick Strahl. This collaboration produced a handful of songs that were garage recorded in Oakland, CA and Maui, HI in 2001 and 2002. The music features old school hardcore and metal cross over, driven by catchy guitar driven rythms and catchy choruses with an overall edgy sound.",
+      "Description": "Anti-Trust is a side project by ex-Attitude Adjustment members Chris Kontos, Rick Strahl and Andy Andersen. \nThis collaboration produced a handful of songs that were garage recorded in Oakland, CA and Maui, HI in 2001 and 2002 by Rick and Chris. Several additional songs were recorded in late 2020 and early 2021 which resulted in a the songs being officially put out and released online and in album form.\n\nAnti-Trust's music features diverse influences from old school hardcore punk rock, metal cross over and NWOFBHM, all driven by heavy guitar rhythms and catchy choruses with a unique and edgy sound.",
       "ImageUrl": "https://anti-trust.rocks/images/Photo6.jpg",
       "AmazonUrl": "https://anti-trust.rocks"
     },
@@ -2220,6 +2221,30 @@
         "AlbumId": 37,
         "SongName": "Realities of Violence",
         "Length": "3:00",
+        "Bytes": 0,
+        "UnitPrice": 0.00
+      },
+      {
+        "Id": 467,
+        "AlbumId": 37,
+        "SongName": "Fear Factory",
+        "Length": "2.50",
+        "Bytes": 0,
+        "UnitPrice": 0.00
+      },
+      {
+        "Id": 468,
+        "AlbumId": 37,
+        "SongName": "Organized Crime (UK Subs)",
+        "Length": "2:40",
+        "Bytes": 0,
+        "UnitPrice": 0.00
+      },
+      {
+        "Id": 469,
+        "AlbumId": 37,
+        "SongName": "Protest the Possibilities (Discharge)",
+        "Length": "3:10",
         "Bytes": 0,
         "UnitPrice": 0.00
       }
