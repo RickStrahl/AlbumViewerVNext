@@ -2139,7 +2139,7 @@
     "Artist": {
       "Id": 33,
       "ArtistName": "Anti-Trust",
-      "Description": "Anti-Trust is a side project by ex-Attitude Adjustment members Chris Kontos, Rick Strahl and Andy Andersen. \nThis collaboration produced a handful of songs that were garage recorded in Oakland, CA and Maui, HI in 2001 and 2002 by Rick and Chris. Several additional songs were recorded in late 2020 and early 2021 which resulted in a the songs being officially put out and released online and in album form.\n\nAnti-Trust's music features diverse influences from old school hardcore punk rock, metal cross over and NWOFBHM, all driven by heavy guitar rhythms and catchy choruses with a unique and edgy sound.",
+      "Description": "Anti-Trust is a side project by ex-Attitude Adjustment members Chris Kontos, Rick Strahl and Andy Andersen. This collaboration produced a handful of songs that were garage recorded in Oakland, CA and Maui, HI in 2001 and 2002 by Rick and Chris. Several additional songs were recorded in late 2020 and early 2021 which resulted in a the songs being officially put out and released online and in album form.\n\nAnti-Trust's music features diverse influences from old school hardcore punk rock, metal cross over and NWOFBHM, all driven by heavy guitar rhythms and catchy choruses with a unique and edgy sound.",
       "ImageUrl": "https://anti-trust.rocks/images/Photo6.jpg",
       "AmazonUrl": "https://anti-trust.rocks"
     },
