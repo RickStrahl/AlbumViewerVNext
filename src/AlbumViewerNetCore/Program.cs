@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -109,6 +110,31 @@ services.AddControllers()
             opt.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
     });
 
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "License Manager API",
+        Description = "West Wind Album Viewer",
+        //TermsOfService = new Uri("https://example.com/terms"),
+        //Contact = new OpenApiContact
+        //{
+        //    Name = "Example Contact",
+        //    Url = new Uri("https://example.com/contact")
+        //},
+        //License = new OpenApiLicense
+        //{
+        //    Name = "Example License",
+        //    Url = new Uri("https://example.com/license")
+        //}
+    });
+
+    var filePath = Path.Combine(System.AppContext.BaseDirectory, "AlbumViewerNetCore.xml");
+    options.IncludeXmlComments(filePath);
+});
+
 //
 // *** BUILD THE APP
 //
@@ -189,6 +215,14 @@ app.UseEndpoints(app =>
     app.MapControllers();
 });
 
+
+// for this app make it public
+if (true)  // (app.Environment.IsDevelopment()) 
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
 // catch-all handler for HTML5 client routes - serve index.html
 app.Run(async context =>
 {
@@ -218,7 +252,6 @@ Console.WriteLine(".NET Version: " + System.Runtime.InteropServices.RuntimeInfor
 Console.WriteLine("Hosting Environment: " + environment.EnvironmentName);
 string useSqLite = configuration["Data:useSqLite"];
 Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");
-
 
 
 

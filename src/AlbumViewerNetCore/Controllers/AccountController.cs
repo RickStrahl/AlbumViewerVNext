@@ -18,6 +18,14 @@ using Westwind.AspNetCore.Security;
 
 namespace AlbumViewerAspNetCore
 {
+    /// <summary>
+    /// Token Authentication class
+    ///
+    /// This class uses a manually created bearer token via Authenticate
+    /// that is used to validate each request. If validated the User.Identity
+    /// is updated as appropriate and can be used in [Authorize] access control
+    /// or manual token validation by the APIs in this class.
+    /// </summary>
     [Authorize()]
     [ServiceFilter(typeof(ApiExceptionFilter))]
     public class AccountController : Controller
@@ -44,6 +52,8 @@ namespace AlbumViewerAspNetCore
         /// </summary>
         /// <param name="loginUser"></param>
         /// <returns></returns>
+        /// <response code="200">Authenticated</response>
+        /// <response code="401">Invalid or missing credentials</response>
         [AllowAnonymous]
         [HttpPost]
         [Route("api/authenticate")]
@@ -82,7 +92,11 @@ namespace AlbumViewerAspNetCore
             };
         }
 
-
+        /// <summary>
+        /// Logs out the current user by immediately expiring the user's
+        /// active token.
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpGet]
         [Route("api/logout")]
@@ -97,6 +111,10 @@ namespace AlbumViewerAspNetCore
             return true;
         }
 
+        /// <summary>
+        /// Returns true or false depending on whether user is authenticated.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("api/isAuthenticated")]
         public bool IsAuthenthenticated()
@@ -145,6 +163,7 @@ namespace AlbumViewerAspNetCore
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
+        [Obsolete("Left here only for reference. Use Token Authentication instead.")]
         [Route("api/login")]
         public async Task<bool> Login([FromBody] User loginUser)
         {
