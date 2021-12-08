@@ -1,20 +1,4 @@
-GET http://localhost:5005/api/albums HTTP/1.1
-Accept-Encoding: gzip,deflate
-Accept: application/json
-Websurge-Request-Inactive: 1
-Websurge-Request-Name: Album List
-
-------------------------------------------------------------------
-
-GET http://localhost:5005/api/albums?page=2&pageSize=2 HTTP/1.1
-Accept-Encoding: gzip,deflate
-Accept: application/json
-Websurge-Request-Inactive: 1
-Websurge-Request-Name: AlbumList Paged
-
-------------------------------------------------------------------
-
-GET http://albumviewerlocal.west-wind.com/api/artists HTTP/1.1
+GET /api/artists HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Inactive: 1
@@ -22,7 +6,23 @@ Websurge-Request-Name: Artist List
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/album/3 HTTP/1.1
+GET /api/albums HTTP/1.1
+Accept-Encoding: gzip,deflate
+Accept: application/json
+Websurge-Request-Inactive: 1
+Websurge-Request-Name: Album List
+
+------------------------------------------------------------------
+
+GET /api/albums?page=2&pageSize=2 HTTP/1.1
+Accept-Encoding: gzip,deflate
+Accept: application/json
+Websurge-Request-Inactive: 1
+Websurge-Request-Name: AlbumList Page
+
+------------------------------------------------------------------
+
+GET /api/album/37 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Inactive: 1
@@ -30,7 +30,7 @@ Websurge-Request-Name: Single Album
 
 ------------------------------------------------------------------
 
-POST https://localhost:5005/api/album HTTP/1.1
+POST https://localhost:5001/api/album HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Content-Type: application/json
@@ -128,20 +128,14 @@ Websurge-Request-Name: Update Album
     }
   ]
 }
-HTTP/1.1  
-Transfer-Encoding: chunked
-Content-Type: application/json; charset=utf-8
-Date: Mon, 30 Mar 2020 21:01:40 GMT
-Server: Microsoft-IIS/10.0
-X-Powered-By: ASP.NET
-
-{"message":"You have to be logged in to modify data","isError":true,"detail":null,"data":null,"errors":null}
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/posttrack HTTP/1.1
+POST /api/posttrack HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiMjI1OGZmZGMtMTcyOC00YTE3LTk2ZGItZmM0YzlmZDM1ODhkIiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxlNTg2YmQzYSIsImV4cCI6MTYzMzgyNDk5MCwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.rDee23UuVqyYr-btYUvLPxCPC_8GBVIYfyJxKqrnAGk",
+User-Agent: West Wind HTTP .NET Client
 Content-Type: application/json
 Websurge-Request-Inactive: 1
 Websurge-Request-Name: Update Track
@@ -151,68 +145,10 @@ Websurge-Request-Name: Update Track
   "SongName": "End of the Silence",
   "ArtistId": 10
 }
-HTTP/1.1  
-Transfer-Encoding: chunked
-Content-Type: text/html
-Date: Mon, 30 Mar 2020 21:01:52 GMT
-Server: Microsoft-IIS/10.0
-X-Powered-By: ASP.NET
-
-<!DOCTYPE html>
-<html>
-<head>
-  <base href="/" >
-  <meta charset="utf-8">
-
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Web Connection Albumviewer Sample Application">
-
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="apple-touch-icon" href="touch-icon.png" />
-
-  <link rel="icon" href="touch-icon.png" />
-  <meta name="msapplication-TileImage" content="touch-icon.png">
-  <title>West Wind Album Viewer</title>
-  <style>
-    /* put here to avoid delay loaded css stylesheet for loading image */
-    #Loader-Block {
-      font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      position: absolute;
-      width: 300px;
-      margin-left: -135px;
-      top: 30%;
-      left: 50%;
-      background: #444;
-      color: white;
-      padding: 20px;
-      border-radius: 4px;
-      text-align: center;
-      z-index: 1000;
-      box-shadow: 4px 4px 6px #535353;
-    }
-  </style>
-<link rel="stylesheet" href="styles.a35f2ac060eeb9d8a09a.css"></head>
-<body>
-
-<app-root>
-  <div id="Loader-Block" class="center-block">
-    <img src="touch-icon.png" style="height: 65px" class="pull-left"/>
-    <i class="fa fa-circle-o-notch fa-5x fa-spin"></i>
-
-    <p style="clear: both;font-size: 1.5em; margin-top: 20px;">Getting things ready...</p>
-  </div>
-</app-root>
-
-<script src="runtime.a8ef3a8272419c2e2c66.js" defer></script><script src="polyfills-es5.89d26f178be05ba2e3cb.js" nomodule defer></script><script src="polyfills.312b52cb27b220c62ec1.js" defer></script><script src="scripts.7bd68d4423a1ac627fe9.js" defer></script><script src="main.f5a2ea3ed905c32893cd.js" defer></script></body>
-</html>
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/artist/7 HTTP/1.1
+GET /api/artist/33 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Inactive: 1
@@ -220,7 +156,7 @@ Websurge-Request-Name: Single Artist
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/album HTTP/1.1
+POST /api/album HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Content-Type: application/json
@@ -257,19 +193,26 @@ Websurge-Request-Name: Update Album
 
 ------------------------------------------------------------------
 
-POST https://localhost:5005/api/artist HTTP/1.1
+POST /api/artist HTTP/1.1
 Accept: application/json
+Accept-Encoding: gzip,deflate
+Authorization: Bearer
 User-Agent: West Wind HTTP .NET Client
-Content-Type: application/json
-Accept-Encoding: gzip, deflate
+Content-Type: application/json; charset=utf-8
 Websurge-Request-Inactive: 1
 Websurge-Request-Name: Update Artist
 
-{"Id":7,"ArtistName":"Attitude","Description":"Attitude was founded by members from Attitude Adjustment including Andy Anderson, Chris Scapparo and Rick Strahl and joined by Keith Chattam of Condemned after a short stint as Condemned Attitude. Attitude play heavy cross-over punk/metal that was a favorite in the San Francisco Bay area but sadly never reach much visibility outside of it due to a lack of touring. \n\nThe band produced three EPs that were well received by critics but didn't manage to ignite a more mainstream following. The band's heavy cross over style and energetic stage show made for exciting shows around the Bay Area as well as on their one and only European tour. The band didn't last very long and in 1988 dissolved to form a new band Two Bit Thief which had a more rock'n roll leaning sound.","ImageUrl":"http://west-wind.com/rick/photoalbum/band/ruthiesjumpwithandy.jpg","AmazonUrl":""}
+{
+  "Id": 33,
+  "ArtistName": "Anti-Trust",
+  "Description": "Anti-Trust is a side project by...",
+  "ImageUrl": "https://anti-trust.rocks/images/Photo6.jpg",
+  "AmazonUrl": "https://anti-trust.rocks"
+}
 
 ------------------------------------------------------------------
 
-DELETE http://localhost:5005/api/deletealbum/1670 HTTP/1.1
+DELETE /api/deletealbum/1670 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Inactive: 1
@@ -277,7 +220,7 @@ Websurge-Request-Name: Delete Album
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/artistlookup?search=M HTTP/1.1
+GET /api/artistlookup?search=M HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Inactive: 1
@@ -285,7 +228,7 @@ Websurge-Request-Name: Artist Lookup (auto complete search)
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/test/HelloWorld HTTP/1.1
+GET /api/test/HelloWorld HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Inactive: 1
@@ -293,12 +236,12 @@ Websurge-Request-Name: Helloworld
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/album HTTP/1.1
+POST /api/album HTTP/1.1
 Accept: application/json, text/plain, */*
-Origin: http://localhost:5005
+Origin: 
 User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36
 Content-Type: application/json;charset=UTF-8
-Referer: http://localhost:5005/index.html
+Referer: /index.html
 Accept-Encoding: gzip, deflate
 Accept-Language: en-US,en;q=0.8,de-DE;q=0.6,de;q=0.4,ar;q=0.2,zh-CN;q=0.2,zh;q=0.2,es-419;q=0.2,es;q=0.2
 Cookie: ttw=6B55E0DA47D2FD53E74BC6435FE916B0F518F2B570B2B696677594F3201E45FCC69D54193C36BEBE933B80C79110E7F6AF6A294CABF4494E198BFCE26E49D785E047B746592BD8D24713B4A6B70F0A3A3A717D17D51FD689BD2CA914404D924BC48C9004A27344D2D91017F077BE829E04F7503CF1ED672AA6A6A6830F6BC5EE1FB51A430EEB30A45450FF9C075157C0A2AF44A4FBF8579F1AA024168C149F5FF1461422F2AB95909829828F9DDDEE44E8D9C59CDFA9BC1A460044CFB19AEDC2; _ga=GA1.1.1182485252.1431156842
@@ -309,48 +252,61 @@ Websurge-Request-Name: Add new bogus album
 
 ------------------------------------------------------------------
 
-DELETE http://localhost:5005/api/deleteartist?id=1710 HTTP/1.1
+DELETE /api/artist/29 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiODRiYWM3YmYtZTZhZS00NzQ5LWJkNjItYzMzMGM4ZmZhZjk5IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxkZDkxNTM0MyIsImV4cCI6MTYzMjYzNTQ1MSwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.31kheFnnjYBaJ1CA7dyjkNVluk6iv_m8dyDvREdpdJ8
+User-Agent: West Wind HTTP .NET Client
 Websurge-Request-Inactive: 1
 Websurge-Request-Name: Delete Artist
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/login HTTP/1.1
-Accept-Encoding: gzip,deflate
+POST /api/authenticate HTTP/1.1
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
 Content-Type: application/json
+Authorization: Bearer
 Websurge-Request-Inactive: 1
 Websurge-Request-Name: Login
 
 {
-   Username: "rstrahl@west-wind.com",
-   Password: "ww"
+  "username": "test",
+  "password": "test"
 }
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/logout HTTP/1.1
+POST /api/authenticate_NEW HTTP/1.1
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+Websurge-Request-Inactive: 1
+Websurge-Request-Name: Login Invalid URL
+
+{
+  "username": "test",
+  "password": "test"
+}
+
+------------------------------------------------------------------
+
+GET /api/logout HTTP/1.1
 Accept-Encoding: gzip,deflate
 Websurge-Request-Inactive: 1
 Websurge-Request-Name: Logout
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/index.html HTTP/1.1
+GET /index.html HTTP/1.1
 Accept-Encoding: gzip,deflate
 Websurge-Request-Name: index page
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/runtime.a66f828dca56eeb90e02.js HTTP/1.1
+GET /api/artistlookup?search=S HTTP/1.1
 Accept-Encoding: gzip,deflate
-Websurge-Request-Name: Script
-
-------------------------------------------------------------------
-
-GET http://localhost:5005/api/artistlookup?search=S HTTP/1.1
-Accept-Encoding: gzip,deflate
+Websurge-Request-Inactive: 1
 Websurge-Request-Name: Artist Lookup (Typeahead)
 
 ------------------------------------------------------------------
@@ -371,8 +327,17 @@ Referer: http://localhost:4200/album/edit/15
 Accept-Encoding: gzip, deflate, br
 Accept-Language: en-US,en;q=0.9
 Cookie: __utmz=111872281.1557000280.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); WebStoreUser=; _ga=GA1.1.1593582071.1557000280; weblog_user=Rick Strahl; weblog_email=rstrahl@west-wind.com; ww_wl=EMmL0YXjCIwLIywM; __utma=111872281.1593582071.1557000280.1575622517.1576662402.31; testvalue=NewValue; ftdb-state=1
+Websurge-Request-Inactive: 1
+Websurge-Request-Name: POST Album
 
 {"Id":15,"Title":"Blind","Description":"To call this album a rock album would almost be an insult. Some people call it punk/hardcore, but to me it will always be metal. And now that I've pigeonholed this CD to death, I'll move on to the music. Corrosion Of Conformity serves up some unforgiving, politically motivated anger with Blind. The guitar tone has a punishing crunch that has been hard to parallel in my mind. With the bass pushing that crunch, this is one heavy listen... I love it! Nothing will guarantee you a speeding ticket quicker than 'Dance Of The Dead' or 'Mine Are The Eyes Of God'. 'Vote With A Bullet' spells out COC's political views very clearly, and also manages to wrap it up in one awesome tune! Even the slowest song on the CD, 'Echoes In The Well', manages to churn out some dark and brooding overtones. Every single song on here is heavy and uncompromising. The lyrics are very poignant and intelligent. Amidst so many bands who, lately like to pose as revolutionary, Corrosion Of Conformity take a shot at 'The Man' that is, without dispute, the most real and profound yet. A lot of bands have come and gone, taking some inspiration from Corrosion Of Conformity, yet these guys continue to go on (granted under a different style). This CD represents the high point of their songwriting and musical career.","Year":1986,"ImageUrl":"https://images-na.ssl-images-amazon.com/images/I/41rsmZTWh9L._SL250_.jpg","AmazonUrl":"https://www.amazon.com/gp/product/B0013D8FJG/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0013D8FJG&linkCode=as2&tag=westwindtechn-20&linkId=Q6ECTNHUXDX45GG5","SpotifyUrl":"https://play.spotify.com/album/7kLqk3fireCdZxAZmCud3k","ArtistId":8,"Artist":{"Id":8,"ArtistName":{"name":"Corrosion of Conformity","id":"Corrosion of Conformity"},"Description":"One of the first punk-metal fusion bands, Corrosion of Conformity were formed in North Carolina by guitarist Woody Weatherman during the early '80s. In their early years, C.O.C. became known for their aggressive sound, intelligent political lyrics, and willingness to break away from both hardcore and metal conventions. In the '90s, their shift to a more stripped-down, deliberate sound -- sort of Black Sabbath filtered through the Deep South -- brought them enough in line with the alt metal Zeitgeist to bring them a measure of mainstream popularity. Then recently they turned back to their hardcore roots with ther 2012 and 2014 releases that mixes the raw","ImageUrl":"https://theobelisk.net/obelisk/wp-content/uploads/2012/01/coc.jpg","AmazonUrl":"http://theobelisk.net/obelisk/wp-content/uploads/2012/01/coc.jpg"},"Tracks":[{"Id":70,"AlbumId":15,"SongName":"The Shrouded Temples","Length":"2:36","Bytes":0,"UnitPrice":0},{"Id":71,"AlbumId":15,"SongName":"Damned for all Time","Length":"2:36","Bytes":0,"UnitPrice":0},{"Id":72,"AlbumId":15,"SongName":"Dance of the Dead","Length":"4:29","Bytes":0,"UnitPrice":0},{"Id":73,"AlbumId":15,"SongName":"Buried","Length":"5:16","Bytes":0,"UnitPrice":0}]}
+
+------------------------------------------------------------------
+
+GET http://west-wind.com/wconnect/testpage.wwd HTTP/1.1
+Accept-Encoding: gzip,deflate
+Websurge-Request-Inactive: 1
+Websurge-Request-Name: Test Page West Wind
 
 ------------------------------------------------------------------
 
@@ -380,27 +345,25 @@ Cookie: __utmz=111872281.1557000280.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(
 ----- Start WebSurge Options -----
 
 {
-  "NoProgressEvents": false,
+  "SiteBaseUrl": "https://localhost:5001/",
+  "UpdateHeadersFromRequest": false,
+  "ReplaceQueryStringValuePairs": null,
+  "ReplaceCookieValue": null,
+  "ReplaceAuthorization": "Bearer ",
+  "Username": null,
+  "Password": null,
+  "Users": [],
+  "NoProgressEvents": true,
   "DelayTimeMs": 0,
-  "NoContentDecompression": false,
+  "NoContentDecompression": true,
   "CaptureMinimalResponseData": false,
   "MaxResponseSize": 0,
-  "ReplaceQueryStringValuePairs": null,
-  "ReplaceDomain": "albumviewer.west-wind.com",
-  "ReplaceCookieValue": null,
-  "ReplaceAuthorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiNjgxMDU0NTctOGUwMi00ZThiLWEyZDYtNDkzNTY2MzExZjAxIiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHw2MGJmZmExOCIsImV4cCI6MTU4NTYwNTMxMiwiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.ODZ2a5dF1XGxizvucdUfnjVE39z4v-ytdUMiU3_BFEc",
-  "Username": null,
-  "Password": "",
-  "Users": [],
   "RandomizeRequests": false,
-  "RequestTimeoutMs": 15000,
+  "RequestTimeoutMs": 5000,
   "WarmupSeconds": 2,
-  "ReloadTemplates": false,
-  "FormattedPreviewTheme": "visualstudio",
-  "LastThreads": 12,
   "IgnoreCertificateErrors": false,
   "TrackPerSessionCookies": true,
-  "LastSecondsToRun": 40
+  "MaxConnections": 100
 }
 
 // This file was generated by West Wind WebSurge

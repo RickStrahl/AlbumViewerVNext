@@ -132,10 +132,10 @@ namespace AlbumViewerNetCore
             // Per request injections
             services.AddScoped<ApiExceptionFilter>();
 
-       
+
 
             services.AddControllers()
-                // Use classic JSON 
+                // Use classic JSON
                 .AddNewtonsoftJson(opt =>
                 {
                     var resolver = opt.SerializerSettings.ContractResolver;
@@ -148,7 +148,7 @@ namespace AlbumViewerNetCore
                     if (HostingEnvironment.IsDevelopment())
                         opt.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
                 });
-           
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -204,8 +204,11 @@ namespace AlbumViewerNetCore
             //app.UseHttpsRedirection();
 
             Console.WriteLine("\r\nPlatform: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription);
+            Console.WriteLine(".NET Version: "  + System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription);
+            Console.WriteLine("Hosting Environment: " + env.EnvironmentName);
             string useSqLite = Configuration["Data:useSqLite"];
 			Console.WriteLine(useSqLite == "true" ? "SqLite" : "Sql Server");
+
 
             app.UseRouting();
 

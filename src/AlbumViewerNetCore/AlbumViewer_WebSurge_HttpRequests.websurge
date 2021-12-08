@@ -1,32 +1,32 @@
-GET http://localhost:5005/api/albums HTTP/1.1
+GET /api/albums HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Name: Album List
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/albums?page=2&pageSize=2 HTTP/1.1
+GET /api/albums?page=2&pageSize=2 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Name: AlbumList Paged
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/artists HTTP/1.1
+GET /api/artists HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Name: Artist List
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/album/1 HTTP/1.1
+GET /api/album/1 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Name: Single Album
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/album HTTP/1.1
+POST /api/album HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Content-Type: application/json
@@ -89,7 +89,7 @@ Websurge-Request-Name: Update Album
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/posttrack HTTP/1.1
+POST /api/posttrack HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Content-Type: application/json
@@ -103,14 +103,14 @@ Websurge-Request-Name: Update Track
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/artist/1 HTTP/1.1
+GET /api/artist/1 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Name: Single Artist
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/album HTTP/1.1
+POST /api/album HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Content-Type: application/json
@@ -146,7 +146,7 @@ Websurge-Request-Name: Update Album
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/artist HTTP/1.1
+POST /api/artist HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Websurge-Request-Name: Update Artist
@@ -155,33 +155,33 @@ Websurge-Request-Name: Update Artist
 
 ------------------------------------------------------------------
 
-DELETE http://localhost:5005/api/deletealbum/1670 HTTP/1.1
+DELETE /api/deletealbum/1670 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Name: Delete Album
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/artistlookup?search=M HTTP/1.1
+GET /api/artistlookup?search=M HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Name: Artist Lookup (auto complete search)
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/HelloWorld HTTP/1.1
+GET /api/HelloWorld HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Name: Helloworld
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/album HTTP/1.1
+POST /api/album HTTP/1.1
 Accept: application/json, text/plain, */*
 Origin: http://localhost:5005
 User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36
 Content-Type: application/json;charset=UTF-8
-Referer: http://localhost:5005/index.html
+Referer: /index.html
 Accept-Encoding: gzip, deflate
 Accept-Language: en-US,en;q=0.8,de-DE;q=0.6,de;q=0.4,ar;q=0.2,zh-CN;q=0.2,zh;q=0.2,es-419;q=0.2,es;q=0.2
 Cookie: ttw=6B55E0DA47D2FD53E74BC6435FE916B0F518F2B570B2B696677594F3201E45FCC69D54193C36BEBE933B80C79110E7F6AF6A294CABF4494E198BFCE26E49D785E047B746592BD8D24713B4A6B70F0A3A3A717D17D51FD689BD2CA914404D924BC48C9004A27344D2D91017F077BE829E04F7503CF1ED672AA6A6A6830F6BC5EE1FB51A430EEB30A45450FF9C075157C0A2AF44A4FBF8579F1AA024168C149F5FF1461422F2AB95909829828F9DDDEE44E8D9C59CDFA9BC1A460044CFB19AEDC2; _ga=GA1.1.1182485252.1431156842
@@ -191,14 +191,14 @@ Websurge-Request-Name: Add new bogus album
 
 ------------------------------------------------------------------
 
-DELETE http://localhost:5005/api/artist/1711 HTTP/1.1
+DELETE /api/artist/1711 HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 Websurge-Request-Name: Delete Artist
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/login HTTP/1.1
+POST /api/login HTTP/1.1
 Accept-Encoding: gzip,deflate
 Content-Type: application/json
 Websurge-Request-Name: Login
@@ -210,14 +210,14 @@ Websurge-Request-Name: Login
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/logout HTTP/1.1
+GET /api/logout HTTP/1.1
 Accept-Encoding: gzip,deflate
 Authorization: BearerTokenHere
 Websurge-Request-Name: Logout
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/authenticate HTTP/1.1
+POST /api/authenticate HTTP/1.1
 Accept-Encoding: gzip,deflate
 Content-Type: application/json
 Websurge-Request-Name: Authenticate
@@ -226,27 +226,16 @@ Websurge-Request-Name: Authenticate
    Username: "test",
    Password: "test"
 }
-HTTP/1.1  
-Content-Length: 452
-Content-Type: application/json; charset=utf-8
-Date: Fri, 10 Jan 2020 11:33:16 GMT
-Server: Kestrel
-
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiNzkzMDNiMTQtZTBiZS00ZDFkLTljYTktMDllMGMwOTIxOWY0IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxhMzkzMjM4ZSIsImV4cCI6MTU3ODY1OTU5NywiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.VLw6M3LIJkjlVGPPmtmc3WVLMzomxD4pICGHXtUfEk4",
-  "expires": "2020-01-10T12:33:17Z",
-  "displayName": "Test User"
-}
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/test.html HTTP/1.1
+GET /test.html HTTP/1.1
 Accept-Encoding: gzip,deflate
 Websurge-Request-Name: Static Test.html
 
 ------------------------------------------------------------------
 
-POST http://localhost:5005/api/login HTTP/1.1
+POST /api/login HTTP/1.1
 Connection: keep-alive
 Origin: http://localhost:3000
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36
@@ -264,23 +253,16 @@ Websurge-Request-Name: Invalid Login
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/configuration HTTP/1.1
+GET /api/configuration HTTP/1.1
 Accept-Encoding: gzip,deflate
 Accept: application/json
 
 ------------------------------------------------------------------
 
-GET http://localhost:5005/api/isauthenticated HTTP/1.1
+GET /api/isauthenticated HTTP/1.1
 Accept-Encoding: gzip,deflate
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiNzkzMDNiMTQtZTBiZS00ZDFkLTljYTktMDllMGMwOTIxOWY0IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxhMzkzMjM4ZSIsImV4cCI6MTU3ODY1OTU5NywiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.VLw6M3LIJkjlVGPPmtmc3WVLMzomxD4pICGHXtUfEk4
 Websurge-Request-Name: Is Authenticated
-HTTP/1.1  
-Content-Length: 4
-Content-Type: application/json; charset=utf-8
-Date: Fri, 10 Jan 2020 11:33:33 GMT
-Server: Kestrel
-
-true
 
 ------------------------------------------------------------------
 
@@ -309,31 +291,29 @@ Cookie: __utmz=111872281.1557000280.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(
 ----- Start WebSurge Options -----
 
 {
-  "NoProgressEvents": true,
-  "DelayTimeMs": 0,
-  "NoContentDecompression": false,
-  "CaptureMinimalResponseData": false,
-  "MaxResponseSize": 0,
+  "SiteBaseUrl": "https://localhost:5001/",
+  "UpdateHeadersFromRequest": false,
   "ReplaceQueryStringValuePairs": null,
-  "ReplaceDomain": "localhost:5000",
   "ReplaceCookieValue": null,
   "ReplaceAuthorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwianRpIjoiNzkzMDNiMTQtZTBiZS00ZDFkLTljYTktMDllMGMwOTIxOWY0IiwiVXNlclN0YXRlIjoiVGVzdCBVc2VyfHRlc3R8fEZhbHNlfDF8bnVsbHxhMzkzMjM4ZSIsImV4cCI6MTU3ODY1OTU5NywiaXNzIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hbGJ1bXZpZXdlci53ZXN0LXdpbmQuY29tIn0.VLw6M3LIJkjlVGPPmtmc3WVLMzomxD4pICGHXtUfEk4",
   "Username": null,
   "Password": "",
   "Users": [],
+  "NoProgressEvents": true,
+  "DelayTimeMs": 0,
+  "NoContentDecompression": false,
+  "CaptureMinimalResponseData": false,
+  "MaxResponseSize": 0,
   "RandomizeRequests": false,
   "RequestTimeoutMs": 15000,
   "WarmupSeconds": 2,
-  "ReloadTemplates": false,
-  "FormattedPreviewTheme": "visualstudio",
-  "LastThreads": 10,
   "IgnoreCertificateErrors": false,
   "TrackPerSessionCookies": true,
-  "LastSecondsToRun": 30
+  "MaxConnections": 100
 }
 
 // This file was generated by West Wind WebSurge
-// Get your free copy at https://websurge.west-wind.com
+// Get your free copy at https://markdownmonster.west-wind.com
 // to easily test or load test the requests in this file.
 
 ----- End WebSurge Options -----
