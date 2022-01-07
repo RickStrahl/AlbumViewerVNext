@@ -6,12 +6,11 @@ import { AlbumDisplay} from './albums/albumDisplay';
 import {AlbumEditor } from './albums/albumEditor';
 import { ArtistList } from './artists/artistList';
 import { ArtistDisplay} from "./artists/artistDisplay";
-import {OptionsComponent} from "./Options/options";
+import {OptionsComponent} from "./options/options";
 import {LoginComponent} from "./common/login";
 import {AboutComponent} from "./options/about";
 
 const routes: Routes = [
-	{path: '', redirectTo: "albums", pathMatch: 'full'},
 	{path: '', redirectTo: 'albums', pathMatch: 'full'},
 	{path: 'albums', component: AlbumList },
 	{path: 'album/:id', component: AlbumDisplay },
@@ -25,8 +24,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  exports: [RouterModule], 
   providers: []
 })
 export class AppRoutingModule { }

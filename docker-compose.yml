@@ -2,7 +2,7 @@
 # Run docker-compose up
 # Live long and prosper
 
-version: '2'
+version: '3.1'
 
 services:
 
@@ -22,10 +22,10 @@ services:
 
   aspnet:
     container_name: 'westwindalbumviewer'
-    image: 'westwind/albumviewer:albumviewer'
+    image: 'rickstrahl/albumviewer:albumviewer'
     build:
       context: ./src/AlbumViewerNetCore
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile
  #   volumes:
  #     - ./src/AlbumViewerNetCore:/var/www/albumviewer
     ports:

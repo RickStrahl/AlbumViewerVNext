@@ -46,9 +46,6 @@ export class ArtistList implements OnInit {
     return this.artistList;
   }
 
-
-
-
   getArtists() {
     this.artistService.getArtists()
       .subscribe( artists => {
@@ -60,7 +57,12 @@ export class ArtistList implements OnInit {
           }, 20);
           return this.artistList;
         },
-        err => { this.error.error(err) }
+        err => {
+          if (!err.message)
+            this.error.error("Unable to load artists right now. Most likely the server is not responding.");
+          else
+            this.error.error(err) 
+          }
       );
   }
 

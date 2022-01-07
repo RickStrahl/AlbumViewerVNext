@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Internal;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Westwind.BusinessObjects
@@ -92,9 +93,17 @@ namespace Westwind.BusinessObjects
             var state = context.Entry(entity);
             var metadata = state.Metadata;
             var key = metadata.FindPrimaryKey();
-            var props = key.Properties.ToArray();
+            //var props = key.Properties.ToArray();
 
-            return props.Select(x => x.GetGetter().GetClrValue(entity)).ToArray();
+            var list = new List<object>();
+            foreach (var prop in key.Properties)
+            {
+                var getter = prop.GetGetter();
+                var val = getter.GetClrValue(entity);
+                list.Add(val);
+            }
+
+            return list.ToArray();
         }
     }
 }

@@ -1,23 +1,33 @@
 ﻿import { Injectable } from '@angular/core';
-
-
-import {RequestOptions} from "@angular/http";
 import {ApplicationStats} from "./entities";
+import { HttpHeaders } from '@angular/common/http';
+
+
+declare var $:any;
 declare var toastr: any;
 declare var location: any;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AppConfiguration {
       constructor(){
-          this.setToastrOptions();
           console.log("AppConfiguration ctor");
+          this.setToastrOptions();
 
-          if(location.port && (location.port == "3000") || (location.port== "4200") )
-            this.urls.baseUrl = "http://localhost:5000/"; // kestrel
+          if(location.port && (location.port == "3000") || (location.port== "4200") || (location.port == 5200) ) {
+              this.urls.baseUrl = "https://localhost:5001/"; // local kestrel
+          }
+          else {
+              //this.urls.baseUrl = "http://localhost:5001/"; // kestrel
+              //this.urls.baseUrl = "http://localhost:26448/"; // iis Express
+              //this.urls.baseUrl = "http://localhost/albumviewer/"; // iis
+              //this.urls.baseUrl = https://albumviewer.west-wind.com/";  // online
+              this.urls.baseUrl = location.origin.trimEnd('/') + '/';
+          }
 
-          //this.urls.baseUrl = "http://localhost:26448/"; // iis Express
-          //this.urls.baseUrl = "http://localhost/albumviewer/"; // iis
-          //this.urls.baseUrl = "https://samples.west-wind.com/AlbumViewerCore/";  // online
+          // always online
+          //this.urls.baseUrl = "https://albumviewer.west-wind.com/";  // online
       }
 
       // top level search text
@@ -38,6 +48,7 @@ export class AppConfiguration {
         artistLookup: "api/artistlookup?search=",
         saveArtist: "api/artist",
         login: "api/login", //"api/login",
+        authenticate: "api/authenticate",
         logout: "api/logout",
         isAuthenticated: "api/isAuthenticated",
         reloadData: "api/reloadData",
@@ -65,6 +76,8 @@ export class AppConfiguration {
    * Http Request options to for requests
    * @type {RequestOptions}
    */
-  requestOptions =  new RequestOptions({  withCredentials: true });
+  requestHeaders =  {
+    withCredentials: true,
+  }
 }
 

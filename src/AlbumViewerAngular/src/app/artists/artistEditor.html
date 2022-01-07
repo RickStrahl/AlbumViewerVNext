@@ -1,24 +1,25 @@
-<div class="modal fade" id="EditModal"
-     tabindex="-1" role="dialog">
+<ng-template #ModalEditorTemplate let-modal>
+<form name="form1"
+    action="javascript:{}" novalidate
+    #form1="ngForm">
 
-  <div class="modal-dialog" role="document" >
-    <div class="modal-content" >
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h3 class="modal-title" id="myModalLabel">Artist Info</h3>
-      </div>
-
-      <form name="form1"
-            action="javascript:{}" novalidate
-            #form1="ngForm"  >
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit Artist</h4>
+    <button type="button" class="close" aria-label="Close"
+            (click)="close()"  >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
 
       <div class="modal-body">
          <div class="form-group">
             <label for="ArtistName">Artist Name:</label>
             <input name="ArtistName" id="ArtistName" type="text"
                    class="form-control input-sm"
+                   [focus]="true"
                    placeholder="Artist Name" required
-                   [(ngModel)]="artist.ArtistName" />
+                   [(ngModel)]="artist.ArtistName"  #ArtistName/>
           </div>
 
           <div class="form-group">
@@ -26,9 +27,10 @@
             <textarea type="text" class="form-control input-sm"
                       name="Description" id="Description"
                       required
-                      style="height: 80px;"
+                      style="height: 110px;"
                       minlength="20"
-                      placeholder="Band Bio" [(ngModel)]="artist.Description"></textarea>
+                      placeholder="Band Bio"
+                      [(ngModel)]="artist.Description"></textarea>
           </div>
           <div class="form-group">
             <label for="ImageUrl">Image Url:</label>
@@ -44,18 +46,20 @@
           </div>
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-          <i class="fa fa-remove"></i> Cancel</button>
-        <button type="button" class="btn btn-primary"
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary mr-2" (click)="close()">
+      <i class="fa fa-remove"></i>
+      Cancel
+    </button>
+
+    <button type="button" class="btn btn-primary"
                 [disabled]="form1.pristine || form1.invalid" accesskey="S"
                 (click)="saveArtist(artist)">
           <i class="fa fa-check"></i>
           Save changes
-        </button>
-      </div>
-
-      </form>
-    </div>
+      </button>
   </div>
-</div>
+</form>
+</ng-template>
+

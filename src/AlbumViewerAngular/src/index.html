@@ -15,22 +15,31 @@
 
   <link rel="icon" href="touch-icon.png" />
   <meta name="msapplication-TileImage" content="touch-icon.png">
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
   <title>West Wind Album Viewer</title>
-
+  <style>
+    /* put here to avoid delay loaded css stylesheet for loading image */
+    #Loader-Block {
+      font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      position: absolute;
+      width: 300px;
+      margin-left: -135px;
+      top: 30%;
+      left: 50%;
+      background: #444;
+      color: white;
+      padding: 20px;
+      border-radius: 4px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 4px 4px 6px #535353;
+    }
+  </style>
 </head>
 <body>
 
 <app-root>
   <div id="Loader-Block" class="center-block">
-
     <img src="touch-icon.png" style="height: 65px" class="pull-left"/>
     <i class="fa fa-circle-o-notch fa-5x fa-spin"></i>
 
@@ -40,21 +49,3 @@
 
 </body>
 </html>
-
-
-
-
-<!--<!doctype html>-->
-<!--<html>-->
-<!--<head>-->
-  <!--<meta charset="utf-8">-->
-  <!--<title>AlbumViewer</title>-->
-  <!--<base href="/">-->
-
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-  <!--<link rel="icon" type="image/x-icon" href="favicon.ico">-->
-<!--</head>-->
-<!--<body>-->
-  <!--<app-root>Loading...</app-root>-->
-<!--</body>-->
-<!--</html>-->

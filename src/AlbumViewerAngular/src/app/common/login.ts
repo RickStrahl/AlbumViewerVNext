@@ -27,12 +27,30 @@ export class LoginComponent implements OnInit {
         this.logout();
     }
 
+    // login() {
+    //   this.user.login(this.username,this.password)
+    //     .subscribe(() => {
+    //         this.user.isAuthenticated = true;
+    //         toastr.success("You are logged in.");
+    //         this.router.navigate(["/albums"]);
+    //     },
+    //     (err)=> {
+    //       this.error.error(err);
+    //       this.password="";
+    //       toastr.warning("Login failed: " + err.message);
+    //     });
+    // }
+
     login() {
-      this.user.login(this.username,this.password)
+      this.user.authenticate(this.username,this.password)
         .subscribe(() => {
             this.user.isAuthenticated = true;
             toastr.success("You are logged in.");
-            this.router.navigate(["/albums"]);
+            var url = "/albums";
+            if (this.user.requestedUrl)
+                url = this.user.requestedUrl;
+
+            this.router.navigate([url]);
         },
         (err)=> {
           this.error.error(err);
@@ -40,6 +58,7 @@ export class LoginComponent implements OnInit {
           toastr.warning("Login failed: " + err.message);
         });
     }
+
 
     logout() {
         this.user.logout()

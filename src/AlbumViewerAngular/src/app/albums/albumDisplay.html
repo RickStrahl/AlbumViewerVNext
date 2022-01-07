@@ -1,12 +1,12 @@
-﻿<div  class="container" >
+<div  class="container" >
+    
+    <div class="btn-group" role="group" style="margin-bottom: 10px;" aria-label="Album Navigation">
+    <a routerLink="/albums" class="btn btn-sm btn-primary"><i class="fa fa-list"></i> Albums</a>
+    <a [routerLink]="['/album/edit',album.Id]" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
+    <a [href]="album.AmazonUrl" class="btn btn-sm btn-primary"><i class="fa fa-dollar"></i> Buy</a>
 
-  <div class="btn-group" style="margin-bottom: 10px;">
-    <a routerLink="/albums" class="btn btn-sm btn-default"><i class="fa fa-list"></i> Albums</a>
-    <a [routerLink]="['/album/edit',album.Id]" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
-    <a [href]="album.AmazonUrl" class="btn btn-sm btn-default"><i class="fa fa-dollar"></i> Buy</a>
-
-    <a [href]="album.SpotifyUrl" class="btn btn-sm btn-default"><i class="fa fa-volume-up"></i> Listen</a>
-    <button (click)="deleteAlbum(album)" class="btn btn-sm btn-default"><i class="fa fa-remove"></i> Delete</button>
+    <a [href]="album.SpotifyUrl" class="btn btn-sm btn-primary"><i class="fa fa-volume-up"></i> Listen</a>
+    <button (click)="deleteAlbum(album)" class="btn btn-sm btn-primary"><i class="fa fa-remove"></i> Delete</button>
   </div>
 
   <div class="separator"></div>

@@ -2,20 +2,18 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { ArtistService} from "./artistService";
 import { Artist, Album} from "../business/entities";
 import { AppConfiguration} from "../business/appConfiguration";
-import { ActivatedRoute, Router} from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import {UserInfo} from "../business/userInfo";
 import {ErrorInfo} from "../common/errorDisplay";
 import { ArtistEditor } from "./artistEditor";
 import {slideIn} from "../common/animations";
 
-
-
 @Component({
     //moduleId: module.id,
     selector: 'artist-display',
     templateUrl: './artistDisplay.html',
-  animations: [ slideIn ]
+    animations: [ slideIn ]
 })
 export class ArtistDisplay implements OnInit {
   // reference a child editor component
@@ -54,21 +52,22 @@ export class ArtistDisplay implements OnInit {
         });
   }
 
-  editArtist() {
-    if (!this.user.isAuthenticated) {
-      this.router.navigate(["login"]);
-      return;
-    }
 
-    this.editor.showEditor();
-  };
 
   albumClick(album) {
     //window.location.hash = "album/" + album.Id;
     this.router.navigate(['/album', album.Id]);
   }
 
+  openModalEditor(artistEditor){
+    if (!this.user.isAuthenticated) {
+      this.user.requestedUrl = this.router.url;
+      this.router.navigate(["/login"]);
+      return;
+    }
 
+    this.editor.open();
+  }
 
   addAlbum() {
 
@@ -84,5 +83,9 @@ export class ArtistDisplay implements OnInit {
               this.artistService.artistList.filter( art=> art.Id != artist.Id );
         }, 1200);
       }, (err)=> { console.log(err); this.error.error(err) });
+  }
+
+  deleteAlbum(album:Album) {
+
   }
 }

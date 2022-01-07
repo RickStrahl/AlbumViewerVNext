@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AlbumViewerNetCore</name>
+    </assembly>
+    <members>
+        <member name="F:AlbumViewerAspNetCore.AccountController.cancelledTokens">
+            <summary>
+            Hack - not threadsafe and won't work across load balancer
+            </summary>
+        </member>
+        <member name="M:AlbumViewerAspNetCore.AccountController.Authenticate(AlbumViewerBusiness.User)">
+            <summary>
+            Token authentication login
+            </summary>
+            <param name="loginUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AlbumViewerAspNetCore.AccountController.Login(AlbumViewerBusiness.User)">
+            <summary>
+             Cookie Authentication login (not used anymore)
+            </summary>
+            <param name="loginUser"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AlbumViewerAspNetCore.ApiError">
+            <summary>
+            An API Error response returned to the client
+            </summary>
+        </member>
+        <member name="T:AlbumViewerAspNetCore.ApiException">
+            <summary>
+            Custom Exception class that knows about HTTP 
+            result codes and includes a validation errors
+            error collection that can optionally be set with
+            multiple errors.
+            </summary>
+        </member>
+        <member name="M:AlbumViewerNetCore.Controllers.ConfigurationController.LetsEncrypt(System.String)">
+            <summary>
+            Allow Lets Encrypt Reneawal requests through the pipeline by 
+            default these are twarthed because they are treated as extensionless
+            action route urls (which have no match and fail).
+            
+            Explicitly map a route to the URL and then serve the physical file
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AlbumViewerAspNet5.Controllers.TagHelpers.ErrorDisplayTagHelper">
+            <summary>
+            TagHelper that display a bootstrap alert window conditionally 
+            if a message or header are set on this helper. Otherwise - nothing
+            displays.
+            </summary>
+        </member>
+        <member name="P:AlbumViewerAspNet5.Controllers.TagHelpers.ErrorDisplayTagHelper.message">
+            <summary>
+            the main message that gets displayed
+            </summary>
+        </member>
+        <member name="P:AlbumViewerAspNet5.Controllers.TagHelpers.ErrorDisplayTagHelper.header">
+            <summary>
+            Optional header that is displayed in big text. Use for 
+            'noisy' warnings and stop errors only please :-)
+            The message is displayed below the header.
+            </summary>
+        </member>
+        <member name="P:AlbumViewerAspNet5.Controllers.TagHelpers.ErrorDisplayTagHelper.icon">
+            <summary>
+            Font-awesome icon name without the fa- prefix.
+            Example: info-circle, warning, lightbulb-o
+            If none is specified - warning is used
+            </summary>
+        </member>
+        <member name="P:AlbumViewerAspNet5.Controllers.TagHelpers.ErrorDisplayTagHelper.cssClass">
+            <summary>
+            CSS class. Handled here so we can capture the existing
+            class value and append the BootStrap alert class.
+            </summary>
+        </member>
+        <member name="P:AlbumViewerAspNet5.Controllers.TagHelpers.ErrorDisplayTagHelper.alertClass">
+            <summary>
+            Optional - specifies the alert class used on the top level
+            window. If not specified uses the same as the icon. 
+            Override this if the icon and alert classes are different
+            (often they are not).
+            </summary>
+        </member>
+        <member name="P:AlbumViewerAspNet5.Controllers.TagHelpers.ErrorDisplayTagHelper.messageAsHtml">
+            <summary>
+            If true embeds the message text as HTML. Use this 
+            flag if you need to display HTML text. If false
+            the text is HtmlEncoded.
+            </summary>
+        </member>
+        <member name="P:AlbumViewerAspNet5.Controllers.TagHelpers.ErrorDisplayTagHelper.headerAsHtml">
+            <summary>
+            If true embeds the message text as HTML. Use this 
+            flag if you need to display HTML text. If false
+            the text is HtmlEncoded.
+            </summary>
+        </member>
+    </members>
+</doc>

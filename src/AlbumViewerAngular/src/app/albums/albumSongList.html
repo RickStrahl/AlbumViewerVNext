@@ -37,15 +37,23 @@
   </div>
 </div>
 
-<table class=" table table-striped small">
-  <tr *ngFor="let track of tracks">
-    <td>{{track.SongName}}</td>
-    <td>{{track.Length}}</td>
-    <td>
-      <button *ngIf="allowEditing" (click)="removeTrack(track)"
-              class="btn btn-xs btn-danger">
-        <i class="fa fa-remove"></i> Remove
-      </button>
-    </td>
-  </tr>
+<style>
+    @media(max-width: 700px) {
+        #TrackTable td i.fa { display: none; }
+    }
+</style>
+<table id="TrackTable" class="table table-striped table-sm">
+    <tbody>
+        <tr *ngFor="let track of tracks">            
+            <td><i class="fa fa-music text-primary"></i>
+                {{track.SongName}}</td>
+            <td>{{track.Length}}</td>
+            <td>
+                <button *ngIf="allowEditing" (click)="removeTrack(track)"
+                        class="btn btn-sm btn-danger">
+                    <i class="fa fa-remove"></i> Remove
+                </button>
+            </td>
+        </tr>
+    </tbody>
 </table>

@@ -1,39 +1,38 @@
-﻿<div id="TitleBar" class="statusbar-push">
-        <a routerLink="/albums">
-            <img src="images/headphone-head.png"
-                 style="height: 35px; float: left" />
-            <div style="float: left; margin-left: 5px; line-height: 1.2">
-                <i style="color: steelblue; font-size: 0.8em; font-weight: bold;">West Wind</i><br />
-                <i style="color: whitesmoke; font-size: 1.25em; font-weight: bold;">AlbumViewer</i>
-            </div>
-        </a>
-    </div>
+<div id="TitleBar">
+    <a routerLink="/albums">
+        <img src="images/headphone-head.png" style="height: 47px; float: left" />
+        <div style="float: left; margin-left: 5px; line-height: 1.2; ">
+            <i style="color: steelblue; font-size: 0.8em; font-weight: bold;">West Wind</i><br />
+            <i style="color: whitesmoke; font-size: 1.25em; font-weight: bold;">AlbumViewer</i>
+        </div>
+    </a>
+</div>
 
     
-    <div style="margin: 0; padding: 0; border: none;">
-        <div class="banner statusbar-push">
-            <nav id="Toolbar-Top" class="pull-right">
+<div>
+    <div class="banner statusbar-push">
+        <nav id="Toolbar-Top" class="pull-right">
 
-                <a  routerLink="/albums" [ngClass]="{ selected: config.activeTab == 'albums'}">
-                    <img src="images/record.png" title="Albums" /> <span>Albums</span>
-                </a>
-                <a routerLink="/artists" [ngClass]="{ selected: config.activeTab == 'artists'}">
-                    <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
-                </a>
-                <a routerLink="/options" [ngClass]="{ selected: config.activeTab == 'options'}">
-                    <img src="images/gear.png" title="Options" /> <span>Options</span>
-                </a>
-            </nav>
+            <a routerLink="/albums" [ngClass]="{ selected: config.activeTab == 'albums'}">
+                <img src="images/record.png" title="Albums" />
+                <span>Albums</span>
+            </a>
+            <a routerLink="/artists" [ngClass]="{ selected: config.activeTab == 'artists'}">
+                <img src="images/artists32.png" title="Artists" />
+                <span>Artists</span>
+            </a>
+            <a routerLink="/options" [ngClass]="{ selected: config.activeTab == 'options'}">
+                <img src="images/gear.png" title="Options" />
+                <span>Options</span>
+            </a>
+        </nav>
 
 
-            <nav id="TopMenu" class="pull-right">
-                <form style="float: left; width: 140px; padding-top: 2px;">
-                    <input id="SearchBox" type="text"
-                           class="form-control" placeholder="Search..."
-                           name="searchText"
-                           [(ngModel)]="config.searchText"
-                           *ngIf="config.isSearchAllowed">
-                </form>
-            </nav>
-        </div>
+        <nav id="TopMenu" class="pull-right">
+            <form style="float: left; width: 140px; padding-top: 2px;">
+                <input id="SearchBox" type="text" class="form-control" placeholder="Search..." name="searchText"
+                    [(ngModel)]="config.searchText" *ngIf="config.isSearchAllowed">
+            </form>
+        </nav>
     </div>
+</div>

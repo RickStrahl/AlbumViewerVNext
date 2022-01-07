@@ -8,10 +8,7 @@ import {ErrorInfo} from "../common/errorDisplay";
 import {slideIn, slideInLeft} from "../common/animations";
 import { UserInfo } from "../business/userInfo";
 
-//import * as $ from 'jquery';
 declare var $:any;
-declare var toastr:any;
-
 
 @Component({
   selector: 'album-list',
@@ -46,11 +43,19 @@ export class AlbumList implements OnInit {
   get filteredAlbumList() {
     if (this.config.searchText && this.config.searchText.length > 1) {
       var lsearchText = this.config.searchText.toLowerCase();
-      return this.albumList.filter((a) =>
-        a.Title.toLowerCase().includes(lsearchText) ||
-        a.Artist.ArtistName.toLowerCase().includes(lsearchText)
-      );
+
+      return this.albumList.filter((a) => {
+          const title = a.Title;
+          const artist = a.Artist;
+          let artistName = null;
+          if (artist)
+              artistName = artist.ArtistName;
+
+          return (title && title.toLowerCase().includes(lsearchText)) ||
+              (artistName && artistName.toLowerCase().includes(lsearchText));
+      });
     }
+
     return this.albumList;
   }
 
@@ -62,16 +67,21 @@ export class AlbumList implements OnInit {
         this.albumList = albums;
         this.busy = false;
 
-        // reset scroll position of the list
+        // reset to last scroll position of the list
         setTimeout(()=> $("#MainView").scrollTop(this.albumService.listScrollPos), 100);
       }, err => {
-        this.error.error(err);
+        if (!err.message)
+          this.error.error("Unable to load albums right now. Most likely the server is not responding.");
+        else
+          this.error.error(err);
         this.busy = false;
       });
   }
 
   albumClick(album: Album) {
+    // save scroll position before navigation
     this.albumService.listScrollPos = $("#MainView").scrollTop();
+
     this.router.navigate(['/album', album.Id]);
   }
 

@@ -2,10 +2,13 @@
 import {AppConfiguration} from "../business/appConfiguration";
 import {UserInfo} from "../business/userInfo";
 import {ErrorInfo} from "../common/errorDisplay";
-import {Http} from "@angular/http";
+import {HttpClient } from "@angular/common/http";
+import { ApplicationStats } from '../business/entities';
 
+declare var $:any;
 declare var toastr:any;
 declare var window: any;
+
 @Component({
     selector: 'options',
     templateUrl: 'options.html'
@@ -15,16 +18,23 @@ export class OptionsComponent implements OnInit {
 
     constructor(public config: AppConfiguration,
                 public user: UserInfo,
-                private http: Http) {
+                private http: HttpClient) {
     }
 
     ngOnInit() {
         this.config.isSearchAllowed = false;
 
+        console.dir(location)
+
         if (this.config.applicationStats.OsPlatform == null) {
-            this.http.get(this.config.urls.url("applicationStats"))
-				.subscribe(response => {
-						this.config.applicationStats = response.json();
+            this.http.get<ApplicationStats>(this.config.urls.url("applicationStats"))
+				.subscribe(stats => {
+                        this.config.applicationStats = stats;
+
+                        var $ngv = $("[ng-version]");
+                        if ($ngv.length > 0)
+                            this.config.applicationStats.AngularVersion = $ngv.attr("ng-version");
+
                 },response=> {
 					let obsErr = new ErrorInfo().parseObservableResponseError(response);
 					let msg = (<any> obsErr).error.message;
@@ -37,10 +47,9 @@ export class OptionsComponent implements OnInit {
         if (!this.user.isAuthenticated)
             window.location.hash = "login";
 
-        this.http.get(this.config.urls.url("reloadData"), {withCredentials: true})
+        this.http.get<boolean>(this.config.urls.url("reloadData") )
 			.subscribe(
-                response => {
-                    let success = response.json();
+                success => {
                     if (success)
                         toastr.success("Data has been reloaded.");
                     else
