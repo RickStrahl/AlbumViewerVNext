@@ -288,7 +288,7 @@ namespace AlbumViewerAspNetCore
                 {
                     // ExecuteSqlRaw // in EF 3.0
                     context.Database.ExecuteSqlRaw(@"
-drop table Tracks;
+drop table Tracks; 
 drop table Albums;
 drop table Artists;
 drop table Users;
@@ -296,7 +296,7 @@ drop table Users;
                 }
                 else
                 {
-                    // this is not reliable for mutliple connections
+                    // this is not reliable for multiple connections
                     context.Database.CloseConnection();
 
                     try
@@ -305,10 +305,14 @@ drop table Users;
                     }
                     catch
                     {
-                        throw new ApiException("Can't reset data. Existing database is busy.");
+                        throw new ApiException("Can't reset data. Existing database is in use.");
                     }
                 }
 
+            }
+            catch (ApiException)
+            {
+                throw;
             }
             catch { }
 

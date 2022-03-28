@@ -48,10 +48,10 @@ namespace AlbumViewerAspNetCore
 
 
         /// <summary>
-        /// Token authentication login
+        /// Authenticates a user and returns a service token by username and password
         /// </summary>
-        /// <param name="loginUser"></param>
-        /// <returns></returns>
+        /// <param name="loginUser">A user structure with username and password properties</param>
+        /// <returns>result with token and tokenExpiration properties </returns>
         /// <response code="200">Authenticated</response>
         /// <response code="401">Invalid or missing credentials</response>
         [AllowAnonymous]
@@ -71,7 +71,6 @@ namespace AlbumViewerAspNetCore
             UserState.Name = user.Fullname;
             UserState.Email = user.Username;
 
-
             // create a new token with token helper and add our claim
             var token = JwtHelper.GetJwtToken(
                 user.Username,
@@ -82,6 +81,22 @@ namespace AlbumViewerAspNetCore
                 new[]
                 {
                     new Claim("UserState", UserState.ToString())
+                });
+
+
+            // also add cookie auth for Swagger Access
+            var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
+            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Username));
+            identity.AddClaim(new Claim(ClaimTypes.Name, user.Username));
+            var principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                principal,
+                new AuthenticationProperties
+                {
+                    IsPersistent = true,
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.UtcNow.AddDays(3)
                 });
 
             return new

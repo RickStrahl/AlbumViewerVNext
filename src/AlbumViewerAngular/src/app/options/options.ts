@@ -23,9 +23,6 @@ export class OptionsComponent implements OnInit {
 
     ngOnInit() {
         this.config.isSearchAllowed = false;
-
-        console.dir(location)
-
         if (this.config.applicationStats.OsPlatform == null) {
             this.http.get<ApplicationStats>(this.config.urls.url("applicationStats"))
 				.subscribe(stats => {
@@ -36,9 +33,9 @@ export class OptionsComponent implements OnInit {
                             this.config.applicationStats.AngularVersion = $ngv.attr("ng-version");
 
                 },response=> {
-					let obsErr = new ErrorInfo().parseObservableResponseError(response);
-					let msg = (<any> obsErr).error.message;
-					toastr.error("Get Application Stats failed: " + msg);
+					let err = new ErrorInfo().parseResponseError(response);
+					let msg = err.message;
+					toastr.error(msg);
 				});
         }
     }
@@ -53,13 +50,12 @@ export class OptionsComponent implements OnInit {
                     if (success)
                         toastr.success("Data has been reloaded.");
                     else
-                        toastr.error("Unable to reload data");
+                        toastr.error("Unable to reload data.");
                 }, response => {
-                    let obsErr = new ErrorInfo().parseObservableResponseError(response);
-                    let msg = (<any> obsErr).error.message;
-                    toastr.error("Data reload failed: " + msg);
+                    let err = new ErrorInfo().parseResponseError(response);
+                    toastr.error(err.message);
 
-                    return obsErr;
+                    return err;
                 });
     }
 }

@@ -85,7 +85,13 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.JwtToken.SigningKey))
         };
 
+    })
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/login";
+        options.ExpireTimeSpan = TimeSpan.FromDays(1);
     });
+
 
 // Instance injection
 services.AddScoped<AlbumRepository>();
@@ -116,8 +122,8 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "License Manager API",
-        Description = "West Wind Album Viewer",
+        Title = "West Wind Album Viewer",
+        Description = "An ASP.NET Core Sample API SPA application letting you browse and edit music albums and artists.",
         //TermsOfService = new Uri("https://example.com/terms"),
         //Contact = new OpenApiContact
         //{
@@ -200,8 +206,30 @@ app.UseRouting();
 
 app.UseCors("CorsPolicy");
 
+
+
+
 app.UseAuthentication();
 app.UseAuthorization();
+
+// check Swagger authentication
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path;
+    if (path.Value.Contains("/swagger/", StringComparison.OrdinalIgnoreCase))
+    {
+        if (!context.User.Identity.IsAuthenticated)
+        {
+            //context.Response.StatusCode = 401;
+            //await context.Response.WriteAsync("Unauthorized");
+
+            context.Response.Redirect("/login");
+            return;
+        }
+    }
+
+    await next();
+});
 
 // don't use the new simpler syntax as it doesn't terminate
 // and always fires the catch-all route below
@@ -240,6 +268,8 @@ app.Run(async context =>
 
 // Initialize Database if it doesn't exist
 AlbumViewerDataImporter.EnsureAlbumData(albumContext, Path.Combine(environment.ContentRootPath, "albums.js"));
+albumContext?.Dispose();
+
 
 Console.ForegroundColor = ConsoleColor.DarkYellow;
 Console.WriteLine($@"----------------

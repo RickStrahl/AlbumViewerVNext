@@ -11,8 +11,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "copy": "xcopy /s /q .\\dist\\*.*  ..\\AlbumViewerNetCore\\wwwroot\\",
-    "clean": "rd /s /q ..\\AlbumViewerNetCore\\wwwroot\\"
+    "copy": "xcopy /s /q ./dist/*.*  ../AlbumViewerNetCore/wwwroot/",
+    "clean": "rd /s /q ../AlbumViewerNetCore/wwwroot/"
   },
   "private": true,
   "dependencies": {

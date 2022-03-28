@@ -24,7 +24,7 @@
       "launchBrowser": true,
         "launchUrl": "https://localhost:5001",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       },
       "ancmHostingModel": "InProcess"
     },
