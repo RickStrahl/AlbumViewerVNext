@@ -210,4 +210,49 @@ export class ErrorInfo {
 
         return throwError(err);
     }
+
+
+    parseResponseError(response): ErrorInfo {
+        let err = new ErrorInfo();
+
+        // HttpClient has an `error` property for raw JSON response
+        if (response.hasOwnProperty("error")) {
+            try {
+                if (typeof response.error === 'object' && response.error.message)
+                    err = response.error;
+                else
+                    err = JSON.parse(response.error);
+            } catch(ex) { }
+
+            if(err.hasOwnProperty("message") && err.message)
+                return err;
+            if (err.hasOwnProperty("Message") && err['Message'])
+            {
+                err.message = err["Message"];
+                return err;
+            }
+        }
+        if (response.hasOwnProperty("message"))
+            return response;
+        if (response.hasOwnProperty("Message")) {
+            response.message = response.Message;
+            return response;
+        }
+
+        err.response = response;
+        err.message = response.statusText;
+
+        try {
+            let data = response.json();
+            if (data && data.message)
+                err.message = data.message;
+        }
+        catch (ex) {
+        }
+
+        if (!err.message)
+            err.message = "Unknown server failure.";
+
+        return err;
+    }
 }
