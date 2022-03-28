@@ -15,7 +15,7 @@ namespace Westwind.BusinessObjects
     /// </summary>
     /// <typeparam name="TContext"></typeparam>
     /// <typeparam name="TEntity"></typeparam>
-    public class EntityFrameworkRepository<TContext, TEntity>
+    public class EntityFrameworkRepository<TContext, TEntity> : IDisposable
         where TContext : DbContext
         where TEntity : class, new()
     {
@@ -39,6 +39,7 @@ namespace Westwind.BusinessObjects
             {
                 if (_dbSet == null)
                     _dbSet = Context.Set<TEntity>();
+
                 return _dbSet;
             }
         }
@@ -647,5 +648,9 @@ namespace Westwind.BusinessObjects
         }
         #endregion
 
+        public void Dispose()
+        {
+            Context?.Dispose();
+        }
     }
 }
