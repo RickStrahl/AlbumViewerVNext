@@ -26,7 +26,6 @@ namespace AlbumViewerAspNetCore
     /// is updated as appropriate and can be used in [Authorize] access control
     /// or manual token validation by the APIs in this class.
     /// </summary>
-    [Authorize()]
     [ServiceFilter(typeof(ApiExceptionFilter))]
     public class AccountController : Controller
     {
@@ -83,7 +82,6 @@ namespace AlbumViewerAspNetCore
                     new Claim("UserState", UserState.ToString())
                 });
 
-
             // also add cookie auth for Swagger Access
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Username));
@@ -96,7 +94,7 @@ namespace AlbumViewerAspNetCore
                 {
                     IsPersistent = true,
                     AllowRefresh = true,
-                    ExpiresUtc = DateTime.UtcNow.AddDays(3)
+                    ExpiresUtc = DateTime.UtcNow.AddDays(1)
                 });
 
             return new
@@ -130,6 +128,7 @@ namespace AlbumViewerAspNetCore
         /// Returns true or false depending on whether user is authenticated.
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         [HttpGet]
         [Route("api/isAuthenticated")]
         public bool IsAuthenthenticated()
@@ -153,11 +152,13 @@ namespace AlbumViewerAspNetCore
         private bool IsTokenExpired()
         {
             string id = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(s => s.Type == "jti")?.Value;
+            if (id == null) return false;
+
             if (cancelledTokens.ContainsKey(id))
                 return true;
 
             return false;
-        }
+        }   
 
         private void RemoveExpiredTokens()
         {

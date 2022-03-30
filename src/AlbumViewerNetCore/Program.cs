@@ -1,4 +1,5 @@
 using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using Newtonsoft.Json.Serialization;
 using System.Text;
@@ -7,7 +8,9 @@ using AlbumViewerAspNetCore;
 using Microsoft.Extensions.Configuration;
 using AlbumViewerBusiness;
 using AlbumViewerBusiness.Configuration;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
@@ -15,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 
 
@@ -72,8 +76,17 @@ services.AddCors(options =>
     );
 });
 
-services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+services.AddAuthentication(options => // JwtBearerDefaults.AuthenticationScheme)
+    {
+        options.DefaultScheme = "JWT_OR_COOKIE";
+        options.DefaultChallengeScheme = "JWT_OR_COOKIE";
+    })
+    .AddCookie( options =>
+    {
+        options.LoginPath = "/login";
+        options.ExpireTimeSpan = TimeSpan.FromDays(1);
+    })
+    .AddJwtBearer( options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
@@ -84,14 +97,22 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.JwtToken.SigningKey))
         };
-
     })
-    .AddCookie(options =>
+    // Add this to allow both Cookies and Bearer Tokens 
+    // - using default scheme names. Can use custom names and then add to the AddXXXX(scheme, options=> {} )
+    .AddPolicyScheme("JWT_OR_COOKIE", "JWT_OR_COOKIE", options =>
     {
-        options.LoginPath = "/login";
-        options.ExpireTimeSpan = TimeSpan.FromDays(1);
-    });
+        options.ForwardDefaultSelector = context =>
+        {
+            string authorization = context.Request.Headers[HeaderNames.Authorization];
+            if (!string.IsNullOrEmpty(authorization) && authorization.StartsWith("Bearer "))
+            {
+                return JwtBearerDefaults.AuthenticationScheme;
+            }
 
+            return CookieAuthenticationDefaults.AuthenticationScheme;
+        };
+    });
 
 // Instance injection
 services.AddScoped<AlbumRepository>();
@@ -206,9 +227,6 @@ app.UseRouting();
 
 app.UseCors("CorsPolicy");
 
-
-
-
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -222,7 +240,6 @@ app.Use(async (context, next) =>
         {
             //context.Response.StatusCode = 401;
             //await context.Response.WriteAsync("Unauthorized");
-
             context.Response.Redirect("/login");
             return;
         }

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.IO;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -239,6 +241,16 @@ namespace AlbumViewerAspNetCore
             var repo = new ArtistRepository(context);
             var term = search.ToLower();
             return await repo.ArtistLookup(term);
+        }
+
+        [HttpGet("api/amievil")]
+        [Authorize]
+        public async Task AmIEvil()
+        {
+            Response.ContentType = "text/html";
+            await Response.WriteAsync("<html>" +
+                                      "<h1>Yes I Am!</h1>" +
+                                      "</html>");
         }
 
 
