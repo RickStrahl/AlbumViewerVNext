@@ -10,8 +10,8 @@ services:
     container_name: nginxalbumviewer
     image: nginxalbumviewer
     build:
-      context: ./nginx
-      dockerfile: Dockerfile
+      context: ./
+      dockerfile: nginx/Dockerfile
     # volumes:.
     #   - ./dist:/usr/share/nginx/html
     ports:
@@ -28,8 +28,6 @@ services:
       dockerfile: Dockerfile
  #   volumes:
  #     - ./src/AlbumViewerNetCore:/var/www/albumviewer
-    ports:
-     - "5000:5000"
     networks:
       - app-network
  
