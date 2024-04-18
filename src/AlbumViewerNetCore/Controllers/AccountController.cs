@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using AlbumViewerBusiness.Configuration;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Westwind.AspNetCore.Security;
 
 

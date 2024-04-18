@@ -11,7 +11,7 @@ EXPOSE 1433
 WORKDIR /var/www/albumviewer
 
 # copy publish folder contents to web root
-COPY ./bin/Release/netcoreapp3.1/publish .
+COPY ./bin/Release/net80/publish .
 
 # Run out of Publish Folder
 CMD ["/bin/sh", "-c", "dotnet 'AlbumViewerNetCore.dll'"]
